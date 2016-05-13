@@ -72,9 +72,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OOI.ConfigurationEditor\UAOOI.ConfigurationEditor.csproj">
+    <ProjectReference Include="..\OOI.ConfigurationEditor\OOI.ConfigurationEditor.csproj">
       <Project>{b8286065-773a-42bc-958b-0dc6366229be}</Project>
-      <Name>UAOOI.ConfigurationEditor</Name>
+      <Name>OOI.ConfigurationEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
