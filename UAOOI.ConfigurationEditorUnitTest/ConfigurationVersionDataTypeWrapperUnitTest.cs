@@ -1,0 +1,60 @@
+﻿
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
+
+namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+{
+  [TestClass]
+  public class ConfigurationVersionDataTypeWrapperUnitTest
+  {
+    [TestMethod]
+    public void MajorVersionTest()
+    {
+      ConfigurationVersionDataTypeWrapper _newWrapper = new ConfigurationVersionDataTypeWrapper(null);
+      int count = 0;
+      _newWrapper.PropertyChanged += (x, y) => count++;
+      _newWrapper.MajorVersion = 0;
+      Assert.AreEqual<int>(0, _newWrapper.MajorVersion);
+      Assert.AreEqual<int>(0, count);
+      _newWrapper.MajorVersion = byte.MaxValue;
+      Assert.AreEqual<int>(byte.MaxValue, _newWrapper.MajorVersion);
+      Assert.AreEqual<int>(1, count);
+    }
+    [TestMethod]
+    public void MinorVersionTest()
+    {
+      ConfigurationVersionDataTypeWrapper _newWrapper = new ConfigurationVersionDataTypeWrapper(null);
+      int count = 0;
+      _newWrapper.PropertyChanged += (x, y) => count++;
+      _newWrapper.MinorVersion = 0;
+      Assert.AreEqual<int>(0, _newWrapper.MinorVersion);
+      Assert.AreEqual<int>(0, count);
+      _newWrapper.MinorVersion = byte.MaxValue;
+      Assert.AreEqual<int>(byte.MaxValue, _newWrapper.MinorVersion);
+      Assert.AreEqual<int>(1, count);
+    }
+    [TestMethod]
+    public void AssignTest()
+    {
+      ConfigurationVersionDataTypeWrapper _newWrapper =
+        new ConfigurationVersionDataTypeWrapper(new global::UAOOI.Configuration.Networking.Serialization.ConfigurationVersionDataType() { MajorVersion = byte.MaxValue, MinorVersion = byte.MaxValue });
+      Assert.AreEqual<int>(byte.MaxValue, _newWrapper.MinorVersion);
+      Assert.AreEqual<int>(byte.MaxValue, _newWrapper.MajorVersion);
+    }
+    [TestMethod]
+    public void NewInstanceTest()
+    {
+      ConfigurationVersionDataTypeWrapper _newWrapper = ConfigurationVersionDataTypeWrapper.CreateDefault();
+      Assert.IsNotNull(_newWrapper);
+      Assert.AreEqual<int>(0, _newWrapper.MinorVersion);
+      Assert.AreEqual<int>(0, _newWrapper.MajorVersion);
+    }
+    [TestMethod]
+    public void ToStringTest()
+    {
+      ConfigurationVersionDataTypeWrapper _newWrapper = ConfigurationVersionDataTypeWrapper.CreateDefault();
+      Assert.AreEqual<string>("0.0", _newWrapper.ToString());
+    }
+
+  }
+}
