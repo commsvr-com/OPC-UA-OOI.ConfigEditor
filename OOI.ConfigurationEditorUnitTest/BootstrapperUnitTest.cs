@@ -6,7 +6,7 @@ using Prism.Logging;
 using Prism.Regions;
 using System.Collections.Generic;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
   [TestClass]
   public class BootstrapperUnitTest

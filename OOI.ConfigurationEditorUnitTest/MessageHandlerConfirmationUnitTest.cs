@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ViewModel;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using UAOOI.Configuration.Networking.Serialization;
 using System.Linq;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
   [TestClass]
   public class MessageHandlerConfirmationUnitTest

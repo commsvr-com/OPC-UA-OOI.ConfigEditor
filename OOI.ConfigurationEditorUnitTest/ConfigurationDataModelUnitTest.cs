@@ -1,13 +1,13 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.ComponentModel.Composition;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
 using Networking = global::UAOOI.Configuration.Networking;
 using System.IO;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
   [TestClass]
   [DeploymentItem(@"TestData\", @"TestData\")]

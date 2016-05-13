@@ -1,6 +1,6 @@
 
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors
 {
     /// <summary>
     /// Specifies the <see cref="DialogActivationBehavior"/> class for using the behavior on WPF.

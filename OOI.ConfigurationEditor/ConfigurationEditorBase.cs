@@ -4,7 +4,7 @@ using System.ComponentModel.Composition;
 using UAOOI.Configuration.DataBindings;
 using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
 
   /// <summary>

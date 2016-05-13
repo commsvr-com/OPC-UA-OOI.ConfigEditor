@@ -7,8 +7,8 @@
     <ProjectGuid>{B8286065-773A-42BC-958B-0DC6366229BE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CAS.CommServer.UAOOI.ConfigurationEditor</RootNamespace>
-    <AssemblyName>CAS.CommServer.UAOOI.ConfigurationEditor</AssemblyName>
+    <RootNamespace>CAS.CommServer.UA.OOI.ConfigurationEditor</RootNamespace>
+    <AssemblyName>CAS.CommServerUAOOI.ConfigurationEditor</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

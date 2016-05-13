@@ -18,7 +18,7 @@ using System.Windows;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors
 {
 
   /// <summary>

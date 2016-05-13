@@ -3,7 +3,7 @@ using System.IO;
 using UAOOI.Configuration.Networking.Serialization;
 using Networking = global::UAOOI.Configuration.Networking;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UITestApplication
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UITestApplication
 {
   class Program
   {

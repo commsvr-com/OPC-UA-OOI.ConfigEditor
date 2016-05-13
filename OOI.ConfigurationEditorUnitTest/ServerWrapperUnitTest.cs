@@ -1,4 +1,4 @@
-﻿namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+﻿namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
 
   //TODO - move to the ModelDesigner after creating NuGetPackage of the OOI
@@ -6,7 +6,7 @@
   //public class ServerWrapperUnitTest
   //{
   //  [DeploymentItem(@"TestData\", @"TestData\")]
-  //  [DeploymentItem(@"CAS.CommServer.UAOOI.ConfigurationEditor.dll")]
+  //  [DeploymentItem(@"CAS.CommServer.UA.OOI.ConfigurationEditor.dll")]
   //  [TestMethod]
   //  public void UANetworkingConfigurationEditorCreationStateTest()
   //  {

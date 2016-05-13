@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.DataSetList.DataSetListViewModel">
+  <Class Name="CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList.DataSetListViewModel">
     <Position X="5" Y="2.75" Width="2.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
-    <AssociationLine Name="DataSetListItems" Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.DataSetConfigurationWrapper" FixedFromPoint="true">
+    <AssociationLine Name="DataSetListItems" Type="CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel.DataSetConfigurationWrapper" FixedFromPoint="true">
       <Path>
         <Point X="5" Y="4.131" />
         <Point X="3" Y="4.131" />
@@ -14,7 +14,7 @@
         <Position X="0.297" Y="0.06" />
       </MemberNameLabel>
     </AssociationLine>
-    <AssociationLine Name="CurrentDataSetItem" Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.DataSetConfigurationWrapper" FixedFromPoint="true">
+    <AssociationLine Name="CurrentDataSetItem" Type="CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel.DataSetConfigurationWrapper" FixedFromPoint="true">
       <Path>
         <Point X="5" Y="3.737" />
         <Point X="3" Y="3.737" />
@@ -33,14 +33,14 @@
       <Property Name="DataSetListItems" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.DataSetConfigurationWrapper" Collapsed="true">
+  <Class Name="CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel.DataSetConfigurationWrapper" Collapsed="true">
     <Position X="0.5" Y="3.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAgABAAAAgAAEAAAgAAAAgAAAAAAAAAAAAABAA=</HashCode>
       <FileName>ConfigurationDataModel\DataSetConfigurationWrapper.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.Services.DataSetEditorServices">
+  <Class Name="CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.Services.DataSetEditorServices">
     <Position X="12.5" Y="1.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAABACAAAAAAAIAAAAAAAEAAAAAAAAAAA=</HashCode>
@@ -48,7 +48,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.IDataSetModelServices">
+  <Interface Name="CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel.IDataSetModelServices">
     <Position X="9.5" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAABAAIAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>

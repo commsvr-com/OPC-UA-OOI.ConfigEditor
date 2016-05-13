@@ -3,7 +3,7 @@ using UAOOI.Configuration.Networking.Serialization;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
 
   internal class MessageWriterConfigurationWrapper : MessageHandlerConfigurationWrapper<MessageWriterConfiguration>

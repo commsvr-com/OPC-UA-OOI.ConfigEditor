@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CAS.CommServer.UAOOI.ConfigurationEditor.mvvm;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
   [TestClass]
   public class BindableUnitTest

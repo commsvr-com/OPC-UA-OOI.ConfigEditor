@@ -16,7 +16,7 @@
 using System;
 using System.Windows;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors
 {
   /// <summary>
   /// Defines the interface for the Dialogs that are shown by <see cref="DialogActivationBehavior"/>.

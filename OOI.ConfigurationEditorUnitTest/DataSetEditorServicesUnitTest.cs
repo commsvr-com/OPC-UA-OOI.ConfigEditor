@@ -1,14 +1,14 @@
 ﻿
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.Services;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
   [TestClass]
   public class DataSetEditorServicesUnitTest

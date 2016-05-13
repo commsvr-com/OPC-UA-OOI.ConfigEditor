@@ -13,7 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure
 {
   public static class RegionNames
   {

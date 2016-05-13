@@ -1,12 +1,12 @@
 // Copyright (c) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 
-using CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure;
-using CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors;
 using System.ComponentModel.Composition;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Controls;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.DataSetList
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
 {
   /// <summary>
   /// Interaction logic for WatchListView.xaml

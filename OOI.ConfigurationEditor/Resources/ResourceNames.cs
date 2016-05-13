@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Resources
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Resources
 {
     internal static class ResourceNames
     {

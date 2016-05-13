@@ -7,8 +7,8 @@
     <ProjectGuid>{0B96F225-D27E-491E-82A8-0BD047E5DE9E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CAS.CommServer.UAOOI.ConfigurationEditor.UITestApplication</RootNamespace>
-    <AssemblyName>CAS.CommServer.UAOOI.ConfigurationEditor.UITestApplication</AssemblyName>
+    <RootNamespace>CAS.CommServer.UA.OOI.ConfigurationEditor.UITestApplication</RootNamespace>
+    <AssemblyName>CAS.CommServerUAOOI.ConfigurationEditor.UITestApplication</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

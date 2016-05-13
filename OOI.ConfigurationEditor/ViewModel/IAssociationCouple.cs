@@ -1,4 +1,4 @@
-﻿namespace CAS.CommServer.UAOOI.ConfigurationEditor.ViewModel
+﻿namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
 {
 
   internal interface IAssociationCouple

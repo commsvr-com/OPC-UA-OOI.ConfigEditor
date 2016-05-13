@@ -8,7 +8,7 @@ using System.Linq;
 using UAOOI.Configuration.DataBindings;
 using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
   [Export(typeof(IInstanceConfigurationFactory))]
   public class InstanceConfigurationFactory : IInstanceConfigurationFactory
