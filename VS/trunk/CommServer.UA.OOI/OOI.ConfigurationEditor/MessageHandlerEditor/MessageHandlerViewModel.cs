@@ -1,9 +1,9 @@
 ﻿
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using Prism.Mvvm;
 using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
   public class MessageHandlerViewModel : BindableBase
   {

@@ -1,4 +1,4 @@
-﻿namespace CAS.CommServer.UAOOI.ConfigurationEditor
+﻿namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
   internal interface IWrapper<type>
   {

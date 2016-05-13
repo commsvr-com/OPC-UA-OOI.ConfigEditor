@@ -17,7 +17,7 @@ using Prism.Mvvm;
 using System.ComponentModel.Composition;
 using System.Reflection;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
 
   [Export]

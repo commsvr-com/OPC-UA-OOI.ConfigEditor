@@ -2,7 +2,7 @@
 using System;
 using System.Windows;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors
 {
     /// <summary>
     /// Defines a wrapper for the <see cref="Window"/> class that implements the <see cref="IWindow"/> interface.

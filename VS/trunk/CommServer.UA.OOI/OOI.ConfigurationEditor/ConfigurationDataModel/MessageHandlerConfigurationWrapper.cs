@@ -1,8 +1,8 @@
 ﻿
-using CAS.CommServer.UAOOI.ConfigurationEditor.mvvm;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
 using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
 
   internal abstract class MessageHandlerConfigurationWrapper<type> : Bindable, IMessageHandlerConfigurationIdentity, IWrapper<type>, IMessageHandlerConfigurationWrapper

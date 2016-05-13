@@ -3,7 +3,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.Services
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.Services
 {
     internal interface IDataSetEditorServices
     {

@@ -15,7 +15,7 @@
 
 using System.Windows.Controls;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Controls
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Controls
 {
   /// <summary>
   /// Interaction logic for RoundedBox.xaml

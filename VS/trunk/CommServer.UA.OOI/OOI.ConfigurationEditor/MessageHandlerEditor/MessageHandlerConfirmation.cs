@@ -13,15 +13,15 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UAOOI.ConfigurationEditor.mvvm;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using Prism.Interactivity.InteractionRequest;
 using System;
 using System.Collections.Generic;
 using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
   internal class MessageHandlerConfirmation : Bindable, IConfirmation
   {

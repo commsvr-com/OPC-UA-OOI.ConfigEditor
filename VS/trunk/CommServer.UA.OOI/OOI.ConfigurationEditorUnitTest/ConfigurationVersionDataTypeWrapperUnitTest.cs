@@ -1,8 +1,8 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
   [TestClass]
   public class ConfigurationVersionDataTypeWrapperUnitTest

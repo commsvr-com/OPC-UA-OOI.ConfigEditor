@@ -155,7 +155,7 @@ namespace UAOOI.ConfigurationEditorUITest
                 base(searchLimitContainer)
         {
             #region Search Criteria
-            this.SearchProperties[WinListItem.PropertyNames.Name] = "CAS.CommServer.UAOOI.ConfigurationEditor.UITestApplication.exe";
+            this.SearchProperties[WinListItem.PropertyNames.Name] = "CAS.CommServer.UA.OOI.ConfigurationEditor.UITestApplication.exe";
             this.WindowTitles.Add("C:\\VS\\Projects\\CommServer.UA.ModelDesigner\\PR32-ModelDesigner\\UAOOI.Configuration" +
                     "Editor.UITestA");
             #endregion

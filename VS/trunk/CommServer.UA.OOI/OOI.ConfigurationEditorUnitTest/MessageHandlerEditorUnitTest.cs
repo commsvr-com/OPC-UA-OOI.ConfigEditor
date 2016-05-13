@@ -1,9 +1,9 @@
 ﻿
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure;
-using CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors;
-using CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Prism.Logging;
 using Prism.Regions;
@@ -13,7 +13,7 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
   [TestClass]
   public class MessageHandlerEditorUnitTest

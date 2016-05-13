@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
 
   [TestClass]

@@ -1,7 +1,7 @@
 ﻿
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.DataSetList;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
@@ -18,7 +18,7 @@ using System.Reflection;
 using UAOOI.Configuration.Networking.Serialization;
 using Networking = global::UAOOI.Configuration.Networking;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
   [TestClass]
   public class DataSetListViewModelUnitTest

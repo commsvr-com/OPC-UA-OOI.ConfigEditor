@@ -1,11 +1,11 @@
 
-using CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Prism.Regions;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
   [TestClass]
   public class AutoPopulateExportedViewsBehaviorFixture

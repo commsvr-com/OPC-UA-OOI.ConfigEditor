@@ -1,6 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Interfaces
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Interfaces
 {
   public interface IMarketFeedServiceToRemove
   {

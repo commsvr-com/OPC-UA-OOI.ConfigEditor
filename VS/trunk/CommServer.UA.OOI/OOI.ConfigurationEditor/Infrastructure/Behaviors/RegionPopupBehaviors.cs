@@ -19,7 +19,7 @@ using System;
 using System.ComponentModel;
 using System.Windows;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors
 {
   /// <summary>
   /// Declares the Attached Properties and Behaviors for implementing Popup regions.

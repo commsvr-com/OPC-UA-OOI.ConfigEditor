@@ -13,7 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using Prism.Commands;
 using System;
 using System.Collections.ObjectModel;
@@ -22,7 +22,7 @@ using System.Globalization;
 using System.Windows.Input;
 using System.Linq;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.Services
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.Services
 {
   [Export(typeof(IDataSetEditorServices))]
   [PartCreationPolicy(CreationPolicy.Shared)]

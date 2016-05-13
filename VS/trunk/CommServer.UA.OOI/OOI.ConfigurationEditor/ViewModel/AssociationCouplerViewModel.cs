@@ -13,9 +13,9 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UAOOI.ConfigurationEditor.mvvm;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.ViewModel
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
 {
   public class AssociationCouplerViewModel : Bindable
   {

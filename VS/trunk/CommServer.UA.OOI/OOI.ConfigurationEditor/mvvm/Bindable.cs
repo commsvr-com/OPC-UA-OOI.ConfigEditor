@@ -17,7 +17,7 @@ using Prism.Mvvm;
 using System;
 using System.Runtime.CompilerServices;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.mvvm
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm
 {
   public class Bindable : BindableBase
   {

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
   /// <summary>
   /// Interaction logic for MessageHandlerItemView.xaml

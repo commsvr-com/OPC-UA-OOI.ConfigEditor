@@ -13,14 +13,14 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors;
 using Prism.Logging;
 using Prism.Mef;
 using Prism.Regions;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
   /// <summary>
   /// Class Bootstrapper.

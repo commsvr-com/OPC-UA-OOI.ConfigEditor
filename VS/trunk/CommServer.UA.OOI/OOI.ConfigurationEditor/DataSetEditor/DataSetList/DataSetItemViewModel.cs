@@ -1,10 +1,10 @@
-﻿using CAS.CommServer.UAOOI.ConfigurationEditor.mvvm;
+﻿using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using System;
 using System.Windows.Input;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.DataSetList
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
 {
   internal class DataSetItemViewModel : Bindable, IInteractionRequestAware
   {

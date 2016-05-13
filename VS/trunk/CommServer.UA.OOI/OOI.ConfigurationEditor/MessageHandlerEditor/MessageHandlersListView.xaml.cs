@@ -1,9 +1,9 @@
-﻿using CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure;
-using CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors;
+﻿using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors;
 using System.ComponentModel.Composition;
 using System.Windows.Controls;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
 
   /// <summary>

@@ -18,7 +18,7 @@ using System;
 using System.Windows;
 using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
   /// <summary>
   /// Interaction logic for HostingApplication.xaml
@@ -74,7 +74,7 @@ namespace CAS.CommServer.UAOOI.ConfigurationEditor
       if (ex == null)
         return;
       ExceptionPolicy.HandleException(ex, "Default Policy");
-      MessageBox.Show(CAS.CommServer.UAOOI.ConfigurationEditor.Properties.Resources.UnhandledException);
+      MessageBox.Show(CAS.CommServer.UA.OOI.ConfigurationEditor.Properties.Resources.UnhandledException);
       //Environment.Exit(1);
     }
 

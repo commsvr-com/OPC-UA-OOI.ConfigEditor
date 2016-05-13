@@ -16,7 +16,7 @@
 using System;
 using System.ComponentModel.Composition;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure.Behaviors
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors
 {
   [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
   [MetadataAttribute]

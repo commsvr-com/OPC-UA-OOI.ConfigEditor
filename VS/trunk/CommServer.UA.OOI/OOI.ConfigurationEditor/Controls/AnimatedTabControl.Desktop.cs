@@ -18,7 +18,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Controls
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Controls
 {
   /// <summary>
   /// Custom Tab control with animations.

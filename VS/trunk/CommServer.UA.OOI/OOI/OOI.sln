@@ -5,11 +5,11 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAOOI.ConfigurationEditor", "..\OOI.ConfigurationEditor\UAOOI.ConfigurationEditor.csproj", "{B8286065-773A-42BC-958B-0DC6366229BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAOOI.ConfigurationEditor.UnitTest", "..\OOI.ConfigurationEditorUnitTest\UAOOI.ConfigurationEditor.UnitTest.csproj", "{7EE12835-5EBE-4716-BEF5-E7B34EA1EA22}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOI.ConfigurationEditor.UnitTest", "..\OOI.ConfigurationEditorUnitTest\OOI.ConfigurationEditor.UnitTest.csproj", "{7EE12835-5EBE-4716-BEF5-E7B34EA1EA22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAOOI.ConfigurationEditor.UITestApplication", "..\OOI.ConfigurationEditor.UITestApplication\UAOOI.ConfigurationEditor.UITestApplication.csproj", "{0B96F225-D27E-491E-82A8-0BD047E5DE9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOI.ConfigurationEditor.UITestApplication", "..\OOI.ConfigurationEditor.UITestApplication\OOI.ConfigurationEditor.UITestApplication.csproj", "{0B96F225-D27E-491E-82A8-0BD047E5DE9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAOOI.ConfigurationEditor.UITest", "..\OOI.ConfigurationEditor.UITest\UAOOI.ConfigurationEditor.UITest.csproj", "{172380B8-C7A8-4EF8-A5F0-57EC0B121402}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOI.ConfigurationEditor.UITest", "..\OOI.ConfigurationEditor.UITest\OOI.ConfigurationEditor.UITest.csproj", "{172380B8-C7A8-4EF8-A5F0-57EC0B121402}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

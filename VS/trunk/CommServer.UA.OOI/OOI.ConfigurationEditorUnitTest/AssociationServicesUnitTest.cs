@@ -13,15 +13,15 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.UnitTest
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
 
   [TestClass]

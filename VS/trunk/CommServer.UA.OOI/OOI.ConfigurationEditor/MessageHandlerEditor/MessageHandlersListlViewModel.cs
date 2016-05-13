@@ -12,16 +12,16 @@
 //  mailto://techsupp@cas.eu
 //  http://www.cas.eu
 //_______________________________________________________________
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UAOOI.ConfigurationEditor.mvvm;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Logging;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
   [Export(typeof(MessageHandlersListViewModel))]
   internal class MessageHandlersListViewModel : Bindable

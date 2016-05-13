@@ -21,7 +21,7 @@ using Prism.Logging;
 using System;
 using System.Collections.Generic;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
   /// <summary>
   /// Class EnterpriseLibraryLoggerAdapter - implements <see cref="ILoggerFacade"/>initializes <see cref="Logger"/> 

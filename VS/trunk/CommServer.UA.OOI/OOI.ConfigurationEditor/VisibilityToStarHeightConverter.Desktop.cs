@@ -18,7 +18,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
   public class VisibilityToStarHeightConverter : IValueConverter
   {

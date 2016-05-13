@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Controls
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Controls
 {
   /// <summary>
   /// Custom ItemsControl with Header.

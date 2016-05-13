@@ -2,7 +2,7 @@
 
 using Prism.Events;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure
 {
 
   public class DataSetSelectedEvent : PubSubEvent<string>

@@ -104,13 +104,13 @@
               </AndCondition>
               <SupportLevel>0</SupportLevel>
               <Descendants>
-                <UIObject ControlType="ListItem" Id="UICASCommServerUAOOICoListItem" FriendlyName="CAS.CommServer.UAOOI.ConfigurationEditor.UITestApp..." SpecialControlType="None">
+                <UIObject ControlType="ListItem" Id="UICASCommServerUAOOICoListItem" FriendlyName="CAS.CommServer.UA.OOI.ConfigurationEditor.UITestApp..." SpecialControlType="None">
                   <TechnologyName>MSAA</TechnologyName>
                   <WindowTitles>
                     <WindowTitle>C:\VS\Projects\CommServer.UA.ModelDesigner\PR32-ModelDesigner\UAOOI.ConfigurationEditor.UITestA</WindowTitle>
                   </WindowTitles>
                   <AndCondition Id="SearchCondition">
-                    <PropertyCondition Name="Name">CAS.CommServer.UAOOI.ConfigurationEditor.UITestApplication.exe</PropertyCondition>
+                    <PropertyCondition Name="Name">CAS.CommServer.UA.OOI.ConfigurationEditor.UITestApplication.exe</PropertyCondition>
                     <PropertyCondition Name="ControlType">ListItem</PropertyCondition>
                   </AndCondition>
                   <SupportLevel>0</SupportLevel>

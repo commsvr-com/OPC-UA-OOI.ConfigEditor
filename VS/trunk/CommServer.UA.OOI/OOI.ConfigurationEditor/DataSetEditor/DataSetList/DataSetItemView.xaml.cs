@@ -3,7 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.DataSetList
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
 {
   /// <summary>
   /// Interaction logic for DataSetItemView.xaml

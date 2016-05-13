@@ -1,7 +1,7 @@
 
-using CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UAOOI.ConfigurationEditor.Infrastructure;
-using CAS.CommServer.UAOOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
@@ -13,7 +13,7 @@ using System.Collections.Specialized;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 
-namespace CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.DataSetList
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
 {
   [Export(typeof(DataSetListViewModel))]
   [PartCreationPolicy(CreationPolicy.NonShared)]
