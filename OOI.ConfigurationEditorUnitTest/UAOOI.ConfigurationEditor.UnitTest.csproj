@@ -43,23 +43,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CAS.UA.IServerConfiguration, Version=1.0.0.32204, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\..\PR32-ModelDesigner\packages\CAS.UA.IServerConfiguration.1.00.00\lib\net35\CAS.UA.IServerConfiguration.dll</HintPath>
+      <HintPath>..\OOI\packages\CAS.UA.IServerConfiguration.1.00.00\lib\net35\CAS.UA.IServerConfiguration.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\PR32-ModelDesigner\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>..\OOI\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Prism, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
-      <HintPath>..\..\PR32-ModelDesigner\packages\Prism.Core.6.1.0\lib\net45\Prism.dll</HintPath>
+      <HintPath>..\OOI\packages\Prism.Core.6.1.0\lib\net45\Prism.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Prism.Mef.Wpf, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
-      <HintPath>..\..\PR32-ModelDesigner\packages\Prism.Mef.6.1.0\lib\net45\Prism.Mef.Wpf.dll</HintPath>
+      <HintPath>..\OOI\packages\Prism.Mef.6.1.0\lib\net45\Prism.Mef.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Prism.Wpf, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
-      <HintPath>..\..\PR32-ModelDesigner\packages\Prism.Wpf.6.1.0\lib\net45\Prism.Wpf.dll</HintPath>
+      <HintPath>..\OOI\packages\Prism.Wpf.6.1.0\lib\net45\Prism.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -68,15 +68,15 @@
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="UAOOI.Common.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\..\PR32-ModelDesigner\packages\UAOOI.Configuration.DataBindings.2.0.0-Bravo\lib\net461\UAOOI.Common.Infrastructure.dll</HintPath>
+      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.0-Bravo\lib\net461\UAOOI.Common.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="UAOOI.Configuration.DataBindings, Version=2.0.0.30171, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\..\PR32-ModelDesigner\packages\UAOOI.Configuration.DataBindings.2.0.0-Bravo\lib\net461\UAOOI.Configuration.DataBindings.dll</HintPath>
+      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.0-Bravo\lib\net461\UAOOI.Configuration.DataBindings.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="UAOOI.Configuration.Networking, Version=2.0.0.30169, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\..\PR32-ModelDesigner\packages\UAOOI.Configuration.DataBindings.2.0.0-Bravo\lib\net461\UAOOI.Configuration.Networking.dll</HintPath>
+      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.0-Bravo\lib\net461\UAOOI.Configuration.Networking.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
@@ -130,11 +130,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PR32-ModelDesigner\Configuration\CommServer.UA.ModelDesigner.Configuration.csproj">
-      <Project>{b4e9c610-790a-417c-bf68-7b3e0aeccaa4}</Project>
-      <Name>CommServer.UA.ModelDesigner.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UAOOI.ConfigurationEditor\UAOOI.ConfigurationEditor.csproj">
+    <ProjectReference Include="..\OOI.ConfigurationEditor\UAOOI.ConfigurationEditor.csproj">
       <Project>{b8286065-773a-42bc-958b-0dc6366229be}</Project>
       <Name>UAOOI.ConfigurationEditor</Name>
     </ProjectReference>
