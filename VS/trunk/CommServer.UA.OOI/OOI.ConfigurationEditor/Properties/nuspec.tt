@@ -1,0 +1,46 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".nuspec" #>
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id><#=m_AssemblyTitle#></id>
+    <version><#= CASCommServerUAOOIVersion #><#= CASCommServerUAOOIPreRelease #></version>
+    <title><#=m_AssemblyTitle#> - Configuration Editor of Object Oriented Internet Networking</title>
+    <authors><#=AssemblyCompany#></authors>
+    <owners><#=Owner#></owners>
+    <projectUrl>svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.UA.OOI</projectUrl>
+    <licenseUrl>http://www.cas.internetdsl.pl/commserver/P_DowloadCenter/Lic-09000401EN_License_Agreement.pdf</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <description>
+      Object Oriented Internet Networking Application configuration editor plug-in. It contains WPF User Interface to be used to
+      configure OOI Networking application. By design it is prepared to be composed using Managed Extensibility Framework (MEF).
+    </description>
+    <summary>
+      Object Oriented Internet Networking Application configuration editor.
+    </summary>
+    <releaseNotes>
+      Prerelease to be composed wit CAS Address Space Model Designer.
+    </releaseNotes>
+    <copyright><#=AssemblyCopyright#></copyright>
+    <tags>OPCUA, CommServer, ASMD, Address Space Model Designer.</tags>
+        <dependencies>
+            <dependency id="CommonServiceLocator" version="1.3" />
+            <dependency id="EnterpriseLibrary.Common" version="6.0.1304.0" />
+            <dependency id="EnterpriseLibrary.ExceptionHandling" version="6.0.1304.0" />
+            <dependency id="EnterpriseLibrary.Logging" version="6.0.1304.0" />
+            <dependency id="Prism.Core" version="6.1.0" />
+            <dependency id="Prism.Mef" version="6.1.0" />
+            <dependency id="Prism.Wpf" version="6.1.0" />
+            <dependency id="CAS.UA.IServerConfiguration" version="1.00.00" />
+            <dependency id="UAOOI.Configuration.DataBindings" version="2.0.0-Bravo" />
+        </dependencies>
+  </metadata>
+  <files>
+    <file src="lib\net461\_._" target="lib\net461\_._" />
+  </files>
+</package>
+
+<#@ include file = "..\..\..\PR39-CommonResources\T4Definitions\CAS.OPC.t4" #>
+
+<#+string m_AssemblyTitle = "CAS.CommServer.UA.OOI.ConfigurationEditor";#>
