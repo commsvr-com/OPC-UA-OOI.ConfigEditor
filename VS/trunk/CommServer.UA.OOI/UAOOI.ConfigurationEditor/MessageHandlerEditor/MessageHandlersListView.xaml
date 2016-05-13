@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor.MessageHandlersListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor"
+             xmlns:model="clr-namespace:CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel"
+             xmlns:mhe="clr-namespace:CAS.CommServer.UAOOI.ConfigurationEditor.MessageHandlerEditor"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:prism="http://www.codeplex.com/prism"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+  <StackPanel>
+    <i:Interaction.Triggers>
+      <prism:InteractionRequestTrigger SourceObject="{Binding AddRequest, Mode=OneWay}">
+        <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
+          <prism:PopupWindowAction.WindowContent >
+            <mhe:MessageHandlerItemView  />
+          </prism:PopupWindowAction.WindowContent>
+        </prism:PopupWindowAction>
+      </prism:InteractionRequestTrigger>
+      <prism:InteractionRequestTrigger SourceObject="{Binding EditRequest, Mode=OneWay}">
+        <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
+          <prism:PopupWindowAction.WindowContent >
+            <mhe:MessageHandlerItemView  />
+          </prism:PopupWindowAction.WindowContent>
+        </prism:PopupWindowAction>
+      </prism:InteractionRequestTrigger>
+    </i:Interaction.Triggers>
+    <ListView ItemsSource="{Binding MessageHandlesList}"
+              SelectedItem="{Binding Mode=TwoWay, Path=CurrentMessageHandler}"
+              Width="Auto">
+      <ListView.Resources>
+        <DataTemplate DataType="{x:Type model:ConsumerAssociationConfigurationWrapper}">
+          <DataTemplate.Triggers>
+
+          </DataTemplate.Triggers>
+          <StackPanel Orientation="Horizontal">
+            <TextBox Text="{Binding AssociationName }"></TextBox>
+            <TextBox Text="{Binding PublisherId}"></TextBox>
+            <TextBox Text="{Binding DataSetWriterId }"></TextBox>
+          </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="AssociationNameDataTemplate"  DataType="{x:Type model:ConsumerAssociationConfigurationWrapper[]}">
+          <ListBox ItemsSource="{Binding Path= AssociationConfiguration}"/>
+        </DataTemplate>
+      </ListView.Resources>
+      <ListView.View>
+        <GridView AllowsColumnReorder="True"
+                  ColumnHeaderToolTip="Message handlers list">
+          <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name, FallbackValue=?, Mode=TwoWay}"  />
+          <GridViewColumn Header="Association Role" DisplayMemberBinding="{Binding Path=AssociationRole}" />
+          <GridViewColumn Header="Message Channel" DisplayMemberBinding="{Binding Path=MessageChannelConfiguration}" />
+          <GridViewColumn Header="Association" CellTemplate="{StaticResource AssociationNameDataTemplate}" />
+        </GridView>
+      </ListView.View>
+    </ListView>
+  </StackPanel>
+</UserControl>

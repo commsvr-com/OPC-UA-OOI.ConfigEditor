@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.ConfigurationDataRepository">
+    <Position X="17.25" Y="9.75" Width="4" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>ConfigurationDataModel\ConfigurationDataRepository.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ConfigurationData" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.DataSetConfigurationWrapper">
+    <Position X="9.5" Y="8" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AIQAAAAgABAAAAgAAEAAAgAIAAgAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>ConfigurationDataModel\DataSetConfigurationWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.DataSetModelServices">
+    <Position X="13.25" Y="4.25" Width="3.25" />
+    <AssociationLine Name="m_Configuration" Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.DataSetConfigurationCollection">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.554" Y="0.443" Height="0.182" Width="1.452" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAABAAIAAABAAAAAQAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>ConfigurationDataModel\DataSetModelServices.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_Configuration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.MessageHandlerServices">
+    <Position X="18" Y="4.75" Width="2.5" />
+    <AssociationLine Name="m_Configuration" Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.MessageHandlerConfigurationCollection">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.369" Y="0.529" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAEAgAAAAAAAAABAAAAAQAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>ConfigurationDataModel\MessageHandlerServices.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_Configuration" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.MessageReaderConfigurationWrapper">
+    <Position X="0.75" Y="4.75" Width="4" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.MessageHandlerConfigurationWrapper&lt;type&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="4.875" Y="4.069" />
+        <Point X="4.875" Y="4.375" />
+        <Point X="2.438" Y="4.375" />
+        <Point X="2.438" Y="4.75" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="AssociationConfiguration" Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.ConsumerAssociationConfigurationWrapper" FixedToPoint="true">
+      <Path>
+        <Point X="2.438" Y="5.791" />
+        <Point X="2.438" Y="9.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-1.981" Y="3.422" Height="0.182" Width="1.785" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAgAAAAAAAAAAAAAAAAIAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>ConfigurationDataModel\MessageReaderConfigurationWrapper.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssociationConfiguration" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.MessageHandlerConfigurationWrapper&lt;type&gt;">
+    <Position X="3.25" Y="2" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="CAS.CommServer.UAOOI.ConfigurationEditor.mvvm.Bindable" FixedToPoint="true">
+      <Path>
+        <Point X="11.25" Y="1.191" />
+        <Point X="11.25" Y="1.625" />
+        <Point X="5.938" Y="1.625" />
+        <Point X="5.938" Y="2" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAEAAAAAgQEAAAABAAAAIAAAAAAAAA=</HashCode>
+      <FileName>ConfigurationDataModel\MessageHandlerConfigurationWrapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.mvvm.Bindable" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Bindable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.MessageWriterConfigurationWrapper">
+    <Position X="5" Y="4.75" Width="4" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.MessageHandlerConfigurationWrapper&lt;type&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="4.875" Y="4.069" />
+        <Point X="4.875" Y="4.375" />
+        <Point X="7" Y="4.375" />
+        <Point X="7" Y="4.75" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="AssociationConfiguration" Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.ProducerAssociationConfigurationWrapper">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.183" Y="3.372" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>ConfigurationDataModel\MessageWriterConfigurationWrapper.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssociationConfiguration" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.ConsumerAssociationConfigurationWrapper">
+    <Position X="0.5" Y="9.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.AssociationConfigurationWrapper&lt;type&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="8.627" />
+        <Point X="4.75" Y="9.125" />
+        <Point X="3.625" Y="9.125" />
+        <Point X="3.625" Y="9.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAQAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>ConfigurationDataModel\ConsumerAssociationConfigurationWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.ProducerAssociationConfigurationWrapper">
+    <Position X="5" Y="9.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.AssociationConfigurationWrapper&lt;type&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="4.75" Y="8.627" />
+        <Point X="4.75" Y="9.125" />
+        <Point X="5.938" Y="9.125" />
+        <Point X="5.938" Y="9.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>ConfigurationDataModel\ProducerAssociationConfigurationWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.AssociationConfigurationWrapper&lt;type&gt;">
+    <Position X="3.25" Y="6.75" Width="3" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAEAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>ConfigurationDataModel\AssociationConfigurationWrapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.DataSetConfigurationCollection">
+    <Position X="13.25" Y="7" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="m_Repository" Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.ConfigurationDataRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="16.5" Y="8.299" />
+        <Point X="18.562" Y="8.299" />
+        <Point X="18.562" Y="9.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.101" Y="0.193" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAACAAACAAABAAAAAAAgAABEAAAAAAAAAA=</HashCode>
+      <FileName>ConfigurationDataModel\DataSetConfigurationCollection.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_Repository" />
+    </ShowAsAssociation>
+    <Lollipop Position="1.867" />
+  </Class>
+  <Class Name="System.Collections.ObjectModel.ObservableCollection&lt;T&gt;" Collapsed="true">
+    <Position X="13.25" Y="10.25" Width="3.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.MessageHandlerConfigurationCollection">
+    <Position X="17.5" Y="7" Width="3.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="System.Collections.ObjectModel.ObservableCollection&lt;T&gt;" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="16.25" Y="10.25" />
+        <Point X="16.25" Y="9.215" />
+        <Point X="18.479" Y="9.215" Type="JumpStart" />
+        <Point X="18.645" Y="9.215" Type="JumpEnd" />
+        <Point X="19.375" Y="9.215" />
+        <Point X="19.375" Y="8.041" />
+      </Path>
+    </InheritanceLine>
+    <AssociationLine Name="m_Repository" Type="CAS.CommServer.UAOOI.ConfigurationEditor.ConfigurationDataModel.ConfigurationDataRepository" FixedToPoint="true">
+      <Path>
+        <Point X="20.125" Y="8.041" />
+        <Point X="20.125" Y="9.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.014" Y="0.253" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>ConfigurationDataModel\MessageHandlerConfigurationCollection.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_Repository" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="UAOOI.Configuration.Networking.Serialization.ConfigurationData">
+    <Position X="23" Y="9.75" Width="2" />
+    <TypeIdentifier />
+    <ShowAsCollectionAssociation>
+      <Property Name="DataSets" />
+      <Property Name="MessageHandlers" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UAOOI.Configuration.Networking.Serialization.DataSetConfiguration">
+    <Position X="26.5" Y="7" Width="2.25" />
+    <TypeIdentifier />
+    <Lollipop Orientation="Right" Position="0.279" />
+  </Class>
+  <Class Name="UAOOI.Configuration.Networking.Serialization.MessageHandlerConfiguration">
+    <Position X="26.5" Y="11.5" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+    <Lollipop Orientation="Right" Position="0.1" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

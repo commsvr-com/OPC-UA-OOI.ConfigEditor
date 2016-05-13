@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.DataSetList.DataSetListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:prism="http://www.codeplex.com/prism"
+    xmlns:dse="clr-namespace:CAS.CommServer.UAOOI.ConfigurationEditor.DataSetEditor.DataSetList"
+    Height="Auto" Width="Auto">
+  <UserControl.Resources>
+    <Style x:Key="PathMouseOverStyle" TargetType="{x:Type Path}">
+      <Setter Property="Fill" Value="#FF77B6EB"/>
+      <Style.Triggers>
+        <Trigger Property="IsMouseOver" Value="True">
+          <Setter Property="Fill" Value="#7F77B6EB"/>
+        </Trigger>
+      </Style.Triggers>
+    </Style>
+  </UserControl.Resources>
+  <i:Interaction.Triggers>
+    <prism:InteractionRequestTrigger SourceObject="{Binding AddDataSetRequest, Mode=OneWay}">
+      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
+        <prism:PopupWindowAction.WindowContent >
+          <dse:DataSetItemView  />
+        </prism:PopupWindowAction.WindowContent>
+      </prism:PopupWindowAction>
+    </prism:InteractionRequestTrigger>
+    <prism:InteractionRequestTrigger SourceObject="{Binding EditDataSetRequest, Mode=OneWay}">
+      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
+        <prism:PopupWindowAction.WindowContent >
+          <dse:DataSetItemView  />
+        </prism:PopupWindowAction.WindowContent>
+      </prism:PopupWindowAction>
+    </prism:InteractionRequestTrigger>
+  </i:Interaction.Triggers>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <ListView Name="x_DataSetsListView" 
+                ItemsSource="{Binding DataSetListItems}" 
+                SelectedItem="{Binding Mode=TwoWay, Path=CurrentDataSetItem}"
+                AlternationCount="2"
+                BorderThickness="0" Width="Auto"
+                IsSynchronizedWithCurrentItem="True" 
+                AutomationProperties.AutomationId="WatchListGrid"
+                VerticalAlignment="Stretch"
+                Grid.Row="0">
+      <ListView.View >
+        <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="DataSets List" >
+          <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=SymbolicName}" Width="Auto"/>
+          <GridViewColumn Header="Publishing Interval"  DisplayMemberBinding="{Binding Path=PublishingInterval}" Width="Auto" />
+          <GridViewColumn Header="Association Name"  DisplayMemberBinding="{Binding Path=AssociationName}" Width="Auto" />
+          <GridViewColumn Header="Configuration Guid"  DisplayMemberBinding="{Binding Path=ConfigurationGuid}" Width="Auto" />
+          <GridViewColumn Header="Version"  DisplayMemberBinding="{Binding Path=ConfigurationVersion}" Width="Auto" />
+          <GridViewColumn Header="Max Buffer Time"  DisplayMemberBinding="{Binding Path=MaxBufferTime}" Width="Auto" />
+          <GridViewColumn Header="Actions">
+            <GridViewColumn.CellTemplate>
+              <DataTemplate>
+                <Button Command="{Binding DataContext.RemoveDataSetCommand, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}" 
+                        CommandParameter="{Binding SymbolicName}" 
+                        AutomationProperties.AutomationId="SymbolicName"
+                        Template="{StaticResource RemoveXButtonTemplate}"  
+                        Cursor="Hand" />
+              </DataTemplate>
+            </GridViewColumn.CellTemplate>
+          </GridViewColumn>
+        </GridView>
+      </ListView.View>
+    </ListView>
+    <StackPanel FlowDirection="LeftToRight" Grid.Row="1" Orientation="Horizontal">
+      <Button HorizontalContentAlignment="Center" 
+              Height="Auto" 
+              Width="Auto"
+              Content="{Binding AddDataSetCommandTitle, FallbackValue=Add}" 
+              Command="{Binding AddDataSetCommand}"
+              />
+      <Button HorizontalContentAlignment="Center"
+              Height="Auto" 
+              Width="Auto"
+              Content="Edit" 
+              Command="{Binding EditSelectedDataSetCommand}"
+              />
+      <Button HorizontalContentAlignment="Center"
+              Height="Auto" 
+              Width="Auto"
+              Content="Remove" 
+              Command="{Binding RemoveSelectedDataSetCommand}"
+              />
+    </StackPanel>
+  </Grid>
+</UserControl>
