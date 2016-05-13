@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UAOOI.ConfigurationEditor", "..\OOI.ConfigurationEditor\UAOOI.ConfigurationEditor.csproj", "{B8286065-773A-42BC-958B-0DC6366229BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOI.ConfigurationEditor", "..\OOI.ConfigurationEditor\OOI.ConfigurationEditor.csproj", "{B8286065-773A-42BC-958B-0DC6366229BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOI.ConfigurationEditor.UnitTest", "..\OOI.ConfigurationEditorUnitTest\OOI.ConfigurationEditor.UnitTest.csproj", "{7EE12835-5EBE-4716-BEF5-E7B34EA1EA22}"
 EndProject
