@@ -1,5 +1,5 @@
 //_______________________________________________________________
-//  Title   : Name of Application
+//  Title   : EnterpriseLibraryLoggerAdapter
 //  System  : Microsoft VisualStudio 2015 / C#
 //  $LastChangedDate$
 //  $Rev$
@@ -18,7 +18,6 @@ using Microsoft.Practices.EnterpriseLibrary.Logging.Filters;
 using Microsoft.Practices.EnterpriseLibrary.Logging.Formatters;
 using Microsoft.Practices.EnterpriseLibrary.Logging.TraceListeners;
 using Prism.Logging;
-using System;
 using System.Collections.Generic;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor
@@ -36,7 +35,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
     {
       TextFormatter _extendedFormatter = new TextFormatter("Timestamp: {timestamp}{newline}Message: {message}{newline}Category: {category}{newline}Priority: {priority}{newline}EventId: {eventid}{newline}Severity: {severity}{newline}Title: {title}{newline}Activity ID: {property(ActivityId)}{newline}Machine: {localMachine}{newline}App Domain: {localAppDomain}{newline}ProcessId: {localProcessId}{newline}Process Name: {localProcessName}{newline}Thread Name: {threadName}{newline}Win32 ThreadId:{win32ThreadId}{newline}Extended Properties: {dictionary({key} - {value}{newline})}");
       TextFormatter _briefFormatter = new TextFormatter("{timestamp(local)};{message};{category};{priority};{eventid};{severity};{title}");
-      string _briefFormatterHeader = "Timestamp;Message;Category;Priority;EventId;Severity;Title";
 
       // Category Filters
       ICollection<string> categories = new List<string>();

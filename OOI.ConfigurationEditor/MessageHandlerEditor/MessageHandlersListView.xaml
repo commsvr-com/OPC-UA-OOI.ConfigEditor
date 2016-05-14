@@ -6,30 +6,36 @@
              xmlns:local="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor"
              xmlns:model="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel"
              xmlns:mhe="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor"
+             xmlns:windows="clr-namespace:CAS.Windows.Controls;assembly=CAS.Windows"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:prism="http://www.codeplex.com/prism"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-  <StackPanel>
-    <i:Interaction.Triggers>
-      <prism:InteractionRequestTrigger SourceObject="{Binding AddRequest, Mode=OneWay}">
-        <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
-          <prism:PopupWindowAction.WindowContent >
-            <mhe:MessageHandlerItemView  />
-          </prism:PopupWindowAction.WindowContent>
-        </prism:PopupWindowAction>
-      </prism:InteractionRequestTrigger>
-      <prism:InteractionRequestTrigger SourceObject="{Binding EditRequest, Mode=OneWay}">
-        <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
-          <prism:PopupWindowAction.WindowContent >
-            <mhe:MessageHandlerItemView  />
-          </prism:PopupWindowAction.WindowContent>
-        </prism:PopupWindowAction>
-      </prism:InteractionRequestTrigger>
-    </i:Interaction.Triggers>
+  <i:Interaction.Triggers>
+    <prism:InteractionRequestTrigger SourceObject="{Binding AddRequest, Mode=OneWay}">
+      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
+        <prism:PopupWindowAction.WindowContent >
+          <mhe:MessageHandlerItemView  />
+        </prism:PopupWindowAction.WindowContent>
+      </prism:PopupWindowAction>
+    </prism:InteractionRequestTrigger>
+    <prism:InteractionRequestTrigger SourceObject="{Binding EditRequest, Mode=OneWay}">
+      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
+        <prism:PopupWindowAction.WindowContent >
+          <mhe:MessageHandlerItemView  />
+        </prism:PopupWindowAction.WindowContent>
+      </prism:PopupWindowAction>
+    </prism:InteractionRequestTrigger>
+  </i:Interaction.Triggers>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
     <ListView ItemsSource="{Binding MessageHandlesList}"
               SelectedItem="{Binding Mode=TwoWay, Path=CurrentMessageHandler}"
-              Width="Auto">
+              Width="Auto"
+              Grid.Row="0">
       <ListView.Resources>
         <DataTemplate DataType="{x:Type model:ConsumerAssociationConfigurationWrapper}">
           <DataTemplate.Triggers>
@@ -55,5 +61,6 @@
         </GridView>
       </ListView.View>
     </ListView>
-  </StackPanel>
+    <windows:ButtonsPanel Grid.Row="1" />
+  </Grid>
 </UserControl>
