@@ -72,6 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CAS.Windows\Windows\Windows.csproj">
+      <Project>{20afa22f-02a1-47df-92da-51a507e05b9a}</Project>
+      <Name>Windows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OOI.ConfigurationEditor\OOI.ConfigurationEditor.csproj">
       <Project>{b8286065-773a-42bc-958b-0dc6366229be}</Project>
       <Name>OOI.ConfigurationEditor</Name>
