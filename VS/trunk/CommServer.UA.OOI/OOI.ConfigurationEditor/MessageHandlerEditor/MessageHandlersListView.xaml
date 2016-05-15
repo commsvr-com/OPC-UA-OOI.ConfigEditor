@@ -61,6 +61,6 @@
         </GridView>
       </ListView.View>
     </ListView>
-    <windows:ButtonsPanel Grid.Row="1" />
+    <windows:ButtonsPanel Grid.Row="1" DataContext="{Binding Path= ButtonsPanelViewModel}" />
   </Grid>
 </UserControl>
