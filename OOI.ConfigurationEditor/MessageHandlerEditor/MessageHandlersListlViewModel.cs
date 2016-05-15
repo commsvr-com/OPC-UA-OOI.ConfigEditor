@@ -12,12 +12,15 @@
 //  mailto://techsupp@cas.eu
 //  http://www.cas.eu
 //_______________________________________________________________
+
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
+using CAS.Windows.Controls;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Logging;
+using System;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 
@@ -36,11 +39,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       m_MessageHandlerServices = messageHandlerServices;
       m_loggerFacade = loggerFacade;
       this.RemoveCommand = new DelegateCommand<string>(this.RemoveCommandHandler);
-      this.b_RemoveSelectedCommand = new DelegateCommand(this.RemoveSelectedCommandHandler, () => CurrentMessageHandler != null);
-      this.b_EditSelectedCommand = new DelegateCommand(this.EditCommandHandler, () => CurrentMessageHandler != null);
-      this.AddCommand = new DelegateCommand(AddCommandHandler);
+      Action[] m_ButtonsActions = new Action[] { AddCommandHandler, EditCommandHandler, RemoveSelectedCommandHandler, () => { } };
+      ButtonsPanelViewModel = new ButtonsViewModel("Add", "Edit", "Delete", "", m_ButtonsActions);
+      SetCanExecuteButtonState();
       loggerFacade.Log($"Created {nameof(MessageHandlersListViewModel)}", Category.Debug, Priority.Low);
     }
+
+
     public MessageHandlerConfigurationCollection MessageHandlesList
     {
       get { return b_MessageHandlesList; }
@@ -53,15 +58,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       {
         if (!base.SetProperty<IMessageHandlerConfigurationWrapper>(ref b_CurrentMessageHandler, value))
           return;
-        b_RemoveSelectedCommand.RaiseCanExecuteChanged();
-        b_EditSelectedCommand.RaiseCanExecuteChanged();
+        SetCanExecuteButtonState();
       }
     }
+    public ButtonsViewModel ButtonsPanelViewModel { get; private set; }
     public string HeaderInfo { get; private set; }
     public ICommand RemoveCommand { get; private set; }
-    public ICommand RemoveSelectedCommand { get { return b_RemoveSelectedCommand; } }
-    public ICommand EditSelectedCommand { get { return b_EditSelectedCommand; } }
-    public ICommand AddCommand { get; private set; }
     public IInteractionRequest AddRequest { get { return b_AddRequest; } }
     public IInteractionRequest EditRequest { get { return b_EditRequest; } }
 
@@ -69,14 +71,17 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     private readonly IAssociationServices m_AssociationServices;
     private IMessageHandlerServices m_MessageHandlerServices;
     private readonly ILoggerFacade m_loggerFacade;
-    //
+    //backing fields
     private MessageHandlerConfigurationCollection b_MessageHandlesList;
     private IMessageHandlerConfigurationWrapper b_CurrentMessageHandler;
     private readonly InteractionRequest<IConfirmation> b_AddRequest = new InteractionRequest<IConfirmation>();
     private readonly InteractionRequest<IConfirmation> b_EditRequest = new InteractionRequest<IConfirmation>();
-    private readonly DelegateCommand b_RemoveSelectedCommand;
-    private readonly DelegateCommand b_EditSelectedCommand;
-
+    //methods
+    private void SetCanExecuteButtonState()
+    {
+      bool _selectedOne = CurrentMessageHandler != null;
+      this.ButtonsPanelViewModel.SetCanExecuteState(true, _selectedOne, _selectedOne, false);
+    }
     //handlers
     private void AddCommandHandler()
     {

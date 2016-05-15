@@ -2,6 +2,7 @@
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
+using CAS.Windows.Controls;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
@@ -35,8 +36,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
       this.b_EditDataSetCommand = new DelegateCommand(this.EditDataSetCommandHandler, () => CurrentDataSetItem != null);
       this.AddDataSetCommand = new DelegateCommand(AddDataSetCommandHandler);
       this.b_DataSetListItems.CollectionChanged += this.WatchListItems_CollectionChanged;
+      Action[] m_ButtonsActions = new Action[] { AddDataSetCommandHandler, EditDataSetCommandHandler, RemoveSelectedDataSetCommandHandler, () => { } };
+      ButtonsPanelViewModel = new ButtonsViewModel("Add", "Edit", "Delete", "", m_ButtonsActions);
+      SetCanExecuteButtonState();
       logger.Log($"Created {nameof(DataSetListViewModel)}", Category.Debug, Priority.None);
     }
+
     #region Datacontext
     public IDataSetConfigurationCollection DataSetListItems
     {
@@ -55,10 +60,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
           return;
         string _symbolicName = value != null ? this.b_CurrentDataSetItem.SymbolicName : String.Empty;
         this.m_EventAggregator.GetEvent<DataSetSelectedEvent>().Publish(_symbolicName);
-        b_RemoveSelectedDataSetCommand.RaiseCanExecuteChanged();
-        b_EditDataSetCommand.RaiseCanExecuteChanged();
+        SetCanExecuteButtonState();
       }
     }
+    public ButtonsViewModel ButtonsPanelViewModel { get; private set; }
+
     public string HeaderInfo { get; private set; }
     public ICommand RemoveDataSetCommand { get; private set; }
     public ICommand RemoveSelectedDataSetCommand { get { return b_RemoveSelectedDataSetCommand; } }
@@ -82,6 +88,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
     private readonly InteractionRequest<IConfirmation> b_EditRequest = new InteractionRequest<IConfirmation>();
     private readonly DelegateCommand b_RemoveSelectedDataSetCommand;
     private readonly DelegateCommand b_EditDataSetCommand;
+    //methods
+    private void SetCanExecuteButtonState()
+    {
+      bool _selectedOne = CurrentDataSetItem != null;
+      this.ButtonsPanelViewModel.SetCanExecuteState(true, _selectedOne, _selectedOne, false);
+    }
 
     private void AddDataSetCommandHandler()
     {

@@ -4,6 +4,7 @@
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:prism="http://www.codeplex.com/prism"
     xmlns:dse="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList"
+    xmlns:windows="clr-namespace:CAS.Windows.Controls;assembly=CAS.Windows"
     Height="Auto" Width="Auto">
   <UserControl.Resources>
     <Style x:Key="PathMouseOverStyle" TargetType="{x:Type Path}">
@@ -67,7 +68,9 @@
         </GridView>
       </ListView.View>
     </ListView>
-    <StackPanel FlowDirection="LeftToRight" Grid.Row="1" Orientation="Horizontal">
+    <windows:ButtonsPanel Grid.Row="1" DataContext="{Binding Path= ButtonsPanelViewModel}" />
+
+    <!--<StackPanel FlowDirection="LeftToRight" Grid.Row="1" Orientation="Horizontal">
       <Button HorizontalContentAlignment="Center" 
               Height="Auto" 
               Width="Auto"
@@ -86,6 +89,6 @@
               Content="Remove" 
               Command="{Binding RemoveSelectedDataSetCommand}"
               />
-    </StackPanel>
+    </StackPanel>-->
   </Grid>
 </UserControl>
