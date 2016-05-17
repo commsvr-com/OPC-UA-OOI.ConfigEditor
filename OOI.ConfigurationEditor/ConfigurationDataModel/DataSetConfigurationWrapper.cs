@@ -1,5 +1,4 @@
-﻿
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
+﻿using CAS.Windows.mvvm;
 using System;
 using UAOOI.Configuration.Networking.Serialization;
 
@@ -20,41 +19,41 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     public string SymbolicName
     {
       get { return DataSetConfiguration.DataSymbolicName; }
-      set { base.AssignProperty<string>(DataSetConfiguration.DataSymbolicName, x => DataSetConfiguration.DataSymbolicName = x, value); }
+      set { base.SetProperty<string>(DataSetConfiguration.DataSymbolicName, x => DataSetConfiguration.DataSymbolicName = x, value); }
     }
     public AssociationRole AssociationRole
     {
       get { return DataSetConfiguration.AssociationRole; }
-      set { base.AssignProperty<AssociationRole>(DataSetConfiguration.AssociationRole, x => DataSetConfiguration.AssociationRole = x, value); }
+      set { base.SetProperty<AssociationRole>(DataSetConfiguration.AssociationRole, x => DataSetConfiguration.AssociationRole = x, value); }
     }
     public double PublishingInterval
     {
       get { return DataSetConfiguration.PublishingInterval; }
-      set { base.AssignProperty<double>(DataSetConfiguration.PublishingInterval, x => DataSetConfiguration.PublishingInterval = x, value); }
+      set { base.SetProperty<double>(DataSetConfiguration.PublishingInterval, x => DataSetConfiguration.PublishingInterval = x, value); }
     }
     public string AssociationName
     {
       get { return DataSetConfiguration.AssociationName; }
-      set { base.AssignProperty<string>(DataSetConfiguration.AssociationName, x => DataSetConfiguration.AssociationName = x, value); }
+      set { base.SetProperty<string>(DataSetConfiguration.AssociationName, x => DataSetConfiguration.AssociationName = x, value); }
     }
     public Guid ConfigurationGuid
     {
       get { return DataSetConfiguration.ConfigurationGuid; }
-      set { base.AssignProperty<Guid>(DataSetConfiguration.ConfigurationGuid, x => DataSetConfiguration.ConfigurationGuid = x, value); }
+      set { base.SetProperty<Guid>(DataSetConfiguration.ConfigurationGuid, x => DataSetConfiguration.ConfigurationGuid = x, value); }
     }
     public ConfigurationVersionDataTypeWrapper ConfigurationVersion
     {
       get { return new ConfigurationVersionDataTypeWrapper(DataSetConfiguration.ConfigurationVersion); }
       set
       {
-        base.AssignProperty<ConfigurationVersionDataTypeWrapper>
+        base.SetProperty<ConfigurationVersionDataTypeWrapper>
       (x => DataSetConfiguration.ConfigurationVersion = new ConfigurationVersionDataType() { MajorVersion = x.MajorVersion, MinorVersion = x.MinorVersion }, value);
       }
     }
     public double MaxBufferTime
     {
       get { return DataSetConfiguration.MaxBufferTime; }
-      set { base.AssignProperty<double>(DataSetConfiguration.MaxBufferTime, x => DataSetConfiguration.MaxBufferTime = x, value); }
+      set { base.SetProperty<double>(DataSetConfiguration.MaxBufferTime, x => DataSetConfiguration.MaxBufferTime = x, value); }
     }
     internal DataSetConfiguration DataSetConfiguration { get; private set; }
     internal static DataSetConfigurationWrapper CreateDefault()

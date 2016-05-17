@@ -16,12 +16,15 @@
 using UAOOI.Configuration.Networking.Serialization;
 using System.Linq;
 using System.Collections.Generic;
-using System;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
 
-  internal class MessageReaderConfigurationWrapper : MessageHandlerConfigurationWrapper<MessageReaderConfiguration>
+  /// <summary>
+  /// Class MessageReaderConfigurationWrapper.
+  /// </summary>
+  /// <seealso cref="CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel.MessageHandlerConfigurationWrapper{UAOOI.Configuration.Networking.Serialization.MessageReaderConfiguration}" />
+  public class MessageReaderConfigurationWrapper : MessageHandlerConfigurationWrapper<MessageReaderConfiguration>
   {
 
     public MessageReaderConfigurationWrapper(MessageReaderConfiguration configuration) : base(configuration) { }
@@ -35,7 +38,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       }
       set
       {
-        base.AssignProperty<ConsumerAssociationConfigurationWrapper[]>(x => base.Item.ConsumerAssociationConfigurations = x.
+        base.SetProperty<ConsumerAssociationConfigurationWrapper[]>(x => base.Item.ConsumerAssociationConfigurations = x.
                                                                          Cast<IWrapper<ConsumerAssociationConfiguration>>().
                                                                          Select<IWrapper<ConsumerAssociationConfiguration>, ConsumerAssociationConfiguration>(y => y.Item).
                                                                          ToArray<ConsumerAssociationConfiguration>(),
@@ -69,7 +72,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       MessageReaderConfiguration _ReaderConfig = new MessageReaderConfiguration
       {
         Configuration = null,
-        Name = "MessageReaderConfigurationName",
+        Name = "Message Reader",
         ConsumerAssociationConfigurations = new ConsumerAssociationConfiguration[] { },
         TransportRole = AssociationRole.Consumer
       };

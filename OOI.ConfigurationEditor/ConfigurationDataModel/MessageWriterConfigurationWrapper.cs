@@ -16,7 +16,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
                                                             (x => new ProducerAssociationConfigurationWrapper(x)).ToArray<ProducerAssociationConfigurationWrapper>(); }
       set
       {
-        AssignProperty<ProducerAssociationConfiguration[]>
+        SetProperty<ProducerAssociationConfiguration[]>
           (
              x => base.Item.ProducerAssociationConfigurations = x,
              value.Cast<IWrapper<ProducerAssociationConfiguration>>().
@@ -30,7 +30,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       MessageWriterConfiguration _ReaderConfig = new MessageWriterConfiguration
       {
         Configuration = null,
-        Name = "MessageReaderConfigurationName",
+        Name = "Message Writer",
         ProducerAssociationConfigurations = new ProducerAssociationConfiguration[] { },
         TransportRole = AssociationRole.Producer
       };

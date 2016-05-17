@@ -13,12 +13,16 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
+using Prism.Mvvm;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
-  public class MessageChannelConfigurationWrapper: Bindable
+  /// <summary>
+  /// Class MessageChannelConfigurationWrapper.
+  /// </summary>
+  /// <seealso cref="Prism.Mvvm.BindableBase" />
+  public class MessageChannelConfigurationWrapper: BindableBase
   {
 
     internal MessageChannelConfigurationWrapper(MessageChannelConfiguration configuration)

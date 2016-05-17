@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
+﻿using CAS.Windows.mvvm;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
@@ -38,12 +38,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       public string SymbolicName
       {
         get { return m_ConfigurationItem; }
-        set { base.AssignProperty<string>(m_ConfigurationItem, x => m_ConfigurationItem = x, value); }
+        set { base.SetProperty<string>(m_ConfigurationItem, x => m_ConfigurationItem = x, value); }
       }
       public string SymbolicName2
       {
         get { return m_ConfigurationItem; }
-        set { base.AssignProperty<string>( x => m_ConfigurationItem = x, value); }
+        set { base.SetProperty<string>( x => m_ConfigurationItem = x, value); }
       }
 
     }

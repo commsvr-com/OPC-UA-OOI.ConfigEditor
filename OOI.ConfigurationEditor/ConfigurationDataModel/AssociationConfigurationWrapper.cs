@@ -13,13 +13,13 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
+using CAS.Windows.mvvm;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
 
-  internal class AssociationConfigurationWrapper<type> : Bindable, IWrapper<type>
+  public class AssociationConfigurationWrapper<type> : Bindable, IWrapper<type>
       where type : AssociationConfiguration
   {
 
@@ -30,12 +30,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     public string AssociationName
     {
       get { return Item.AssociationName; }
-      set { AssignProperty<string>(x => Item.AssociationName = x, value); }
+      set { SetProperty<string>(x => Item.AssociationName = x, value); }
     }
     public ushort DataSetWriterId
     {
       get { return Item.DataSetWriterId; }
-      set { AssignProperty<ushort>(x => Item.DataSetWriterId = x, value); }
+      set { SetProperty<ushort>(x => Item.DataSetWriterId = x, value); }
     }
     public type Item { get; set; }
 

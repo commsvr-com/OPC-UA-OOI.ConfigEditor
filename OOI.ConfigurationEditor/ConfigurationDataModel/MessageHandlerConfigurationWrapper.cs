@@ -1,11 +1,11 @@
 ﻿
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
+using CAS.Windows.mvvm;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
 
-  internal abstract class MessageHandlerConfigurationWrapper<type> : Bindable, IMessageHandlerConfigurationIdentity, IWrapper<type>, IMessageHandlerConfigurationWrapper
+  public abstract class MessageHandlerConfigurationWrapper<type> : Bindable, IMessageHandlerConfigurationIdentity, IWrapper<type>, IMessageHandlerConfigurationWrapper
     where type : MessageHandlerConfiguration
   {
 
@@ -16,19 +16,19 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     public MessageChannelConfigurationWrapper MessageChannelConfiguration
     {
       get { return new MessageChannelConfigurationWrapper(Item.Configuration); }
-      set { AssignProperty<MessageChannelConfigurationWrapper>(wrapper => Item.Configuration = wrapper.GetConfiguration(), value); }
+      set { SetProperty<MessageChannelConfigurationWrapper>(wrapper => Item.Configuration = wrapper.GetConfiguration(), value); }
     }
     public AssociationRole AssociationRole
     {
       get { return Item.TransportRole; }
-      set { AssignProperty<AssociationRole>(Item.TransportRole, x => Item.TransportRole = x, value); }
+      set { SetProperty<AssociationRole>(Item.TransportRole, x => Item.TransportRole = x, value); }
     }
 
     #region IMessageHandlerConfigurationIdentity
     public string Name
     {
       get { return Item.Name; }
-      set { AssignProperty<string>(Item.Name, x => Item.Name = x, value); }
+      set { SetProperty<string>(Item.Name, x => Item.Name = x, value); }
     }
     #endregion
 

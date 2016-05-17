@@ -13,10 +13,14 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
+using CAS.Windows.mvvm;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
 {
+  /// <summary>
+  /// Class AssociationCouplerViewModel.
+  /// </summary>
+  /// <seealso cref="CAS.Windows.mvvm.Bindable" />
   public class AssociationCouplerViewModel : Bindable
   {
 
@@ -26,6 +30,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
     }
 
     #region ViewModel API.
+    /// <summary>
+    /// Gets or sets a value indicating whether this <see cref="AssociationCouplerViewModel"/> is associated.
+    /// </summary>
+    /// <value><c>true</c> if associated; otherwise, <c>false</c>.</value>
     public bool Associated
     {
       get
@@ -34,9 +42,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
       }
       set
       {
-        AssignProperty<bool>(m_Coupler.Associated, x => m_Coupler.Associated = value, value);
+        SetProperty<bool>(m_Coupler.Associated, x => m_Coupler.Associated = value, value);
       }
     }
+    /// <summary>
+    /// Gets the association coupler title.
+    /// </summary>
+    /// <value>The association coupler title.</value>
     public string AssociationCouplerTitle
     {
       get

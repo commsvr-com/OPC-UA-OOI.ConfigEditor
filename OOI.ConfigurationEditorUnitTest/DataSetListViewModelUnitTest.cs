@@ -220,10 +220,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         if (!ContextType)
           return;
         DataSetConfigurationWrapperNotNull = _context.DataSetConfigurationWrapper != null;
-        MessageHandlersNotNull = _context.MessageHandlers != null;
+        MessageHandlersNotNull = _context.AssociationCouplersEnumerator != null;
         if (!MessageHandlersNotNull)
           return;
-        MessageHandlersCount = _context.MessageHandlers.Count<AssociationCouplerViewModel>() > 0;
+        MessageHandlersCount = _context.AssociationCouplersEnumerator.Count<AssociationCouplerViewModel>() > 0;
       }
     }
     #endregion
