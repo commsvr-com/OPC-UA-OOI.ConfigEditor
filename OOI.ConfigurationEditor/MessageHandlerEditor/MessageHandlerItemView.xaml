@@ -23,6 +23,7 @@
           <Setter Property="VerticalAlignment" Value="Top"/>
         </Style>
       </DataTemplate.Resources>
+      <StackPanel Orientation="Vertical">
       <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="Auto"/>
@@ -31,8 +32,6 @@
         <Grid.RowDefinitions>
           <RowDefinition Height="Auto"/>
           <RowDefinition Height="Auto"/>
-          <RowDefinition Height="Auto"/>
-          <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" >Name</Label>
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
@@ -42,7 +41,8 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
           <TextBox Text="{Binding Path=AssociationRole , Mode=TwoWay}"/>
         </StackPanel>
-        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{DynamicResource DefaultedBorderBrush}" BorderThickness="1">
+        </Grid>
+        <Border BorderBrush="{DynamicResource DefaultedBorderBrush}" BorderThickness="1">
           <StackPanel>
             <Label>Available Handlers</Label>
             <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
@@ -55,7 +55,7 @@
             </ListView>
           </StackPanel>
         </Border>
-      </Grid>
+      </StackPanel>
     </DataTemplate>
   </UserControl.Resources>
 

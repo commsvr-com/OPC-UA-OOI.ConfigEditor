@@ -128,10 +128,10 @@
     <Compile Include="Controls\RoundedBox.xaml.cs">
       <DependentUpon>RoundedBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataSetEditor\DataSetItemConfirmation.cs" />
     <Compile Include="DataSetEditor\DataSetList\DataSetItemView.xaml.cs">
       <DependentUpon>DataSetItemView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataSetEditor\DataSetList\DataSetItemViewModel.cs" />
     <Compile Include="MessageHandlerEditor\MessageHandlerConfirmation.cs" />
     <Compile Include="MessageHandlerEditor\MessageHandlerItemView.xaml.cs">
       <DependentUpon>MessageHandlerItemView.xaml</DependentUpon>
@@ -165,7 +165,6 @@
     <Compile Include="ConfigurationDataModel\MessageHandlerServices.cs" />
     <Compile Include="DataSetEditor\Services\IDataSetEditorServices.cs" />
     <Compile Include="DataSetEditor\Services\DataSetEditorServices.cs" />
-    <Compile Include="DataSetEditor\DataSetItemConfirmation.cs" />
     <Compile Include="DataSetEditor\DataSetList\DataSetListView.xaml.cs">
       <DependentUpon>DataSetListView.xaml</DependentUpon>
     </Compile>
