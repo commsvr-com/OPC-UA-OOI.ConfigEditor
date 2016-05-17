@@ -58,7 +58,7 @@
 
           <Label Grid.Row="4">Association Role</Label>
           <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" >
-            <Label Content="{Binding Path=AssociationRole, Mode=OneWay}"/>
+            <TextBox Text="{Binding Path=AssociationRole, Mode=TwoWay}"/>
           </StackPanel>
         </Grid>
         <Border BorderBrush="{DynamicResource DefaultedBorderBrush}" BorderThickness="1">
