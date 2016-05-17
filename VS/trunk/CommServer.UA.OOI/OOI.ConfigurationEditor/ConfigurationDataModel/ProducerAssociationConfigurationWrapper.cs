@@ -13,7 +13,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     {
 
       get { return base.Item.FieldEncoding; }
-      set { AssignProperty<FieldEncodingEnum>(x => Item.FieldEncoding = x, value); }
+      set { SetProperty<FieldEncodingEnum>(x => Item.FieldEncoding = x, value); }
 
     }
 

@@ -3,10 +3,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:model="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel"
              xmlns:local="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor"
+             xmlns:windows="clr-namespace:CAS.Windows.Controls;assembly=CAS.Windows"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="300" d:DesignWidth="400"
+	     ScrollViewer.VerticalScrollBarVisibility = "Auto" >
+  <UserControl.Resources>
+    <DataTemplate DataType="{x:Type local:MessageHandlerConfirmation}">
+      <DataTemplate.Resources>
+        <Style TargetType="{x:Type Label}" >
+          <Setter Property="Height" Value="30"/>
+          <Setter Property="MinHeight" Value="30"/>
+          <Setter Property="VerticalAlignment" Value="Top"/>
+          <Setter  Property="VerticalContentAlignment" Value="Top"/>
+        </Style>
+        <Style TargetType="{x:Type StackPanel}">
+          <Setter Property="Margin" Value="10,0,0,0"/>
+          <Setter Property="VerticalAlignment" Value="Top"/>
+        </Style>
+      </DataTemplate.Resources>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" >Name</Label>
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+          <TextBox Text="{Binding Path=MessageHandlerConfigurationWrapper.Name, Mode=TwoWay}"/>
+        </StackPanel>
+        <Label Grid.Row="1" Grid.Column="0">Association Role</Label>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
+          <TextBox Text="{Binding Path=AssociationRole , Mode=TwoWay}"/>
+        </StackPanel>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{DynamicResource DefaultedBorderBrush}" BorderThickness="1">
+          <StackPanel>
+            <Label>Available Handlers</Label>
+            <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
+              <ListView.View>
+                <GridView>
+                  <GridViewColumn Header="Associated" DisplayMemberBinding="{Binding Path=Associated, Mode=TwoWay }" Width="Auto"  />
+                  <GridViewColumn Header="Message Handler" DisplayMemberBinding="{Binding Path=AssociationCouplerTitle, Mode=OneWay }" Width="Auto" />
+                </GridView>
+              </ListView.View>
+            </ListView>
+          </StackPanel>
+        </Border>
+      </Grid>
+    </DataTemplate>
+  </UserControl.Resources>
+
+  <Grid x:Name="LayoutRoot" Margin="5" Grid.Row="0">
+    <Grid.RowDefinitions>
+      <RowDefinition  Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Content="{Binding Notification}"/>
+    <windows:ButtonsPanel Grid.Row="1" DataContext="{Binding ButtonsPanelViewModel}" />
+  </Grid>
 </UserControl>

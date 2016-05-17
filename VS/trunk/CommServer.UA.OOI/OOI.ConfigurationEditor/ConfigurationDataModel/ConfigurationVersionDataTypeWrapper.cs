@@ -13,11 +13,15 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
+using CAS.Windows.mvvm;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
+  /// <summary>
+  /// Class ConfigurationVersionDataTypeWrapper.
+  /// </summary>
+  /// <seealso cref="CAS.Windows.mvvm.Bindable" />
   public class ConfigurationVersionDataTypeWrapper : Bindable
   {
 
@@ -30,7 +34,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       get { return m_ConfigurationVersionDataType.MajorVersion; }
       set
       {
-        AssignProperty(m_ConfigurationVersionDataType.MajorVersion, x => m_ConfigurationVersionDataType.MajorVersion = x, value);
+        SetProperty(m_ConfigurationVersionDataType.MajorVersion, x => m_ConfigurationVersionDataType.MajorVersion = x, value);
       }
     }
     public byte MinorVersion
@@ -38,7 +42,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       get { return m_ConfigurationVersionDataType.MinorVersion; }
       set
       {
-        AssignProperty(m_ConfigurationVersionDataType.MinorVersion, x => m_ConfigurationVersionDataType.MinorVersion = x, value);
+        SetProperty(m_ConfigurationVersionDataType.MinorVersion, x => m_ConfigurationVersionDataType.MinorVersion = x, value);
       }
     }
     /// <summary>

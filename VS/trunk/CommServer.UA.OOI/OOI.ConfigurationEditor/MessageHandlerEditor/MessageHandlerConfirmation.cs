@@ -14,22 +14,21 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
-using Prism.Interactivity.InteractionRequest;
+using CAS.Windows.ViewModel;
 using System;
 using System.Collections.Generic;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
-  internal class MessageHandlerConfirmation : Bindable, IConfirmation
+  internal class MessageHandlerConfirmation : ConfirmationBindable
   {
 
     public MessageHandlerConfirmation(IMessageHandlerConfigurationWrapper wrapper, Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable)
     {
-      this.b_MessageHandlerConfigurationWrapper = wrapper;
-      this.m_AssociationCouplerViewModelEnumeratorFunc = enumerator;
+      b_MessageHandlerConfigurationWrapper = wrapper;
+      m_AssociationCouplerViewModelEnumeratorFunc = enumerator;
       AssociationCouplersEnumerator = m_AssociationCouplerViewModelEnumeratorFunc(wrapper);
       AssociationRoleEditable = associationRoleEditable;
     }
@@ -78,29 +77,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       set
       {
         SetProperty<IEnumerable<AssociationCouplerViewModel>>(ref b_AssociationCouplersEnumerator, value);
-      }
-    }
-    #endregion
-
-
-    #region IConfirmation
-    public bool Confirmed
-    {
-      get; set;
-    }
-    public object Content
-    {
-      get; set;
-    }
-    public string Title
-    {
-      get
-      {
-        return b_Title;
-      }
-      set
-      {
-        SetProperty<string>(ref b_Title, value);
       }
     }
     #endregion

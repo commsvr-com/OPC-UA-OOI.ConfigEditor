@@ -1,8 +1,21 @@
+//_______________________________________________________________
+//  Title   : DataSetItemConfirmation
+//  System  : Microsoft VisualStudio 2015 / C#
+//  $LastChangedDate$
+//  $Rev$
+//  $LastChangedBy$
+//  $URL$
+//  $Id$
+//
+//  Copyright (C) 2016, CAS LODZ POLAND.
+//  TEL: +48 (42) 686 25 47
+//  mailto://techsupp@cas.eu
+//  http://www.cas.eu
+//_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
-using Prism.Interactivity.InteractionRequest;
+using CAS.Windows.ViewModel;
 using System;
 using System.Collections.Generic;
 using Serialization = global::UAOOI.Configuration.Networking.Serialization;
@@ -10,15 +23,15 @@ using Serialization = global::UAOOI.Configuration.Networking.Serialization;
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
 {
 
-  public class DataSetItemConfirmation : Bindable, IConfirmation
-  {
+  internal class DataSetItemConfirmation : ConfirmationBindable
+  { 
 
-    internal DataSetItemConfirmation(DataSetConfigurationWrapper wrapper, Func<DataSetConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> getMessageHandlers, bool associationRoleEditable)
+    internal DataSetItemConfirmation(DataSetConfigurationWrapper wrapper, Func<DataSetConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable)
     {
-      m_GetMessageHandlers = getMessageHandlers;
       DataSetConfigurationWrapper = wrapper;
+      m_GetMessageHandlers = enumerator;
+      AssociationCouplersEnumerator = m_GetMessageHandlers(DataSetConfigurationWrapper);
       AssociationRoleEditable = associationRoleEditable;
-      MessageHandlers = m_GetMessageHandlers(DataSetConfigurationWrapper);
     }
 
     #region ViewModel API
@@ -31,8 +44,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
       }
       set
       {
-        if (base.AssignProperty<Serialization.AssociationRole>(DataSetConfigurationWrapper.AssociationRole, x => DataSetConfigurationWrapper.AssociationRole = value, value))
-          MessageHandlers = m_GetMessageHandlers(DataSetConfigurationWrapper);
+        if (base.SetProperty<Serialization.AssociationRole>(DataSetConfigurationWrapper.AssociationRole, x => DataSetConfigurationWrapper.AssociationRole = value, value))
+          AssociationCouplersEnumerator = m_GetMessageHandlers(DataSetConfigurationWrapper);
       }
     }
     public DataSetConfigurationWrapper DataSetConfigurationWrapper
@@ -46,42 +59,27 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
         base.SetProperty<DataSetConfigurationWrapper>(ref b_DataSetConfigurationWrapper, value);
       }
     }
-    public IEnumerable<AssociationCouplerViewModel> MessageHandlers
+    public IEnumerable<AssociationCouplerViewModel> AssociationCouplersEnumerator
     {
       get
       {
-        return b_MessageHandlers;
+        return b_AssociationCouplersEnumerator;
       }
       set
       {
-        SetProperty<IEnumerable<AssociationCouplerViewModel>>(ref b_MessageHandlers, value);
+        SetProperty<IEnumerable<AssociationCouplerViewModel>>(ref b_AssociationCouplersEnumerator, value);
       }
-    }
-    #endregion
-
-    #region IConfirmation
-    public bool Confirmed
-    {
-      get; set;
-    }
-    public object Content
-    {
-      get; set;
-    }
-    public string Title
-    {
-      get; set;
     }
     #endregion
 
     internal void Revert()
     {
-      foreach (AssociationCouplerViewModel _mh in MessageHandlers)
+      foreach (AssociationCouplerViewModel _mh in AssociationCouplersEnumerator)
         _mh.Revert();
     }
 
     #region private
-    private IEnumerable<AssociationCouplerViewModel> b_MessageHandlers;
+    private IEnumerable<AssociationCouplerViewModel> b_AssociationCouplersEnumerator;
     private DataSetConfigurationWrapper b_DataSetConfigurationWrapper;
     private Func<DataSetConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> m_GetMessageHandlers;
     #endregion

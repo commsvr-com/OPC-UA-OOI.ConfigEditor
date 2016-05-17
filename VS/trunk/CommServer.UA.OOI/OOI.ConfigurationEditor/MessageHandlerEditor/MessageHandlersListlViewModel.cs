@@ -14,12 +14,12 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.mvvm;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using CAS.Windows.Controls;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Logging;
+using Prism.Mvvm;
 using System;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
@@ -27,7 +27,7 @@ using System.Windows.Input;
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
   [Export(typeof(MessageHandlersListViewModel))]
-  internal class MessageHandlersListViewModel : Bindable
+  internal class MessageHandlersListViewModel : BindableBase
   {
 
     [ImportingConstructor()]
