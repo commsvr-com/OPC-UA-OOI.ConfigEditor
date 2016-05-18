@@ -111,6 +111,7 @@
     <Compile Include="ConfigurationDataModel\DataSetConfigurationCollection.cs" />
     <Compile Include="ConfigurationDataModel\DataSetConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\DataSetModelServices.cs" />
+    <Compile Include="ConfigurationDataModel\FieldMetaDataWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IDataSetConfigurationCollection.cs" />
     <Compile Include="ConfigurationDataModel\IDataSetModelServices.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerConfigurationIdentity.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="ConfigurationDataModel\MessageReaderConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\MessageWriterConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\ProducerAssociationConfigurationWrapper.cs" />
+    <Compile Include="ConfigurationDataModel\Wrapper.cs" />
     <Compile Include="ConfigurationEditorBase.cs" />
     <Compile Include="Controls\AnimatedTabControl.Desktop.cs" />
     <Compile Include="Controls\ResearchControl.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="DataSetEditor\DataSetList\DataSetItemView.xaml.cs">
       <DependentUpon>DataSetItemView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfigurationDataModel\FieldMetaDataCollection.cs" />
     <Compile Include="MessageHandlerEditor\MessageHandlerConfirmation.cs" />
     <Compile Include="MessageHandlerEditor\MessageHandlerItemView.xaml.cs">
       <DependentUpon>MessageHandlerItemView.xaml</DependentUpon>
