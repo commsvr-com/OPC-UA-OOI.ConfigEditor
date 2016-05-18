@@ -64,7 +64,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     {
       if (!m_CollectionChanged)
         return;
-      m_Repository.ConfigurationData.DataSets = this.Select<DataSetConfigurationWrapper, DataSetConfiguration>(x => x.DataSetConfiguration).ToArray<DataSetConfiguration>();
+      m_Repository.ConfigurationData.DataSets = this.Select<DataSetConfigurationWrapper, DataSetConfiguration>(x => x.Item).ToArray<DataSetConfiguration>();
     }
 
     //private

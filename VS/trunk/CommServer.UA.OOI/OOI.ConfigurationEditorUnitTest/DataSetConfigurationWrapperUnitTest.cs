@@ -13,13 +13,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     {
       global::UAOOI.Configuration.Networking.Serialization.DataSetConfiguration _dsc = new global::UAOOI.Configuration.Networking.Serialization.DataSetConfiguration();
       DataSetConfigurationWrapper _newWrapper = new DataSetConfigurationWrapper(_dsc);
-      Assert.AreSame(_dsc, _newWrapper.DataSetConfiguration);
+      Assert.AreSame(_dsc, _newWrapper.Item);
       _newWrapper.AssociationName = m_TestString;
       Assert.AreEqual<string>(m_TestString, _newWrapper.AssociationName);
-      Assert.AreEqual<string>(m_TestString, _newWrapper.DataSetConfiguration.AssociationName);
+      Assert.AreEqual<string>(m_TestString, _newWrapper.Item.AssociationName);
       _newWrapper.ConfigurationGuid = m_TestGuid;
       Assert.AreEqual<Guid>(m_TestGuid, _newWrapper.ConfigurationGuid);
-      Assert.AreEqual<Guid>(m_TestGuid, _newWrapper.DataSetConfiguration.ConfigurationGuid);
+      Assert.AreEqual<Guid>(m_TestGuid, _newWrapper.Item.ConfigurationGuid);
       _newWrapper.ConfigurationVersion = m_TestVersionWrapper;
       Assert.AreNotSame(m_TestVersionWrapper, _newWrapper.ConfigurationVersion);
       Assert.AreEqual<byte>(byte.MaxValue, _newWrapper.ConfigurationVersion.MajorVersion);
@@ -31,9 +31,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       UAOOISerialization.ConfigurationVersionDataType m_TestVersion = new UAOOISerialization.ConfigurationVersionDataType { MajorVersion = byte.MaxValue, MinorVersion = byte.MaxValue };
       global::UAOOI.Configuration.Networking.Serialization.DataSetConfiguration _dsc = new UAOOISerialization.DataSetConfiguration() { ConfigurationVersion = m_TestVersion };
       DataSetConfigurationWrapper _newWrapper = new DataSetConfigurationWrapper(_dsc);
-      Assert.AreSame(m_TestVersion, _newWrapper.DataSetConfiguration.ConfigurationVersion);
+      Assert.AreSame(m_TestVersion, _newWrapper.Item.ConfigurationVersion);
       _newWrapper.ConfigurationVersion = m_TestVersionWrapper;
-      Assert.AreNotSame(m_TestVersion, _newWrapper.DataSetConfiguration.ConfigurationVersion);
+      Assert.AreNotSame(m_TestVersion, _newWrapper.Item.ConfigurationVersion);
     }
     [TestMethod]
     public void CreateDefaultTestMethod()

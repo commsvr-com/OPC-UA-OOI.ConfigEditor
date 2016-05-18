@@ -55,7 +55,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       DataSetConfigurationCollection _newInstance = CreateTestCollection();
       DataSetConfigurationWrapper _originalItem = _newInstance[_DataSymbolicName];
       Assert.IsNotNull(_originalItem);
-      Assert.AreSame(_originalItem.DataSetConfiguration, _TestDataSet);
+      Assert.AreSame(_originalItem.Item, _TestDataSet);
     }
     [TestMethod]
     public void DataSetExistsTest()
