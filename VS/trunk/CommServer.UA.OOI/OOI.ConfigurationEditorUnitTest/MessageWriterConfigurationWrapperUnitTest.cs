@@ -27,7 +27,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.AreEqual<AssociationRole>(AssociationRole.Producer, _mw.AssociationRole);
       Assert.AreSame(_channel, _mw.MessageChannelConfiguration.GetConfiguration());
       Assert.AreEqual<string>("Name", _mw.Name);
-      Assert.IsTrue(_mw.Check(new DataSetConfigurationWrapper(new DataSetConfiguration() { AssociationName = "AssociationName" })));
+      Assert.IsTrue(_mw.Check(new DataSetConfigurationWrapper(new DataSetConfiguration() { AssociationName = "AssociationName", DataSet = new FieldMetaData[] { } })));
     }
     [TestMethod]
     public void AssociateTestMethod()
@@ -42,7 +42,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         TransportRole = AssociationRole.Producer
       };
       MessageWriterConfigurationWrapper _mw = new MessageWriterConfigurationWrapper(_configuration);
-      _mw.Associate(true, new DataSetConfigurationWrapper(new DataSetConfiguration() { AssociationName = "AssociationName" }));
+      _mw.Associate(true, new DataSetConfigurationWrapper(new DataSetConfiguration() { AssociationName = "AssociationName", DataSet = new FieldMetaData[] { } }));
       Assert.AreEqual<int>(2, _mw.AssociationConfiguration.Length);
     }
     [TestMethod]

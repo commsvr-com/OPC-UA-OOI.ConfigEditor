@@ -11,7 +11,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     [TestMethod]
     public void CreatorTestMethod1()
     {
-      global::UAOOI.Configuration.Networking.Serialization.DataSetConfiguration _dsc = new global::UAOOI.Configuration.Networking.Serialization.DataSetConfiguration();
+      global::UAOOI.Configuration.Networking.Serialization.DataSetConfiguration _dsc = new UAOOISerialization.DataSetConfiguration() { DataSet = new UAOOISerialization.FieldMetaData[] { } };
       DataSetConfigurationWrapper _newWrapper = new DataSetConfigurationWrapper(_dsc);
       Assert.AreSame(_dsc, _newWrapper.Item);
       _newWrapper.AssociationName = m_TestString;
@@ -29,14 +29,34 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void ConfigurationVersionTestMethod1()
     {
       UAOOISerialization.ConfigurationVersionDataType m_TestVersion = new UAOOISerialization.ConfigurationVersionDataType { MajorVersion = byte.MaxValue, MinorVersion = byte.MaxValue };
-      global::UAOOI.Configuration.Networking.Serialization.DataSetConfiguration _dsc = new UAOOISerialization.DataSetConfiguration() { ConfigurationVersion = m_TestVersion };
+      global::UAOOI.Configuration.Networking.Serialization.DataSetConfiguration _dsc = new UAOOISerialization.DataSetConfiguration() { ConfigurationVersion = m_TestVersion, DataSet = new UAOOISerialization.FieldMetaData[] { } };
       DataSetConfigurationWrapper _newWrapper = new DataSetConfigurationWrapper(_dsc);
       Assert.AreSame(m_TestVersion, _newWrapper.Item.ConfigurationVersion);
       _newWrapper.ConfigurationVersion = m_TestVersionWrapper;
       Assert.AreNotSame(m_TestVersion, _newWrapper.Item.ConfigurationVersion);
     }
     [TestMethod]
-    public void CreateDefaultTestMethod()
+    public void CreateDefaultDefaultTestMethod()
+    {
+      DataSetConfigurationWrapper _value1 = DataSetConfigurationWrapper.CreateDefault();
+      Assert.IsFalse(String.IsNullOrEmpty(_value1.AssociationName));
+      Assert.IsTrue(_value1.AssociationName.Contains("AssociationName"));
+      Assert.AreEqual<UAOOISerialization.AssociationRole>(UAOOISerialization.AssociationRole.Consumer, _value1.AssociationRole);
+      Assert.IsFalse(_value1.ConfigurationGuid == Guid.Empty);
+      Assert.IsNotNull(_value1.ConfigurationVersion);
+      Assert.IsNotNull(_value1.DataSet);
+      Assert.AreEqual<int>(0, _value1.DataSet.Count);
+      Assert.IsFalse(_value1.Id == Guid.Empty);
+      Assert.IsFalse(String.IsNullOrEmpty(_value1.InformationModelURI));
+      Assert.IsNotNull(_value1.Item);
+      Assert.AreEqual<double>(-1.0, _value1.MaxBufferTime);
+      Assert.AreEqual<double>(-1.0, _value1.PublishingInterval);
+      Assert.IsFalse(String.IsNullOrEmpty(_value1.RepositoryGroup));
+      Assert.IsFalse(String.IsNullOrEmpty(_value1.SymbolicName));
+      Assert.IsTrue(_value1.SymbolicName.Contains("SymbolicName"));
+    }
+    [TestMethod]
+    public void CompareDefaultTestMethod()
     {
       DataSetConfigurationWrapper _value1 = DataSetConfigurationWrapper.CreateDefault();
       DataSetConfigurationWrapper _value2 = DataSetConfigurationWrapper.CreateDefault();

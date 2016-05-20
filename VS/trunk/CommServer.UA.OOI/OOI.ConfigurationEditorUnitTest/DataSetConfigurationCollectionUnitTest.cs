@@ -16,6 +16,7 @@
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using UAOOI.Configuration.Networking.Serialization;
 using Serialization = global::UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
@@ -123,7 +124,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     private readonly static string _AssociationName = "AssociationName";
     private readonly static string _DataSymbolicName = "DataSymbolicName";
     private readonly Serialization.DataSetConfiguration _TestDataSet = new Serialization.DataSetConfiguration
-    { AssociationName = _AssociationName, DataSymbolicName = _DataSymbolicName };
+    {
+      AssociationName = _AssociationName,
+      DataSymbolicName = _DataSymbolicName,
+      DataSet = new FieldMetaData[] { }
+    };
     #endregion
 
   }

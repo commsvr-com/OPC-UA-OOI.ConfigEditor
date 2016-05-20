@@ -123,6 +123,9 @@
   <data name="MessageHandlersListPanelHeader" xml:space="preserve">
     <value>Message Handlers</value>
   </data>
+  <data name="PublishingIntervalToolTip" xml:space="preserve">
+    <value>The interval in milliseconds for sampling the Variables and publishing the Values in a DataSet by the related MessageWriter. </value>
+  </data>
   <data name="UnhandledException" xml:space="preserve">
     <value>An unhandled exception occurred, and the plug-in is terminating. For more information, see your Application log.</value>
   </data>

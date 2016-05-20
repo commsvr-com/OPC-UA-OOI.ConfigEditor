@@ -79,6 +79,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The interval in milliseconds for sampling the Variables and publishing the Values in a DataSet by the related MessageWriter. .
+        /// </summary>
+        internal static string PublishingIntervalToolTip {
+            get {
+                return ResourceManager.GetString("PublishingIntervalToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An unhandled exception occurred, and the plug-in is terminating. For more information, see your Application log..
         /// </summary>
         internal static string UnhandledException {

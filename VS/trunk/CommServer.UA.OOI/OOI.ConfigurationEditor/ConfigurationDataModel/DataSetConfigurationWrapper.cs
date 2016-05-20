@@ -71,7 +71,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       }
       set
       {
-        SetProperty<Guid>(base.Item.Id, x => base.Item.Id = x, value);
+        SetProperty<Guid>(String.IsNullOrEmpty(base.Item.Guid) ? Guid.Empty : base.Item.Id, x => base.Item.Id = x, value);
       }
     }
     public string InformationModelURI
@@ -95,6 +95,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       get { return base.Item.PublishingInterval; }
       set { base.SetProperty<double>(base.Item.PublishingInterval, x => base.Item.PublishingInterval = x, value); }
     }
+    public string PublishingIntervalToolTip { get { return Properties.Resources.PublishingIntervalToolTip; } }
     public string RepositoryGroup
     {
       get
@@ -116,8 +117,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
         AssociationRole = AssociationRole.Consumer,
         ConfigurationGuid = Guid.NewGuid(),
         ConfigurationVersion = ConfigurationVersionDataTypeWrapper.CreateDefault(),
+        DataSet = new FieldMetaDataCollection(new FieldMetaData[] { }),
+        Id = Guid.NewGuid(),
+        InformationModelURI = "wwww.tempuri.com",
         MaxBufferTime = -1,
         PublishingInterval = -1,
+        RepositoryGroup = $"RepositoryGroup{m_UniqueNameId++}",
         SymbolicName = $"SymbolicName{m_UniqueNameId++}"
       };
     }

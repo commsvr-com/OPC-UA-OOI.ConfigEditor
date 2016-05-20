@@ -8,8 +8,9 @@
              xmlns:controls="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.Controls"
              xmlns:windows="clr-namespace:CAS.Windows.Controls;assembly=CAS.Windows"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" ScrollViewer.VerticalScrollBarVisibility="Auto" >
-
+             d:DesignHeight="300" d:DesignWidth="300" 
+             ScrollViewer.VerticalScrollBarVisibility="Auto" 
+             >
   <UserControl.Resources>
     <DataTemplate DataType="{x:Type local:DataSetItemConfirmation}">
       <DataTemplate.Resources>
@@ -39,122 +40,148 @@
           <Setter Property="Opacity" Value="100"/>
         </Style>
       </DataTemplate.Resources>
-      <Border>
-        <StackPanel >
-          <Grid>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="Auto"/>
-              <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-              <RowDefinition Height="Auto"/>
-              <RowDefinition Height="Auto"/>
-              <RowDefinition Height="Auto"/>
-              <RowDefinition Height="Auto"/>
-              <RowDefinition Height="Auto"/>
-              <RowDefinition/>
-            </Grid.RowDefinitions>
+      <StackPanel >
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+          </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" >Information Model URI</Label>
-            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
-              <Label Content="{Binding Path=DataSetConfigurationWrapper.InformationModelURI}"/>
-            </StackPanel>
+          <Label Grid.Row="0" Grid.Column="0" >Information Model URI</Label>
+          <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+            <Label Content="{Binding Path=DataSetConfigurationWrapper.InformationModelURI}"/>
+          </StackPanel>
 
-            <Label Grid.Row="1" Grid.Column="0" >Symbolic Name</Label>
-            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
-              <TextBox Text="{Binding Path=DataSetConfigurationWrapper.SymbolicName, Mode=TwoWay}"/>
-            </StackPanel>
+          <Label Grid.Row="1" Grid.Column="0" >Symbolic Name</Label>
+          <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
+            <TextBox Text="{Binding Path=DataSetConfigurationWrapper.SymbolicName, Mode=TwoWay}"/>
+          </StackPanel>
 
-            <Label Grid.Row="2" Grid.Column="0" >Unique Identifier</Label>
-            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" >
-              <Label Content="{Binding Path=DataSetConfigurationWrapper.Id}"/>
+          <Label Grid.Row="2" Grid.Column="0" >Unique Identifier</Label>
+          <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" >
+            <Label Content="{Binding Path=DataSetConfigurationWrapper.Id}"/>
+          </StackPanel>
+        </Grid>
+        <Border>
+          <StackPanel>
+            <Label Style="{StaticResource HeaderLabel}">Content and Data Bindings</Label>
+            <StackPanel Orientation="Horizontal">
+              <Label >Repository Group</Label>
+              <TextBox Text="{Binding Path=DataSetConfigurationWrapper.RepositoryGroup, Mode=TwoWay}"/>
             </StackPanel>
-          </Grid>
-          <Border>
-            <StackPanel>
-              <Label>Configuration</Label>
-              <Grid>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="Auto"/>
-                  <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="Auto"/>
-                  <RowDefinition Height="Auto"/>
-                  <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.Column="0">Configuration Guid</Label>
-                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
-                  <Label Content="{Binding Path=DataSetConfigurationWrapper.ConfigurationGuid, Mode=OneWay}"/>
-                </StackPanel>
-                <Label Grid.Row="1" Grid.Column="0" >Configuration Version</Label>
-                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
-                  <Label Content="{Binding Path=DataSetConfigurationWrapper.ConfigurationVersion, Mode=OneWay}"/>
-                </StackPanel>
-              </Grid>
-            </StackPanel>
-          </Border>
-          <Border>
-            <StackPanel>
-              <Label Style="{StaticResource HeaderLabel}">Message Contenet</Label>
-              <ListView ItemsSource="{Binding Path=DataSetConfigurationWrapper.DataSet}">
-                <ListView.View>
-                  <GridView>
-                    <GridViewColumn Header="Symbolic Name" DisplayMemberBinding="{Binding SymbolicName}"/>
-                    <GridViewColumn Header="Process Value Name" DisplayMemberBinding="{Binding ProcessValueName}"/>
-                    <GridViewColumn Header="Type Name" DisplayMemberBinding="{Binding TypeInformation.TypeName}"/>
-                    <GridViewColumn Header="Built-In Type" DisplayMemberBinding="{Binding TypeInformation.BuiltInType}"/>
-                    <GridViewColumn Header="Array Dimensions" DisplayMemberBinding="{Binding TypeInformation.ArrayDimensions}"/>
-                    <GridViewColumn Header="Value Rank" DisplayMemberBinding="{Binding TypeInformation.ValueRank}"/>
-                  </GridView>
-                </ListView.View>
-              </ListView>
-            </StackPanel>
-          </Border>
-          <Border>
-            <StackPanel Orientation="Vertical">
-              <Label>Association</Label>
-              <Grid>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="Auto"/>
-                  <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="Auto"/>
-                  <RowDefinition Height="Auto"/>
-                  <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.Column="0">Association Name</Label>
-                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
-                  <TextBox Text="{Binding Path=DataSetConfigurationWrapper.AssociationName , Mode=TwoWay}"/>
-                </StackPanel>
-                <Label Grid.Row="1">Association Role</Label>
-                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
-                  <TextBox Text="{Binding Path=AssociationRole, Mode=TwoWay}"/>
-                </StackPanel>
-              </Grid>
-              <Label>Available Handlers</Label>
-              <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
-                <ListView.View>
-                  <GridView>
-                    <GridViewColumn Header="Associated" DisplayMemberBinding="{Binding Path=Associated, Mode=TwoWay }" Width="Auto"  />
-                    <GridViewColumn Header="Message Handler" DisplayMemberBinding="{Binding Path=AssociationCouplerTitle, Mode=OneWay }" Width="Auto" />
-                  </GridView>
-                </ListView.View>
-              </ListView>
-            </StackPanel>
-          </Border>
-        </StackPanel>
-      </Border>
+            <ListView ItemsSource="{Binding Path=DataSetConfigurationWrapper.DataSet}">
+              <ListView.View>
+                <GridView>
+                  <GridViewColumn Header="Symbolic Name" DisplayMemberBinding="{Binding SymbolicName}"/>
+                  <GridViewColumn Header="Process Value Name" DisplayMemberBinding="{Binding ProcessValueName}"/>
+                  <GridViewColumn Header="Type Name" DisplayMemberBinding="{Binding TypeInformation.TypeName}"/>
+                  <GridViewColumn Header="Built-In Type" DisplayMemberBinding="{Binding TypeInformation.BuiltInType}"/>
+                  <GridViewColumn Header="Array Dimensions" DisplayMemberBinding="{Binding TypeInformation.ArrayDimensions}"/>
+                  <GridViewColumn Header="Value Rank" DisplayMemberBinding="{Binding TypeInformation.ValueRank}"/>
+                </GridView>
+              </ListView.View>
+            </ListView>
+          </StackPanel>
+        </Border>
+        <Border>
+          <StackPanel Orientation="Vertical">
+            <Label Style="{StaticResource HeaderLabel}">Association</Label>
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+              </Grid.RowDefinitions>
+              <Label Grid.Row="0" Grid.Column="0">Association Name</Label>
+              <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+                <TextBox Text="{Binding Path=DataSetConfigurationWrapper.AssociationName , Mode=TwoWay}"/>
+              </StackPanel>
+              <Label Grid.Row="1">Association Role</Label>
+              <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
+                <TextBox Text="{Binding Path=AssociationRole, Mode=TwoWay}"/>
+              </StackPanel>
+            </Grid>
+            <Label Style="{StaticResource HeaderLabel}">Available Handlers</Label>
+            <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
+              <ListView.View>
+                <GridView>
+                  <GridViewColumn Header="Associated" DisplayMemberBinding="{Binding Path=Associated, Mode=TwoWay }" Width="Auto"  />
+                  <GridViewColumn Header="Message Handler" DisplayMemberBinding="{Binding Path=AssociationCouplerTitle, Mode=OneWay }" Width="Auto" />
+                </GridView>
+              </ListView.View>
+            </ListView>
+          </StackPanel>
+        </Border>
+        <Border >
+          <StackPanel>
+            <Label Style="{StaticResource HeaderLabel}">Application</Label>
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+              </Grid.RowDefinitions>
+              <Label Grid.Row="0" Grid.Column="0">Publishing Interval</Label>
+              <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" ToolTip="{Binding Path=DataSetConfigurationWrapper.PublishingIntervalToolTip}"  >
+                <Label Content="{Binding Path=DataSetConfigurationWrapper.PublishingInterval, Mode=OneWay}"/>
+              </StackPanel>
+              <Label Grid.Row="1" Grid.Column="0" >MaxBuffer Time</Label>
+              <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
+                <Label Content="{Binding Path=DataSetConfigurationWrapper.MaxBufferTime, Mode=OneWay}"/>
+              </StackPanel>
+            </Grid>
+          </StackPanel>
+        </Border>
+        <Border>
+          <StackPanel>
+            <Label Style="{StaticResource HeaderLabel}">Configuration</Label>
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+              </Grid.RowDefinitions>
+              <Label Grid.Row="0" Grid.Column="0">Configuration Guid</Label>
+              <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+                <Label Content="{Binding Path=DataSetConfigurationWrapper.ConfigurationGuid, Mode=OneWay}"/>
+              </StackPanel>
+              <Label Grid.Row="1" Grid.Column="0" >Configuration Version</Label>
+              <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
+                <Label Content="{Binding Path=DataSetConfigurationWrapper.ConfigurationVersion, Mode=OneWay}"/>
+              </StackPanel>
+            </Grid>
+          </StackPanel>
+        </Border>
+      </StackPanel>
     </DataTemplate>
   </UserControl.Resources>
 
-  <Grid x:Name="LayoutRoot" Margin="5" Grid.Row="0">
+  <Grid x:Name="LayoutRoot" Margin="5" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Auto" >
     <Grid.RowDefinitions>
       <RowDefinition  Height="*"/>
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
-    <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="0" Content="{Binding Notification}"/>
+    <Border ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="0" >
+      <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Notification}"/>
+    </Border>
     <windows:ButtonsPanel Grid.Row="1" DataContext="{Binding ButtonsPanelViewModel}" />
   </Grid>
 </UserControl>
