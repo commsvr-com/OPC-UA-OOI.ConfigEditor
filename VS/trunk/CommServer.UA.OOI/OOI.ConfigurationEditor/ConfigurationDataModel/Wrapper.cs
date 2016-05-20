@@ -27,7 +27,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     }
     public virtual type Item
     {
-      get; protected set;
+      get; private set;
     }
 
   }

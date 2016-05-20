@@ -17,10 +17,14 @@ using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
+
   public class FieldMetaDataWrapper : Wrapper<FieldMetaData>
   {
 
-    public FieldMetaDataWrapper(FieldMetaData item) : base(item) { }
+    public FieldMetaDataWrapper(FieldMetaData item) : base(item)
+    {
+      TypeInformation = new UATypeInfoWrapper(item.TypeInformation);
+    }
 
     #region Wrapper<FieldMetaData>
     public override FieldMetaData Item
@@ -29,12 +33,35 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       {
         return base.Item;
       }
-      protected set
-      {
-        base.Item = value;
-      }
     }
     #endregion
+
+    public string ProcessValueName
+    {
+      get
+      {
+        return Item.ProcessValueName;
+      }
+      set
+      {
+        SetProperty<string>(Item.ProcessValueName, x => Item.ProcessValueName = x, value);
+      }
+    }
+    public string SymbolicName
+    {
+      get
+      {
+        return Item.SymbolicName;
+      }
+      set
+      {
+        SetProperty<string>(Item.SymbolicName, x => Item.SymbolicName = x, value);
+      }
+    }
+    public UATypeInfoWrapper TypeInformation
+    {
+      get; 
+    }
 
   }
 }

@@ -123,6 +123,7 @@
     <Compile Include="ConfigurationDataModel\MessageReaderConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\MessageWriterConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\ProducerAssociationConfigurationWrapper.cs" />
+    <Compile Include="ConfigurationDataModel\UATypeInfoWrapper.cs" />
     <Compile Include="ConfigurationDataModel\Wrapper.cs" />
     <Compile Include="ConfigurationEditorBase.cs" />
     <Compile Include="Controls\AnimatedTabControl.Desktop.cs" />

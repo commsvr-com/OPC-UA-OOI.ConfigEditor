@@ -1,20 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+//_______________________________________________________________
+//  Title   : FieldMetaDataCollection
+//  System  : Microsoft VisualStudio 2015 / C#
+//  $LastChangedDate:  $
+//  $Rev: $
+//  $LastChangedBy: $
+//  $URL: $
+//  $Id:  $
+//
+//  Copyright (C) 2016, CAS LODZ POLAND.
+//  TEL: +48 (42) 686 25 47
+//  mailto://techsupp@cas.eu
+//  http://www.cas.eu
+//_______________________________________________________________
+
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
+
   public class FieldMetaDataCollection : ObservableCollection<FieldMetaDataWrapper>
   {
-    private FieldMetaData[] dataSet;
 
-    public FieldMetaDataCollection(FieldMetaData[] dataSet)
-    {
-      this.dataSet = dataSet;
-    }
+    public FieldMetaDataCollection
+      (FieldMetaData[] dataSet): base(dataSet.Select<FieldMetaData, FieldMetaDataWrapper>(item => new FieldMetaDataWrapper(item))){}
+
   }
+
 }
