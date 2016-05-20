@@ -13,10 +13,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UITestApplication
       FileInfo _configFile = new FileInfo(@"TestData\ConfigurationDataConsumer.xml");
       if (!_configFile.Exists)
         throw new FileNotFoundException(_configFile.FullName);
-      Networking.UANetworkingConfiguration<ConfigurationData> _newConfiguration = new Networking.UANetworkingConfiguration<ConfigurationData>();
-      _newConfiguration.ReadConfiguration(_configFile);
-      ConfigurationEditorBase _factory = new ConfigurationEditorBase();
-      _factory.EditConfiguration(_newConfiguration.CurrentConfiguration);
+      UAOOI.Configuration.DataBindings.UANetworkingConfigurationEditor _editor = new UAOOI.Configuration.DataBindings.UANetworkingConfigurationEditor();
+      _editor.ReadConfiguration(_configFile);
+      _editor.EditConfiguration();
+      //Networking.UANetworkingConfiguration<ConfigurationData> _newConfiguration = new Networking.UANetworkingConfiguration<ConfigurationData>();
+      //_newConfiguration.ReadConfiguration(_configFile);
+      //ConfigurationEditorBase _factory = new ConfigurationEditorBase();
+      //_factory.EditConfiguration(_newConfiguration.CurrentConfiguration);
     }
   }
 }
