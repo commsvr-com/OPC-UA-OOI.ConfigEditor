@@ -13,10 +13,9 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.Windows.mvvm;
 using System;
-using UAOOI.Configuration.Networking.Serialization;
 using System.Linq;
+using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
@@ -28,7 +27,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     /// Initializes a new instance of the <see cref="DataSetConfigurationWrapper" /> class using empty <see cref="DataSetConfiguration" />.
     /// </summary>
     /// <param name="configurationItem">The original <see cref="DataSetConfiguration"/>configuration item.</param>
-    public DataSetConfigurationWrapper(DataSetConfiguration configurationItem) : base(configurationItem) { }
+    public DataSetConfigurationWrapper(DataSetConfiguration configurationItem) : base(configurationItem)
+    {
+      DataSet = new FieldMetaDataCollection(configurationItem.DataSet);
+    }
+
+    #region ViewModel
     public string AssociationName
     {
       get { return base.Item.AssociationName; }
@@ -102,6 +106,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
         SetProperty<string>(base.Item.RepositoryGroup, x => base.Item.RepositoryGroup = x, value);
       }
     }
+    #endregion
+
     internal static DataSetConfigurationWrapper CreateDefault()
     {
       return new DataSetConfigurationWrapper()
@@ -123,11 +129,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       {
         base.Item.DataSet = DataSet.Select<FieldMetaDataWrapper, FieldMetaData>(wrapper => wrapper.Item).ToArray<FieldMetaData>();
         return base.Item;
-      }
-      protected set
-      {
-        DataSet = new FieldMetaDataCollection(value.DataSet);
-        base.Item = value;
       }
     }
     #endregion
