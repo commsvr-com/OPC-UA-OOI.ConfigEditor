@@ -37,8 +37,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
       ConfigurationDataModel.ConfigurationDataRepository.SetConfigurationData = configuration;
       if (!runUI)
         return;
-      HostingApplication _app = new HostingApplication();
-      _app.Run();
+      EditorBootstrapper.RunInReleaseMode();
     }
     /// <summary>
     /// Open configuration editor.
