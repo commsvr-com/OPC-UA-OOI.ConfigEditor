@@ -14,9 +14,11 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors;
+using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
 using Prism.Logging;
 using Prism.Mef;
 using Prism.Regions;
+using System;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows;
 
@@ -99,8 +101,39 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
     }
     #endregion
 
+    internal static void RunInDebugMode()
+    {
+      EditorBootstrapper bootstrapper = new EditorBootstrapper();
+      bootstrapper.Run();
+    }
+    internal static void RunInReleaseMode()
+    {
+      AppDomain.CurrentDomain.UnhandledException += AppDomainUnhandledException;
+      try
+      {
+        EditorBootstrapper bootstrapper = new EditorBootstrapper();
+        bootstrapper.Run();
+      }
+      catch (Exception ex)
+      {
+        HandleException(ex);
+      }
+    }
+
     #region private
     private readonly EnterpriseLibraryLoggerAdapter _logger = new EnterpriseLibraryLoggerAdapter();
+    private static void AppDomainUnhandledException(object sender, UnhandledExceptionEventArgs e)
+    {
+      HandleException(e.ExceptionObject as Exception);
+    }
+    private static void HandleException(Exception ex)
+    {
+      if (ex == null)
+        return;
+      ExceptionPolicy.HandleException(ex, "Default Policy");
+      MessageBox.Show(CAS.CommServer.UA.OOI.ConfigurationEditor.Properties.Resources.UnhandledException);
+      //Environment.Exit(1);
+    }
     #endregion
 
   }

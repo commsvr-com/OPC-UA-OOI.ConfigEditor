@@ -60,7 +60,7 @@
                 <Button Command="{Binding DataContext.RemoveDataSetCommand, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}" 
                         CommandParameter="{Binding SymbolicName}" 
                         AutomationProperties.AutomationId="SymbolicName"
-                        Template="{StaticResource RemoveXButtonTemplate}"  
+                        Template="{DynamicResource RemoveXButtonTemplate}"  
                         Cursor="Hand" />
               </DataTemplate>
             </GridViewColumn.CellTemplate>
