@@ -35,7 +35,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     #region IDataSetModelServices
     public bool DataSetExists(string dataSetIdentifier)
     {
-
       return m_Configuration.DataSetExists(dataSetIdentifier);
     }
     public DataSetConfigurationWrapper GetDescription(string symbolicName)

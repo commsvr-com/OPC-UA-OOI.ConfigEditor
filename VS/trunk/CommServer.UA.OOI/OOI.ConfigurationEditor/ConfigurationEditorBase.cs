@@ -37,7 +37,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
       ConfigurationDataModel.ConfigurationDataRepository.SetConfigurationData = configuration;
       if (!runUI)
         return;
-      EditorBootstrapper.RunInReleaseMode();
+      EditorBootstrapper.RunInDebugMode();
     }
     /// <summary>
     /// Open configuration editor.

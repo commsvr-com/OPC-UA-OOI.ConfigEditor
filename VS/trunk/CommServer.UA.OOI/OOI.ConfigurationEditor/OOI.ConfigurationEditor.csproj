@@ -117,6 +117,7 @@
     <Compile Include="ConfigurationDataModel\IMessageHandlerConfigurationIdentity.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerServices.cs" />
+    <Compile Include="ConfigurationDataModel\IWarningsContainer.cs" />
     <Compile Include="ConfigurationDataModel\MessageChannelConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\MessageHandlerConfigurationCollection.cs" />
     <Compile Include="ConfigurationDataModel\MessageHandlerConfigurationWrapper.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="ConfigurationDataModel\MessageWriterConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\ProducerAssociationConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\UATypeInfoWrapper.cs" />
+    <Compile Include="ConfigurationDataModel\Warning.cs" />
     <Compile Include="ConfigurationDataModel\Wrapper.cs" />
     <Compile Include="ConfigurationEditorBase.cs" />
     <Compile Include="Controls\AnimatedTabControl.Desktop.cs" />
