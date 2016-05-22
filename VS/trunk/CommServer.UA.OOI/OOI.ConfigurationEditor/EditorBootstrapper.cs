@@ -63,8 +63,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
     protected override void InitializeShell()
     {
       base.InitializeShell();
-      Application.Current.MainWindow = (ConfigurationDataEditorView)this.Shell;
-      Application.Current.MainWindow.Show();
+      ConfigurationDataEditorView _shell = (ConfigurationDataEditorView)this.Shell;
+      _shell.ShowDialog();
+      //Application.Current.MainWindow = (ConfigurationDataEditorView)this.Shell;
+      //Application.Current.MainWindow.Show();
     }
     /// <summary>
     /// Configures the <see cref="T:Prism.Regions.IRegionBehaviorFactory" />.
@@ -73,7 +75,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
     /// <returns>IRegionBehaviorFactory.</returns>
     protected override IRegionBehaviorFactory ConfigureDefaultRegionBehaviors()
     {
-      var factory = base.ConfigureDefaultRegionBehaviors();
+      IRegionBehaviorFactory factory = base.ConfigureDefaultRegionBehaviors();
       factory.AddIfMissing("AutoPopulateExportedViewsBehavior", typeof(AutoPopulateExportedViewsBehavior));
       return factory;
     }
