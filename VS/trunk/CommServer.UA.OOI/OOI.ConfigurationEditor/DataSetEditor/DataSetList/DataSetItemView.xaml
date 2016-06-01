@@ -22,6 +22,13 @@
           <Setter Property="Margin" Value="3,3,3,3"/>
           <Setter Property="CornerRadius" Value="10"/>
         </Style>
+        <Style TargetType="{x:Type GroupBox}">
+          <Setter Property="BorderThickness" Value="1"/>
+          <Setter Property="Background" Value="#FFCCEE86"/>
+          <Setter Property="BorderBrush" Value="Green"/>
+          <Setter Property="Padding" Value="3,3,3,3"/>
+          <Setter Property="Margin" Value="3,3,3,3"/>
+        </Style>
         <Style TargetType="{x:Type Label}" >
           <Setter Property="Height" Value="30"/>
           <Setter Property="MinHeight" Value="30"/>
@@ -68,14 +75,13 @@
             <Label Content="{Binding Path=DataSetConfigurationWrapper.Id}"/>
           </StackPanel>
         </Grid>
-        <Border>
+        <GroupBox Header="Content and Data Bindings" >
           <StackPanel>
-            <Label Style="{StaticResource HeaderLabel}">Content and Data Bindings</Label>
             <StackPanel Orientation="Horizontal">
               <Label >Repository Group</Label>
               <TextBox Text="{Binding Path=DataSetConfigurationWrapper.RepositoryGroup, Mode=TwoWay}"/>
             </StackPanel>
-            <ListView ItemsSource="{Binding Path=DataSetConfigurationWrapper.DataSet}">
+            <ListView ItemsSource="{Binding Path=DataSetConfigurationWrapper.DataSet}" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="200" >
               <ListView.View>
                 <GridView>
                   <GridViewColumn Header="Symbolic Name" DisplayMemberBinding="{Binding SymbolicName}"/>
@@ -88,7 +94,7 @@
               </ListView.View>
             </ListView>
           </StackPanel>
-        </Border>
+        </GroupBox>
         <Border>
           <StackPanel Orientation="Vertical">
             <Label Style="{StaticResource HeaderLabel}">Association</Label>
@@ -107,8 +113,14 @@
                 <TextBox Text="{Binding Path=DataSetConfigurationWrapper.AssociationName , Mode=TwoWay}"/>
               </StackPanel>
               <Label Grid.Row="1">Association Role</Label>
-              <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
+              <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" >
                 <TextBox Text="{Binding Path=AssociationRole, Mode=TwoWay}"/>
+                <GroupBox Header="AssociationRole" IsEnabled="{Binding Path=AssociationRoleGroupBoxIsEnabled}" >
+                  <StackPanel Orientation="Horizontal">
+                    <RadioButton GroupName="AssociationRole" IsChecked="{Binding Path=ConsumerRoleSelected, Mode=TwoWay}" Content="Consumer"/>
+                    <RadioButton GroupName="AssociationRole" IsChecked="{Binding Path=ProducerRoleSelected, Mode=TwoWay}" Content="Producer"/>
+                  </StackPanel>
+                </GroupBox>
               </StackPanel>
             </Grid>
             <Label Style="{StaticResource HeaderLabel}">Available Handlers</Label>
