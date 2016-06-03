@@ -85,8 +85,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     //handlers
     private void AddCommandHandler()
     {
-      MessageReaderConfigurationWrapper _wrapper = MessageReaderConfigurationWrapper.CreateDefault();
-      MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(_wrapper, m_AssociationServices.GetAssociationCouplerViewModelEnumerator, true) { Title = "New Message Handler" };
+      MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation( m_AssociationServices.GetAssociationCouplerViewModelEnumerator) { Title = "New Message Handler" };
       bool _confirmed = false;
       b_AddRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
       if (_confirmed)

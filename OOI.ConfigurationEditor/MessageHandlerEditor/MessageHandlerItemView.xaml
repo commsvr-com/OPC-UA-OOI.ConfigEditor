@@ -6,9 +6,10 @@
              xmlns:model="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel"
              xmlns:local="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor"
              xmlns:windows="clr-namespace:CAS.Windows.Controls;assembly=CAS.Windows"
+             xmlns:controls="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400"
-	     ScrollViewer.VerticalScrollBarVisibility = "Auto" >
+	         ScrollViewer.VerticalScrollBarVisibility = "Auto" >
   <UserControl.Resources>
     <DataTemplate DataType="{x:Type local:MessageHandlerConfirmation}">
       <DataTemplate.Resources>
@@ -24,23 +25,20 @@
         </Style>
       </DataTemplate.Resources>
       <StackPanel Orientation="Vertical">
-      <Grid>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto"/>
-          <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto"/>
-          <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" >Name</Label>
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
-          <TextBox Text="{Binding Path=MessageHandlerConfigurationWrapper.Name, Mode=TwoWay}"/>
-        </StackPanel>
-        <Label Grid.Row="1" Grid.Column="0">Association Role</Label>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
-          <TextBox Text="{Binding Path=AssociationRole , Mode=TwoWay}"/>
-        </StackPanel>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+          <Label Grid.Row="0" Grid.Column="0" >Name</Label>
+          <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+            <TextBox Text="{Binding Path=MessageHandlerConfigurationWrapper.Name, Mode=TwoWay}"/>
+          </StackPanel>
+          <controls:AssociationRoleSelectorControl Grid.Row="1" DataContext="{Binding Path=AssociationRoleSelectorControlViewModel}" />
         </Grid>
         <Border BorderBrush="{DynamicResource DefaultedBorderBrush}" BorderThickness="1">
           <StackPanel>
