@@ -18,6 +18,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using UAOOI.Configuration.Networking.Serialization;
 using Serialization = global::UAOOI.Configuration.Networking.Serialization;
+using Prism.Logging;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
@@ -28,7 +29,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void AfterConstructionStateTest()
     {
       ConfigurationDataRepository _newRepository = new ConfigurationDataRepository();
-      DataSetConfigurationCollection _newInstance = new DataSetConfigurationCollection(_newRepository);
+      DataSetConfigurationCollection _newInstance = new DataSetConfigurationCollection(_newRepository, new LoggerFacade());
       Assert.IsNotNull(_newRepository.ConfigurationData.DataSets);
       Assert.AreEqual<int>(0, _newRepository.ConfigurationData.DataSets.Length);
     }
@@ -36,7 +37,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void CommitChangesTestMethod()
     {
       ConfigurationDataRepository _newRepository = new ConfigurationDataRepository();
-      DataSetConfigurationCollection _newInstance = new DataSetConfigurationCollection(_newRepository);
+      DataSetConfigurationCollection _newInstance = new DataSetConfigurationCollection(_newRepository, new LoggerFacade());
       Assert.AreEqual<int>(0, _newRepository.ConfigurationData.DataSets.Length);
       _newInstance.CommitChanges();
       Assert.AreEqual<int>(0, _newRepository.ConfigurationData.DataSets.Length);
@@ -45,7 +46,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.AreEqual<int>(0, _newRepository.ConfigurationData.DataSets.Length);
       _newInstance.CommitChanges();
       Assert.AreEqual<int>(1, _newRepository.ConfigurationData.DataSets.Length);
-      _newInstance = new DataSetConfigurationCollection(new ConfigurationDataRepository());
+      _newInstance = new DataSetConfigurationCollection(new ConfigurationDataRepository(), new LoggerFacade());
       DataSetConfigurationWrapper _recoveredDefault = _newInstance[_default.SymbolicName];
       Assert.AreNotSame(_default, _recoveredDefault);
       Assert.AreEqual<Guid>(_default.ConfigurationGuid, _recoveredDefault.ConfigurationGuid);
@@ -92,7 +93,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       DataSetConfigurationWrapper _originalItem = _newInstance[_DataSymbolicName];
       Assert.IsNotNull(_originalItem);
       _newInstance.Remove(_originalItem);
-      _newInstance = new DataSetConfigurationCollection(new ConfigurationDataRepository());
+      _newInstance = new DataSetConfigurationCollection(new ConfigurationDataRepository(), new LoggerFacade());
       _originalItem = _newInstance[_DataSymbolicName];
       Assert.IsNotNull(_originalItem);
     }
@@ -105,11 +106,19 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.IsNotNull(_originalItem);
       _newInstance.Remove(_originalItem);
       _newInstance.CommitChanges();
-      _newInstance = new DataSetConfigurationCollection(new ConfigurationDataRepository());
+      _newInstance = new DataSetConfigurationCollection(new ConfigurationDataRepository(), new LoggerFacade());
       _originalItem = _newInstance[_DataSymbolicName];
     }
 
     #region private test instrumentation
+    private class LoggerFacade : ILoggerFacade
+    {
+      public int LogCount = 0;
+      public void Log(string message, Category category, Priority priority)
+      {
+        LogCount++;
+      }
+    }
     private DataSetConfigurationCollection CreateTestCollection()
     {
       ConfigurationDataRepository.SetConfigurationData = new Serialization.ConfigurationData()
@@ -118,7 +127,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         MessageHandlers = new Serialization.MessageHandlerConfiguration[] { }
       };
       ConfigurationDataRepository _newConfigurationDataRepository = new ConfigurationDataRepository();
-      DataSetConfigurationCollection _newInstance = new DataSetConfigurationCollection(_newConfigurationDataRepository);
+      DataSetConfigurationCollection _newInstance = new DataSetConfigurationCollection(_newConfigurationDataRepository, new LoggerFacade());
       return _newInstance;
     }
     private readonly static string _AssociationName = "AssociationName";

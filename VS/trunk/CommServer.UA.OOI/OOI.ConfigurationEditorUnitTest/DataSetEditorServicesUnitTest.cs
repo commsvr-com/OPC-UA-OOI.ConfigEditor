@@ -7,6 +7,7 @@ using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor;
 using System.Collections;
 using System.Collections.Generic;
 using UAOOI.Configuration.Networking.Serialization;
+using Prism.Logging;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
@@ -43,7 +44,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       }
       public IDataSetConfigurationCollection GetDataSets()
       {
-        return new DataSetConfigurationCollection(new ConfigurationDataRepository());
+        return new DataSetConfigurationCollection(new ConfigurationDataRepository(), new LoggerFacade() );
       }
       public IEnumerable<DataSetConfigurationWrapper> GetDataSets(AssociationRole associationRole)
       {
@@ -58,5 +59,14 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         throw new NotImplementedException();
       }
     }
+    private class LoggerFacade : ILoggerFacade
+    {
+      public int LogCount = 0;
+      public void Log(string message, Category category, Priority priority)
+      {
+        LogCount++;
+      }
+    }
+
   }
 }

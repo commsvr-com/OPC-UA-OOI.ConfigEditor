@@ -23,8 +23,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       };
       Assert.IsNotNull(_confirmation.AssociationCouplersEnumerator);
       Assert.AreEqual<int>(0, _confirmation.AssociationCouplersEnumerator.Count<AssociationCouplerViewModel>());
-      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _confirmation.AssociationRole);
-      Assert.IsTrue(_confirmation.AssociationRoleEditable);
+      Assert.IsTrue(_confirmation.AssociationRoleSelectorControlViewModel.ConsumerRoleSelected.GetValueOrDefault(false));
+      Assert.IsFalse(_confirmation.AssociationRoleSelectorControlViewModel.ProducerRoleSelected.GetValueOrDefault(false));
+      Assert.IsTrue(_confirmation.AssociationRoleSelectorControlViewModel.AssociationRoleGroupBoxIsEnabled);
       Assert.IsTrue(_confirmation.Confirmed);
       Assert.IsNull(_confirmation.Content);
       Assert.IsNotNull(_confirmation.MessageHandlerConfigurationWrapper);
@@ -34,7 +35,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void TitleRaisesPropertyChangedTest()
     {
       bool _raised = false;
-      MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(null, wrapper => new AssociationCouplerViewModel[] { }, false)
+      MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(wrapper => new AssociationCouplerViewModel[] { })
       {
         Confirmed = true,
         Content = null,
@@ -53,17 +54,20 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(_reader, wrapper => { _enumeratorCalled++;  return new AssociationCouplerViewModel[] { };  }, true) { };
       int _raised = 0;
       _confirmation.PropertyChanged += (x, y) => _raised++;
-      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _confirmation.AssociationRole);
+      Assert.IsNotNull(_confirmation.MessageHandlerConfigurationWrapper);
+      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _confirmation.MessageHandlerConfigurationWrapper.AssociationRole);
       Assert.IsInstanceOfType(_confirmation.MessageHandlerConfigurationWrapper, typeof(MessageReaderConfigurationWrapper));
-      _confirmation.AssociationRole = AssociationRole.Consumer;
+      _confirmation.AssociationRoleSelectorControlViewModel.ConsumerRoleSelected = true;
+      _confirmation.AssociationRoleSelectorControlViewModel.ProducerRoleSelected = false;
       Assert.AreEqual<int>(0, _raised); //the same value assigned to AssociationRole must not raise the event
       Assert.AreEqual<int>(1, _enumeratorCalled);
-      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _confirmation.AssociationRole);
+      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _confirmation.MessageHandlerConfigurationWrapper.AssociationRole);
       Assert.IsInstanceOfType(_confirmation.MessageHandlerConfigurationWrapper, typeof(MessageReaderConfigurationWrapper));
-      _confirmation.AssociationRole = AssociationRole.Producer;
+      _confirmation.AssociationRoleSelectorControlViewModel.ConsumerRoleSelected = false;
+      _confirmation.AssociationRoleSelectorControlViewModel.ProducerRoleSelected = true;
       Assert.AreEqual<int>(2, _raised); //new value of AssociationRole must raise the event
       Assert.AreEqual<int>(2, _enumeratorCalled);
-      Assert.AreEqual<AssociationRole>(AssociationRole.Producer, _confirmation.AssociationRole);
+      Assert.AreEqual<AssociationRole>(AssociationRole.Producer, _confirmation.MessageHandlerConfigurationWrapper.AssociationRole);
       Assert.IsInstanceOfType(_confirmation.MessageHandlerConfigurationWrapper, typeof(MessageWriterConfigurationWrapper));
     }
     [TestMethod]

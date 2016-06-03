@@ -27,7 +27,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void DataSetEditorCreatorsChainTest()
     {
       ConfigurationDataRepository _repository = new ConfigurationDataRepository();
-      DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository));
+      DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository, new TestLoggerFacade()));
       DataSetEditor.Services.DataSetEditorServices _service = new DataSetEditor.Services.DataSetEditorServices(_dataSetModelServices);
       TestLoggerFacade _LoggerFacade = new TestLoggerFacade();
       DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
@@ -68,7 +68,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void AddDataSetCommandTest()
     {
       ConfigurationDataRepository _repository = new ConfigurationDataRepository();
-      DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository));
+      DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository, new TestLoggerFacade()));
       TestLoggerFacade _LoggerFacade = new TestLoggerFacade();
       DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
       bool _raised = false;
@@ -81,7 +81,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void AddDataSetRequestTest()
     {
       ConfigurationDataRepository _repository = new ConfigurationDataRepository();
-      DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository));
+      DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository, new TestLoggerFacade()));
       TestLoggerFacade _LoggerFacade = new TestLoggerFacade();
       DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
       TestView _view = new TestView() { DataContext = _viewModel };
