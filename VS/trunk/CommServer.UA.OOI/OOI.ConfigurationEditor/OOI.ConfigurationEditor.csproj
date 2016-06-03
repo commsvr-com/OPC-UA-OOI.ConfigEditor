@@ -129,6 +129,10 @@
     <Compile Include="ConfigurationDataModel\Wrapper.cs" />
     <Compile Include="ConfigurationEditorBase.cs" />
     <Compile Include="Controls\AnimatedTabControl.Desktop.cs" />
+    <Compile Include="Controls\AssociationRoleSelectorControl.xaml.cs">
+      <DependentUpon>AssociationRoleSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AssociationRoleSelectorControlViewModel.cs" />
     <Compile Include="Controls\ResearchControl.cs" />
     <Compile Include="Controls\RoundedBox.xaml.cs">
       <DependentUpon>RoundedBox.xaml</DependentUpon>
@@ -206,6 +210,10 @@
   <ItemGroup>
     <Page Include="ConfigurationDataEditorView.xaml">
       <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\AssociationRoleSelectorControl.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\RoundedBox.xaml">

@@ -82,7 +82,7 @@
               <Label >Repository Group</Label>
               <TextBox Text="{Binding Path=DataSetConfigurationWrapper.RepositoryGroup, Mode=TwoWay}"/>
             </StackPanel>
-            <ListView ItemsSource="{Binding Path=DataSetConfigurationWrapper.DataSet}" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="200" >
+            <ListView ItemsSource="{Binding Path=DataSetConfigurationWrapper.DataSet}" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="180" >
               <ListView.View>
                 <GridView>
                   <GridViewColumn Header="Symbolic Name" DisplayMemberBinding="{Binding SymbolicName}"/>
@@ -113,21 +113,11 @@
               <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
                 <TextBox Text="{Binding Path=DataSetConfigurationWrapper.AssociationName , Mode=TwoWay}"/>
               </StackPanel>
-              <Label Grid.Row="1">Association Role</Label>
-              <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" >
-                <TextBox Text="{Binding Path=AssociationRole, Mode=TwoWay}"/>
-                <GroupBox Header="AssociationRole" IsEnabled="{Binding Path=AssociationRoleGroupBoxIsEnabled}" >
-                  <StackPanel Orientation="Horizontal">
-                    <RadioButton GroupName="AssociationRole" IsChecked="{Binding Path=ConsumerRoleSelected, Mode=TwoWay}" Content="Consumer"/>
-                    <RadioButton GroupName="AssociationRole" IsChecked="{Binding Path=ProducerRoleSelected, Mode=TwoWay}" Content="Producer"/>
-                  </StackPanel>
-                </GroupBox>
-              </StackPanel>
+              <controls:AssociationRoleSelectorControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
+                                                       DataContext="{Binding Path=AssociationRoleSelectorControlViewModel}" />
             </Grid>
-            <Label Style="{StaticResource HeaderLabel}">Available Handlers</Label>
+            <Label Style="{StaticResource HeaderLabel}">Available Message Handlers</Label>
             <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
-              <ListView.Resources>
-              </ListView.Resources>
               <ListView.View>
                 <GridView>
                   <GridViewColumn Header="Associated" Width="Auto">
