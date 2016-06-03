@@ -52,8 +52,7 @@
         </DataTemplate>
       </ListView.Resources>
       <ListView.View>
-        <GridView AllowsColumnReorder="True"
-                  ColumnHeaderToolTip="Message handlers list">
+        <GridView AllowsColumnReorder="True" ColumnHeaderToolTip="Message handlers list">
           <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name, FallbackValue=?, Mode=TwoWay}"  />
           <GridViewColumn Header="Association Role" DisplayMemberBinding="{Binding Path=AssociationRole}" />
           <GridViewColumn Header="Message Channel" DisplayMemberBinding="{Binding Path=MessageChannelConfiguration}" />
