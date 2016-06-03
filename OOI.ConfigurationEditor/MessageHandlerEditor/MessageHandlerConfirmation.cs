@@ -33,8 +33,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       b_MessageHandlerConfigurationWrapper = wrapper;
       m_AssociationCouplerViewModelEnumeratorFunc = enumerator;
       AssociationCouplersEnumerator = m_AssociationCouplerViewModelEnumeratorFunc(wrapper);
-      AssociationRoleSelectorControlViewModel = new Controls.AssociationRoleSelectorControlViewModel
-        (CreateDefault, MessageHandlerConfigurationWrapper.AssociationRole, associationRoleEditable);
+      AssociationRoleSelectorControlViewModel = new Controls.AssociationRoleSelectorControlViewModel(CreateDefault, MessageHandlerConfigurationWrapper.AssociationRole, associationRoleEditable);
     }
 
 

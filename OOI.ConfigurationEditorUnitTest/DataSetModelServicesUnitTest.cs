@@ -13,8 +13,10 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Prism.Logging;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
@@ -26,7 +28,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void CreationStateTest()
     {
       ConfigurationDataRepository.SetConfigurationData = new ConfigurationData() { DataSets = new DataSetConfiguration[] { }, MessageHandlers = new MessageHandlerConfiguration[] { } };
-      DataSetModelServices _newDataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(new ConfigurationDataRepository()));
+      DataSetModelServices _newDataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(new ConfigurationDataRepository(), new LoggerFacade()));
       Assert.IsFalse(_newDataSetModelServices.DataSetExists("Dummy name"));
       IDataSetConfigurationCollection _DataSets = _newDataSetModelServices.GetDataSets();
       Assert.IsNotNull(_DataSets);
@@ -37,7 +39,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void GetDescriptionForNotExistingKeyTest()
     {
       ConfigurationDataRepository.SetConfigurationData = new ConfigurationData() { DataSets = new DataSetConfiguration[] { }, MessageHandlers = new MessageHandlerConfiguration[] { } };
-      DataSetModelServices _newDataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(new ConfigurationDataRepository()));
+      DataSetModelServices _newDataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(new ConfigurationDataRepository(), new LoggerFacade()));
       Assert.IsFalse(_newDataSetModelServices.DataSetExists("Dummy name"));
       DataSetConfigurationWrapper _config = _newDataSetModelServices.GetDescription("Dummy name");
     }
@@ -45,12 +47,19 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void AddDataSetTest()
     {
       ConfigurationDataRepository.SetConfigurationData = new ConfigurationData() { DataSets = new DataSetConfiguration[] { }, MessageHandlers = new MessageHandlerConfiguration[] { } };
-      DataSetModelServices _newDataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(new ConfigurationDataRepository()));
+      DataSetModelServices _newDataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(new ConfigurationDataRepository(), new LoggerFacade()));
       IDataSetConfigurationCollection _collection = _newDataSetModelServices.GetDataSets();
       Assert.AreEqual<int>(0, _collection.Count);
       _newDataSetModelServices.AddDataSet(DataSetConfigurationWrapper.CreateDefault());
       Assert.AreEqual<int>(1, _collection.Count);
     }
-
+    private class LoggerFacade : Prism.Logging.ILoggerFacade
+    {
+      public int LogCounter = 0;
+      public void Log(string message, Category category, Priority priority)
+      {
+        LogCounter++;
+      }
+    }
   }
 }

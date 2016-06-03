@@ -6,6 +6,8 @@ using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
 using Networking = global::UAOOI.Configuration.Networking;
 using System.IO;
+using Prism.Logging;
+using System;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
@@ -24,6 +26,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       ConfigurationDataRepository.SetConfigurationData = _newConfiguration.CurrentConfiguration;
       AggregateCatalog _catalog = new AggregateCatalog();
       _catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetAssembly(typeof(IDataSetModelServices))));
+      _catalog.Catalogs.Add(new TypeCatalog(typeof(LoggerFacade)));
       //_catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
       using (CompositionContainer _testContainer = new CompositionContainer(_catalog))
       {
@@ -53,7 +56,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.IsTrue(service.DataSetExists(_name));
       service.GetDescription(_name);
     }
-
+    [Export(typeof(ILoggerFacade))]
+    public class LoggerFacade : ILoggerFacade
+    {
+      public int LogCount = 0;
+      public void Log(string message, Category category, Priority priority)
+      {
+        LogCount++;
+      }
+    }
     [Import]
     private IDataSetModelServices DataSetModelServices { get; set; }
     [Import]
