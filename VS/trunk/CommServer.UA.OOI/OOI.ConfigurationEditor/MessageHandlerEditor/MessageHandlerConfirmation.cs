@@ -14,6 +14,7 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Controls;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using CAS.Windows.ViewModel;
 using System;
@@ -24,39 +25,21 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
   internal class MessageHandlerConfirmation : ConfirmationBindable
   {
-
+    public MessageHandlerConfirmation(Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator) :
+      this(MessageReaderConfigurationWrapper.CreateDefault(), enumerator, true)
+    { }
     public MessageHandlerConfirmation(IMessageHandlerConfigurationWrapper wrapper, Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable)
     {
       b_MessageHandlerConfigurationWrapper = wrapper;
       m_AssociationCouplerViewModelEnumeratorFunc = enumerator;
       AssociationCouplersEnumerator = m_AssociationCouplerViewModelEnumeratorFunc(wrapper);
-      AssociationRoleEditable = associationRoleEditable;
+      AssociationRoleSelectorControlViewModel = new Controls.AssociationRoleSelectorControlViewModel
+        (CreateDefault, MessageHandlerConfigurationWrapper.AssociationRole, associationRoleEditable);
     }
 
+
     #region ViewModel  API
-    public bool AssociationRoleEditable { get; private set; }
-    public AssociationRole AssociationRole
-    {
-      get
-      {
-        return MessageHandlerConfigurationWrapper.AssociationRole;
-      }
-      set
-      {
-        if (value == MessageHandlerConfigurationWrapper.AssociationRole)
-          return;
-        switch (value)
-        {
-          case AssociationRole.Consumer:
-            MessageHandlerConfigurationWrapper = MessageReaderConfigurationWrapper.CreateDefault();
-            break;
-          case AssociationRole.Producer:
-            MessageHandlerConfigurationWrapper = MessageWriterConfigurationWrapper.CreateDefault();
-            break;
-        }
-        AssociationCouplersEnumerator = m_AssociationCouplerViewModelEnumeratorFunc(MessageHandlerConfigurationWrapper);
-      }
-    }
+    public AssociationRoleSelectorControlViewModel AssociationRoleSelectorControlViewModel { get; }
     public IMessageHandlerConfigurationWrapper MessageHandlerConfigurationWrapper
     {
       get
@@ -91,9 +74,21 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 
     #region private
     private Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> m_AssociationCouplerViewModelEnumeratorFunc;
-    private string b_Title;
     private IMessageHandlerConfigurationWrapper b_MessageHandlerConfigurationWrapper;
     private IEnumerable<AssociationCouplerViewModel> b_AssociationCouplersEnumerator;
+    private void CreateDefault(AssociationRole value)
+    {
+      switch (value)
+      {
+        case AssociationRole.Consumer:
+          MessageHandlerConfigurationWrapper = MessageReaderConfigurationWrapper.CreateDefault();
+          break;
+        case AssociationRole.Producer:
+          MessageHandlerConfigurationWrapper = MessageWriterConfigurationWrapper.CreateDefault();
+          break;
+      }
+      AssociationCouplersEnumerator = m_AssociationCouplerViewModelEnumeratorFunc(MessageHandlerConfigurationWrapper);
+    }
     #endregion
 
   }
