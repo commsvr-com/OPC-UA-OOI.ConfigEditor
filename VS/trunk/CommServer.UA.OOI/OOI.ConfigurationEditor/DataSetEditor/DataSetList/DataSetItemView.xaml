@@ -7,6 +7,7 @@
              xmlns:model="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel"
              xmlns:controls="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.Controls"
              xmlns:windows="clr-namespace:CAS.Windows.Controls;assembly=CAS.Windows"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" 
              ScrollViewer.VerticalScrollBarVisibility="Auto" 
@@ -125,9 +126,17 @@
             </Grid>
             <Label Style="{StaticResource HeaderLabel}">Available Handlers</Label>
             <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
+              <ListView.Resources>
+              </ListView.Resources>
               <ListView.View>
                 <GridView>
-                  <GridViewColumn Header="Associated" DisplayMemberBinding="{Binding Path=Associated, Mode=TwoWay }" Width="Auto"  />
+                  <GridViewColumn Header="Associated" Width="Auto">
+                    <GridViewColumn.CellTemplate>
+                      <DataTemplate DataType="{x:Type system:Boolean}">
+                        <CheckBox IsChecked="{Binding Path=Associated, Mode=TwoWay}"/>
+                      </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                  </GridViewColumn>
                   <GridViewColumn Header="Message Handler" DisplayMemberBinding="{Binding Path=AssociationCouplerTitle, Mode=OneWay }" Width="Auto" />
                 </GridView>
               </ListView.View>
