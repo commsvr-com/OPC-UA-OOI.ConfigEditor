@@ -31,7 +31,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     /// Initializes a new instance of the <see cref="MessageHandlerConfirmation"/> class.
     /// </summary>
     /// <param name="enumerator">The enumerator.</param>
-    internal MessageHandlerConfirmation(Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator) :
+    internal MessageHandlerConfirmation(Func<IMessageHandlerConfigurationWrapper, AssociationCouplerViewModel[]> enumerator) :
       this(MessageReaderConfigurationWrapper.CreateDefault(), enumerator, true)
     { }
     /// <summary>
@@ -40,7 +40,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     /// <param name="wrapper">The wrapper.</param>
     /// <param name="enumerator">The enumerator.</param>
     /// <param name="associationRoleEditable">if set to <c>true</c> [association role editable].</param>
-    internal MessageHandlerConfirmation(IMessageHandlerConfigurationWrapper wrapper, Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable)
+    internal MessageHandlerConfirmation(IMessageHandlerConfigurationWrapper wrapper, Func<IMessageHandlerConfigurationWrapper, AssociationCouplerViewModel[]> enumerator, bool associationRoleEditable)
     {
       b_MessageHandlerConfigurationWrapper = wrapper;
       m_AssociationCouplerViewModelEnumeratorFunc = enumerator;

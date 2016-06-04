@@ -181,11 +181,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     [PartCreationPolicy(CreationPolicy.Shared)]
     private class TestAssociationServices : ViewModel.IAssociationServices
     {
-      public IEnumerable<AssociationCouplerViewModel> GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper)
+      public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper)
       {
         throw new NotImplementedException();
       }
-      public IEnumerable<AssociationCouplerViewModel> GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper dataset)
+      public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper dataset)
       {
         return new AssociationCouplerViewModel[] { new AssociationCouplerViewModel(new AssociationCoupler(() => false, x => { }, "MessageHandlerName")  )};
       }

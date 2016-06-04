@@ -25,17 +25,17 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
   {
 
     /// <summary>
-    /// Gets the <see cref="IEnumerable{T}"/> of all candidates <see cref="AssociationCouplerViewModel"/> that can be associated with <paramref name="wrapper"/>
+    /// Gets the array of all candidates <see cref="AssociationCouplerViewModel"/> that can be associated with <paramref name="wrapper"/>
     /// </summary>
-    /// <param name="wrapper">The wrapper.</param>
-    /// <returns>All available <see cref="AssociationCouplerViewModel"/> as the <see cref="IEnumerable{T}"/>.</returns>
-    IEnumerable<AssociationCouplerViewModel> GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper wrapper);
+    /// <param name="wrapper">The wrapper <see cref="DataSetConfigurationWrapper"/>.</param>
+    /// <returns>All available <see cref="AssociationCouplerViewModel"/>.</returns>
+    AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper wrapper);
     /// <summary>
-    /// Gets the <see cref="IEnumerable{T}"/> of all candidates <see cref="AssociationCouplerViewModel"/> that can be associated with <paramref name="wrapper"/>
+    /// Gets the array of all candidates <see cref="AssociationCouplerViewModel"/> that can be associated with <paramref name="wrapper"/>
     /// </summary>
-    /// <param name="wrapper">The wrapper.</param>
-    /// <returns>All available <see cref="AssociationCouplerViewModel"/> as the <see cref="IEnumerable{T}"/>.</returns>
-    IEnumerable<AssociationCouplerViewModel> GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper);
+    /// <param name="wrapper">The wrapper <see cref="IMessageHandlerConfigurationWrapper"/>.</param>
+    /// <returns>All available <see cref="AssociationCouplerViewModel"/>.</returns>
+    AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper);
 
   }
 }
