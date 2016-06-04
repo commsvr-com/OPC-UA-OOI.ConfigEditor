@@ -67,12 +67,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     [Export(typeof(IAssociationServices))]
     private class TestAssociationServices : IAssociationServices
     {
-      public IEnumerable<AssociationCouplerViewModel> GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper)
+      public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper)
       {
         throw new NotImplementedException();
       }
-
-      public IEnumerable<AssociationCouplerViewModel> GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper wrapper)
+      public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper wrapper)
       {
         throw new NotImplementedException();
       }

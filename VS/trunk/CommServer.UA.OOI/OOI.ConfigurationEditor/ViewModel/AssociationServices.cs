@@ -46,17 +46,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
 
     #region IAssociationServices
     /// <summary>
-    /// Gets the <see cref="IEnumerable{T}" /> of all candidates <see cref="AssociationCouplerViewModel" /> that can be associated with <paramref name="wrapper" />
+    /// Gets the array of all candidates <see cref="AssociationCouplerViewModel" /> that can be associated with <paramref name="wrapper" />
     /// </summary>
-    /// <param name="wrapper">The wrapper.</param>
-    /// <remarks>
-    /// Implements <see cref="IAssociationServices"/>
-    /// </remarks>
-    /// <returns>All available <see cref="AssociationCouplerViewModel" /> as the <see cref="IEnumerable{T}" />.</returns>
-    public IEnumerable<AssociationCouplerViewModel> GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper wrapper)
+    /// <param name="wrapper">The wrapper <see cref="DataSetConfigurationWrapper" />.</param>
+    /// <returns>All available <see cref="AssociationCouplerViewModel" />.</returns>
+    public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper wrapper)
     {
-      return m_MessageHandlerModelServices.GetMessageHandlers(wrapper.AssociationRole).Select<IMessageHandlerConfigurationWrapper, AssociationCouplerViewModel>
-            (mhc => new AssociationCouplerViewModel(new AssociationCoupler(() => mhc.Check(wrapper), associate => mhc.Associate(associate, wrapper), mhc.ToString())));
+      return m_MessageHandlerModelServices.GetMessageHandlers(wrapper.AssociationRole).
+        Select<IMessageHandlerConfigurationWrapper, AssociationCouplerViewModel>(mhc => new AssociationCouplerViewModel(new AssociationCoupler(() => mhc.Check(wrapper), associate => mhc.Associate(associate, wrapper), mhc.ToString()))).
+        ToArray<AssociationCouplerViewModel>();
     }
     /// <summary>
     /// Gets the <see cref="IEnumerable{T}" /> of all candidates <see cref="AssociationCouplerViewModel" /> that can be associated with <paramref name="wrapper" />
@@ -66,10 +64,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
     /// Implements <see cref="IAssociationServices"/>
     /// </remarks>
     /// <returns>All available <see cref="AssociationCouplerViewModel" /> as the <see cref="IEnumerable{T}" />.</returns>
-    public IEnumerable<AssociationCouplerViewModel> GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper)
+    public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper)
     {
-      return m_DataSetsServices.GetDataSets(wrapper.TransportRole).Select<DataSetConfigurationWrapper, AssociationCouplerViewModel>
-          (dsc => new AssociationCouplerViewModel(new AssociationCoupler(() => wrapper.Check(dsc), associated => wrapper.Associate(associated, dsc), dsc.ToString())));
+      return m_DataSetsServices.GetDataSets(wrapper.TransportRole).
+        Select<DataSetConfigurationWrapper, AssociationCouplerViewModel>(dsc => new AssociationCouplerViewModel(new AssociationCoupler(() => wrapper.Check(dsc), associated => wrapper.Associate(associated, dsc), dsc.ToString()))).
+        ToArray<AssociationCouplerViewModel>();
     }
     #endregion
 

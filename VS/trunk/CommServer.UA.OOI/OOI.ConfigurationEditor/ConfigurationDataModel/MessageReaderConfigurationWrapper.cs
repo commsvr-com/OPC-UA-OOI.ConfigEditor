@@ -96,13 +96,14 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
         AssociationConfiguration = AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName != dataset.AssociationName).ToArray<ConsumerAssociationConfigurationWrapper>();
     }
     /// <summary>
-    /// Checks the specified dataset.
+    /// Checks if the selected <paramref name="dataSet" /> is associated (handled) by this instance.
     /// </summary>
-    /// <param name="dataset">The dataset.</param>
-    /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
-    public override bool Check(DataSetConfigurationWrapper dataset)
+    /// <param name="dataSet">The dataset.</param>
+    /// <returns><c>true</c> if the selected <paramref name="dataSet" /> is in collection handled by this instance, <c>false</c> otherwise.</returns>
+    /// <exception cref="System.NotImplementedException"></exception>
+    public override bool Check(DataSetConfigurationWrapper dataSet)
     {
-      return AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName == dataset.AssociationName).Any<ConsumerAssociationConfigurationWrapper>();
+      return AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName == dataSet.AssociationName).Any<ConsumerAssociationConfigurationWrapper>();
     }
     #endregion
 
