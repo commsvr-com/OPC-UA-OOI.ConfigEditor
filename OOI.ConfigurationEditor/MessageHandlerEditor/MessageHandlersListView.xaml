@@ -42,9 +42,9 @@
 
           </DataTemplate.Triggers>
           <StackPanel Orientation="Horizontal">
-            <TextBox Text="{Binding AssociationName }"></TextBox>
-            <TextBox Text="{Binding PublisherId}"></TextBox>
-            <TextBox Text="{Binding DataSetWriterId }"></TextBox>
+            <TextBox Text="{Binding AssociationName }" ToolTip="AssociationName"></TextBox>
+            <TextBox Text="{Binding PublisherId}" ToolTip="PublisherId"></TextBox>
+            <TextBox Text="{Binding DataSetWriterId }" ToolTip="DataSetWriterId" ></TextBox>
           </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="AssociationNameDataTemplate"  DataType="{x:Type model:ConsumerAssociationConfigurationWrapper[]}">
@@ -54,8 +54,8 @@
       <ListView.View>
         <GridView AllowsColumnReorder="True" ColumnHeaderToolTip="Message handlers list">
           <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name, FallbackValue=?, Mode=TwoWay}"  />
-          <GridViewColumn Header="Association Role" DisplayMemberBinding="{Binding Path=AssociationRole}" />
-          <GridViewColumn Header="Message Channel" DisplayMemberBinding="{Binding Path=MessageChannelConfiguration}" />
+          <GridViewColumn Header="Transport Role" DisplayMemberBinding="{Binding Path=AssociationRole}" />
+          <GridViewColumn Header="Channel" DisplayMemberBinding="{Binding Path=MessageChannelConfiguration, Mode=TwoWay}" />
           <GridViewColumn Header="Association" CellTemplate="{StaticResource AssociationNameDataTemplate}" />
         </GridView>
       </ListView.View>

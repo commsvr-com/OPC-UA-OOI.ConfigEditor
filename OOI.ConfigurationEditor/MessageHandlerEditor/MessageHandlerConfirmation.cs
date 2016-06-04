@@ -25,20 +25,40 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
   internal class MessageHandlerConfirmation : ConfirmationBindable
   {
-    public MessageHandlerConfirmation(Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator) :
+
+    #region creators
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MessageHandlerConfirmation"/> class.
+    /// </summary>
+    /// <param name="enumerator">The enumerator.</param>
+    internal MessageHandlerConfirmation(Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator) :
       this(MessageReaderConfigurationWrapper.CreateDefault(), enumerator, true)
     { }
-    public MessageHandlerConfirmation(IMessageHandlerConfigurationWrapper wrapper, Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MessageHandlerConfirmation"/> class.
+    /// </summary>
+    /// <param name="wrapper">The wrapper.</param>
+    /// <param name="enumerator">The enumerator.</param>
+    /// <param name="associationRoleEditable">if set to <c>true</c> [association role editable].</param>
+    internal MessageHandlerConfirmation(IMessageHandlerConfigurationWrapper wrapper, Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable)
     {
       b_MessageHandlerConfigurationWrapper = wrapper;
       m_AssociationCouplerViewModelEnumeratorFunc = enumerator;
       AssociationCouplersEnumerator = m_AssociationCouplerViewModelEnumeratorFunc(wrapper);
-      AssociationRoleSelectorControlViewModel = new Controls.AssociationRoleSelectorControlViewModel(CreateDefault, MessageHandlerConfigurationWrapper.AssociationRole, associationRoleEditable);
+      AssociationRoleSelectorControlViewModel = new Controls.AssociationRoleSelectorControlViewModel(CreateDefault, MessageHandlerConfigurationWrapper.TransportRole, associationRoleEditable);
     }
-
+    #endregion
 
     #region ViewModel  API
+    /// <summary>
+    /// Gets the association role selector control view model.
+    /// </summary>
+    /// <value>The association role selector control view model.</value>
     public AssociationRoleSelectorControlViewModel AssociationRoleSelectorControlViewModel { get; }
+    /// <summary>
+    /// Gets or sets the message handler configuration wrapper.
+    /// </summary>
+    /// <value>The message handler configuration wrapper.</value>
     public IMessageHandlerConfigurationWrapper MessageHandlerConfigurationWrapper
     {
       get
@@ -50,6 +70,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
         SetProperty<IMessageHandlerConfigurationWrapper>(ref b_MessageHandlerConfigurationWrapper, value);
       }
     }
+    /// <summary>
+    /// Gets or sets the association couplers enumerator.
+    /// </summary>
+    /// <value>The association couplers enumerator.</value>
     public IEnumerable<AssociationCouplerViewModel> AssociationCouplersEnumerator
     {
       get
@@ -63,6 +87,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     }
     #endregion
 
+    #region internal API
+    /// <summary>
+    /// Reverts this instance to the initial state.
+    /// </summary>
     internal void Revert()
     {
       if (AssociationCouplersEnumerator == null)
@@ -70,11 +98,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       foreach (var _item in AssociationCouplersEnumerator)
         _item.Revert();
     }
+    #endregion
 
     #region private
-    private Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> m_AssociationCouplerViewModelEnumeratorFunc;
+    //backing variables
     private IMessageHandlerConfigurationWrapper b_MessageHandlerConfigurationWrapper;
     private IEnumerable<AssociationCouplerViewModel> b_AssociationCouplersEnumerator;
+    private Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> m_AssociationCouplerViewModelEnumeratorFunc;
     private void CreateDefault(AssociationRole value)
     {
       switch (value)

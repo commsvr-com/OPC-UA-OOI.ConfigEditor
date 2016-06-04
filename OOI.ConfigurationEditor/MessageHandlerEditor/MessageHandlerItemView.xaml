@@ -46,7 +46,13 @@
             <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
               <ListView.View>
                 <GridView>
-                  <GridViewColumn Header="Associated" DisplayMemberBinding="{Binding Path=Associated, Mode=TwoWay }" Width="Auto"  />
+                  <GridViewColumn Header="Associated">
+                    <GridViewColumn.CellTemplate>
+                      <DataTemplate>
+                        <CheckBox IsChecked="{Binding Path=Associated, Mode=TwoWay }" Width="Auto"/>
+                      </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                  </GridViewColumn>
                   <GridViewColumn Header="Message Handler" DisplayMemberBinding="{Binding Path=AssociationCouplerTitle, Mode=OneWay }" Width="Auto" />
                 </GridView>
               </ListView.View>

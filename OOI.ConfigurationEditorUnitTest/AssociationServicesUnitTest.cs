@@ -111,7 +111,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 
       public IEnumerable<IMessageHandlerConfigurationWrapper> GetMessageHandlers(AssociationRole associationRole)
       {
-        if (associationRole != m_Wrapper.AssociationRole)
+        if (associationRole != m_Wrapper.TransportRole)
           throw new ArgumentOutOfRangeException(nameof(associationRole));
         return new IMessageHandlerConfigurationWrapper[] { m_Wrapper };
       }

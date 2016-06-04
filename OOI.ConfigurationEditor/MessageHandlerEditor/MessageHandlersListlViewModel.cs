@@ -26,10 +26,21 @@ using System.Windows.Input;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
+  /// <summary>
+  /// Class MessageHandlersListViewModel - view model used as the interface to access the data by the GUI.
+  /// </summary>
+  /// <seealso cref="Prism.Mvvm.BindableBase" />
   [Export(typeof(MessageHandlersListViewModel))]
   internal class MessageHandlersListViewModel : BindableBase
   {
 
+    #region Importing Constructor
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MessageHandlersListViewModel"/> class.
+    /// </summary>
+    /// <param name="associationServices">The association services.</param>
+    /// <param name="messageHandlerServices">The message handler services.</param>
+    /// <param name="loggerFacade">The logger services.</param>
     [ImportingConstructor()]
     public MessageHandlersListViewModel(IAssociationServices associationServices, IMessageHandlerServices messageHandlerServices, ILoggerFacade loggerFacade)
     {
@@ -44,8 +55,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       SetCanExecuteButtonState();
       loggerFacade.Log($"Created {nameof(MessageHandlersListViewModel)}", Category.Debug, Priority.Low);
     }
+    #endregion
 
-
+    #region GUI API
     public MessageHandlerConfigurationCollection MessageHandlesList
     {
       get { return b_MessageHandlesList; }
@@ -66,7 +78,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     public ICommand RemoveCommand { get; private set; }
     public IInteractionRequest AddRequest { get { return b_AddRequest; } }
     public IInteractionRequest EditRequest { get { return b_EditRequest; } }
+    #endregion
 
+    #region private
     //vars
     private readonly IAssociationServices m_AssociationServices;
     private IMessageHandlerServices m_MessageHandlerServices;
@@ -85,9 +99,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     //handlers
     private void AddCommandHandler()
     {
-      MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation( m_AssociationServices.GetAssociationCouplerViewModelEnumerator) { Title = "New Message Handler" };
+      MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(m_AssociationServices.GetAssociationCouplerViewModelEnumerator) { Title = "New Message Handler" };
       bool _confirmed = false;
-      b_AddRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
+      b_AddRequest.Raise(_confirmation, x => _confirmed = x.Confirmed);
       if (_confirmed)
         m_MessageHandlerServices.AddMessageHandler(_confirmation.MessageHandlerConfigurationWrapper);
       else
@@ -97,9 +111,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     {
       if (CurrentMessageHandler == null) //double check
         return;
-      MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(CurrentMessageHandler, m_AssociationServices.GetAssociationCouplerViewModelEnumerator, false) { Title = "New Message Handler" };
+      MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(CurrentMessageHandler, m_AssociationServices.GetAssociationCouplerViewModelEnumerator, false) { Title = "Edit Message Handler" };
       bool _confirmed = false;
-      b_AddRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
+      b_AddRequest.Raise(_confirmation, x => _confirmed = x.Confirmed);
       if (!_confirmed)
         _confirmation.Revert();
     }
@@ -115,6 +129,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
         return;
       this.m_MessageHandlerServices.Remove(CurrentMessageHandler);
     }
+    #endregion
 
   }
 }
