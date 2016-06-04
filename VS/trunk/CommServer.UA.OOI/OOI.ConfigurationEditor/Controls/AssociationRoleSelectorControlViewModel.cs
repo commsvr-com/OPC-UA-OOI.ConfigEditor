@@ -20,15 +20,19 @@ using Serialization = global::UAOOI.Configuration.Networking.Serialization;
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Controls
 {
   /// <summary>
-  /// Class AssociationRoleSelectorControlViewModel - View Model of the control.
+  /// Class AssociationRoleSelectorControlViewModel - View Model of the control <see cref="AssociationRoleSelectorControl"/>.
   /// </summary>
   public class AssociationRoleSelectorControlViewModel: Bindable
   {
+
+    #region creater
     /// <summary>
-    /// Initializes a new instance of the <see cref="AssociationRoleSelectorControlViewModel"/> class.
+    /// Initializes a new instance of the <see cref="AssociationRoleSelectorControlViewModel" /> class.
     /// </summary>
     /// <param name="associationRoleChangeAction">The association role change action encapsulating inverting control to change the value of the role.</param>
-    public AssociationRoleSelectorControlViewModel( Action<Serialization.AssociationRole> associationRoleChangeAction, Serialization.AssociationRole role, bool isEnabled)
+    /// <param name="role">The role of the couple.</param>
+    /// <param name="isEnabled">if set to <c>true</c> the control is editable, <c>false</c> othervise.</param>
+    public AssociationRoleSelectorControlViewModel(Action<Serialization.AssociationRole> associationRoleChangeAction, Serialization.AssociationRole role, bool isEnabled)
     {
       m_AssociationRoleChangeAction = associationRoleChangeAction;
       b_AssociationRoleGroupBoxIsEnabled = isEnabled;
@@ -43,6 +47,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Controls
         b_ProducerRoleSelected = true;
       }
     }
+    #endregion
+
     #region UI API
     /// <summary>
     /// Gets or sets a value indicating whether producer role is selected.

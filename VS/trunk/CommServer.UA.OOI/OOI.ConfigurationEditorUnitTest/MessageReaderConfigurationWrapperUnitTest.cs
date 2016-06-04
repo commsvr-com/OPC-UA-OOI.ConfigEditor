@@ -24,7 +24,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       MessageReaderConfigurationWrapper _mw = new MessageReaderConfigurationWrapper(_configuration);
       Assert.IsNotNull(_mw.AssociationConfiguration);
       Assert.AreEqual<int>(1, _mw.AssociationConfiguration.Length);
-      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _mw.AssociationRole);
+      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _mw.TransportRole);
       Assert.AreSame(_channel, _mw.MessageChannelConfiguration.GetConfiguration());
       Assert.AreEqual<string>("Name", _mw.Name);
       Assert.IsTrue(_mw.Check(new DataSetConfigurationWrapper(new DataSetConfiguration() { AssociationName = "AssociationName", DataSet = new FieldMetaData[] { }  })));
@@ -51,7 +51,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       MessageReaderConfigurationWrapper _default = MessageReaderConfigurationWrapper.CreateDefault();
       Assert.IsNotNull(_default);
       Assert.IsNotNull(_default.AssociationConfiguration);
-      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _default.AssociationRole);
+      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _default.TransportRole);
       Assert.IsNotNull(_default.Item);
       Assert.IsNotNull(_default.MessageChannelConfiguration);
       Assert.IsFalse(string.IsNullOrEmpty(_default.Name));

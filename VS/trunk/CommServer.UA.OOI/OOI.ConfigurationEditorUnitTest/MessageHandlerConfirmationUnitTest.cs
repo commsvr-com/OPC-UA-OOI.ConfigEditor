@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
@@ -55,19 +54,19 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       int _raised = 0;
       _confirmation.PropertyChanged += (x, y) => _raised++;
       Assert.IsNotNull(_confirmation.MessageHandlerConfigurationWrapper);
-      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _confirmation.MessageHandlerConfigurationWrapper.AssociationRole);
+      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _confirmation.MessageHandlerConfigurationWrapper.TransportRole);
       Assert.IsInstanceOfType(_confirmation.MessageHandlerConfigurationWrapper, typeof(MessageReaderConfigurationWrapper));
       _confirmation.AssociationRoleSelectorControlViewModel.ConsumerRoleSelected = true;
       _confirmation.AssociationRoleSelectorControlViewModel.ProducerRoleSelected = false;
       Assert.AreEqual<int>(0, _raised); //the same value assigned to AssociationRole must not raise the event
       Assert.AreEqual<int>(1, _enumeratorCalled);
-      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _confirmation.MessageHandlerConfigurationWrapper.AssociationRole);
+      Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _confirmation.MessageHandlerConfigurationWrapper.TransportRole);
       Assert.IsInstanceOfType(_confirmation.MessageHandlerConfigurationWrapper, typeof(MessageReaderConfigurationWrapper));
       _confirmation.AssociationRoleSelectorControlViewModel.ConsumerRoleSelected = false;
       _confirmation.AssociationRoleSelectorControlViewModel.ProducerRoleSelected = true;
       Assert.AreEqual<int>(2, _raised); //new value of AssociationRole must raise the event
       Assert.AreEqual<int>(2, _enumeratorCalled);
-      Assert.AreEqual<AssociationRole>(AssociationRole.Producer, _confirmation.MessageHandlerConfigurationWrapper.AssociationRole);
+      Assert.AreEqual<AssociationRole>(AssociationRole.Producer, _confirmation.MessageHandlerConfigurationWrapper.TransportRole);
       Assert.IsInstanceOfType(_confirmation.MessageHandlerConfigurationWrapper, typeof(MessageWriterConfigurationWrapper));
     }
     [TestMethod]

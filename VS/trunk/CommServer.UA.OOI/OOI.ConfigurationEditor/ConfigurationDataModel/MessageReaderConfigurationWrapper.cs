@@ -23,11 +23,23 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
   /// <summary>
   /// Class MessageReaderConfigurationWrapper.
   /// </summary>
-  /// <seealso cref="CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel.MessageHandlerConfigurationWrapper{UAOOI.Configuration.Networking.Serialization.MessageReaderConfiguration}" />
+  /// <seealso cref="MessageHandlerConfigurationWrapper{MessageReaderConfiguration}" />
   public class MessageReaderConfigurationWrapper : MessageHandlerConfigurationWrapper<MessageReaderConfiguration>
   {
 
+    #region constructors
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MessageReaderConfigurationWrapper"/> class.
+    /// </summary>
+    /// <param name="configuration">The configuration.</param>
     public MessageReaderConfigurationWrapper(MessageReaderConfiguration configuration) : base(configuration) { }
+    #endregion
+
+    #region API
+    /// <summary>
+    /// Gets or sets the associations of this instance.
+    /// </summary>
+    /// <value>The associations established for this instance.</value>
     public ConsumerAssociationConfigurationWrapper[] AssociationConfiguration
     {
       get
@@ -46,8 +58,29 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
                                                                        );
       }
     }
+    /// <summary>
+    /// Creates the default instance of the <see cref="MessageReaderConfigurationWrapper"/>.
+    /// </summary>
+    /// <returns>MessageReaderConfigurationWrapper.</returns>
+    internal static MessageReaderConfigurationWrapper CreateDefault()
+    {
+      MessageReaderConfiguration _ReaderConfig = new MessageReaderConfiguration
+      {
+        Configuration = null,
+        Name = "Message Reader",
+        ConsumerAssociationConfigurations = new ConsumerAssociationConfiguration[] { },
+        TransportRole = AssociationRole.Consumer
+      };
+      return new MessageReaderConfigurationWrapper(_ReaderConfig);
+    }
+    #endregion
 
     #region MessageHandlerConfigurationWrapper<MessageReaderConfiguration>
+    /// <summary>
+    /// Creates or removes association with the specified <paramref name="dataset" />.
+    /// </summary>
+    /// <param name="associate">if set to <c>true</c> the <paramref name="dataset" /> shall be associated.</param>
+    /// <param name="dataset">The dataset to be associated.</param>
     public override void Associate(bool associate, DataSetConfigurationWrapper dataset)
     {
       if (associate)
@@ -62,22 +95,16 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       else
         AssociationConfiguration = AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName != dataset.AssociationName).ToArray<ConsumerAssociationConfigurationWrapper>();
     }
+    /// <summary>
+    /// Checks the specified dataset.
+    /// </summary>
+    /// <param name="dataset">The dataset.</param>
+    /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
     public override bool Check(DataSetConfigurationWrapper dataset)
     {
       return AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName == dataset.AssociationName).Any<ConsumerAssociationConfigurationWrapper>();
     }
     #endregion
-    internal static MessageReaderConfigurationWrapper CreateDefault()
-    {
-      MessageReaderConfiguration _ReaderConfig = new MessageReaderConfiguration
-      {
-        Configuration = null,
-        Name = "Message Reader",
-        ConsumerAssociationConfigurations = new ConsumerAssociationConfiguration[] { },
-        TransportRole = AssociationRole.Consumer
-      };
-      return new MessageReaderConfigurationWrapper(_ReaderConfig);
-    }
 
   }
 }

@@ -151,8 +151,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AssemblyInfo.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\AssociationCouple.cs" />
-    <Compile Include="ViewModel\IAssociationCouple.cs" />
+    <Compile Include="ViewModel\AssociationCoupler.cs" />
+    <Compile Include="ViewModel\IAssociationCoupler.cs" />
     <Compile Include="ViewModel\AssociationCouplerViewModel.cs" />
     <Compile Include="EnterpriseLibraryLoggerAdapter.cs" />
     <Compile Include="HostingApplication.xaml.cs">

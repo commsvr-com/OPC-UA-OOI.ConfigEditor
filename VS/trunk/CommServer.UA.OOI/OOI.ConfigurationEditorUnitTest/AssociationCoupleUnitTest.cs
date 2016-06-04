@@ -27,10 +27,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void AfterCreationTest()
     {
       bool _associated = false;
-      AssociationCouple _couple = new AssociationCouple(() => _associated, x => _associated = x, "Title");
+      AssociationCoupler _couple = new AssociationCoupler(() => _associated, x => _associated = x, "Title");
       Assert.IsFalse(_couple.Associated);
       _couple.Associated = true;
       Assert.IsTrue(_associated);
+      Assert.IsTrue(_couple.Associated);
       Assert.AreEqual<string>("Title", _couple.Title);
     }
 
@@ -38,7 +39,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void RevertTest()
     {
       bool _associated = false;
-      AssociationCouple _couple = new AssociationCouple(() => _associated, x => _associated = x, "");
+      AssociationCoupler _couple = new AssociationCoupler(() => _associated, x => _associated = x, "");
       Assert.IsFalse(_couple.Associated);
       _couple.Associated = true;
       Assert.IsTrue(_associated);

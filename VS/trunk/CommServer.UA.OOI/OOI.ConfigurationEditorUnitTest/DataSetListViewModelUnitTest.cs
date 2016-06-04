@@ -15,7 +15,6 @@ using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using UAOOI.Configuration.Networking.Serialization;
 using Networking = global::UAOOI.Configuration.Networking;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
@@ -188,7 +187,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       }
       public IEnumerable<AssociationCouplerViewModel> GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper dataset)
       {
-        return new AssociationCouplerViewModel[] { new AssociationCouplerViewModel(new AssociationCouple(() => false, x => { }, "MessageHandlerName")  )};
+        return new AssociationCouplerViewModel[] { new AssociationCouplerViewModel(new AssociationCoupler(() => false, x => { }, "MessageHandlerName")  )};
       }
     }
     private class TestView

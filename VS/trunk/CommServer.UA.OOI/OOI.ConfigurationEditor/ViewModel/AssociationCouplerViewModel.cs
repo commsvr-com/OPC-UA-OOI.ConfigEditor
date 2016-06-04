@@ -24,10 +24,16 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
   public class AssociationCouplerViewModel : Bindable
   {
 
-    internal AssociationCouplerViewModel(IAssociationCouple coupler)
+    #region constructor
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AssociationCouplerViewModel"/> class.
+    /// </summary>
+    /// <param name="coupler">The coupler.</param>
+    internal AssociationCouplerViewModel(IAssociationCoupler coupler)
     {
       m_Coupler = coupler;
     }
+    #endregion
 
     #region ViewModel API.
     /// <summary>
@@ -42,7 +48,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
       }
       set
       {
-        SetProperty<bool>(m_Coupler.Associated, x => m_Coupler.Associated = value, value);
+        SetProperty<bool>(m_Coupler.Associated, x => m_Coupler.Associated = x, value);
       }
     }
     /// <summary>
@@ -58,13 +64,16 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
     }
     #endregion
 
+    /// <summary>
+    /// Reverts the associated <see cref="IAssociationCoupler"/> instance to the initial state.
+    /// </summary>
     internal void Revert()
     {
       m_Coupler.Revert();
     }
 
     #region private
-    private IAssociationCouple m_Coupler;
+    private IAssociationCoupler m_Coupler;
     #endregion
 
   }

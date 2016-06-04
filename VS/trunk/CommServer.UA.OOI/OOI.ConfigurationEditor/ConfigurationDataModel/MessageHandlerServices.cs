@@ -27,7 +27,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     }
     public IEnumerable<IMessageHandlerConfigurationWrapper> GetMessageHandlers(AssociationRole associationRole)
     {
-      return m_Configuration.Where<IMessageHandlerConfigurationWrapper>(x => x.AssociationRole == associationRole);
+      return m_Configuration.Where<IMessageHandlerConfigurationWrapper>(x => x.TransportRole == associationRole);
     }
     public void AddMessageHandler(IMessageHandlerConfigurationWrapper item)
     {
