@@ -87,7 +87,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       {
         if (Check(dataset))
           return;
-        ConsumerAssociationConfigurationWrapper _wrapper = ConsumerAssociationConfigurationWrapper.GetDefault(dataset.AssociationName);
+        ConsumerAssociationConfigurationWrapper _wrapper = ConsumerAssociationConfigurationWrapper.GetDefault(dataset);
         List<ConsumerAssociationConfigurationWrapper> _associations = new List<ConsumerAssociationConfigurationWrapper>(AssociationConfiguration);
         _associations.Add(_wrapper);
         AssociationConfiguration = _associations.ToArray<ConsumerAssociationConfigurationWrapper>();

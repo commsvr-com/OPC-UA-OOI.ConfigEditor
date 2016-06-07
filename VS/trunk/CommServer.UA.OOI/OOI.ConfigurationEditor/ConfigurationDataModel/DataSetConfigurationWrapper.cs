@@ -54,14 +54,18 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       set
       {
         base.SetProperty<ConfigurationVersionDataTypeWrapper>
-      (x => base.Item.ConfigurationVersion = new ConfigurationVersionDataType() { MajorVersion = x.MajorVersion, MinorVersion = x.MinorVersion }, value);
+          (x => base.Item.ConfigurationVersion = new ConfigurationVersionDataType() { MajorVersion = x.MajorVersion, MinorVersion = x.MinorVersion }, value);
       }
     }
     public FieldMetaDataCollection DataSet { get; private set; }
     public string SymbolicName
     {
       get { return base.Item.DataSymbolicName; }
-      set { base.SetProperty<string>(base.Item.DataSymbolicName, x => base.Item.DataSymbolicName = x, value); }
+      set
+      {
+        if (base.SetProperty<string>(base.Item.DataSymbolicName, x => base.Item.DataSymbolicName = x, value))
+          DefaultDataSetWriterId = GetDefaultDataSetWriterId();
+      }
     }
     public Guid Id
     {
@@ -105,6 +109,17 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       set
       {
         SetProperty<string>(base.Item.RepositoryGroup, x => base.Item.RepositoryGroup = x, value);
+      }
+    }
+    public ushort DefaultDataSetWriterId
+    {
+      get
+      {
+        return b_DefaultDataSetWriterId;
+      }
+      set
+      {
+        SetProperty<ushort>(ref b_DefaultDataSetWriterId, value);
       }
     }
     #endregion
@@ -152,6 +167,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     //private
     private DataSetConfigurationWrapper() : base(new DataSetConfiguration()) { }
     private static int m_UniqueNameId = Convert.ToInt32(new Random().NextDouble() * int.MaxValue);
+    private ushort b_DefaultDataSetWriterId;
+    private ushort GetDefaultDataSetWriterId()
+    {
+      int _hashLong = Math.Abs(SymbolicName.GetHashCode());
+      DefaultDataSetWriterId = Convert.ToUInt16(_hashLong < ushort.MaxValue ? _hashLong : _hashLong / ushort.MaxValue);
+      return DefaultDataSetWriterId;
+    }
   }
 
 }

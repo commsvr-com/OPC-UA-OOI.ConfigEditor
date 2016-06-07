@@ -14,7 +14,6 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
-using System.Collections.Generic;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
 {
