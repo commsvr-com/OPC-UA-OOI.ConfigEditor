@@ -49,33 +49,27 @@
         </Style>
       </DataTemplate.Resources>
       <StackPanel >
-        <Grid>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-          </Grid.RowDefinitions>
-
-          <Label Grid.Row="0" Grid.Column="0" >Information Model URI</Label>
-          <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
-            <Label Content="{Binding Path=DataSetConfigurationWrapper.InformationModelURI}"/>
-          </StackPanel>
-
-          <Label Grid.Row="1" Grid.Column="0" >Symbolic Name</Label>
-          <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
-            <TextBox Text="{Binding Path=DataSetConfigurationWrapper.SymbolicName, Mode=TwoWay}"/>
-          </StackPanel>
-
-          <Label Grid.Row="2" Grid.Column="0" >Unique Identifier</Label>
-          <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" >
-            <Label Content="{Binding Path=DataSetConfigurationWrapper.Id}"/>
-          </StackPanel>
-        </Grid>
+        <controls:ParametersGroup>
+          <controls:ParametersGroup.Content>
+            <Grid  >
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+              <Label Grid.Row="0" Grid.Column="0" >Information Model URI</Label>
+              <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=DataSetConfigurationWrapper.InformationModelURI}"/>
+              <Label Grid.Row="0" Grid.Column="2" Content="{Binding Path=DataSetConfigurationWrapper.Id}" ToolTip="Unique Identifier PublisherID" Background="Pink"/>
+              <Label Grid.Row="1" Grid.Column="0" >Symbolic Name</Label>
+              <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=DataSetConfigurationWrapper.SymbolicName, Mode=TwoWay}" VerticalAlignment="Center"/>
+              <Label Grid.Row="1" Grid.Column="2" Content="{Binding Path=DataSetConfigurationWrapper.DefaultDataSetWriterId}" ToolTip="DataSetWriterId unique for PublisherID" Background="Pink"/>
+            </Grid>
+          </controls:ParametersGroup.Content>
+        </controls:ParametersGroup>
         <GroupBox Header="Content and Data Bindings" >
           <StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -184,7 +178,6 @@
       </StackPanel>
     </DataTemplate>
   </UserControl.Resources>
-
   <Grid x:Name="LayoutRoot" Margin="5" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Auto" >
     <Grid.RowDefinitions>
       <RowDefinition  Height="*"/>

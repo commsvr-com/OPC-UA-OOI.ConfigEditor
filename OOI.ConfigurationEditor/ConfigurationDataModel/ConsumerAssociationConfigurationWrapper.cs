@@ -19,13 +19,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     {
       return PublisherId.ToString();
     }
-    internal static ConsumerAssociationConfigurationWrapper GetDefault(string associationName)
+    internal static ConsumerAssociationConfigurationWrapper GetDefault(DataSetConfigurationWrapper dataSet)
     {
       ConsumerAssociationConfiguration _newConsumerAssociation = new ConsumerAssociationConfiguration()
       {
-        AssociationName = associationName,
-        DataSetWriterId = 0,
-        PublisherId = Guid.NewGuid()
+        AssociationName = dataSet.AssociationName,
+        DataSetWriterId = dataSet.DefaultDataSetWriterId,
+        PublisherId = dataSet.Id,
       };
       return new ConsumerAssociationConfigurationWrapper(_newConsumerAssociation);
     }

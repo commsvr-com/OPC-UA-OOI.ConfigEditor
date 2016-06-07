@@ -54,7 +54,7 @@
       <ListView.View>
         <GridView AllowsColumnReorder="True" ColumnHeaderToolTip="Message handlers list">
           <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name, FallbackValue=?, Mode=TwoWay}"  />
-          <GridViewColumn Header="Transport Role" DisplayMemberBinding="{Binding Path=AssociationRole}" />
+          <GridViewColumn Header="Transport Role" DisplayMemberBinding="{Binding Path=TransportRole}" />
           <GridViewColumn Header="Channel" DisplayMemberBinding="{Binding Path=MessageChannelConfiguration, Mode=TwoWay}" />
           <GridViewColumn Header="Association" CellTemplate="{StaticResource AssociationNameDataTemplate}" />
         </GridView>

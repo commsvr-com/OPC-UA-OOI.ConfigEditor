@@ -133,6 +133,9 @@
       <DependentUpon>AssociationRoleSelectorControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\AssociationRoleSelectorControlViewModel.cs" />
+    <Compile Include="Controls\ParametersGroup.xaml.cs">
+      <DependentUpon>ParametersGroup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ResearchControl.cs" />
     <Compile Include="Controls\RoundedBox.xaml.cs">
       <DependentUpon>RoundedBox.xaml</DependentUpon>
@@ -213,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\AssociationRoleSelectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ParametersGroup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
