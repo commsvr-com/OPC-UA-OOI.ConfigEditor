@@ -19,19 +19,19 @@ using CAS.Windows.Controls;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Logging;
-using Prism.Mvvm;
 using System;
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
 {
+
   /// <summary>
   /// Class MessageHandlersListViewModel - view model used as the interface to access the data by the GUI.
   /// </summary>
   /// <seealso cref="Prism.Mvvm.BindableBase" />
   [Export(typeof(MessageHandlersListViewModel))]
-  internal class MessageHandlersListViewModel : BindableBase
+  internal class MessageHandlersListViewModel : MainRegionViewModel
   {
 
     #region Importing Constructor
@@ -42,9 +42,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     /// <param name="messageHandlerServices">The message handler services.</param>
     /// <param name="loggerFacade">The logger services.</param>
     [ImportingConstructor()]
-    public MessageHandlersListViewModel(IAssociationServices associationServices, IMessageHandlerServices messageHandlerServices, ILoggerFacade loggerFacade)
+    public MessageHandlersListViewModel(IAssociationServices associationServices, IMessageHandlerServices messageHandlerServices, ILoggerFacade loggerFacade) :
+      base(Properties.Resources.MessageHandlersListPanelHeader)
     {
-      HeaderInfo = Properties.Resources.MessageHandlersListPanelHeader;
       MessageHandlesList = messageHandlerServices.GetMessageHandlers();
       m_AssociationServices = associationServices;
       m_MessageHandlerServices = messageHandlerServices;
@@ -73,11 +73,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
         SetCanExecuteButtonState();
       }
     }
-    public ButtonsViewModel ButtonsPanelViewModel { get; private set; }
-    public string HeaderInfo { get; private set; }
     public ICommand RemoveCommand { get; private set; }
     public IInteractionRequest AddRequest { get { return b_AddRequest; } }
     public IInteractionRequest EditRequest { get { return b_EditRequest; } }
+    public override ButtonsViewModel ButtonsPanelViewModel
+    {
+      get; protected set;
+    }
     #endregion
 
     #region private

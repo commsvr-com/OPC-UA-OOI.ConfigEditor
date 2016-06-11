@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
+             d:DesignHeight="300" d:DesignWidth="300" 
 >
   <ContentControl.Resources>
     <Style x:Key="HeaderLabel"  TargetType="{x:Type Label}" BasedOn="{ StaticResource {x:Type Label} }">
@@ -28,7 +28,7 @@
     <ControlTemplate TargetType="ContentControl">
       <Border>
         <StackPanel Orientation="Vertical">
-          <Label Style="{StaticResource HeaderLabel}" Content="Data Identity" ></Label>
+          <Label Style="{StaticResource HeaderLabel}" Content="{Binding GroupTitle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ParametersGroup}}}" ></Label>
           <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
         </StackPanel>
       </Border>
