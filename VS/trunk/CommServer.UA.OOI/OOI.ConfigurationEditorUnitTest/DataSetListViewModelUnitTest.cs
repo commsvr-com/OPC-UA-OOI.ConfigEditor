@@ -8,7 +8,6 @@ using Prism.Interactivity.InteractionRequest;
 using Prism.Logging;
 using Prism.Regions;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
@@ -22,6 +21,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
   [TestClass]
   public class DataSetListViewModelUnitTest
   {
+
+    #region TestMethod
     [TestMethod]
     public void DataSetEditorCreatorsChainTest()
     {
@@ -32,13 +33,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
       Assert.IsNull(_viewModel.CurrentDataSetItem);
       Assert.IsFalse(String.IsNullOrEmpty(_viewModel.HeaderInfo));
-      Assert.IsNotNull(_viewModel.AddDataSetCommand);
-      Assert.IsTrue(_viewModel.AddDataSetCommand.CanExecute(null));
-      Assert.IsNotNull(_viewModel.AddDataSetRequest);
       Assert.IsNotNull(_viewModel.RemoveDataSetCommand);
       Assert.IsTrue(_viewModel.RemoveDataSetCommand.CanExecute(null));
-      Assert.IsNotNull(_viewModel.RemoveSelectedDataSetCommand);
-      Assert.IsFalse(_viewModel.RemoveSelectedDataSetCommand.CanExecute(null));
       DataSetListView _view = new DataSetListView() { ViewModel = _viewModel };
       Assert.AreEqual(1, _LoggerFacade.count);
     }
@@ -61,20 +57,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         Assert.IsNotNull(View.DataSetListItems);
         CollectionAssert.AreEqual(new ObservableCollection<string>(new string[] { "DataSymbolicName" }), View.DataSetListItems.Select<DataSetConfigurationWrapper, string>(x => x.SymbolicName).ToList<string>());
       }
-
-    }
-    [TestMethod]
-    public void AddDataSetCommandTest()
-    {
-      ConfigurationDataRepository _repository = new ConfigurationDataRepository();
-      DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository, new TestLoggerFacade()));
-      TestLoggerFacade _LoggerFacade = new TestLoggerFacade();
-      DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
-      bool _raised = false;
-      _viewModel.AddDataSetRequest.Raised += (x, y) => { _raised = true; Assert.IsInstanceOfType(y.Context, typeof(IConfirmation)); };
-      Assert.IsTrue(_viewModel.AddDataSetCommand.CanExecute(null));
-      _viewModel.AddDataSetCommand.Execute(null);
-      Assert.IsTrue(_raised);
     }
     [TestMethod]
     public void AddDataSetRequestTest()
@@ -84,8 +66,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       TestLoggerFacade _LoggerFacade = new TestLoggerFacade();
       DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
       TestView _view = new TestView() { DataContext = _viewModel };
-      Assert.IsTrue(_viewModel.AddDataSetCommand.CanExecute(null));
-      _viewModel.AddDataSetCommand.Execute(null);
       Assert.IsTrue(_view.RaisedWasCalled);
       Assert.IsTrue(_view.CallbackIsNotNull);
       Assert.IsTrue(_view.ContextIsNotNull);
@@ -96,6 +76,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.IsTrue(_view.MessageHandlersCount);
       Assert.IsTrue(_view.senderType);
     }
+    #endregion
 
     #region Instrumentation
     [Import]
@@ -196,7 +177,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       {
         set
         {
-          value.AddDataSetRequest.Raised += AddDataSetRequest_Raised;
+          value.DataSetEditPopupRequest.Raised += AddDataSetRequest_Raised;
         }
       }
       public bool CallbackIsNotNull = false;

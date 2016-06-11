@@ -17,14 +17,7 @@
     </Style>
   </UserControl.Resources>
   <i:Interaction.Triggers>
-    <prism:InteractionRequestTrigger SourceObject="{Binding AddDataSetRequest, Mode=OneWay}">
-      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
-        <prism:PopupWindowAction.WindowContent >
-          <dse:DataSetItemView  />
-        </prism:PopupWindowAction.WindowContent>
-      </prism:PopupWindowAction>
-    </prism:InteractionRequestTrigger>
-    <prism:InteractionRequestTrigger SourceObject="{Binding EditDataSetRequest, Mode=OneWay}">
+    <prism:InteractionRequestTrigger SourceObject="{Binding DataSetEditPopupRequest, Mode=OneWay}">
       <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
         <prism:PopupWindowAction.WindowContent >
           <dse:DataSetItemView  />
@@ -38,14 +31,15 @@
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     <ListView Name="x_DataSetsListView" 
-                ItemsSource="{Binding DataSetListItems}" 
-                SelectedItem="{Binding Mode=TwoWay, Path=CurrentDataSetItem}"
-                AlternationCount="2"
-                BorderThickness="0" Width="Auto"
-                IsSynchronizedWithCurrentItem="True" 
-                AutomationProperties.AutomationId="WatchListGrid"
-                VerticalAlignment="Stretch"
-                Grid.Row="0">
+              ItemsSource="{Binding DataSetListItems}" 
+              SelectedItem="{Binding Mode=TwoWay, Path=CurrentDataSetItem}"
+              AlternationCount="2"
+              BorderThickness="0" 
+              Width="Auto"
+              IsSynchronizedWithCurrentItem="True" 
+              AutomationProperties.AutomationId="WatchListGrid"
+              VerticalAlignment="Stretch"
+              Grid.Row="0">
       <ListView.View >
         <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="DataSets List" >
           <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=SymbolicName}" Width="Auto"/>
@@ -69,26 +63,5 @@
       </ListView.View>
     </ListView>
     <windows:ButtonsPanel Grid.Row="1" DataContext="{Binding Path= ButtonsPanelViewModel}" />
-
-    <!--<StackPanel FlowDirection="LeftToRight" Grid.Row="1" Orientation="Horizontal">
-      <Button HorizontalContentAlignment="Center" 
-              Height="Auto" 
-              Width="Auto"
-              Content="{Binding AddDataSetCommandTitle, FallbackValue=Add}" 
-              Command="{Binding AddDataSetCommand}"
-              />
-      <Button HorizontalContentAlignment="Center"
-              Height="Auto" 
-              Width="Auto"
-              Content="Edit" 
-              Command="{Binding EditSelectedDataSetCommand}"
-              />
-      <Button HorizontalContentAlignment="Center"
-              Height="Auto" 
-              Width="Auto"
-              Content="Remove" 
-              Command="{Binding RemoveSelectedDataSetCommand}"
-              />
-    </StackPanel>-->
   </Grid>
 </UserControl>

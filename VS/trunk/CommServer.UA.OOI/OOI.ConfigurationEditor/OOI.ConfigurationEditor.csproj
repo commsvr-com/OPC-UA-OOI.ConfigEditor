@@ -145,6 +145,20 @@
       <DependentUpon>DataSetItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfigurationDataModel\FieldMetaDataCollection.cs" />
+    <Compile Include="DomainEditor\DomainConfirmation.cs" />
+    <Compile Include="DomainEditor\DomainsListView.xaml.cs">
+      <DependentUpon>DomainsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DomainEditor\DomainsListViewModel.cs" />
+    <Compile Include="DomainEditor\DomainsManagementServices.cs" />
+    <Compile Include="DomainEditor\DomainView.xaml.cs">
+      <DependentUpon>DomainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DomainEditor\IDomainsManagementServices.cs" />
+    <Compile Include="DomainsModel\DomainModel.cs" />
+    <Compile Include="Infrastructure\Converters\Uri2StringConverter.cs" />
+    <Compile Include="Infrastructure\Converters\UriValidationRule.cs" />
+    <Compile Include="Infrastructure\DomainSetEventArg.cs" />
     <Compile Include="MessageHandlerEditor\MessageHandlerConfirmation.cs" />
     <Compile Include="MessageHandlerEditor\MessageHandlerItemView.xaml.cs">
       <DependentUpon>MessageHandlerItemView.xaml</DependentUpon>
@@ -155,6 +169,8 @@
       <DependentUpon>AssemblyInfo.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AssociationCoupler.cs" />
+    <Compile Include="ViewModel\DomainsObservableCollection.cs" />
+    <Compile Include="ViewModel\DomainWrapper.cs" />
     <Compile Include="ViewModel\IAssociationCoupler.cs" />
     <Compile Include="ViewModel\AssociationCouplerViewModel.cs" />
     <Compile Include="EnterpriseLibraryLoggerAdapter.cs" />
@@ -173,7 +189,7 @@
     <Compile Include="Infrastructure\Behaviors\RegionPopupBehaviors.cs" />
     <Compile Include="Infrastructure\Behaviors\WindowDialogActivationBehavior.Desktop.cs" />
     <Compile Include="Infrastructure\Behaviors\WindowWrapper.Desktop.cs" />
-    <Compile Include="Infrastructure\TickerSymbolSelectedEvent.cs" />
+    <Compile Include="Infrastructure\DataSetSelectedEvent.cs" />
     <Compile Include="InstanceConfigurationFactory.cs" />
     <Compile Include="ConfigurationDataModel\MessageHandlerServices.cs" />
     <Compile Include="DataSetEditor\Services\IDataSetEditorServices.cs" />
@@ -196,6 +212,8 @@
     <Compile Include="EditorBootstrapper.cs" />
     <Compile Include="ViewModel\AssociationServices.cs" />
     <Compile Include="ViewModel\IAssociationServices.cs" />
+    <Compile Include="ViewModel\IDomainsObservableCollection.cs" />
+    <Compile Include="ViewModel\MainRegionViewModel.cs" />
     <Compile Include="VisibilityToStarHeightConverter.Desktop.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +246,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DataSetEditor\DataSetList\DataSetItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DomainEditor\DomainsListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DomainEditor\DomainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -281,9 +307,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infrastructure\Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Properties\AssemblyInfo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

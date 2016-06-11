@@ -1,3 +1,17 @@
+//_______________________________________________________________
+//  Title   : DataSetListViewModel
+//  System  : Microsoft VisualStudio 2015 / C#
+//  $LastChangedDate$
+//  $Rev$
+//  $LastChangedBy$
+//  $URL$
+//  $Id$
+//
+//  Copyright (C) 2016, CAS LODZ POLAND.
+//  TEL: +48 (42) 686 25 47
+//  mailto://techsupp@cas.eu
+//  http://www.cas.eu
+//_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure;
@@ -7,7 +21,6 @@ using Prism.Commands;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Logging;
-using Prism.Mvvm;
 using Prism.Regions;
 using System;
 using System.Collections.Specialized;
@@ -18,13 +31,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
 {
   [Export(typeof(DataSetListViewModel))]
   [PartCreationPolicy(CreationPolicy.NonShared)]
-  internal class DataSetListViewModel : BindableBase
+  internal class DataSetListViewModel : ViewModel.MainRegionViewModel
   {
 
     [ImportingConstructor]
-    internal DataSetListViewModel(IAssociationServices associationServices, IDataSetModelServices dataSetModelServices, IRegionManager regionManager, IEventAggregator eventAggregator, ILoggerFacade logger)
+    internal DataSetListViewModel(IAssociationServices associationServices, IDataSetModelServices dataSetModelServices, IRegionManager regionManager, IEventAggregator eventAggregator, ILoggerFacade logger) :
+      base(Properties.Resources.DataSetsListPanelHeader)
     {
-      this.HeaderInfo = Properties.Resources.DataSetsListPanelHeader;
       this.m_AssociationServices = associationServices;
       this.m_DataSetModelServices = dataSetModelServices;
       this.m_RegionManager = regionManager;
@@ -32,9 +45,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
       this.m_Logger = logger;
       this.DataSetListItems = m_DataSetModelServices.GetDataSets();
       this.RemoveDataSetCommand = new DelegateCommand<string>(this.RemoveDataSetCommandHandler);
-      this.b_RemoveSelectedDataSetCommand = new DelegateCommand(this.RemoveSelectedDataSetCommandHandler, () => CurrentDataSetItem != null);
-      this.b_EditDataSetCommand = new DelegateCommand(this.EditDataSetCommandHandler, () => CurrentDataSetItem != null);
-      this.AddDataSetCommand = new DelegateCommand(AddDataSetCommandHandler);
       this.b_DataSetListItems.CollectionChanged += this.WatchListItems_CollectionChanged;
       Action[] m_ButtonsActions = new Action[] { AddDataSetCommandHandler, EditDataSetCommandHandler, RemoveSelectedDataSetCommandHandler, () => { } };
       ButtonsPanelViewModel = new ButtonsViewModel("Add", "Edit", "Delete", "", m_ButtonsActions);
@@ -63,16 +73,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
         SetCanExecuteButtonState();
       }
     }
-    public ButtonsViewModel ButtonsPanelViewModel { get; private set; }
-
-    public string HeaderInfo { get; private set; }
+    public override ButtonsViewModel ButtonsPanelViewModel { get; protected set; }
     public ICommand RemoveDataSetCommand { get; private set; }
-    public ICommand RemoveSelectedDataSetCommand { get { return b_RemoveSelectedDataSetCommand; } }
-    public ICommand EditSelectedDataSetCommand { get { return b_EditDataSetCommand; } }
-    public ICommand AddDataSetCommand { get; private set; }
-    public String AddDataSetCommandTitle { get { return "Add DataSet"; } }
-    public IInteractionRequest AddDataSetRequest { get { return b_AddRequest; } }
-    public IInteractionRequest EditDataSetRequest { get { return b_EditRequest; } }
+    public IInteractionRequest DataSetEditPopupRequest { get { return b_AddRequest; } }
     #endregion
 
     #region private
@@ -85,16 +88,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
     private IDataSetConfigurationCollection b_DataSetListItems;
     private DataSetConfigurationWrapper b_CurrentDataSetItem;
     private readonly InteractionRequest<IConfirmation> b_AddRequest = new InteractionRequest<IConfirmation>();
-    private readonly InteractionRequest<IConfirmation> b_EditRequest = new InteractionRequest<IConfirmation>();
-    private readonly DelegateCommand b_RemoveSelectedDataSetCommand;
-    private readonly DelegateCommand b_EditDataSetCommand;
     //methods
     private void SetCanExecuteButtonState()
     {
       bool _selectedOne = CurrentDataSetItem != null;
       this.ButtonsPanelViewModel.SetCanExecuteState(true, _selectedOne, _selectedOne, false);
     }
-
     private void AddDataSetCommandHandler()
     {
       DataSetConfigurationWrapper _dsc = DataSetConfigurationWrapper.CreateDefault();

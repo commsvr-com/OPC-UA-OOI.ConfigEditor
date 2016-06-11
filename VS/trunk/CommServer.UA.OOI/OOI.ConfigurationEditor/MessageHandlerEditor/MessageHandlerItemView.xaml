@@ -24,24 +24,16 @@
           <Setter Property="VerticalAlignment" Value="Top"/>
         </Style>
       </DataTemplate.Resources>
-      <StackPanel Orientation="Vertical">
-        <Grid>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Label Grid.Row="0" Grid.Column="0" >Name</Label>
-          <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+      <StackPanel>
+        <controls:ParametersGroup GroupTitle="Protocol settings">
+          <StackPanel Orientation="Horizontal">
+            <Label >Name</Label>
             <TextBox Text="{Binding Path=MessageHandlerConfigurationWrapper.Name, Mode=TwoWay}"/>
           </StackPanel>
-          <controls:AssociationRoleSelectorControl Grid.Row="1" DataContext="{Binding Path=AssociationRoleSelectorControlViewModel}" />
-        </Grid>
-        <Border BorderBrush="{DynamicResource DefaultedBorderBrush}" BorderThickness="1">
-          <StackPanel>
+        </controls:ParametersGroup>
+        <controls:ParametersGroup GroupTitle="Associations">
+          <StackPanel Orientation="Vertical">
+            <controls:AssociationRoleSelectorControl DataContext="{Binding Path=AssociationRoleSelectorControlViewModel}" />
             <Label>Available Handlers</Label>
             <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
               <ListView.View>
@@ -58,7 +50,7 @@
               </ListView.View>
             </ListView>
           </StackPanel>
-        </Border>
+        </controls:ParametersGroup>
       </StackPanel>
     </DataTemplate>
   </UserControl.Resources>

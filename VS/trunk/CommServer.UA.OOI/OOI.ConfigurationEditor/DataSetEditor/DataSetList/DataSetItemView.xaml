@@ -49,7 +49,7 @@
         </Style>
       </DataTemplate.Resources>
       <StackPanel >
-        <controls:ParametersGroup>
+        <controls:ParametersGroup GroupTitle="Data Identity">
           <controls:ParametersGroup.Content>
             <Grid  >
               <Grid.ColumnDefinitions>
@@ -70,7 +70,7 @@
             </Grid>
           </controls:ParametersGroup.Content>
         </controls:ParametersGroup>
-        <GroupBox Header="Content and Data Bindings" >
+        <controls:ParametersGroup GroupTitle="Content and Data Bindings" >
           <StackPanel>
             <StackPanel Orientation="Horizontal">
               <Label >Repository Group</Label>
@@ -89,10 +89,9 @@
               </ListView.View>
             </ListView>
           </StackPanel>
-        </GroupBox>
-        <Border>
+        </controls:ParametersGroup>
+        <controls:ParametersGroup GroupTitle="Association">
           <StackPanel Orientation="Vertical">
-            <Label Style="{StaticResource HeaderLabel}">Association</Label>
             <Grid>
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -126,10 +125,9 @@
               </ListView.View>
             </ListView>
           </StackPanel>
-        </Border>
-        <Border >
+        </controls:ParametersGroup>
+        <controls:ParametersGroup  GroupTitle="Application settings">
           <StackPanel>
-            <Label Style="{StaticResource HeaderLabel}">Application</Label>
             <Grid>
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -150,31 +148,28 @@
               </StackPanel>
             </Grid>
           </StackPanel>
-        </Border>
-        <Border>
-          <StackPanel>
-            <Label Style="{StaticResource HeaderLabel}">Configuration</Label>
-            <Grid>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-              </Grid.ColumnDefinitions>
-              <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-              </Grid.RowDefinitions>
-              <Label Grid.Row="0" Grid.Column="0">Configuration Guid</Label>
-              <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
-                <Label Content="{Binding Path=DataSetConfigurationWrapper.ConfigurationGuid, Mode=OneWay}"/>
-              </StackPanel>
-              <Label Grid.Row="1" Grid.Column="0" >Configuration Version</Label>
-              <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
-                <Label Content="{Binding Path=DataSetConfigurationWrapper.ConfigurationVersion, Mode=OneWay}"/>
-              </StackPanel>
-            </Grid>
-          </StackPanel>
-        </Border>
+        </controls:ParametersGroup>
+        <controls:ParametersGroup GroupTitle="Configuration">
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0">Configuration Guid</Label>
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" >
+              <Label Content="{Binding Path=DataSetConfigurationWrapper.ConfigurationGuid, Mode=OneWay}"/>
+            </StackPanel>
+            <Label Grid.Row="1" Grid.Column="0" >Configuration Version</Label>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" >
+              <Label Content="{Binding Path=DataSetConfigurationWrapper.ConfigurationVersion, Mode=OneWay}"/>
+            </StackPanel>
+          </Grid>
+        </controls:ParametersGroup>
       </StackPanel>
     </DataTemplate>
   </UserControl.Resources>
