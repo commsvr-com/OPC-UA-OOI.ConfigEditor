@@ -13,6 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using System;
@@ -29,13 +30,30 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
   public class DomainsManagementServices : IDomainsManagementServices
   {
 
+    #region ImportingConstructor
     /// <summary>
     /// Initializes a new instance of the <see cref="DomainsManagementServices"/> class.
     /// </summary>
-    public DomainsManagementServices()
+    [ImportingConstructor()]
+    internal DomainsManagementServices(DataSetConfigurationCollection configurationRepository)
     {
       m_DomainsObservableCollection = new DomainsObservableCollection(new DomainWrapper[] { CreateDefault() });
+      foreach (DataSetConfigurationWrapper _wrpr in configurationRepository)
+      {
+        if (m_DomainsObservableCollection.Where<DomainWrapper>(x => x.URI.ToString() == _wrpr.InformationModelURI).Any<DomainWrapper>())
+          continue;
+        DomainModel _dm = new DomainModel();
+        DomainWrapper _new = new DomainWrapper(_dm)
+        {
+          AliasName = _wrpr.SymbolicName,
+          Description = $"URI recovered from the DataSet AssociationName: {_wrpr.AssociationName}, SymbolicName: {_wrpr.SymbolicName}",
+          UniqueName = _wrpr.Id,
+          URI = new Uri(_wrpr.InformationModelURI)
+        };
+        m_DomainsObservableCollection.Add(_new);
+      }
     }
+    #endregion
 
     #region IDomainsManagementServices
     /// <summary>
@@ -100,7 +118,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       if (m_DomainsObservableCollection == null)
         return false;
       return m_DomainsObservableCollection.Where<DomainWrapper>(x => x.AliasName == domain.AliasName).Any<DomainWrapper>();
-    } 
+    }
     #endregion
 
     private DomainsObservableCollection m_DomainsObservableCollection;
