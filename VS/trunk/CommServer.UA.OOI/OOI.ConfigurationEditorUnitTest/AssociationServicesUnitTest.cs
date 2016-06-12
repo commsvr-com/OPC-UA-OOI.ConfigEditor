@@ -14,6 +14,7 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;

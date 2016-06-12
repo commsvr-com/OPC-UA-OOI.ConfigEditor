@@ -13,7 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest

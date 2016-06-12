@@ -1,11 +1,11 @@
 //_______________________________________________________________
 //  Title   : DataSetEditorServices
 //  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//  $LastChangedDate: 2016-05-13 16:17:33 +0200 (Pt, 13 maj 2016) $
+//  $Rev: 12172 $
+//  $LastChangedBy: mpostol $
+//  $URL: svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.UA.OOI/OOI.ConfigurationEditor/DataSetEditor/Services/DataSetEditorServices.cs $
+//  $Id: DataSetEditorServices.cs 12172 2016-05-13 14:17:33Z mpostol $
 //
 //  Copyright (C) 2016, CAS LODZ POLAND.
 //  TEL: +48 (42) 686 25 47
@@ -22,7 +22,7 @@ using System.Globalization;
 using System.Windows.Input;
 using System.Linq;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.Services
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 {
   [Export(typeof(IDataSetEditorServices))]
   [PartCreationPolicy(CreationPolicy.Shared)]

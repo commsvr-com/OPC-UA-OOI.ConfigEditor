@@ -3,7 +3,7 @@ using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Prism.Logging;
 using Prism.Regions;

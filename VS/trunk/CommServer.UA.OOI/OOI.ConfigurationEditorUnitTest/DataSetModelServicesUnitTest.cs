@@ -13,8 +13,8 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using System;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Prism.Logging;
 using UAOOI.Configuration.Networking.Serialization;

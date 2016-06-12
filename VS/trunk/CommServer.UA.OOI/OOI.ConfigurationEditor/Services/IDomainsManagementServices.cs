@@ -13,9 +13,9 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 {
   /// <summary>
   /// Interface IDomainsManagementServices - defines API to manage the collection of well known domains.

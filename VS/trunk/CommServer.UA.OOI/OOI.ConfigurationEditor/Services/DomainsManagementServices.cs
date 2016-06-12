@@ -1,11 +1,11 @@
 ﻿//_______________________________________________________________
 //  Title   : Name of Application
 //  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//  $LastChangedDate: 2016-06-11 23:18:56 +0200 (So, 11 cze 2016) $
+//  $Rev: 12229 $
+//  $LastChangedBy: mpostol $
+//  $URL: svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.UA.OOI/OOI.ConfigurationEditor/DomainEditor/DomainsManagementServices.cs $
+//  $Id: DomainsManagementServices.cs 12229 2016-06-11 21:18:56Z mpostol $
 //
 //  Copyright (C) 2016, CAS LODZ POLAND.
 //  TEL: +48 (42) 686 25 47
@@ -15,12 +15,11 @@
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using System;
 using System.ComponentModel.Composition;
 using System.Linq;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 {
 
   /// <summary>

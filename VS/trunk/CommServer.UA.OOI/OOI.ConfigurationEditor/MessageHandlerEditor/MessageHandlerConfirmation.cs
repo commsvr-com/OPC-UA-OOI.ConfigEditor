@@ -15,7 +15,7 @@
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Controls;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.Windows.ViewModel;
 using System;
 using System.Collections.Generic;

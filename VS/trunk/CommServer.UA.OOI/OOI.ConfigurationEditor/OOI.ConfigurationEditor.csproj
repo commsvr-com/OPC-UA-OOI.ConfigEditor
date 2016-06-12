@@ -110,10 +110,10 @@
     <Compile Include="ConfigurationDataModel\ConsumerAssociationConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\DataSetConfigurationCollection.cs" />
     <Compile Include="ConfigurationDataModel\DataSetConfigurationWrapper.cs" />
-    <Compile Include="ConfigurationDataModel\DataSetModelServices.cs" />
+    <Compile Include="Services\DataSetModelServices.cs" />
     <Compile Include="ConfigurationDataModel\FieldMetaDataWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IDataSetConfigurationCollection.cs" />
-    <Compile Include="ConfigurationDataModel\IDataSetModelServices.cs" />
+    <Compile Include="Services\IDataSetModelServices.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerConfigurationIdentity.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerServices.cs" />
@@ -141,7 +141,7 @@
       <DependentUpon>RoundedBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataSetEditor\DataSetItemConfirmation.cs" />
-    <Compile Include="DataSetEditor\DataSetList\DataSetItemView.xaml.cs">
+    <Compile Include="DataSetEditor\DataSetItemView.xaml.cs">
       <DependentUpon>DataSetItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ConfigurationDataModel\FieldMetaDataCollection.cs" />
@@ -150,11 +150,11 @@
       <DependentUpon>DomainsListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="DomainEditor\DomainsListViewModel.cs" />
-    <Compile Include="DomainEditor\DomainsManagementServices.cs" />
+    <Compile Include="Services\DomainsManagementServices.cs" />
     <Compile Include="DomainEditor\DomainView.xaml.cs">
       <DependentUpon>DomainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DomainEditor\IDomainsManagementServices.cs" />
+    <Compile Include="Services\IDomainsManagementServices.cs" />
     <Compile Include="DomainsModel\DomainModel.cs" />
     <Compile Include="Infrastructure\Converters\Uri2StringConverter.cs" />
     <Compile Include="Infrastructure\Converters\UriValidationRule.cs" />
@@ -168,11 +168,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AssemblyInfo.tt</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\AssociationCoupler.cs" />
-    <Compile Include="ViewModel\DomainsObservableCollection.cs" />
-    <Compile Include="ViewModel\DomainWrapper.cs" />
-    <Compile Include="ViewModel\IAssociationCoupler.cs" />
-    <Compile Include="ViewModel\AssociationCouplerViewModel.cs" />
+    <Compile Include="Services\AssociationCoupler.cs" />
+    <Compile Include="DomainsModel\DomainsObservableCollection.cs" />
+    <Compile Include="DomainsModel\DomainWrapper.cs" />
+    <Compile Include="Services\IAssociationCoupler.cs" />
+    <Compile Include="Services\AssociationCouplerViewModel.cs" />
     <Compile Include="EnterpriseLibraryLoggerAdapter.cs" />
     <Compile Include="HostingApplication.xaml.cs">
       <DependentUpon>HostingApplication.xaml</DependentUpon>
@@ -191,13 +191,13 @@
     <Compile Include="Infrastructure\Behaviors\WindowWrapper.Desktop.cs" />
     <Compile Include="Infrastructure\DataSetSelectedEvent.cs" />
     <Compile Include="InstanceConfigurationFactory.cs" />
-    <Compile Include="ConfigurationDataModel\MessageHandlerServices.cs" />
-    <Compile Include="DataSetEditor\Services\IDataSetEditorServices.cs" />
-    <Compile Include="DataSetEditor\Services\DataSetEditorServices.cs" />
-    <Compile Include="DataSetEditor\DataSetList\DataSetListView.xaml.cs">
+    <Compile Include="Services\MessageHandlerServices.cs" />
+    <Compile Include="Services\IDataSetEditorServices.cs" />
+    <Compile Include="Services\DataSetEditorServices.cs" />
+    <Compile Include="DataSetEditor\DataSetListView.xaml.cs">
       <DependentUpon>DataSetListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataSetEditor\DataSetList\DataSetListViewModel.cs" />
+    <Compile Include="DataSetEditor\DataSetListViewModel.cs" />
     <Compile Include="IWrapper.cs" />
     <Compile Include="MessageHandlerEditor\MessageHandlersListlViewModel.cs" />
     <Compile Include="MessageHandlerEditor\MessageHandlersListView.xaml.cs">
@@ -210,9 +210,9 @@
     </Compile>
     <Compile Include="Resources\ResourceNames.cs" />
     <Compile Include="EditorBootstrapper.cs" />
-    <Compile Include="ViewModel\AssociationServices.cs" />
-    <Compile Include="ViewModel\IAssociationServices.cs" />
-    <Compile Include="ViewModel\IDomainsObservableCollection.cs" />
+    <Compile Include="Services\AssociationServices.cs" />
+    <Compile Include="Services\IAssociationServices.cs" />
+    <Compile Include="DomainsModel\IDomainsObservableCollection.cs" />
     <Compile Include="ViewModel\MainRegionViewModel.cs" />
     <Compile Include="VisibilityToStarHeightConverter.Desktop.cs" />
   </ItemGroup>
@@ -245,7 +245,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DataSetEditor\DataSetList\DataSetItemView.xaml">
+    <Page Include="DataSetEditor\DataSetItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -261,7 +261,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DataSetEditor\DataSetList\DataSetListView.xaml">
+    <Page Include="DataSetEditor\DataSetListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
