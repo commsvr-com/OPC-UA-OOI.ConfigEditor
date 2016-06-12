@@ -1,13 +1,13 @@
 ﻿
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.ComponentModel.Composition;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Prism.Logging;
+using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.IO;
 using System.Reflection;
 using Networking = global::UAOOI.Configuration.Networking;
-using System.IO;
-using Prism.Logging;
-using System;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {

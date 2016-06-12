@@ -1,11 +1,11 @@
 ﻿//_______________________________________________________________
 //  Title   : DataSetModelServices
 //  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//  $LastChangedDate: 2016-05-22 12:28:46 +0200 (N, 22 maj 2016) $
+//  $Rev: 12216 $
+//  $LastChangedBy: mpostol $
+//  $URL: svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.UA.OOI/OOI.ConfigurationEditor/ConfigurationDataModel/DataSetModelServices.cs $
+//  $Id: DataSetModelServices.cs 12216 2016-05-22 10:28:46Z mpostol $
 //
 //  Copyright (C) 2016, CAS LODZ POLAND.
 //  TEL: +48 (42) 686 25 47
@@ -13,12 +13,13 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 {
 
   [Export(typeof(IDataSetModelServices))]

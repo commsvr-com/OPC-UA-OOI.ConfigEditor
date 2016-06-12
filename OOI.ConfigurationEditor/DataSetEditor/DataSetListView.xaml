@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList.DataSetListView"
+﻿<UserControl x:Class="CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetListView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:prism="http://www.codeplex.com/prism"
-    xmlns:dse="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList"
+    xmlns:dse="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor"
     xmlns:windows="clr-namespace:CAS.Windows.Controls;assembly=CAS.Windows"
     Height="Auto" Width="Auto">
   <UserControl.Resources>

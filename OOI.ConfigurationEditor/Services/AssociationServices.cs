@@ -1,11 +1,11 @@
 ﻿//_______________________________________________________________
 //  Title   : Name of Application
 //  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//  $LastChangedDate: 2016-06-04 17:57:32 +0200 (So, 04 cze 2016) $
+//  $Rev: 12226 $
+//  $LastChangedBy: mpostol $
+//  $URL: svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.UA.OOI/OOI.ConfigurationEditor/ViewModel/AssociationServices.cs $
+//  $Id: AssociationServices.cs 12226 2016-06-04 15:57:32Z mpostol $
 //
 //  Copyright (C) 2016, CAS LODZ POLAND.
 //  TEL: +48 (42) 686 25 47
@@ -14,6 +14,7 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
   /// <summary>
   /// Class AssociationServices implements <see cref="IAssociationServices"/>
   /// </summary>
-  /// <seealso cref="CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel.IAssociationServices" />
+  /// <seealso cref="IAssociationServices" />
   [Export(typeof(IAssociationServices))]
   [PartCreationPolicy(CreationPolicy.Shared)]
   internal class AssociationServices : IAssociationServices

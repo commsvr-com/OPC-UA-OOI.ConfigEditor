@@ -1,9 +1,8 @@
-// Copyright (c) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.Services
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 {
     internal interface IDataSetEditorServices
     {

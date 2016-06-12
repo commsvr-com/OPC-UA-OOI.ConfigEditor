@@ -1,13 +1,11 @@
 ﻿
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.Services;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Prism.Logging;
 using System;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor;
-using System.Collections;
 using System.Collections.Generic;
 using UAOOI.Configuration.Networking.Serialization;
-using Prism.Logging;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
@@ -28,7 +26,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.IsTrue(_service.AddCommand.CanExecute(null));
       Assert.IsNotNull(_service.RetrieveList());
     }
-    private class DataSetModelServices : ConfigurationDataModel.IDataSetModelServices
+    private class DataSetModelServices : IDataSetModelServices
     {
       public void AddDataSet(DataSetConfigurationWrapper _newDataSetItem)
       {

@@ -6,7 +6,7 @@ using System.ComponentModel.Composition;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Controls;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
 {
   /// <summary>
   /// Interaction logic for WatchListView.xaml

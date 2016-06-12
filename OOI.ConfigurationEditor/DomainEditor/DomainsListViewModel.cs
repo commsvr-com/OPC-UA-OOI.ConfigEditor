@@ -13,6 +13,8 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using CAS.Windows.Controls;
 using Prism.Events;
@@ -23,6 +25,7 @@ using System.ComponentModel.Composition;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
 {
+
   /// <summary>
   /// Class DomainsListViewModel - ViewModel of the <see cref="DomainsListView"/> to display 
   /// </summary>

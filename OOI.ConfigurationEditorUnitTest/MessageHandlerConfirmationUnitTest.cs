@@ -4,6 +4,7 @@ using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using UAOOI.Configuration.Networking.Serialization;
 using System.Linq;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {

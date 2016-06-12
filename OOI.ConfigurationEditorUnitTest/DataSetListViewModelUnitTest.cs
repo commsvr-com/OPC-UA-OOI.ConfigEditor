@@ -1,6 +1,7 @@
 ﻿
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Prism.Events;
@@ -28,7 +29,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     {
       ConfigurationDataRepository _repository = new ConfigurationDataRepository();
       DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository, new TestLoggerFacade()));
-      DataSetEditor.Services.DataSetEditorServices _service = new DataSetEditor.Services.DataSetEditorServices(_dataSetModelServices);
+     DataSetEditorServices _service = new DataSetEditorServices(_dataSetModelServices);
       TestLoggerFacade _LoggerFacade = new TestLoggerFacade();
       DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
       Assert.IsNull(_viewModel.CurrentDataSetItem);
@@ -66,6 +67,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       TestLoggerFacade _LoggerFacade = new TestLoggerFacade();
       DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
       TestView _view = new TestView() { DataContext = _viewModel };
+      Assert.IsTrue(_viewModel.ButtonsPanelViewModel.LeftButtonCommand.CanExecute(null));
+      _viewModel.ButtonsPanelViewModel.LeftButtonCommand.Execute(null);
       Assert.IsTrue(_view.RaisedWasCalled);
       Assert.IsTrue(_view.CallbackIsNotNull);
       Assert.IsTrue(_view.ContextIsNotNull);
@@ -158,9 +161,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       }
       internal int count = 0;
     }
-    [Export(typeof(ViewModel.IAssociationServices))]
+    [Export(typeof(IAssociationServices))]
     [PartCreationPolicy(CreationPolicy.Shared)]
-    private class TestAssociationServices : ViewModel.IAssociationServices
+    private class TestAssociationServices : IAssociationServices
     {
       public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper)
       {

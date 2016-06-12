@@ -15,13 +15,13 @@
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Controls;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.Windows.ViewModel;
 using System;
 using System.Collections.Generic;
 using Serialization = global::UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor.DataSetList
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
 {
 
   internal class DataSetItemConfirmation : ConfirmationBindable
