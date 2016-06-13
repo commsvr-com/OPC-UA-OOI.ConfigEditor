@@ -14,7 +14,6 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using System;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
@@ -26,7 +25,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
   public class DomainWrapper : Wrapper<DomainModel>
   {
 
+    #region creator
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DomainWrapper"/> class.
+    /// </summary>
+    /// <param name="item">The item.</param>
     internal DomainWrapper(DomainsModel.DomainModel item) : base(item) { }
+    #endregion
 
     #region API
     /// <summary>

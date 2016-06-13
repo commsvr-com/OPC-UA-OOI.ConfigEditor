@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using UAOOI.Configuration.Networking.Serialization;
 using System.Linq;

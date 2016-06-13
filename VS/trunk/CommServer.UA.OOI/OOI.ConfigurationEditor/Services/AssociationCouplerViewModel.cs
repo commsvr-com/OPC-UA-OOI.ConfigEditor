@@ -13,7 +13,6 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using CAS.Windows.mvvm;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
