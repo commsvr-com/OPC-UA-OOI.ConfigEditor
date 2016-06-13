@@ -15,6 +15,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
   [PartCreationPolicy(CreationPolicy.NonShared)]
   public partial class DataSetListView : UserControl
   {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DataSetListView"/> class.
+    /// </summary>
     public DataSetListView()
     {
       InitializeComponent();

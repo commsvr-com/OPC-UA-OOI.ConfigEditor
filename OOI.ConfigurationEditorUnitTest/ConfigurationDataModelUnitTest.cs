@@ -15,8 +15,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
   [DeploymentItem(@"TestData\", @"TestData\")]
   public class ConfigurationDataModelUnitTest
   {
-    [TestMethod]
 
+    [TestMethod]
     public void CompositionTest()
     {
       FileInfo _configFile = new FileInfo(@"TestData\ConfigurationDataConsumer.xml");

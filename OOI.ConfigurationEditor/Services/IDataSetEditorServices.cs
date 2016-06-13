@@ -4,9 +4,10 @@ using System.Windows.Input;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 {
-    internal interface IDataSetEditorServices
-    {
-        ObservableCollection<string> RetrieveList();
-        ICommand AddCommand { get; set; }
-    }
+  //TODO - remove it if it is ub=nused.
+  internal interface IDataSetEditorServices
+  {
+    ObservableCollection<string> RetrieveList();
+    ICommand AddCommand { get; set; }
+  }
 }
