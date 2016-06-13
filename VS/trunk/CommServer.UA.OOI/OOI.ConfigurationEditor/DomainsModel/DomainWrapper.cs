@@ -96,6 +96,17 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     }
     #endregion
 
+    #region override
+    /// <summary>
+    /// Returns a <see cref="System.String" /> that represents this instance.
+    /// </summary>
+    /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+    public override string ToString()
+    {
+      return this.URI.ToString();
+    }
+    #endregion
+
     #region private
     private string b_AliasName;
     private Uri b_URI;
