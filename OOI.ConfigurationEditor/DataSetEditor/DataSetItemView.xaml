@@ -15,21 +15,6 @@
   <UserControl.Resources>
     <DataTemplate DataType="{x:Type local:DataSetItemConfirmation}">
       <DataTemplate.Resources>
-        <Style TargetType="{x:Type Border}">
-          <Setter Property="BorderThickness" Value="1"/>
-          <Setter Property="Background" Value="#FFCCEE86"/>
-          <Setter Property="BorderBrush" Value="Green"/>
-          <Setter Property="Padding" Value="3,3,3,3"/>
-          <Setter Property="Margin" Value="3,3,3,3"/>
-          <Setter Property="CornerRadius" Value="10"/>
-        </Style>
-        <Style TargetType="{x:Type GroupBox}">
-          <Setter Property="BorderThickness" Value="1"/>
-          <Setter Property="Background" Value="#FFCCEE86"/>
-          <Setter Property="BorderBrush" Value="Green"/>
-          <Setter Property="Padding" Value="3,3,3,3"/>
-          <Setter Property="Margin" Value="3,3,3,3"/>
-        </Style>
         <Style TargetType="{x:Type Label}" >
           <Setter Property="Height" Value="30"/>
           <Setter Property="MinHeight" Value="30"/>
@@ -49,9 +34,9 @@
         </Style>
       </DataTemplate.Resources>
       <StackPanel >
-        <controls:ParametersGroup GroupTitle="Data Identity">
+        <controls:ParametersGroup GroupTitle="Data Identity" >
           <controls:ParametersGroup.Content>
-            <Grid  >
+            <Grid>
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="300"/>
@@ -60,13 +45,15 @@
               <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
               </Grid.RowDefinitions>
-              <Label Grid.Row="0" Grid.Column="0" >Information Model URI</Label>
-              <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=DataSetConfigurationWrapper.InformationModelURI}"/>
-              <Label Grid.Row="0" Grid.Column="2" Content="{Binding Path=DataSetConfigurationWrapper.Id}" ToolTip="Unique Identifier PublisherID" Background="Pink"/>
-              <Label Grid.Row="1" Grid.Column="0" >Symbolic Name</Label>
-              <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=DataSetConfigurationWrapper.SymbolicName, Mode=TwoWay}" VerticalAlignment="Center"/>
-              <Label Grid.Row="1" Grid.Column="2" Content="{Binding Path=DataSetConfigurationWrapper.DefaultDataSetWriterId}" ToolTip="DataSetWriterId unique for PublisherID" Background="Pink"/>
+              <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Path=Domains}" SelectedItem="{Binding Mode=TwoWay, Path=CurrentDomain}" SelectedIndex="{Binding Path=DomainsSelectedIndex}" />
+              <Label Grid.Row="1" Grid.Column="0" >Information Model URI</Label>
+              <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=DataSetConfigurationWrapper.InformationModelURI}"/>
+              <Label Grid.Row="1" Grid.Column="2" Content="{Binding Path=DataSetConfigurationWrapper.Id}" ToolTip="Unique Identifier PublisherID" Background="Pink"/>
+              <Label Grid.Row="2" Grid.Column="0" >Symbolic Name</Label>
+              <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=DataSetConfigurationWrapper.SymbolicName, Mode=TwoWay}" VerticalAlignment="Center"/>
+              <Label Grid.Row="2" Grid.Column="2" Content="{Binding Path=DataSetConfigurationWrapper.DefaultDataSetWriterId}" ToolTip="DataSetWriterId unique for PublisherID" Background="Pink"/>
             </Grid>
           </controls:ParametersGroup.Content>
         </controls:ParametersGroup>
@@ -173,14 +160,8 @@
       </StackPanel>
     </DataTemplate>
   </UserControl.Resources>
-  <Grid x:Name="LayoutRoot" Margin="5" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Auto" >
-    <Grid.RowDefinitions>
-      <RowDefinition  Height="*"/>
-      <RowDefinition Height="Auto"/>
-    </Grid.RowDefinitions>
-    <Border ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="0" >
-      <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Notification}"/>
-    </Border>
+  <StackPanel x:Name="LayoutRoot" Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto" >
+    <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Notification}"/>
     <windows:ButtonsPanel Grid.Row="1" DataContext="{Binding ButtonsPanelViewModel}" />
-  </Grid>
+  </StackPanel>
 </UserControl>

@@ -35,9 +35,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
   {
 
     [ImportingConstructor]
-    internal DataSetListViewModel(IAssociationServices associationServices, IDataSetModelServices dataSetModelServices, IRegionManager regionManager, IEventAggregator eventAggregator, ILoggerFacade logger) :
-      base(Properties.Resources.DataSetsListPanelHeader)
+    internal DataSetListViewModel
+      (IDomainsManagementServices domainsService, IAssociationServices associationServices, IDataSetModelServices dataSetModelServices, IRegionManager regionManager, IEventAggregator eventAggregator, ILoggerFacade logger) :
+        base(Properties.Resources.DataSetsListPanelHeader)
     {
+      this.m_DomainsService = domainsService;
       this.m_AssociationServices = associationServices;
       this.m_DataSetModelServices = dataSetModelServices;
       this.m_RegionManager = regionManager;
@@ -84,10 +86,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
     private readonly IRegionManager m_RegionManager;
     private readonly ILoggerFacade m_Logger;
     private readonly IAssociationServices m_AssociationServices;
+    private readonly IDomainsManagementServices m_DomainsService;
     //
     private IDataSetConfigurationCollection b_DataSetListItems;
     private DataSetConfigurationWrapper b_CurrentDataSetItem;
     private readonly InteractionRequest<IConfirmation> b_AddRequest = new InteractionRequest<IConfirmation>();
+
     //methods
     private void SetCanExecuteButtonState()
     {
@@ -97,7 +101,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
     private void AddDataSetCommandHandler()
     {
       DataSetConfigurationWrapper _dsc = DataSetConfigurationWrapper.CreateDefault();
-      DataSetItemConfirmation _confirmation = new DataSetItemConfirmation(_dsc, m_AssociationServices.GetAssociationCouplerViewModelEnumerator, true) { Title = "New DataSet" };
+      DataSetItemConfirmation _confirmation = new DataSetItemConfirmation(_dsc, m_AssociationServices.GetAssociationCouplerViewModelEnumerator, true, m_DomainsService.GetAvailableDomains()) { Title = "New DataSet" };
       bool _confirmed = false;
       b_AddRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
       if (_confirmed)
@@ -109,7 +113,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
     {
       if (CurrentDataSetItem == null) //double check
         return;
-      DataSetItemConfirmation _confirmation = new DataSetItemConfirmation(CurrentDataSetItem, x => m_AssociationServices.GetAssociationCouplerViewModelEnumerator(x), false) { Title = "Edit DataSet" };
+      DataSetItemConfirmation _confirmation = new DataSetItemConfirmation(CurrentDataSetItem, x => m_AssociationServices.GetAssociationCouplerViewModelEnumerator(x), false, m_DomainsService.GetAvailableDomains()) { Title = "Edit DataSet" };
       bool _confirmed = false;
       b_AddRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
       if (!_confirmed)

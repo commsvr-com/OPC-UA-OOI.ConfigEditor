@@ -15,6 +15,7 @@
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Controls;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.Windows.ViewModel;
 using System;
@@ -28,15 +29,34 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
   {
 
     internal DataSetItemConfirmation
-      (DataSetConfigurationWrapper wrapper, Func<DataSetConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable)
+      (DataSetConfigurationWrapper wrapper, Func<DataSetConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable, IEnumerable<DomainWrapper> domainsEnumerable)
     {
       DataSetConfigurationWrapper = wrapper;
       m_GetMessageHandlers = enumerator;
+      Domains = domainsEnumerable;
+      DomainsSelectedIndex = 0;
       AssociationCouplersEnumerator = m_GetMessageHandlers(DataSetConfigurationWrapper);
       AssociationRoleSelectorControlViewModel = new AssociationRoleSelectorControlViewModel(x => AssociationRole = x, AssociationRole, associationRoleEditable);
     }
 
     #region ViewModel API
+    public IEnumerable<DomainWrapper> Domains { get; }
+    public int DomainsSelectedIndex { get; set; }
+    public DomainWrapper CurrentDomain
+    {
+      get
+      {
+        return b_CurrentDomain;
+      }
+      set
+      {
+        if (SetProperty<DomainsModel.DomainWrapper>(ref b_CurrentDomain, value))
+        {
+          this.DataSetConfigurationWrapper.InformationModelURI = value.ToString();
+          this.DataSetConfigurationWrapper.Id = value.UniqueName;
+        }
+      }
+    }
     public AssociationRoleSelectorControlViewModel AssociationRoleSelectorControlViewModel { get; }
     public Serialization.AssociationRole AssociationRole
     {
@@ -81,6 +101,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
     }
 
     #region private
+    private DomainWrapper b_CurrentDomain;
     private IEnumerable<AssociationCouplerViewModel> b_AssociationCouplersEnumerator;
     private DataSetConfigurationWrapper b_DataSetConfigurationWrapper;
     private Func<DataSetConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> m_GetMessageHandlers;
