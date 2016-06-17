@@ -96,7 +96,7 @@
               <controls:AssociationRoleSelectorControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" 
                                                        DataContext="{Binding Path=AssociationRoleSelectorControlViewModel}" />
             </Grid>
-            <Label Style="{StaticResource HeaderLabel}">Available Handlers Associations</Label>
+            <Label Style="{StaticResource HeaderLabel}">Available Handler Associations</Label>
             <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
               <ListView.View>
                 <GridView>
