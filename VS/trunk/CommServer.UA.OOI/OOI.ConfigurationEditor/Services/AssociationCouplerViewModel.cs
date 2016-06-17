@@ -33,6 +33,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     internal AssociationCouplerViewModel(AssociationCoupler coupler)
     {
       m_Coupler = coupler;
+      b_Association = coupler.AssociationWrapper;
       b_Associated = m_Coupler.Associated;
     }
     #endregion

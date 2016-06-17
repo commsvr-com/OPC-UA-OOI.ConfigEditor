@@ -34,10 +34,9 @@
         <controls:ParametersGroup GroupTitle="Associations">
           <StackPanel Orientation="Vertical">
             <controls:AssociationRoleSelectorControl DataContext="{Binding Path=AssociationRoleSelectorControlViewModel}" />
-            <Label>Available Handlers</Label>
+            <Label>Available DataSet Associations</Label>
             <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}"
-                      SelectedValue="{Binding Path=AssociationCouplerViewModel, Mode=TwoWay}"
-                      >
+                      SelectedValue="{Binding Path=AssociationCouplerViewModel, Mode=TwoWay}">
               <ListView.View>
                 <GridView>
                   <GridViewColumn Header="Associated">
@@ -61,8 +60,13 @@
                 <Grid.RowDefinitions>
                   <RowDefinition/>
                   <RowDefinition/>
+                  <RowDefinition/>
                 </Grid.RowDefinitions>
-                <CheckBox IsChecked="{Binding Path=AssociationCouplerViewModel.Associated, Mode=TwoWay}" Content="Associated" Grid.Row="0" Grid.ColumnSpan="2"/>
+                <CheckBox IsChecked="{Binding Path=AssociationCouplerViewModel.Associated, Mode=TwoWay, FallbackValue='select association'}" Content="Associated" Grid.Row="0" Grid.ColumnSpan="2"/>
+                <Label Content="PublisherId" Grid.Row="1" />
+                <TextBox Text="{Binding Path=AssociationCouplerViewModel.Association.PublisherId, Mode=TwoWay, FallbackValue='select association'}" Grid.Row="1" Grid.Column="1"  />
+                <Label Content="PublisherId" Grid.Row="2"  />
+                <TextBox Text="{Binding Path=AssociationCouplerViewModel.Association.DataSetWriterId, Mode=TwoWay, FallbackValue='select association'}" Grid.Row="2" Grid.Column="1" />
               </Grid>
             </controls:ParametersGroup>
           </StackPanel>
