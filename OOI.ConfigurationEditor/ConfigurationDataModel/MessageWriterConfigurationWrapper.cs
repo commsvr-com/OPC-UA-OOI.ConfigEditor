@@ -77,34 +77,39 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 
     #region MessageHandlerConfigurationWrapper<MessageReaderConfiguration>
     /// <summary>
-    /// Creates or removes association with the specified <paramref name="dataset" />.
+    /// Creates or removes association described by the parameter <paramref name="association" />.
     /// </summary>
-    /// <param name="associate">if set to <c>true</c> the <paramref name="dataset" /> shall be associated.</param>
-    /// <param name="dataset">The dataset to be associated.</param>
-    public override void Associate(bool associate, DataSetConfigurationWrapper dataset)
+    /// <param name="associate">if set to <c>true</c> the <paramref name="association" /> shall be added to the collection of associations.</param>
+    /// <param name="association">The association instance of type <see cref="IAssociationConfigurationWrapper" /> to be added to the local collection.</param>
+    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="InvalidCastException"></exception>
+    public override void Associate(bool associate, IAssociationConfigurationWrapper association)
     {
+      if (association == null)
+        throw new ArgumentNullException(nameof(association));
+      ProducerAssociationConfigurationWrapper _wrapper = association as ProducerAssociationConfigurationWrapper;
+      if (_wrapper == null)
+        throw new InvalidCastException($"Imposible to cast {nameof(association)}");
       if (associate)
       {
-        if (Check(dataset))
+        if (AssociationConfiguration.Where<ProducerAssociationConfigurationWrapper>(x => x.AssociationName == association.AssociationName).Any<ProducerAssociationConfigurationWrapper>())
           return;
-        ProducerAssociationConfigurationWrapper _wrapper = ProducerAssociationConfigurationWrapper.GetDefault(dataset.AssociationName);
         List<ProducerAssociationConfigurationWrapper> _associations = new List<ProducerAssociationConfigurationWrapper>(AssociationConfiguration);
         _associations.Add(_wrapper);
         AssociationConfiguration = _associations.ToArray<ProducerAssociationConfigurationWrapper>();
       }
       else
-        AssociationConfiguration = AssociationConfiguration.Where<ProducerAssociationConfigurationWrapper>(x => x.AssociationName != dataset.AssociationName).
-                                   ToArray<ProducerAssociationConfigurationWrapper>();
+        AssociationConfiguration = AssociationConfiguration.Where<ProducerAssociationConfigurationWrapper>(x => x.AssociationName != association.AssociationName).ToArray<ProducerAssociationConfigurationWrapper>();
     }
     /// <summary>
-    /// Checks if the selected <paramref name="dataSet" /> is associated (handled) by this instance.
+    /// Checks if the selected <paramref name="dataSet" /> is associated (handled) by this instance and returns
+    /// description of this association as an instance of <see cref="IAssociationConfigurationWrapper" />.
     /// </summary>
-    /// <param name="dataSet">The dataset.</param>
-    /// <returns><c>true</c> if the selected <paramref name="dataSet" /> is in collection handled by this instance, <c>false</c> otherwise.</returns>
-    /// <exception cref="System.NotImplementedException"></exception>
-    public override bool Check(DataSetConfigurationWrapper dataSet)
+    /// <param name="dataSet">The dataset to be checked against association.</param>
+    /// <returns>If associated returns an instance of <see cref="IAssociationConfigurationWrapper" />.</returns>
+    public override IAssociationConfigurationWrapper Check(DataSetConfigurationWrapper dataSet)
     {
-      return AssociationConfiguration.Where<ProducerAssociationConfigurationWrapper>(x => x.AssociationName == dataSet.AssociationName).Any<ProducerAssociationConfigurationWrapper>();
+      return AssociationConfiguration.Where<ProducerAssociationConfigurationWrapper>(x => x.AssociationName == dataSet.AssociationName).FirstOrDefault<ProducerAssociationConfigurationWrapper>();
     }
     #endregion
 

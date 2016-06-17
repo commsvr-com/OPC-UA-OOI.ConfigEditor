@@ -13,9 +13,10 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using UAOOI.Configuration.Networking.Serialization;
-using System.Linq;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
@@ -77,23 +78,28 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 
     #region MessageHandlerConfigurationWrapper<MessageReaderConfiguration>
     /// <summary>
-    /// Creates or removes association with the specified <paramref name="dataset" />.
+    /// Creates or removes association described by the parameter <paramref name="association" />.
     /// </summary>
-    /// <param name="associate">if set to <c>true</c> the <paramref name="dataset" /> shall be associated.</param>
-    /// <param name="dataset">The dataset to be associated.</param>
-    public override void Associate(bool associate, DataSetConfigurationWrapper dataset)
+    /// <param name="associate">if set to <c>true</c> the <paramref name="association" /> shall be added to the collection of associations.</param>
+    /// <param name="association">The association instance of type <see cref="IAssociationConfigurationWrapper" /> to be added to the local collection.</param>
+    /// <exception cref="InvalidCastException"> if the <paramref name="association"/> cannot be casted on the <see cref="ConsumerAssociationConfigurationWrapper"/></exception>
+    public override void Associate(bool associate, IAssociationConfigurationWrapper association)
     {
+      if (association == null)
+        throw new ArgumentNullException(nameof(association));
+      ConsumerAssociationConfigurationWrapper _wrapper = association as ConsumerAssociationConfigurationWrapper;
+      if (_wrapper == null)
+        throw new InvalidCastException($"Imposible to cast {nameof(association)}");
       if (associate)
       {
-        if (Check(dataset))
+        if (AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName == association.AssociationName).Any<ConsumerAssociationConfigurationWrapper>())
           return;
-        ConsumerAssociationConfigurationWrapper _wrapper = ConsumerAssociationConfigurationWrapper.GetDefault(dataset);
         List<ConsumerAssociationConfigurationWrapper> _associations = new List<ConsumerAssociationConfigurationWrapper>(AssociationConfiguration);
         _associations.Add(_wrapper);
         AssociationConfiguration = _associations.ToArray<ConsumerAssociationConfigurationWrapper>();
       }
       else
-        AssociationConfiguration = AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName != dataset.AssociationName).ToArray<ConsumerAssociationConfigurationWrapper>();
+        AssociationConfiguration = AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName != association.AssociationName).ToArray<ConsumerAssociationConfigurationWrapper>();
     }
     /// <summary>
     /// Checks if the selected <paramref name="dataSet" /> is associated (handled) by this instance.
@@ -101,9 +107,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     /// <param name="dataSet">The dataset.</param>
     /// <returns><c>true</c> if the selected <paramref name="dataSet" /> is in collection handled by this instance, <c>false</c> otherwise.</returns>
     /// <exception cref="System.NotImplementedException"></exception>
-    public override bool Check(DataSetConfigurationWrapper dataSet)
+    public override IAssociationConfigurationWrapper Check(DataSetConfigurationWrapper dataSet)
     {
-      return AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName == dataSet.AssociationName).Any<ConsumerAssociationConfigurationWrapper>();
+      return AssociationConfiguration.Where<ConsumerAssociationConfigurationWrapper>(x => x.AssociationName == dataSet.AssociationName).FirstOrDefault<ConsumerAssociationConfigurationWrapper>();
     }
     #endregion
 

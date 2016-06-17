@@ -13,6 +13,8 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using System;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -27,25 +29,63 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     public void AfterCreationTest()
     {
       bool _associated = false;
-      AssociationCoupler _couple = new AssociationCoupler(() => _associated, x => _associated = x, "Title");
+      AssociationConfigurationWrapper _wrapper = new AssociationConfigurationWrapper();
+      AssociationCoupler _couple = new AssociationCoupler(null, (x, y) => _associated = x, "Title", _wrapper);
       Assert.IsFalse(_couple.Associated);
-      _couple.Associated = true;
-      Assert.IsTrue(_associated);
-      Assert.IsTrue(_couple.Associated);
       Assert.AreEqual<string>("Title", _couple.Title);
+      Assert.IsNotNull( _couple.AssociationWrapper);
+      Assert.AreSame(_wrapper, _couple.AssociationWrapper);
     }
 
     [TestMethod]
-    public void RevertTest()
+    public void ApplayChanges()
     {
       bool _associated = false;
-      AssociationCoupler _couple = new AssociationCoupler(() => _associated, x => _associated = x, "");
-      Assert.IsFalse(_couple.Associated);
-      _couple.Associated = true;
+      AssociationConfigurationWrapper _wrapper = new AssociationConfigurationWrapper();
+      AssociationCoupler _couple = new AssociationCoupler(_wrapper, (x, y) => _associated = x, "Title", new AssociationConfigurationWrapper());
+      Assert.IsTrue(_couple.Associated);
+      _couple.ApplayChanges(true);
+      Assert.IsTrue(_couple.Associated);
       Assert.IsTrue(_associated);
-      _couple.Revert();
-      Assert.IsFalse(_couple.Associated);
-      Assert.IsFalse(_associated);
+    }
+    private class AssociationConfigurationWrapper : IAssociationConfigurationWrapper
+    {
+      public string AssociationName
+      {
+        get
+        {
+          throw new NotImplementedException();
+        }
+
+        set
+        {
+          throw new NotImplementedException();
+        }
+      }
+      public ushort DataSetWriterId
+      {
+        get
+        {
+          throw new NotImplementedException();
+        }
+
+        set
+        {
+          throw new NotImplementedException();
+        }
+      }
+      public Guid PublisherId
+      {
+        get
+        {
+          throw new NotImplementedException();
+        }
+
+        set
+        {
+          throw new NotImplementedException();
+        }
+      }
     }
 
   }

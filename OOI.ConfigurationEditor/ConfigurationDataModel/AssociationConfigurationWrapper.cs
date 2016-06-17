@@ -13,31 +13,54 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.Windows.mvvm;
+using System;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
 
-  public class AssociationConfigurationWrapper<type> : Bindable, IWrapper<type>
-      where type : AssociationConfiguration
+  /// <summary>
+  /// Class AssociationConfigurationWrapper.
+  /// </summary>
+  /// <typeparam name="type">The type of the type.</typeparam>
+  /// <seealso cref="Wrapper{type}" />
+  /// <seealso cref="IAssociationConfigurationWrapper" />
+  public class AssociationConfigurationWrapper<type> : Wrapper<type>, IAssociationConfigurationWrapper
+    where type : AssociationConfiguration
   {
 
-    public AssociationConfigurationWrapper(type configuration)
-    {
-      Item = configuration;
-    }
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AssociationConfigurationWrapper{type}"/> class.
+    /// </summary>
+    /// <param name="configuration">The configuration.</param>
+    public AssociationConfigurationWrapper(type configuration) : base(configuration) { }
+    /// <summary>
+    /// Gets or sets the name of the association.
+    /// </summary>
+    /// <value>The name of the association.</value>
     public string AssociationName
     {
       get { return Item.AssociationName; }
       set { SetProperty<string>(x => Item.AssociationName = x, value); }
     }
+    /// <summary>
+    /// Gets or sets the data set writer identifier.
+    /// </summary>
+    /// <value>The data set writer identifier.</value>
     public ushort DataSetWriterId
     {
       get { return Item.DataSetWriterId; }
       set { SetProperty<ushort>(x => Item.DataSetWriterId = x, value); }
     }
-    public type Item { get; set; }
+    /// <summary>
+    /// Gets or sets the publisher identifier.
+    /// </summary>
+    /// <value>The publisher identifier.</value>
+    public Guid PublisherId
+    {
+      get { return Item.PublisherId; }
+      set { SetProperty<Guid>(x => Item.PublisherId = x, value); }
+    }
 
   }
 }

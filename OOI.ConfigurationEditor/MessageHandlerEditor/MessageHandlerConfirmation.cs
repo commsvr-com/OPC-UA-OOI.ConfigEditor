@@ -85,23 +85,48 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
         SetProperty<IEnumerable<AssociationCouplerViewModel>>(ref b_AssociationCouplersEnumerator, value);
       }
     }
+    public AssociationCouplerViewModel AssociationCouplerViewModel
+    {
+      get
+      {
+        return b_AssociationCouplerViewModel;
+      }
+      set
+      {
+        if (SetProperty<AssociationCouplerViewModel>(ref b_AssociationCouplerViewModel, value))
+          SelectedAssociationIsEnabled = value != null;
+      }
+    }
+    public bool SelectedAssociationIsEnabled
+    {
+      get
+      {
+        return b_SelectedAssociationIsEnabled;
+      }
+      set
+      {
+        SetProperty<bool>(ref b_SelectedAssociationIsEnabled, value);
+      }
+    }
     #endregion
 
     #region internal API
     /// <summary>
-    /// Reverts this instance to the initial state.
+    /// Applays the changes.
     /// </summary>
-    internal void Revert()
+    internal void ApplayChanges()
     {
       if (AssociationCouplersEnumerator == null)
         return;
       foreach (var _item in AssociationCouplersEnumerator)
-        _item.Revert();
+        _item.ApplayChanges();
     }
     #endregion
 
     #region private
     //backing variables
+    private bool b_SelectedAssociationIsEnabled;
+    private AssociationCouplerViewModel b_AssociationCouplerViewModel;
     private IMessageHandlerConfigurationWrapper b_MessageHandlerConfigurationWrapper;
     private IEnumerable<AssociationCouplerViewModel> b_AssociationCouplersEnumerator;
     private Func<IMessageHandlerConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> m_AssociationCouplerViewModelEnumeratorFunc;
@@ -121,4 +146,5 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     #endregion
 
   }
+
 }

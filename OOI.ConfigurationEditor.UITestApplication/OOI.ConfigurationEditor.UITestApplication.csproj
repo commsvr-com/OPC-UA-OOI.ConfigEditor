@@ -53,15 +53,15 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UAOOI.Common.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.0-Bravo\lib\net461\UAOOI.Common.Infrastructure.dll</HintPath>
+      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Common.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UAOOI.Configuration.DataBindings, Version=2.0.0.30171, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.0-Bravo\lib\net461\UAOOI.Configuration.DataBindings.dll</HintPath>
+    <Reference Include="UAOOI.Configuration.DataBindings, Version=2.0.1.27981, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
+      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Configuration.DataBindings.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UAOOI.Configuration.Networking, Version=2.0.0.30169, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.0-Bravo\lib\net461\UAOOI.Configuration.Networking.dll</HintPath>
+    <Reference Include="UAOOI.Configuration.Networking, Version=2.0.0.20873, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
+      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Configuration.Networking.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />

@@ -9,6 +9,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
   [TestClass]
   public class MessageReaderConfigurationWrapperUnitTest
   {
+
     [TestMethod]
     public void AfterCreationStateTestMethod()
     {
@@ -27,7 +28,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.AreEqual<AssociationRole>(AssociationRole.Consumer, _mw.TransportRole);
       Assert.AreSame(_channel, _mw.MessageChannelConfiguration.GetConfiguration());
       Assert.AreEqual<string>("Name", _mw.Name);
-      Assert.IsTrue(_mw.Check(new DataSetConfigurationWrapper(new DataSetConfiguration() { AssociationName = "AssociationName", DataSet = new FieldMetaData[] { } })));
+      Assert.IsNotNull(_mw.Check(new DataSetConfigurationWrapper(new DataSetConfiguration() { AssociationName = "AssociationName", DataSet = new FieldMetaData[] { } })));
     }
     [TestMethod]
     public void AssociateTestMethod()
@@ -42,7 +43,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         TransportRole = AssociationRole.Producer
       };
       MessageReaderConfigurationWrapper _mw = new MessageReaderConfigurationWrapper(_configuration);
-      _mw.Associate(true, new DataSetConfigurationWrapper(new DataSetConfiguration() { AssociationName = "AssociationName", Id = Guid.NewGuid(), DataSet = new FieldMetaData[] { } }));
+      _mw.Associate(true, new ConsumerAssociationConfigurationWrapper( new ConsumerAssociationConfiguration()
+        {
+          AssociationName = "AssociationName",
+          PublisherId = Guid.NewGuid(),
+          DataSetWriterId = 0,
+         }));
       Assert.AreEqual<int>(2, _mw.AssociationConfiguration.Length);
     }
     [TestMethod]
@@ -65,5 +71,21 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       _default.MessageChannelConfiguration = _newConfig;
       Assert.AreNotSame(_newConfig, _default.MessageChannelConfiguration);
     }
+    private class AssociationConfigurationWrapper : IAssociationConfigurationWrapper
+    {
+      public string AssociationName
+      {
+        get; set;
+      }
+      public ushort DataSetWriterId
+      {
+        get; set;
+      }
+      public Guid PublisherId
+      {
+        get; set;
+      }
+    }
+
   }
 }

@@ -24,11 +24,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 
     public ConsumerAssociationConfigurationWrapper(ConsumerAssociationConfiguration configuration) : base(configuration) { }
 
-    public Guid PublisherId
-    {
-      get { return base.Item.PublisherId; }
-      set { SetProperty<Guid>(x => base.Item.PublisherId = x, value); }
-    }
     public override string ToString()
     {
       return PublisherId.ToString();

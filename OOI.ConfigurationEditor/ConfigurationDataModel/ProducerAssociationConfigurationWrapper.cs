@@ -27,17 +27,18 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 
       get { return base.Item.FieldEncoding; }
       set { SetProperty<FieldEncodingEnum>(x => Item.FieldEncoding = x, value); }
-
     }
-    internal static ProducerAssociationConfigurationWrapper GetDefault(string associationName)
+    internal static ProducerAssociationConfigurationWrapper GetDefault(DataSetConfigurationWrapper dataset)
     {
       ProducerAssociationConfiguration _producerAssociation = new ProducerAssociationConfiguration()
       {
-        AssociationName = associationName,
+        AssociationName = dataset.AssociationName,
         DataSetWriterId = 0,
-        FieldEncoding = FieldEncodingEnum.CompressedFieldEncoding 
+        PublisherId = dataset.Id,
+        FieldEncoding = FieldEncodingEnum.CompressedFieldEncoding,
       };
       return new ProducerAssociationConfigurationWrapper(_producerAssociation);
     }
+
   }
 }

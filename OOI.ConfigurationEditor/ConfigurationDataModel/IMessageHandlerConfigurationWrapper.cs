@@ -17,6 +17,7 @@ using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
+
   /// <summary>
   /// Interface IMessageHandlerConfigurationWrapper - defines basic functionality that must be provided by any message handler.
   /// </summary>
@@ -40,17 +41,18 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     /// <value>The name.</value>
     string Name { get; set; }
     /// <summary>
-    /// Checks if the selected <paramref name="dataSet"/> is associated (handled) by this instance.
+    /// Checks if the selected <paramref name="dataSet" /> is associated (handled) by this instance and returns 
+    /// description of this association as an instance of <see cref="IAssociationConfigurationWrapper"/>.
     /// </summary>
-    /// <param name="dataSet">The dataset.</param>
-    /// <returns><c>true</c> if the selected <paramref name="dataSet"/> is in collection handled by this instance, <c>false</c> otherwise.</returns>
-    bool Check(DataSetConfigurationWrapper dataSet);
+    /// <param name="dataSet">The dataset to be checked against association.</param>
+    /// <returns>If associated returns an instance of <see cref="IAssociationConfigurationWrapper"/>.</returns>
+    IAssociationConfigurationWrapper Check(DataSetConfigurationWrapper dataSet);
     /// <summary>
-    /// Creates or removes association with the specified <paramref name="dataset"/>.
+    /// Creates or removes association described by the parameter <paramref name="association"/>.
     /// </summary>
-    /// <param name="associate">if set to <c>true</c> the <paramref name="dataset"/> shall be associated.</param>
-    /// <param name="dataset">The dataset to be associated.</param>
-    void Associate(bool associate, DataSetConfigurationWrapper dataset);
+    /// <param name="associate">if set to <c>true</c> the <paramref name="association" /> shall be added to the collection of associations.</param>
+    /// <param name="association">The association instance of type <see cref="IAssociationConfigurationWrapper"/> to be added to the local collection.</param>
+    void Associate(bool associate, IAssociationConfigurationWrapper association);
 
   }
 }

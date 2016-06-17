@@ -13,6 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.Windows.mvvm;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
@@ -29,9 +30,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// Initializes a new instance of the <see cref="AssociationCouplerViewModel"/> class.
     /// </summary>
     /// <param name="coupler">The coupler.</param>
-    internal AssociationCouplerViewModel(IAssociationCoupler coupler)
+    internal AssociationCouplerViewModel(AssociationCoupler coupler)
     {
       m_Coupler = coupler;
+      b_Associated = m_Coupler.Associated;
     }
     #endregion
 
@@ -44,11 +46,26 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     {
       get
       {
-        return m_Coupler.Associated;
+        return b_Associated;
       }
       set
       {
-        SetProperty<bool>(m_Coupler.Associated, x => m_Coupler.Associated = x, value);
+        SetProperty<bool>(ref b_Associated, value);
+      }
+    }
+    /// <summary>
+    /// Gets or sets the association.
+    /// </summary>
+    /// <value>The association.</value>
+    public IAssociationConfigurationWrapper Association
+    {
+      get
+      {
+        return b_Association;
+      }
+      set
+      {
+        SetProperty<IAssociationConfigurationWrapper>(ref b_Association, value);
       }
     }
     /// <summary>
@@ -64,16 +81,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     }
     #endregion
 
-    /// <summary>
-    /// Reverts the associated <see cref="IAssociationCoupler"/> instance to the initial state.
-    /// </summary>
-    internal void Revert()
+    internal void ApplayChanges()
     {
-      m_Coupler.Revert();
+      m_Coupler.ApplayChanges(b_Associated);
     }
 
     #region private
-    private IAssociationCoupler m_Coupler;
+    private bool b_Associated;
+    private IAssociationConfigurationWrapper b_Association;
+    private AssociationCoupler m_Coupler;
     #endregion
 
   }
