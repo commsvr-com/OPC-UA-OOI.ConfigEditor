@@ -16,6 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Networking = global::UAOOI.Configuration.Networking;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
@@ -29,9 +30,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     {
       ConfigurationDataRepository _repository = new ConfigurationDataRepository();
       DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository, new TestLoggerFacade()));
-     DataSetEditorServices _service = new DataSetEditorServices(_dataSetModelServices);
+      DataSetEditorServices _service = new DataSetEditorServices(_dataSetModelServices);
       TestLoggerFacade _LoggerFacade = new TestLoggerFacade();
-      DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
+      DataSetListViewModel _viewModel = new DataSetListViewModel(new TestDomainsManagementServices(), new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
       Assert.IsNull(_viewModel.CurrentDataSetItem);
       Assert.IsFalse(String.IsNullOrEmpty(_viewModel.HeaderInfo));
       Assert.IsNotNull(_viewModel.RemoveDataSetCommand);
@@ -65,7 +66,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       ConfigurationDataRepository _repository = new ConfigurationDataRepository();
       DataSetModelServices _dataSetModelServices = new DataSetModelServices(new DataSetConfigurationCollection(_repository, new TestLoggerFacade()));
       TestLoggerFacade _LoggerFacade = new TestLoggerFacade();
-      DataSetListViewModel _viewModel = new DataSetListViewModel(new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
+      DataSetListViewModel _viewModel = new DataSetListViewModel(new TestDomainsManagementServices(), new TestAssociationServices(), _dataSetModelServices, new TestRegionManager(), new TestEventAggregator(), _LoggerFacade);
       TestView _view = new TestView() { DataContext = _viewModel };
       Assert.IsTrue(_viewModel.ButtonsPanelViewModel.LeftButtonCommand.CanExecute(null));
       _viewModel.ButtonsPanelViewModel.LeftButtonCommand.Execute(null);
@@ -171,7 +172,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       }
       public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper dataset)
       {
-        return new AssociationCouplerViewModel[] { new AssociationCouplerViewModel(new AssociationCoupler(() => false, x => { }, "MessageHandlerName")  )};
+        return new AssociationCouplerViewModel[] { new AssociationCouplerViewModel(new AssociationCoupler(null, (x, y) => { }, "MessageHandlerName", null)) };
       }
     }
     private class TestView
@@ -207,6 +208,29 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         if (!MessageHandlersNotNull)
           return;
         MessageHandlersCount = _context.AssociationCouplersEnumerator.Count<AssociationCouplerViewModel>() > 0;
+      }
+    }
+    private class TestDomainsManagementServices : IDomainsManagementServices
+    {
+      public bool AddDomain(DomainWrapper domain)
+      {
+        throw new NotImplementedException();
+      }
+      public bool Contains(DomainWrapper domain)
+      {
+        throw new NotImplementedException();
+      }
+      public DomainWrapper CreateDefault()
+      {
+        throw new NotImplementedException();
+      }
+      public IDomainsObservableCollection GetAvailableDomains()
+      {
+        return new DomainsObservableCollection(new DomainWrapper[] { });
+      }
+      public void Remove(DomainWrapper domain)
+      {
+        throw new NotImplementedException();
       }
     }
     #endregion

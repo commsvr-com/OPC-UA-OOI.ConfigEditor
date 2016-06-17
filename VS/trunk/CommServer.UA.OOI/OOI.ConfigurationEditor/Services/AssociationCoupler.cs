@@ -14,6 +14,7 @@
 //_______________________________________________________________
 
 using System;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 {
@@ -21,22 +22,22 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
   /// <summary>
   /// Class AssociationCoupler - provides functionality to manage the association between two entities.
   /// </summary>
-  /// <seealso cref="IAssociationCoupler" />
-  internal class AssociationCoupler : IAssociationCoupler
+  internal class AssociationCoupler
   {
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="AssociationCoupler"/> class.
+    /// Initializes a new instance of the <see cref="AssociationCoupler" /> class.
     /// </summary>
-    /// <param name="check">The delegate to check if association is established already.</param>
+    /// <param name="existingAssociation">The existing association.</param>
     /// <param name="associate">The delegated to establish or remove association</param>
     /// <param name="title">The read only title of the association.</param>
-    internal AssociationCoupler(Func<bool> check, Action<bool> associate, string title)
+    /// <param name="defaultAssociation">The association configuration wrapper.</param>
+    public AssociationCoupler(IAssociationConfigurationWrapper existingAssociation, Action<bool, IAssociationConfigurationWrapper> associate, string title, IAssociationConfigurationWrapper defaultAssociation)
     {
-      m_Check = check;
+      Associated = existingAssociation != null;
       m_Associate = associate;
       Title = title;
-      m_InitialValue = m_Check();
+      AssociationWrapper = existingAssociation != null ? existingAssociation : defaultAssociation;
     }
 
     #region IAssociationCoupler
@@ -44,17 +45,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// Gets or sets a value indicating whether the parties are associated.
     /// </summary>
     /// <value><c>true</c> if associated; otherwise, <c>false</c>.</value>
-    public bool Associated
-    {
-      get
-      {
-        return m_Check();
-      }
-      set
-      {
-        m_Associate(value);
-      }
-    }
+    public bool Associated { get; }
+    public IAssociationConfigurationWrapper AssociationWrapper { get; private set; }
     /// <summary>
     /// Gets the title of the association.
     /// </summary>
@@ -63,16 +55,14 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// <summary>
     /// Reverts the association to the initial state.
     /// </summary>
-    public void Revert()
+    public void ApplayChanges(bool associated)
     {
-      m_Associate(m_InitialValue);
+      m_Associate(associated, AssociationWrapper);
     }
     #endregion
 
     #region private
-    private bool m_InitialValue;
-    private Action<bool> m_Associate;
-    private Func<bool> m_Check;
+    private Action<bool, IAssociationConfigurationWrapper> m_Associate;
     #endregion
 
   }

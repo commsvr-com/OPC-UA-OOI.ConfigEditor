@@ -105,9 +105,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
       bool _confirmed = false;
       b_AddRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
       if (_confirmed)
+      {
         m_DataSetModelServices.AddDataSet(_confirmation.DataSetConfigurationWrapper);
-      else
-        _confirmation.Revert();
+        _confirmation.ApplayChanges();
+      }
     }
     private void EditDataSetCommandHandler()
     {
@@ -116,8 +117,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
       DataSetItemConfirmation _confirmation = new DataSetItemConfirmation(CurrentDataSetItem, x => m_AssociationServices.GetAssociationCouplerViewModelEnumerator(x), false, m_DomainsService.GetAvailableDomains()) { Title = "Edit DataSet" };
       bool _confirmed = false;
       b_AddRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
-      if (!_confirmed)
-        _confirmation.Revert();
+      if (_confirmed)
+        _confirmation.ApplayChanges();
     }
     private void RemoveDataSetCommandHandler(string symbolicName)
     {

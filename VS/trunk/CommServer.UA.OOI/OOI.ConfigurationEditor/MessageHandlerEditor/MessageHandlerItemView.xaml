@@ -35,7 +35,9 @@
           <StackPanel Orientation="Vertical">
             <controls:AssociationRoleSelectorControl DataContext="{Binding Path=AssociationRoleSelectorControlViewModel}" />
             <Label>Available Handlers</Label>
-            <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}">
+            <ListView ItemsSource="{Binding Path=AssociationCouplersEnumerator, Mode=TwoWay}"
+                      SelectedValue="{Binding Path=AssociationCouplerViewModel, Mode=TwoWay}"
+                      >
               <ListView.View>
                 <GridView>
                   <GridViewColumn Header="Associated">
@@ -49,6 +51,20 @@
                 </GridView>
               </ListView.View>
             </ListView>
+            <controls:ParametersGroup GroupTitle="{Binding Path=AssociationCouplerViewModel.AssociationCouplerTitle, FallbackValue='select association'}" 
+                                      IsEnabled="{Binding Path=SelectedAssociationIsEnabled}">
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*"  />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                  <RowDefinition/>
+                  <RowDefinition/>
+                </Grid.RowDefinitions>
+                <CheckBox IsChecked="{Binding Path=AssociationCouplerViewModel.Associated, Mode=TwoWay}" Content="Associated" Grid.Row="0" Grid.ColumnSpan="2"/>
+              </Grid>
+            </controls:ParametersGroup>
           </StackPanel>
         </controls:ParametersGroup>
       </StackPanel>

@@ -18,6 +18,7 @@ using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
 {
@@ -47,35 +48,59 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
 
     #region IAssociationServices
     /// <summary>
-    /// Gets the array of all candidates <see cref="AssociationCouplerViewModel" /> that can be associated with <paramref name="wrapper" />
+    /// Gets the array of all candidates <see cref="AssociationCouplerViewModel" /> that can be associated with <paramref name="dscWrapper" />
     /// </summary>
-    /// <param name="wrapper">The wrapper <see cref="DataSetConfigurationWrapper" />.</param>
+    /// <param name="dscWrapper">The wrapper <see cref="DataSetConfigurationWrapper" />.</param>
     /// <returns>All available <see cref="AssociationCouplerViewModel" />.</returns>
-    public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper wrapper)
+    public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper dscWrapper)
     {
-      return m_MessageHandlerModelServices.GetMessageHandlers(wrapper.AssociationRole).
-        Select<IMessageHandlerConfigurationWrapper, AssociationCouplerViewModel>(mhc => new AssociationCouplerViewModel(new AssociationCoupler(() => mhc.Check(wrapper), associate => mhc.Associate(associate, wrapper), mhc.ToString()))).
-        ToArray<AssociationCouplerViewModel>();
+      return m_MessageHandlerModelServices.GetMessageHandlers(dscWrapper.AssociationRole).
+        Select<IMessageHandlerConfigurationWrapper, AssociationCouplerViewModel>
+          (mhcWrapper => new AssociationCouplerViewModel(new AssociationCoupler(mhcWrapper.Check(dscWrapper),
+                                                         (associated, association) => mhcWrapper.Associate(associated, association),
+                                                         mhcWrapper.ToString(),
+                                                         DefaultAssociation(mhcWrapper.TransportRole, dscWrapper)))).
+          ToArray<AssociationCouplerViewModel>();
     }
+
+
     /// <summary>
-    /// Gets the <see cref="IEnumerable{T}" /> of all candidates <see cref="AssociationCouplerViewModel" /> that can be associated with <paramref name="wrapper" />
+    /// Gets the <see cref="IEnumerable{T}" /> of all candidates <see cref="AssociationCouplerViewModel" /> that can be associated with <paramref name="mhcWrapper" />
     /// </summary>
-    /// <param name="wrapper">The wrapper.</param>
+    /// <param name="mhcWrapper">The wrapper.</param>
     /// <remarks>
     /// Implements <see cref="IAssociationServices"/>
     /// </remarks>
     /// <returns>All available <see cref="AssociationCouplerViewModel" /> as the <see cref="IEnumerable{T}" />.</returns>
-    public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper)
+    public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper mhcWrapper)
     {
-      return m_DataSetsServices.GetDataSets(wrapper.TransportRole).
-        Select<DataSetConfigurationWrapper, AssociationCouplerViewModel>(dsc => new AssociationCouplerViewModel(new AssociationCoupler(() => wrapper.Check(dsc), associated => wrapper.Associate(associated, dsc), dsc.ToString()))).
-        ToArray<AssociationCouplerViewModel>();
+      return m_DataSetsServices.GetDataSets(mhcWrapper.TransportRole).
+        Select<DataSetConfigurationWrapper, AssociationCouplerViewModel>
+          (dscWrapper => new AssociationCouplerViewModel(new AssociationCoupler(mhcWrapper.Check(dscWrapper),
+                                                         (associated, association) => mhcWrapper.Associate(associated, association),
+                                                         dscWrapper.ToString(),
+                                                         DefaultAssociation(mhcWrapper.TransportRole, dscWrapper)))).
+          ToArray<AssociationCouplerViewModel>();
     }
     #endregion
 
     #region private
     private IDataSetModelServices m_DataSetsServices;
     private IMessageHandlerServices m_MessageHandlerModelServices;
+    private IAssociationConfigurationWrapper DefaultAssociation(AssociationRole transportRole, DataSetConfigurationWrapper dsc)
+    {
+      IAssociationConfigurationWrapper _ret = null;
+      switch (transportRole)
+      {
+        case AssociationRole.Consumer:
+          _ret = ConsumerAssociationConfigurationWrapper.GetDefault(dsc);
+          break;
+        case AssociationRole.Producer:
+          _ret = ProducerAssociationConfigurationWrapper.GetDefault(dsc);
+          break;
+      }
+      return _ret;
+    }
     #endregion
 
   }

@@ -106,9 +106,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       bool _confirmed = false;
       b_AddRequest.Raise(_confirmation, x => _confirmed = x.Confirmed);
       if (_confirmed)
+      {
         m_MessageHandlerServices.AddMessageHandler(_confirmation.MessageHandlerConfigurationWrapper);
-      else
-        _confirmation.Revert();
+        _confirmation.ApplayChanges();
+      }
     }
     private void EditCommandHandler()
     {
@@ -117,8 +118,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(CurrentMessageHandler, m_AssociationServices.GetAssociationCouplerViewModelEnumerator, false) { Title = "Edit Message Handler" };
       bool _confirmed = false;
       b_AddRequest.Raise(_confirmation, x => _confirmed = x.Confirmed);
-      if (!_confirmed)
-        _confirmation.Revert();
+      if (_confirmed)
+        _confirmation.ApplayChanges();
     }
     private void RemoveCommandHandler(string title)
     {
