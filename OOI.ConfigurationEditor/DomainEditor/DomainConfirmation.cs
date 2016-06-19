@@ -15,6 +15,9 @@
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using CAS.Windows.ViewModel;
+using Prism.Commands;
+using System.Windows.Input;
+using System.Windows;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
 {
@@ -28,7 +31,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     internal DomainConfirmation(DomainWrapper domain)
     {
       DomainConfigurationWrapper = domain;
+      LookupDNSCommand = new DelegateCommand(OnLookupDNSRaised);
     }
+    #region DataContext
     /// <summary>
     /// Gets the domain configuration wrapper.
     /// </summary>
@@ -37,9 +42,16 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     /// </remarks>
     /// <value>The domain configuration wrapper <see cref="DomainWrapper"/>.</value>
     public DomainWrapper DomainConfigurationWrapper { get; private set; }
+    public ICommand LookupDNSCommand { get; }
+    #endregion
     internal void ApplyChanges()
     {
       DomainConfigurationWrapper.ApplyChanges();
     }
+    private void OnLookupDNSRaised()
+    {
+      MessageBox.Show("Not implemented, send request to mpostol@cas.eu", "Lookup DNS to discover Semantics Data", MessageBoxButton.OK, MessageBoxImage.Warning);
+    }
+
   }
 }
