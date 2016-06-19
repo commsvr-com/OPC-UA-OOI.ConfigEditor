@@ -70,6 +70,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://www.commsvr.com/OPC-Help/Index.aspx?topic=html/a2d55988-b59a-4a87-95b9-933f6bbdf5bd.htm.
+        /// </summary>
+        internal static string HelpDocumentationUrl {
+            get {
+                return ResourceManager.GetString("HelpDocumentationUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Message Handlers.
         /// </summary>
         internal static string MessageHandlersListPanelHeader {
@@ -88,11 +97,29 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to README.md.html.
+        /// </summary>
+        internal static string ReadMeFileName {
+            get {
+                return ResourceManager.GetString("ReadMeFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An unhandled exception occurred, and the plug-in is terminating. For more information, see your Application log..
         /// </summary>
         internal static string UnhandledException {
             get {
                 return ResourceManager.GetString("UnhandledException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.cas.internetdsl.pl/commserver/P_DowloadCenter/Lic-09000401EN_License_Agreement.pdf.
+        /// </summary>
+        internal static string ViewLicenseUrl {
+            get {
+                return ResourceManager.GetString("ViewLicenseUrl", resourceCulture);
             }
         }
     }

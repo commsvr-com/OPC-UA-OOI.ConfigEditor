@@ -220,6 +220,10 @@
     <Compile Include="Wrapper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ReadMe.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReadMe.md</LastGenOutput>
+    </Content>
     <None Include="app.config" />
     <None Include="cas.snk" />
     <None Include="ConfigurationDataModel\ConfigurationDataModel.cd" />
@@ -229,6 +233,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>nuspec.tt</DependentUpon>
+    </None>
+    <None Include="ReadMe.md">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReadMe.tt</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -321,6 +330,10 @@
       <LastGenOutput>nuspec.nuspec</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="README.md.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\action_Cancel_16xLG.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
