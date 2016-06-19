@@ -16,6 +16,7 @@
 
 using System.ComponentModel.Composition;
 using System.Windows;
+using System.Windows.Input;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
@@ -31,6 +32,14 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
     public ConfigurationDataEditorView()
     {
       InitializeComponent();
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+      this.Close();
+    }
+    private void CommandBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+    {
+      e.CanExecute = true;
     }
     /// <summary>
     /// Gets or sets the view model.

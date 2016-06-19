@@ -120,13 +120,22 @@
   <data name="DataSetsListPanelHeader" xml:space="preserve">
     <value>Data Sets</value>
   </data>
+  <data name="HelpDocumentationUrl" xml:space="preserve">
+    <value>http://www.commsvr.com/OPC-Help/Index.aspx?topic=html/a2d55988-b59a-4a87-95b9-933f6bbdf5bd.htm</value>
+  </data>
   <data name="MessageHandlersListPanelHeader" xml:space="preserve">
     <value>Message Handlers</value>
   </data>
   <data name="PublishingIntervalToolTip" xml:space="preserve">
     <value>The interval in milliseconds for sampling the Variables and publishing the Values in a DataSet by the related MessageWriter. </value>
   </data>
+  <data name="ReadMeFileName" xml:space="preserve">
+    <value>README.md.html</value>
+  </data>
   <data name="UnhandledException" xml:space="preserve">
     <value>An unhandled exception occurred, and the plug-in is terminating. For more information, see your Application log.</value>
+  </data>
+  <data name="ViewLicenseUrl" xml:space="preserve">
+    <value>http://www.cas.internetdsl.pl/commserver/P_DowloadCenter/Lic-09000401EN_License_Agreement.pdf</value>
   </data>
 </root>
