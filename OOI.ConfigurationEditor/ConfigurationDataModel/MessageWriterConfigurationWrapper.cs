@@ -111,6 +111,14 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     {
       return AssociationConfiguration.Where<ProducerAssociationConfigurationWrapper>(x => x.AssociationName == dataSet.AssociationName).FirstOrDefault<ProducerAssociationConfigurationWrapper>();
     }
+    /// <summary>
+    /// Gets all associations defined for this instance of .
+    /// </summary>
+    /// <returns>Returns array of <see cref="IAssociationConfigurationWrapper"/>.</returns>
+    public override IAssociationConfigurationWrapper[] GetAssociations()
+    {
+      return AssociationConfiguration;
+    }
     #endregion
 
   }

@@ -13,6 +13,8 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using System;
+
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
   /// <summary>
@@ -25,6 +27,88 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
   /// </remarks>
   public class DomainModel
   {
-    //TODO - must be implemented as the data contract 
+
+    #region API
+    /// <summary>
+    /// Gets or sets the name of the alias.
+    /// </summary>
+    /// <value>The name of the alias.</value>
+    public string AliasName
+    {
+      get
+      {
+        return b_AliasName;
+      }
+      set
+      {
+        b_AliasName = value;
+      }
+    }
+    /// <summary>
+    /// Gets or sets the URI of the domain.
+    /// </summary>
+    /// <value>The URI.</value>
+    public Uri URI
+    {
+      get
+      {
+        return b_URI;
+      }
+      set
+      {
+        b_URI = value;
+      }
+    }
+    /// <summary>
+    /// Gets or sets the unique name of the domain.
+    /// </summary>
+    /// <value>The name of the unique.</value>
+    public Guid UniqueName
+    {
+      get
+      {
+        return b_UniqueName;
+      }
+      set
+      {
+        b_UniqueName = value;
+      }
+    }
+    /// <summary>
+    /// Gets or sets the description of the domain.
+    /// </summary>
+    /// <value>The description.</value>
+    public string Description
+    {
+      get
+      {
+        return b_Description;
+      }
+      set
+      {
+        b_Description = value;
+      }
+    }
+
+    /// <summary>
+    /// Gets or sets the array of <see cref="SemanticsDataIndex"/> items belonging to this domain.
+    /// </summary>
+    /// <value>Returns the array <see cref="SemanticsDataIndex"/> items belonging to this domain.</value>
+    public SemanticsDataIndex[] SemanticsDataCollection
+    {
+      get { return b_SemanticsDataCollection; }
+      set { b_SemanticsDataCollection = value; }
+    }
+
+    #endregion
+
+    #region private backing fields
+    private string b_AliasName;
+    private Uri b_URI;
+    private Guid b_UniqueName;
+    private string b_Description;
+    private SemanticsDataIndex[] b_SemanticsDataCollection;
+    #endregion
+
   }
 }

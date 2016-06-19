@@ -13,6 +13,8 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using System.Collections.Generic;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
@@ -53,6 +55,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     /// <param name="associate">if set to <c>true</c> the <paramref name="association" /> shall be added to the collection of associations.</param>
     /// <param name="association">The association instance of type <see cref="IAssociationConfigurationWrapper"/> to be added to the local collection.</param>
     void Associate(bool associate, IAssociationConfigurationWrapper association);
-
+    IAssociationConfigurationWrapper[] GetAssociations();
   }
 }

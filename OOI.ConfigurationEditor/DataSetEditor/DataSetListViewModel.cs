@@ -107,7 +107,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
       if (_confirmed)
       {
         m_DataSetModelServices.AddDataSet(_confirmation.DataSetConfigurationWrapper);
-        _confirmation.ApplayChanges();
+        _confirmation.ApplyChanges();
       }
     }
     private void EditDataSetCommandHandler()
@@ -118,7 +118,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
       bool _confirmed = false;
       b_AddRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
       if (_confirmed)
-        _confirmation.ApplayChanges();
+        _confirmation.ApplyChanges();
     }
     private void RemoveDataSetCommandHandler(string symbolicName)
     {

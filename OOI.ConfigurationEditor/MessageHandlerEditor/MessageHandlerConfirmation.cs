@@ -114,12 +114,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     /// <summary>
     /// Applays the changes.
     /// </summary>
-    internal void ApplayChanges()
+    internal void ApplyChanges()
     {
       if (AssociationCouplersEnumerator == null)
         return;
-      foreach (var _item in AssociationCouplersEnumerator)
-        _item.ApplayChanges();
+      foreach (AssociationCouplerViewModel _item in AssociationCouplersEnumerator)
+        _item.ApplyChanges();
     }
     #endregion
 

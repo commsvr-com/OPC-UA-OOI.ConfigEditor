@@ -75,6 +75,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       {
         throw new NotImplementedException();
       }
+      public IEnumerable<Association> GetAssociations()
+      {
+        throw new NotImplementedException();
+      }
     }
     [Export(typeof(ILoggerFacade))]
     private class ExportedEmptyLogger : EmptyLogger { }

@@ -108,7 +108,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       if (_confirmed)
       {
         m_MessageHandlerServices.AddMessageHandler(_confirmation.MessageHandlerConfigurationWrapper);
-        _confirmation.ApplayChanges();
+        _confirmation.ApplyChanges();
       }
     }
     private void EditCommandHandler()
@@ -119,7 +119,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
       bool _confirmed = false;
       b_AddRequest.Raise(_confirmation, x => _confirmed = x.Confirmed);
       if (_confirmed)
-        _confirmation.ApplayChanges();
+        _confirmation.ApplyChanges();
     }
     private void RemoveCommandHandler(string title)
     {

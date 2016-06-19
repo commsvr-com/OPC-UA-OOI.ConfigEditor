@@ -63,7 +63,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
           ToArray<AssociationCouplerViewModel>();
     }
 
-
     /// <summary>
     /// Gets the <see cref="IEnumerable{T}" /> of all candidates <see cref="AssociationCouplerViewModel" /> that can be associated with <paramref name="mhcWrapper" />
     /// </summary>
@@ -81,6 +80,22 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel
                                                          dscWrapper.ToString(),
                                                          DefaultAssociation(mhcWrapper.TransportRole, dscWrapper)))).
           ToArray<AssociationCouplerViewModel>();
+    }
+    public IEnumerable<Association> GetAssociations()
+    {
+      List<Association> _ret = new List<Association>();
+      foreach (IMessageHandlerConfigurationWrapper _wrx in m_MessageHandlerModelServices.GetMessageHandlers())
+      {
+        IEnumerable<Association> _ac = _wrx.GetAssociations().Join<IAssociationConfigurationWrapper, DataSetConfigurationWrapper, string, Association>
+          (
+            m_DataSetsServices.GetDataSets(),
+            x => x.AssociationName,
+            y => y.AssociationName,
+            (_association, _dataSet) => new Association() { AssociationConfigurationWrapper = _association, DataSet = _dataSet }
+          );
+        _ret.AddRange(_ac);
+      }
+      return _ret;
     }
     #endregion
 

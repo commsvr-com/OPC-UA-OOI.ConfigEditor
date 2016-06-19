@@ -79,7 +79,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(_reader, wrapper => { _enumeratorCalled++; return new AssociationCouplerViewModel[] { }; }, true) { };
       Assert.AreEqual<int>(0, _raised); 
       Assert.AreEqual<int>(1, _enumeratorCalled);
-      _confirmation.ApplayChanges();
+      _confirmation.ApplyChanges();
     }
     [TestMethod]
     public void RevertTestAssociationCouplersEnumeratorIsNullMethod()
@@ -90,7 +90,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       MessageHandlerConfirmation _confirmation = new MessageHandlerConfirmation(_reader, wrapper => { _enumeratorCalled++; return null; }, true) { };
       Assert.AreEqual<int>(0, _raised);
       Assert.AreEqual<int>(1, _enumeratorCalled);
-      _confirmation.ApplayChanges();
+      _confirmation.ApplyChanges();
     }
 
   }

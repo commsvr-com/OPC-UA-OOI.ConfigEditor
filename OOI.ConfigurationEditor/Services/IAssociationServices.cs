@@ -14,6 +14,7 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using System.Collections.Generic;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 {
@@ -35,6 +36,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// <param name="wrapper">The wrapper <see cref="IMessageHandlerConfigurationWrapper"/>.</param>
     /// <returns>All available <see cref="AssociationCouplerViewModel"/>.</returns>
     AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(IMessageHandlerConfigurationWrapper wrapper);
+    /// <summary>
+    /// Gets all associations defined in the configuration.
+    /// </summary>
+    /// <returns>Returns <see cref="IEnumerable{Association}"/> containing all association defined in the configuration.</returns>
+    IEnumerable<Association> GetAssociations();
 
   }
 }

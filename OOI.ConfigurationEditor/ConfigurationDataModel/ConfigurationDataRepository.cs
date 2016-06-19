@@ -4,6 +4,9 @@ using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
+  /// <summary>
+  /// Class ConfigurationDataRepository - wrapps the configuration that is edited by the tool.
+  /// </summary>
   [Export]
   [PartCreationPolicy(CreationPolicy.Shared)]
   public class ConfigurationDataRepository
@@ -20,6 +23,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     {
       if (ConfigurationData == null)
         SetConfigurationData = new ConfigurationData() { DataSets = new DataSetConfiguration[] { }, MessageHandlers = new MessageHandlerConfiguration[] { } };
+      SetConfigurationData.OnChanged?.Invoke();
     }
     internal ConfigurationData ConfigurationData
     {
