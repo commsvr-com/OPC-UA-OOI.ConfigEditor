@@ -37,14 +37,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     /// </remarks>
     /// <value>The domain configuration wrapper <see cref="DomainWrapper"/>.</value>
     public DomainWrapper DomainConfigurationWrapper { get; private set; }
-    /// <summary>
-    /// Reverts this instance to the initial state.
-    /// </summary>
-    /// <exception cref="System.NotImplementedException"></exception>
-    internal void Revert()
+    internal void ApplyChanges()
     {
-      //TODO Must be implemented
+      DomainConfigurationWrapper.ApplyChanges();
     }
-
   }
 }

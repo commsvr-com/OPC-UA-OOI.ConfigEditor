@@ -36,6 +36,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       this.SemanticsDataCollection = new ObservableCollection<SemanticsDataIndexWrapper>(item.SemanticsDataCollection.Select<SemanticsDataIndex, SemanticsDataIndexWrapper>(x => new SemanticsDataIndexWrapper(x)).ToArray<SemanticsDataIndexWrapper>());
       this.SemanticsDataCollection.CollectionChanged += SemanticsDataCollection_CollectionChanged;
     }
+
+    internal void ApplyChanges()
+    {
+      //TODO must be implemented
+    }
     #endregion
 
     #region API

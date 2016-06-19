@@ -85,10 +85,17 @@
             </Grid>
           </controls:ParametersGroup.Content>
         </controls:ParametersGroup>
+        <controls:ParametersGroup GroupTitle="Available Data Indexes">
+          <DataGrid ItemsSource="{Binding Path=DomainConfigurationWrapper.SemanticsDataCollection}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+              <DataGridTextColumn Header="SymbolicName"  Binding="{Binding Path=SymbolicName}"/>
+              <DataGridTextColumn Header="Index"  Binding="{Binding Path=Index}"/>
+            </DataGrid.Columns>
+          </DataGrid>
+        </controls:ParametersGroup>
       </StackPanel>
     </DataTemplate>
   </UserControl.Resources>
-
   <Grid Margin="5" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
     <Grid.RowDefinitions>
       <RowDefinition  Height="*"/>
