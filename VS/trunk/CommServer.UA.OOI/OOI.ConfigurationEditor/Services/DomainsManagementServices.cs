@@ -13,7 +13,6 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using System;
 using System.ComponentModel.Composition;

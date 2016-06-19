@@ -77,6 +77,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.MessageHandlerEditor
     public ICommand RemoveCommand { get; private set; }
     public IInteractionRequest AddRequest { get { return b_AddRequest; } }
     public IInteractionRequest EditRequest { get { return b_EditRequest; } }
+    /// <summary>
+    /// Gets or sets the buttons panel view model.
+    /// </summary>
+    /// <value>The buttons panel view model <see cref="ButtonsViewModel" />.</value>
     public override ButtonsViewModel ButtonsPanelViewModel
     {
       get; protected set;

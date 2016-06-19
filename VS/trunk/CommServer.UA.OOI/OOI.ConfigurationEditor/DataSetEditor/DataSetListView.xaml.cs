@@ -1,4 +1,17 @@
-// Copyright (c) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
+//_______________________________________________________________
+//  Title   : DataSetListView
+//  System  : Microsoft VisualStudio 2015 / C#
+//  $LastChangedDate$
+//  $Rev$
+//  $LastChangedBy$
+//  $URL$
+//  $Id$
+//
+//  Copyright (C) 2016, CAS LODZ POLAND.
+//  TEL: +48 (42) 686 25 47
+//  mailto://techsupp@cas.eu
+//  http://www.cas.eu
+//_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Behaviors;

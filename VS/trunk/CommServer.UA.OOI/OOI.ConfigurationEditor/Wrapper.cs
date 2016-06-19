@@ -19,7 +19,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
 
   /// <summary>
-  /// Class Wrapper - used to wrapp an instance of type <typeparamref name="type"/>
+  /// Class Wrapper - used to wrap an instance of type <typeparamref name="type" />
   /// </summary>
   /// <typeparam name="type">The type of the wrapped instance type.</typeparam>
   /// <seealso cref="CAS.Windows.mvvm.Bindable" />
@@ -29,7 +29,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
     /// <summary>
     /// Initializes a new instance of the <see cref="Wrapper{type}"/> class.
     /// </summary>
-    /// <param name="item">The item.</param>
+    /// <param name="item">The item to be wrapped by this instance.</param>
     /// <exception cref="System.ArgumentNullException"></exception>
     public Wrapper(type item)
     {
@@ -38,9 +38,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor
       Item = item;
     }
     /// <summary>
-    /// Gets the item.
+    /// Gets the wrapped item.
     /// </summary>
-    /// <value>The item.</value>
+    /// <value>The wrapped item.</value>
     public virtual type Item
     {
       get; private set;

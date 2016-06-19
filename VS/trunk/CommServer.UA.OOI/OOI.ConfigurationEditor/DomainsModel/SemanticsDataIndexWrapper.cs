@@ -18,14 +18,23 @@ using System;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
+
+  /// <summary>
+  /// Class SemanticsDataIndexWrapper - represents index of the DataSet inside the domain.
+  /// </summary>
+  /// <seealso cref="Wrapper{SemanticsDataIndex}" />
   public class SemanticsDataIndexWrapper : Wrapper<SemanticsDataIndex>
   {
+
+    #region creator
     /// <summary>
     /// Initializes a new instance of the <see cref="SemanticsDataIndexWrapper"/> class.
     /// </summary>
     /// <param name="item">The item.</param>
     public SemanticsDataIndexWrapper(SemanticsDataIndex item) : base(item) { }
+    #endregion
 
+    #region API
     /// <summary>
     /// Gets or sets the data symbolic name.
     /// </summary>
@@ -53,5 +62,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       get { return Item.Index; }
       set { SetProperty(Item.Index, x => Item.Index = x, value); }
     }
+    #endregion
+
   }
 }
