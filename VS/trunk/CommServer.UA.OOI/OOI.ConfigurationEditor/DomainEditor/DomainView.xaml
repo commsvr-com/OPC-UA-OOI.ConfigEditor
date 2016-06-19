@@ -62,22 +62,25 @@
               <Label Grid.Row="0" Grid.Column="0" >Alias Name</Label>
               <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.AliasName}"/>
               <Label Grid.Row="1" Grid.Column="0" >URI</Label>
-              <TextBox Grid.Row="1" Grid.Column="1" >
-                <TextBox.Text>
-                  <Binding Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" ValidatesOnDataErrors="True">
-                    <Binding.Path>
-                      DomainConfigurationWrapper.URI
-                    </Binding.Path>
-                    <Binding.ValidationRules>
-                      <converters:UriValidationRule/>
-                    </Binding.ValidationRules>
-                    <Binding.Converter>
-                      <converters:Uri2StringConverter/>
-                    </Binding.Converter>
-                    <Binding.FallbackValue>http://tempuri.org/DefaultDomainSegment</Binding.FallbackValue>
-                  </Binding>
-                </TextBox.Text>
-              </TextBox>
+              <DockPanel Grid.Row="1" Grid.Column="1">
+                <Button DockPanel.Dock="Right" Command="{Binding Path=LookupDNSCommand}">Lookup DNS</Button>
+                <TextBox  >
+                  <TextBox.Text>
+                    <Binding Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" ValidatesOnDataErrors="True">
+                      <Binding.Path>
+                        DomainConfigurationWrapper.URI
+                      </Binding.Path>
+                      <Binding.ValidationRules>
+                        <converters:UriValidationRule/>
+                      </Binding.ValidationRules>
+                      <Binding.Converter>
+                        <converters:Uri2StringConverter/>
+                      </Binding.Converter>
+                      <Binding.FallbackValue>http://tempuri.org/DefaultDomainSegment</Binding.FallbackValue>
+                    </Binding>
+                  </TextBox.Text>
+                </TextBox>
+              </DockPanel>
               <Label Grid.Row="2" Grid.Column="0" >GUID</Label>
               <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=DomainConfigurationWrapper.UniqueName}"/>
               <Label Grid.Row="3" Grid.Column="0" >Description</Label>
