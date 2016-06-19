@@ -14,7 +14,6 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.Windows.mvvm;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
@@ -24,11 +23,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
   /// Class MessageHandlerConfigurationWrapper.
   /// </summary>
   /// <typeparam name="type">The type of the handler.</typeparam>
-  /// <seealso cref="Bindable" />
-  /// <seealso cref="IMessageHandlerConfigurationIdentity" />
-  /// <seealso cref="IWrapper{type}" />
-  /// <seealso cref="IMessageHandlerConfigurationWrapper" />
-  public abstract class MessageHandlerConfigurationWrapper<type> : Bindable, IMessageHandlerConfigurationIdentity, IWrapper<type>, IMessageHandlerConfigurationWrapper
+  /// <seealso cref="CAS.CommServer.UA.OOI.ConfigurationEditor.Wrapper{type}" />
+  /// <seealso cref="CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel.IMessageHandlerConfigurationIdentity" />
+  /// <seealso cref="CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel.IMessageHandlerConfigurationWrapper" />
+  public abstract class MessageHandlerConfigurationWrapper<type> : Wrapper<type>, IMessageHandlerConfigurationIdentity, IMessageHandlerConfigurationWrapper
     where type : MessageHandlerConfiguration
   {
 
@@ -36,11 +34,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     /// <summary>
     /// Initializes a new instance of the <see cref="MessageHandlerConfigurationWrapper{type}"/> class.
     /// </summary>
-    /// <param name="configuration">The configuration.</param>
-    public MessageHandlerConfigurationWrapper(type configuration)
-    {
-      this.Item = configuration;
-    }
+    /// <param name="item">The configuration.</param>
+    public MessageHandlerConfigurationWrapper(type item) : base(item) { }
     #endregion
 
     #region IMessageHandlerConfigurationIdentity
@@ -85,17 +80,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       get { return Item.Name; }
       set { SetProperty<string>(Item.Name, x => Item.Name = x, value); }
     }
-    #endregion
-
-    #region IWrapper<type>
     /// <summary>
-    /// The ultimate source of the item configuration
+    /// Gets all associations defined for this instance of .
     /// </summary>
-    /// <value>The item.</value>
-    public type Item
-    {
-      get; private set;
-    }
+    /// <returns>IAssociationConfigurationWrapper[].</returns>
+    public abstract IAssociationConfigurationWrapper[] GetAssociations();
     #endregion
 
     #region override object 

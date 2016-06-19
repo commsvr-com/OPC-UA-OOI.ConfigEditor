@@ -34,23 +34,28 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// Initializes a new instance of the <see cref="DomainsManagementServices"/> class.
     /// </summary>
     [ImportingConstructor()]
-    internal DomainsManagementServices(DataSetConfigurationCollection configurationRepository)
+    internal DomainsManagementServices(IAssociationServices services)
     {
+      m_IAssociationServices = services;
       m_DomainsObservableCollection = new DomainsObservableCollection(new DomainWrapper[] { CreateDefault() });
-      foreach (DataSetConfigurationWrapper _wrpr in configurationRepository)
+      foreach (Association _as in services.GetAssociations())
       {
-        if (m_DomainsObservableCollection.Where<DomainWrapper>(x => x.URI.ToString() == _wrpr.InformationModelURI).Any<DomainWrapper>())
-          continue;
-        DomainModel _dm = new DomainModel();
-        DomainWrapper _new = new DomainWrapper(_dm)
+        DomainWrapper _dw = m_DomainsObservableCollection.Where<DomainWrapper>(x => x.UniqueName == _as.AssociationConfigurationWrapper.PublisherId).FirstOrDefault<DomainWrapper>();
+        if (_dw == null)
         {
-          AliasName = _wrpr.SymbolicName,
-          Description = $"URI recovered from the DataSet AssociationName: {_wrpr.AssociationName}, SymbolicName: {_wrpr.SymbolicName}",
-          UniqueName = _wrpr.Id,
-          URI = new Uri(_wrpr.InformationModelURI)
-        };
-        m_DomainsObservableCollection.Add(_new);
-      }
+          DomainsModel.DomainModel _new = new DomainsModel.DomainModel()
+          {
+            AliasName = _as.DataSet.SymbolicName,
+            Description = $"URI recovered from the DataSet AssociationName: {_as.DataSet.AssociationName}, SymbolicName: {_as.DataSet.SymbolicName}",
+            UniqueName = _as.AssociationConfigurationWrapper.PublisherId,
+            URI = new Uri(_as.DataSet.InformationModelURI),
+            SemanticsDataCollection = new SemanticsDataIndex[] { new SemanticsDataIndex() { Index = _as.AssociationConfigurationWrapper.DataSetWriterId, SymbolicName = _as.DataSet.SymbolicName } }
+          };
+          m_DomainsObservableCollection.Add(new DomainWrapper(_new));
+        }
+        else
+          _dw.SemanticsDataCollection.Add(new SemanticsDataIndexWrapper(new SemanticsDataIndex() { Index = _as.AssociationConfigurationWrapper.DataSetWriterId, SymbolicName = _as.DataSet.SymbolicName }));
+      };
     }
     #endregion
 
@@ -89,14 +94,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// <returns>New <see cref="DomainWrapper" />.</returns>
     public DomainWrapper CreateDefault()
     {
-      DomainModel _model = new DomainModel();
-      DomainWrapper _ret = new DomainWrapper(_model)
+      DomainModel _model = new DomainModel()
       {
         AliasName = "TempuriOrg",
         Description = "meaningless temporal uri to used and a default",
         UniqueName = new Guid("3653281C-A77F-4A98-ACA4-C87A560EC124"),
-        URI = new Uri(@"http://tempuri.org/DefaultDomainSegment")
+        URI = new Uri(@"http://tempuri.org/DefaultDomainSegment"),
+        SemanticsDataCollection = new SemanticsDataIndex[] { }
       };
+      DomainWrapper _ret = new DomainWrapper(_model);
       int _i = 0;
       while (Contains(_ret))
       {
@@ -120,7 +126,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     }
     #endregion
 
+    #region private
     private DomainsObservableCollection m_DomainsObservableCollection;
+    private IAssociationServices m_IAssociationServices;
+    #endregion
 
   }
 }
+

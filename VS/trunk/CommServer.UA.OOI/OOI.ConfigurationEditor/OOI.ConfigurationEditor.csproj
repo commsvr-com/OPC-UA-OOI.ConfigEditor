@@ -111,6 +111,9 @@
     <Compile Include="ConfigurationDataModel\DataSetConfigurationCollection.cs" />
     <Compile Include="ConfigurationDataModel\DataSetConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IAssociationConfigurationWrapper.cs" />
+    <Compile Include="DomainsModel\SemanticsDataIndex.cs" />
+    <Compile Include="DomainsModel\SemanticsDataIndexWrapper.cs" />
+    <Compile Include="Services\Association.cs" />
     <Compile Include="Services\DataSetModelServices.cs" />
     <Compile Include="ConfigurationDataModel\FieldMetaDataWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IDataSetConfigurationCollection.cs" />
@@ -127,7 +130,6 @@
     <Compile Include="ConfigurationDataModel\ProducerAssociationConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\UATypeInfoWrapper.cs" />
     <Compile Include="ConfigurationDataModel\Warning.cs" />
-    <Compile Include="ConfigurationDataModel\Wrapper.cs" />
     <Compile Include="ConfigurationEditorBase.cs" />
     <Compile Include="Controls\AnimatedTabControl.Desktop.cs" />
     <Compile Include="Controls\AssociationRoleSelectorControl.xaml.cs">
@@ -215,6 +217,7 @@
     <Compile Include="DomainsModel\IDomainsObservableCollection.cs" />
     <Compile Include="ViewModel\MainRegionViewModel.cs" />
     <Compile Include="VisibilityToStarHeightConverter.Desktop.cs" />
+    <Compile Include="Wrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

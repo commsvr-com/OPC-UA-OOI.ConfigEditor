@@ -15,7 +15,7 @@
 
 using CAS.Windows.mvvm;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor
 {
 
   /// <summary>

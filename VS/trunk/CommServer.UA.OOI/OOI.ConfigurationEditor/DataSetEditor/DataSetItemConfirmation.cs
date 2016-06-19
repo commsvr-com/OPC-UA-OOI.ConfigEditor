@@ -94,10 +94,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
     }
     #endregion
 
-    internal void ApplayChanges()
+    internal void ApplyChanges()
     {
       foreach (AssociationCouplerViewModel _mh in AssociationCouplersEnumerator)
-        _mh.ApplayChanges();
+        _mh.ApplyChanges();
     }
 
     #region private

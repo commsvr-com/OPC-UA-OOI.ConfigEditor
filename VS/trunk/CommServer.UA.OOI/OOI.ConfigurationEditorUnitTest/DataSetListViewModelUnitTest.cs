@@ -2,7 +2,6 @@
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
@@ -17,6 +16,7 @@ using System.Linq;
 using System.Reflection;
 using Networking = global::UAOOI.Configuration.Networking;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
+using System.Collections.Generic;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
@@ -173,6 +173,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       public AssociationCouplerViewModel[] GetAssociationCouplerViewModelEnumerator(DataSetConfigurationWrapper dataset)
       {
         return new AssociationCouplerViewModel[] { new AssociationCouplerViewModel(new AssociationCoupler(null, (x, y) => { }, "MessageHandlerName", null)) };
+      }
+      public IEnumerable<Association> GetAssociations()
+      {
+        throw new NotImplementedException();
       }
     }
     private class TestView

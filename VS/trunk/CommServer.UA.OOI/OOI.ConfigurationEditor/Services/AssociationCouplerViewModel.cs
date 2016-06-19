@@ -82,7 +82,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     }
     #endregion
 
-    internal void ApplayChanges()
+    internal void ApplyChanges()
     {
       m_Coupler.ApplayChanges(b_Associated);
     }

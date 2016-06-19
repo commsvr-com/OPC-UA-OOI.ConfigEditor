@@ -13,8 +13,9 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
@@ -30,7 +31,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     /// Initializes a new instance of the <see cref="DomainWrapper"/> class.
     /// </summary>
     /// <param name="item">The item.</param>
-    internal DomainWrapper(DomainsModel.DomainModel item) : base(item) { }
+    internal DomainWrapper(DomainsModel.DomainModel item) : base(item)
+    {
+      this.SemanticsDataCollection = new ObservableCollection<SemanticsDataIndexWrapper>(item.SemanticsDataCollection.Select<SemanticsDataIndex, SemanticsDataIndexWrapper>(x => new SemanticsDataIndexWrapper(x)).ToArray<SemanticsDataIndexWrapper>());
+      this.SemanticsDataCollection.CollectionChanged += SemanticsDataCollection_CollectionChanged;
+    }
     #endregion
 
     #region API
@@ -42,11 +47,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     {
       get
       {
-        return b_AliasName;
+        return Item.AliasName;
       }
       set
       {
-        SetProperty<string>(ref b_AliasName, value);
+        SetProperty<string>(Item.AliasName, x => Item.AliasName = x, value);
       }
     }
     /// <summary>
@@ -57,11 +62,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     {
       get
       {
-        return b_URI;
+        return Item.URI;
       }
       set
       {
-        SetProperty<Uri>(ref b_URI, value);
+        SetProperty<Uri>(Item.URI, x => Item.URI = x, value);
       }
     }
     /// <summary>
@@ -72,11 +77,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     {
       get
       {
-        return b_UniqueName;
+        return Item.UniqueName;
       }
       set
       {
-        SetProperty<Guid>(ref b_UniqueName, value);
+        SetProperty<Guid>(Item.UniqueName, x => Item.UniqueName = x, value);
       }
     }
     /// <summary>
@@ -87,13 +92,19 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     {
       get
       {
-        return b_Description;
+        return Item.Description;
       }
       set
       {
-        SetProperty<string>(ref b_Description, value);
+        SetProperty<string>(Item.Description, x => Item.Description = x, value);
       }
     }
+    /// <summary>
+    /// Gets the semantics data collection.
+    /// </summary>
+    /// <value>The semantics data collection.</value>
+    public ObservableCollection<SemanticsDataIndexWrapper> SemanticsDataCollection { get; }
+
     #endregion
 
     #region override
@@ -108,10 +119,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     #endregion
 
     #region private
-    private string b_AliasName;
-    private Uri b_URI;
-    private Guid b_UniqueName;
-    private string b_Description;
+    private void SemanticsDataCollection_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    {
+      Item.SemanticsDataCollection = SemanticsDataCollection.Select<SemanticsDataIndexWrapper, SemanticsDataIndex>(x => x.Item).ToArray<SemanticsDataIndex>();
+    }
     #endregion
 
   }
