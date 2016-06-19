@@ -36,6 +36,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Converters
     /// <exception cref="System.NotImplementedException"></exception>
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
+      if (value == null)
+        return "Empty Uri";
       return value.ToString();
     }
     /// <summary>

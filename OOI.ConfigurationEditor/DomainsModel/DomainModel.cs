@@ -99,7 +99,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       get { return b_SemanticsDataCollection; }
       set { b_SemanticsDataCollection = value; }
     }
-
     #endregion
 
     #region private backing fields

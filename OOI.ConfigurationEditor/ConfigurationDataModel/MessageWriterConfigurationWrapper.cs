@@ -122,4 +122,5 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     #endregion
 
   }
+
 }
