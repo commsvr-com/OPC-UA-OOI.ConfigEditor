@@ -65,7 +65,7 @@
                 <CheckBox IsChecked="{Binding Path=AssociationCouplerViewModel.Associated, Mode=TwoWay, FallbackValue='select association'}" Content="Associated" Grid.Row="0" Grid.ColumnSpan="2"/>
                 <Label Content="PublisherId" Grid.Row="1" />
                 <TextBox Text="{Binding Path=AssociationCouplerViewModel.Association.PublisherId, Mode=TwoWay, FallbackValue='select association'}" Grid.Row="1" Grid.Column="1"  />
-                <Label Content="PublisherId" Grid.Row="2"  />
+                <Label Content="DataSetWriterId" Grid.Row="2"  />
                 <TextBox Text="{Binding Path=AssociationCouplerViewModel.Association.DataSetWriterId, Mode=TwoWay, FallbackValue='select association'}" Grid.Row="2" Grid.Column="1" />
               </Grid>
             </controls:ParametersGroup>

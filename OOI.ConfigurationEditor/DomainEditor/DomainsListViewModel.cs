@@ -113,17 +113,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         return;
       DomainConfirmation _confirmation = new DomainConfirmation(CurrentDomain) { Title = "Edit Domain" };
       bool _confirmed = false;
-      do
-      {
-        b_EditPopupRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
-        if (_confirmed)
-          _confirmed = m_domainsServices.AddDomain(_confirmation.DomainConfigurationWrapper);
-        else
-        {
-          _confirmation.Revert();
-          break;
-        }
-      } while (!_confirmed);
+      b_EditPopupRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
+      if (_confirmed)
+        _confirmation.ApplyChanges();
     }
     private void AddCommandHandler()
     {
