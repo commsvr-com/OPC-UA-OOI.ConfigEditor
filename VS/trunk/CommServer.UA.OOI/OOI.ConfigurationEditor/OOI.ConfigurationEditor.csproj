@@ -114,6 +114,7 @@
     <Compile Include="DomainsModel\SemanticsDataIndex.cs" />
     <Compile Include="DomainsModel\SemanticsDataIndexWrapper.cs" />
     <Compile Include="Services\Association.cs" />
+    <Compile Include="Services\DataDiscoveryServices.cs" />
     <Compile Include="Services\DataSetModelServices.cs" />
     <Compile Include="ConfigurationDataModel\FieldMetaDataWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IDataSetConfigurationCollection.cs" />

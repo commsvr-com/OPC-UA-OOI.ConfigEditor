@@ -18,6 +18,8 @@ using CAS.Windows.ViewModel;
 using Prism.Commands;
 using System.Windows.Input;
 using System.Windows;
+using System.Threading.Tasks;
+using System;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
 {
@@ -31,7 +33,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     internal DomainConfirmation(DomainWrapper domain)
     {
       DomainConfigurationWrapper = domain;
-      LookupDNSCommand = new DelegateCommand(OnLookupDNSRaised);
+      LookupDNSCommand = DelegateCommand.FromAsyncHandler(DomainDiscovery);
+      b_CurrentIsEnabled = true;
+      b_CurrentCursor = Cursors.Arrow;
     }
     #region DataContext
     /// <summary>
@@ -43,15 +47,60 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     /// <value>The domain configuration wrapper <see cref="DomainWrapper"/>.</value>
     public DomainWrapper DomainConfigurationWrapper { get; private set; }
     public ICommand LookupDNSCommand { get; }
+    public bool? CurrentIsEnabled
+    {
+      get
+      {
+        return b_CurrentIsEnabled;
+      }
+      set
+      {
+        SetProperty<bool?>(ref b_CurrentIsEnabled, value);
+      }
+    }
+    public Cursor CurrentCursor
+    {
+      get
+      {
+        return b_CurrentCursor;
+      }
+      set
+      {
+        SetProperty<Cursor>(ref b_CurrentCursor, value);
+      }
+    }
     #endregion
+
     internal void ApplyChanges()
     {
       DomainConfigurationWrapper.ApplyChanges();
     }
-    private void OnLookupDNSRaised()
+
+    //private
+    private bool? b_CurrentIsEnabled;
+    private Cursor b_CurrentCursor;
+
+    private async Task DomainDiscovery()
     {
-      MessageBox.Show("Not implemented, send request to mpostol@cas.eu", "Lookup DNS to discover Semantics Data", MessageBoxButton.OK, MessageBoxImage.Warning);
+      try
+      {
+        CurrentCursor = Cursors.Wait;
+        CurrentIsEnabled = false;
+        DomainDescriptor _newDomain = await Services.DataDiscoveryServices.ResolveDomainDescriptionAsync<DomainDescriptor>(DomainConfigurationWrapper.URI.ToString());
+      }
+      catch (System.Exception _e)
+      {
+        MessageBox.Show($"Error while resolving the domain description {_e}", "Resolving of Semantics Data", MessageBoxButton.OK, MessageBoxImage.Warning);
+      }
+      finally
+      {
+        CurrentCursor = Cursors.Arrow;
+        CurrentIsEnabled = true;
+      }
     }
 
   }
+  [Serializable]
+  public class DomainDescriptor { }
+
 }

@@ -8,7 +8,9 @@
              xmlns:controls="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.Controls"
              xmlns:converters="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Converters"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Cursor="{Binding Path=Notification.CurrentCursor}"
+             >
   <UserControl.Resources>
     <DataTemplate DataType="{x:Type local:DomainConfirmation}">
       <DataTemplate.Resources>
@@ -45,7 +47,7 @@
           <Setter Property="Opacity" Value="100"/>
         </Style>
       </DataTemplate.Resources>
-      <StackPanel >
+      <StackPanel>
         <controls:ParametersGroup GroupTitle="Domain">
           <controls:ParametersGroup.Content>
             <Grid MinWidth="500" >
@@ -63,7 +65,7 @@
               <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.AliasName}"/>
               <Label Grid.Row="1" Grid.Column="0" >URI</Label>
               <DockPanel Grid.Row="1" Grid.Column="1">
-                <Button DockPanel.Dock="Right" Command="{Binding Path=LookupDNSCommand}">Lookup DNS</Button>
+                <Button DockPanel.Dock="Right" Command="{Binding Path=LookupDNSCommand}">Resolve</Button>
                 <TextBox  >
                   <TextBox.Text>
                     <Binding Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" ValidatesOnDataErrors="True">
@@ -99,7 +101,7 @@
       </StackPanel>
     </DataTemplate>
   </UserControl.Resources>
-  <Grid Margin="5" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Auto">
+  <Grid Margin="5" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Auto" IsEnabled="{Binding Path=Notification.CurrentIsEnabled}">
     <Grid.RowDefinitions>
       <RowDefinition  Height="*"/>
       <RowDefinition Height="Auto"/>
