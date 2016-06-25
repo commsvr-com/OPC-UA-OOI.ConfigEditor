@@ -14,12 +14,13 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.Windows.ViewModel;
 using Prism.Commands;
-using System.Windows.Input;
-using System.Windows;
-using System.Threading.Tasks;
 using System;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
 {
@@ -37,6 +38,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       b_CurrentIsEnabled = true;
       b_CurrentCursor = Cursors.Arrow;
     }
+
     #region DataContext
     /// <summary>
     /// Gets the domain configuration wrapper.
@@ -86,7 +88,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       {
         CurrentCursor = Cursors.Wait;
         CurrentIsEnabled = false;
-        DomainDescriptor _newDomain = await Services.DataDiscoveryServices.ResolveDomainDescriptionAsync<DomainDescriptor>(DomainConfigurationWrapper.URI.ToString());
+        DomainDescriptor _newDomain = await DataDiscoveryServices.ResolveDomainDescriptionAsync<DomainDescriptor>(DomainConfigurationWrapper.URI);
+        DomainConfigurationWrapper.Description = _newDomain.Description;
+        DomainConfigurationWrapper.UniqueName = new Guid(_newDomain.UniversalDomainName);
       }
       catch (System.Exception _e)
       {
@@ -100,7 +104,5 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     }
 
   }
-  [Serializable]
-  public class DomainDescriptor { }
 
 }

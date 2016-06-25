@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DomainDescriptor xmlns="http://commsvr.com/CAS/CommServer/UA/OOI/ConfigurationEditor/DomainsModel/DomainDescriptor.xsd">
+  <UniversalDomainName>UniversalDomainName1</UniversalDomainName>
+  <UniversalAddressSpaceLocator>UniversalAddressSpaceLocator1</UniversalAddressSpaceLocator>
+  <UniversalDiscoveryServiceLocator>UniversalDiscoveryServiceLocator1</UniversalDiscoveryServiceLocator>
+  <UniversalAuthorizationServerLocator>UniversalAuthorizationServerLocator1</UniversalAuthorizationServerLocator>
+  <Description>Description1</Description>
+</DomainDescriptor>

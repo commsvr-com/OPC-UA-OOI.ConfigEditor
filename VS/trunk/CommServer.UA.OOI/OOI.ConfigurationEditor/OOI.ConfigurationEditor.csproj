@@ -118,6 +118,10 @@
     <Compile Include="Services\DataSetModelServices.cs" />
     <Compile Include="ConfigurationDataModel\FieldMetaDataWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IDataSetConfigurationCollection.cs" />
+    <Compile Include="DomainsModel\DomainDescriptor.cs" />
+    <Compile Include="DomainsModel\DomainDescriptor.xsd.cs">
+      <DependentUpon>DomainDescriptor.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Services\IDataSetModelServices.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerConfigurationIdentity.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerConfigurationWrapper.cs" />
@@ -240,6 +244,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReadMe.tt</DependentUpon>
     </None>
+    <None Include="DomainsModel\DomainDescriptor.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DomainsModel\GoCS.cmd" />
+    <None Include="DomainsModel\GoXSD.cmd" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="ConfigurationDataEditorView.xaml">
