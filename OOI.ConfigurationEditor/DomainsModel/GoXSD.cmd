@@ -1,0 +1,1 @@
+xsd.exe ..\bin\Debug\CAS.CommServerUAOOI.ConfigurationEditor.dll /t:CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel.DomainDescriptor

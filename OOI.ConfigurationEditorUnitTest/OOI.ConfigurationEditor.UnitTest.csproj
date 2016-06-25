@@ -119,6 +119,7 @@
     <Compile Include="MessageHandlerConfirmationUnitTest.cs" />
     <Compile Include="AssociationServicesUnitTest.cs" />
     <Compile Include="MessageHandlerConfigurationCollectionUnitTest.cs" />
+    <Compile Include="DataDiscoveryServicesUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -138,6 +139,9 @@
       <Project>{b8286065-773a-42bc-958b-0dc6366229be}</Project>
       <Name>OOI.ConfigurationEditor</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\DomainDescriptor.xml" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

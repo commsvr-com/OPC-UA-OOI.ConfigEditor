@@ -13,6 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -27,16 +28,26 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     {
       return await Dns.GetHostAddressesAsync(url);
     }
-    internal static async Task<T> ResolveDomainDescriptionAsync<T>(string address)
+    public static async Task<T> ResolveDomainDescriptionAsync<T>(Uri address)
       where T : class, new()
     {
       using (HttpClient _client = new HttpClient())
       {
-        Task<Stream> _toDo = _client.GetStreamAsync(address);
-        XmlSerializer _serializer = new XmlSerializer(typeof(T));
-        using (Stream _content = await _toDo)
+        //_client.BaseAddress = address;
+        _client.MaxResponseContentBufferSize = Int32.MaxValue;
+        _client.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)");
+        //_client.DefaultRequestHeaders.Accept.Clear();
+        //_client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("opc/application/json"));
+        using (HttpResponseMessage _Message = await _client.GetAsync(address))
         {
-          return (T)_serializer.Deserialize(_content);
+          _Message.EnsureSuccessStatusCode();
+          using (Task<Stream> _descriptionStream = _Message.Content.ReadAsStreamAsync())
+          {
+            XmlSerializer _serializer = new XmlSerializer(typeof(T));
+            Stream _description = await _descriptionStream;
+            T _newDescription = (T)_serializer.Deserialize(_description);
+            return _newDescription;
+          }
         }
       }
     }
