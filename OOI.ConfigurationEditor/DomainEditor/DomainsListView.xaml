@@ -35,9 +35,21 @@
       <ListView.View>
         <GridView >
           <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=AliasName}" Width="Auto"/>
-          <GridViewColumn Header="URI" DisplayMemberBinding="{Binding URI}" Width="Auto" />
-          <GridViewColumn Header="Unique Id" DisplayMemberBinding="{Binding UniqueName}" Width="Auto"/>
+          <GridViewColumn Header="URL" DisplayMemberBinding="{Binding URI}" Width="Auto" />
+          <GridViewColumn Header="URN" DisplayMemberBinding="{Binding UniqueName}" Width="Auto"/>
           <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="Auto"/>
+          <GridViewColumn Header="Address Space Description URL"
+                          DisplayMemberBinding="{Binding UniversalAddressSpaceLocator}" 
+                          Width="Auto"
+                          ToolTipService.ToolTip="URL of the UANodeSet representation of the OPC UA Address SPace."/>
+          <GridViewColumn Header="Discovery Service URL" 
+                          DisplayMemberBinding="{Binding UniversalDiscoveryServiceLocator}" 
+                          Width="Auto" 
+                          ToolTipService.ToolTip="URL of the discovery service for this data domain."/>
+          <GridViewColumn Header="Authorization Server URL" 
+                          DisplayMemberBinding="{Binding UniversalAuthorizationServerLocator}" 
+                          Width="Auto" 
+                          ToolTipService.ToolTip="URL of the authorization service for this data domain."/>
         </GridView>
       </ListView.View>
     </ListView>

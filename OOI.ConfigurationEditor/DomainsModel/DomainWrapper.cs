@@ -36,7 +36,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       this.SemanticsDataCollection = new ObservableCollection<SemanticsDataIndexWrapper>(item.SemanticsDataCollection.Select<SemanticsDataIndex, SemanticsDataIndexWrapper>(x => new SemanticsDataIndexWrapper(x)).ToArray<SemanticsDataIndexWrapper>());
       this.SemanticsDataCollection.CollectionChanged += SemanticsDataCollection_CollectionChanged;
     }
-
     internal void ApplyChanges()
     {
       //TODO must be implemented
@@ -109,7 +108,51 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     /// </summary>
     /// <value>The semantics data collection.</value>
     public ObservableCollection<SemanticsDataIndexWrapper> SemanticsDataCollection { get; }
-
+    /// <summary>
+    /// Gets or sets the universal address space locator represented as the<see cref="string"/>.
+    /// </summary>
+    /// <value>The universal address space locator.</value>
+    public string UniversalAddressSpaceLocator
+    {
+      get
+      {
+        return Item.UniversalAddressSpaceLocator;
+      }
+      set
+      {
+        SetProperty<string>(Item.UniversalAddressSpaceLocator, x => Item.UniversalAddressSpaceLocator = x, value);
+      }
+    }
+    /// <summary>
+    /// Gets or sets the universal discovery service locator.
+    /// </summary>
+    /// <value>The universal discovery service locator.</value>
+    public string UniversalDiscoveryServiceLocator
+    {
+      get
+      {
+        return Item.UniversalDiscoveryServiceLocator;
+      }
+      set
+      {
+        SetProperty<string>(Item.UniversalDiscoveryServiceLocator, x => Item.UniversalDiscoveryServiceLocator = x, value);
+      }
+    }
+    /// <summary>
+    /// Gets or sets the universal authorization server locator.
+    /// </summary>
+    /// <value>The universal authorization server locator.</value>
+    public string UniversalAuthorizationServerLocator
+    {
+      get
+      {
+        return Item.UniversalAuthorizationServerLocator;
+      }
+      set
+      {
+        SetProperty<string>(Item.UniversalAuthorizationServerLocator, x => Item.UniversalAuthorizationServerLocator = x, value);
+      }
+    }
     #endregion
 
     #region override

@@ -81,7 +81,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     //private
     private bool? b_CurrentIsEnabled;
     private Cursor b_CurrentCursor;
-
     private async Task DomainDiscovery()
     {
       try
@@ -89,8 +88,19 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         CurrentCursor = Cursors.Wait;
         CurrentIsEnabled = false;
         DomainDescriptor _newDomain = await DataDiscoveryServices.ResolveDomainDescriptionAsync<DomainDescriptor>(DomainConfigurationWrapper.URI);
+        string[] _segments = DomainConfigurationWrapper.URI.Segments;
+        if (_segments.Length >= 1)
+        {
+          _segments[0] = DomainConfigurationWrapper.URI.Host;
+          DomainConfigurationWrapper.AliasName = String.Join(".", _segments).Replace("/", "");
+        }
+        else
+          DomainConfigurationWrapper.AliasName = "Enter alias for this domain";
         DomainConfigurationWrapper.Description = _newDomain.Description;
         DomainConfigurationWrapper.UniqueName = new Guid(_newDomain.UniversalDomainName);
+        DomainConfigurationWrapper.UniversalAddressSpaceLocator = _newDomain.UniversalAddressSpaceLocator;
+        DomainConfigurationWrapper.UniversalAuthorizationServerLocator = _newDomain.UniversalAuthorizationServerLocator;
+        DomainConfigurationWrapper.UniversalDiscoveryServiceLocator = _newDomain.UniversalDiscoveryServiceLocator;
       }
       catch (System.Exception _e)
       {

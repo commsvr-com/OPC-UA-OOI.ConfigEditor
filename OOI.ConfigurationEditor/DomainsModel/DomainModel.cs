@@ -1,11 +1,11 @@
 ﻿//_______________________________________________________________
 //  Title   : Name of Application
 //  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate:  $
-//  $Rev: $
-//  $LastChangedBy: $
-//  $URL: $
-//  $Id:  $
+//  $LastChangedDate$
+//  $Rev$
+//  $LastChangedBy$
+//  $URL$
+//  $Id$
 //
 //  Copyright (C) 2016, CAS LODZ POLAND.
 //  TEL: +48 (42) 686 25 47
@@ -89,7 +89,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
         b_Description = value;
       }
     }
-
     /// <summary>
     /// Gets or sets the array of <see cref="SemanticsDataIndex"/> items belonging to this domain.
     /// </summary>
@@ -99,6 +98,21 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       get { return b_SemanticsDataCollection; }
       set { b_SemanticsDataCollection = value; }
     }
+    public string UniversalAddressSpaceLocator
+    {
+      get { return b_UniversalAddressSpaceLocator; }
+      set { b_UniversalAddressSpaceLocator = value; }
+    }
+    public string UniversalDiscoveryServiceLocator
+    {
+      get { return b_UniversalDiscoveryServiceLocator; }
+      set { b_UniversalDiscoveryServiceLocator = value; }
+    }
+    public string UniversalAuthorizationServerLocator
+    {
+      get { return b_UniversalAuthorizationServerLocator; }
+      set { b_UniversalAuthorizationServerLocator = value; }
+    }
     #endregion
 
     #region private backing fields
@@ -107,6 +121,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     private Guid b_UniqueName;
     private string b_Description;
     private SemanticsDataIndex[] b_SemanticsDataCollection;
+    private string b_UniversalAddressSpaceLocator;
+    private string b_UniversalDiscoveryServiceLocator;
+    private string b_UniversalAuthorizationServerLocator;
     #endregion
 
   }
