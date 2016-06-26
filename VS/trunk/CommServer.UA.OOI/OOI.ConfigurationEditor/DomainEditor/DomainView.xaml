@@ -60,10 +60,13 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
               </Grid.RowDefinitions>
               <Label Grid.Row="0" Grid.Column="0" >Alias Name</Label>
               <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.AliasName}"/>
-              <Label Grid.Row="1" Grid.Column="0" >URI</Label>
+              <Label Grid.Row="1" Grid.Column="0" >URL</Label>
               <DockPanel Grid.Row="1" Grid.Column="1">
                 <Button DockPanel.Dock="Right" Command="{Binding Path=LookupDNSCommand}">Resolve</Button>
                 <TextBox  >
@@ -83,10 +86,16 @@
                   </TextBox.Text>
                 </TextBox>
               </DockPanel>
-              <Label Grid.Row="2" Grid.Column="0" >GUID</Label>
+              <Label Grid.Row="2" Grid.Column="0" >URN</Label>
               <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=DomainConfigurationWrapper.UniqueName}"/>
               <Label Grid.Row="3" Grid.Column="0" >Description</Label>
               <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.Description}"/>
+              <Label Grid.Row="4" Grid.Column="0" >Address Space Description URL</Label>
+              <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.UniversalAddressSpaceLocator}" ToolTip="URL of the UANodeSet representation of the OPC UA Address SPace."/>
+              <Label Grid.Row="5" Grid.Column="0" >Discovery Service URL</Label>
+              <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.UniversalDiscoveryServiceLocator}" ToolTip="URL of the discovery service for this data domain." />
+              <Label Grid.Row="6" Grid.Column="0" >Authorization Server URL</Label>
+              <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.UniversalAuthorizationServerLocator}" ToolTip="URL of the authorization service for this data domain."/>
             </Grid>
           </controls:ParametersGroup.Content>
         </controls:ParametersGroup>
