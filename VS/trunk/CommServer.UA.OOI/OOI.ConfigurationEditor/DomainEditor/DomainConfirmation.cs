@@ -13,6 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.Windows.ViewModel;
@@ -33,21 +34,57 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     /// <param name="domain">The domain.</param>
     internal DomainConfirmation(DomainWrapper domain)
     {
-      DomainConfigurationWrapper = domain;
-      LookupDNSCommand = DelegateCommand.FromAsyncHandler(DomainDiscovery);
-      b_CurrentIsEnabled = true;
-      b_CurrentCursor = Cursors.Arrow;
+      b_DomainConfigurationWrapper = domain;
+      LookupDNSCommand = DelegateCommand.FromAsyncHandler(DomainDiscoveryAsync);
     }
 
     #region DataContext
     /// <summary>
-    /// Gets the domain configuration wrapper.
+    /// Gets the domain configuration wrapper <see cref="DomainWrapper"/>.
     /// </summary>
     /// <remarks>
     /// It is to be used by the GUI.
     /// </remarks>
     /// <value>The domain configuration wrapper <see cref="DomainWrapper"/>.</value>
-    public DomainWrapper DomainConfigurationWrapper { get; private set; }
+    public DomainWrapper DomainConfigurationWrapper
+    {
+      get
+      {
+        return b_DomainConfigurationWrapper;
+      }
+      set
+      {
+        SetProperty<DomainWrapper>(ref b_DomainConfigurationWrapper, value);
+      }
+    }
+
+    public SemanticsDataIndexWrapper CurrentSemanticsDataIndex
+    {
+      get
+      {
+        return b_CurrentSemanticsDataIndex;
+      }
+      set
+      {
+        if (SetProperty<SemanticsDataIndexWrapper>(ref b_CurrentSemanticsDataIndex, value))
+          CurrentDataSet = value?.DataSet;
+      }
+    }
+
+    private FieldMetaDataCollection b_CurrentDataSet;
+
+    public FieldMetaDataCollection CurrentDataSet
+    {
+      get
+      {
+        return b_CurrentDataSet;
+      }
+      set
+      {
+        SetProperty<FieldMetaDataCollection>(ref b_CurrentDataSet, value);
+      }
+    }
+
     public ICommand LookupDNSCommand { get; }
     public bool? CurrentIsEnabled
     {
@@ -81,26 +118,38 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     //private
     private bool? b_CurrentIsEnabled;
     private Cursor b_CurrentCursor;
-    private async Task DomainDiscovery()
+    private SemanticsDataIndexWrapper b_CurrentSemanticsDataIndex;
+    private DomainWrapper b_DomainConfigurationWrapper;
+    private async Task DomainDiscoveryAsync()
     {
+      Cursor _currentCursor = CurrentCursor;
+      bool? _currentIsEnabled = CurrentIsEnabled;
       try
       {
         CurrentCursor = Cursors.Wait;
         CurrentIsEnabled = false;
         DomainDescriptor _newDomain = await DataDiscoveryServices.ResolveDomainDescriptionAsync<DomainDescriptor>(DomainConfigurationWrapper.URI);
         string[] _segments = DomainConfigurationWrapper.URI.Segments;
+        string _aliasName = String.Empty;
         if (_segments.Length >= 1)
         {
           _segments[0] = DomainConfigurationWrapper.URI.Host;
-          DomainConfigurationWrapper.AliasName = String.Join(".", _segments).Replace("/", "");
+          _aliasName = String.Join(".", _segments).Replace("/", "");
         }
         else
-          DomainConfigurationWrapper.AliasName = "Enter alias for this domain";
-        DomainConfigurationWrapper.Description = _newDomain.Description;
-        DomainConfigurationWrapper.UniqueName = new Guid(_newDomain.UniversalDomainName);
-        DomainConfigurationWrapper.UniversalAddressSpaceLocator = _newDomain.UniversalAddressSpaceLocator;
-        DomainConfigurationWrapper.UniversalAuthorizationServerLocator = _newDomain.UniversalAuthorizationServerLocator;
-        DomainConfigurationWrapper.UniversalDiscoveryServiceLocator = _newDomain.UniversalDiscoveryServiceLocator;
+          _aliasName = "Enter alias for this domain";
+        DomainModel _newDomainModel = new DomainModel()
+        {
+          AliasName = _aliasName,
+          Description = _newDomain.Description,
+          UniqueName = new Guid(_newDomain.UniversalDomainName),
+          UniversalAddressSpaceLocator = _newDomain.UniversalAddressSpaceLocator,
+          UniversalAuthorizationServerLocator = _newDomain.UniversalAuthorizationServerLocator,
+          UniversalDiscoveryServiceLocator = _newDomain.UniversalDiscoveryServiceLocator,
+          SemanticsDataCollection = new SemanticsDataIndex[] { },
+          URI = DomainConfigurationWrapper.URI
+        };
+        DomainConfigurationWrapper = new DomainWrapper(_newDomainModel);
       }
       catch (System.Exception _e)
       {
@@ -108,10 +157,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       }
       finally
       {
-        CurrentCursor = Cursors.Arrow;
-        CurrentIsEnabled = true;
+        CurrentCursor = _currentCursor;
+        CurrentIsEnabled = _currentIsEnabled;
       }
     }
+
 
   }
 

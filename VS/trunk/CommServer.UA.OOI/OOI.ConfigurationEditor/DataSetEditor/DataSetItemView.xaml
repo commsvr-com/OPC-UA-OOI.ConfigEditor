@@ -61,7 +61,7 @@
           <StackPanel>
             <StackPanel Orientation="Horizontal">
               <Label >Repository Group</Label>
-              <TextBox Text="{Binding Path=DataSetConfigurationWrapper.RepositoryGroup, Mode=TwoWay}"/>
+              <TextBox Text="{Binding Path=DataSetConfigurationWrapper.RepositoryGroup, Mode=TwoWay}" ToolTip="Name of process data group used by data binding mechanism."/>
             </StackPanel>
             <ListView ItemsSource="{Binding Path=DataSetConfigurationWrapper.DataSet}" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="180" >
               <ListView.View>
