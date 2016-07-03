@@ -100,7 +100,8 @@
           </controls:ParametersGroup.Content>
         </controls:ParametersGroup>
         <controls:ParametersGroup GroupTitle="Available Data Indexes">
-          <DataGrid ItemsSource="{Binding Path=DomainConfigurationWrapper.SemanticsDataCollection}" AutoGenerateColumns="False">
+          <DataGrid ItemsSource="{Binding Path=DomainConfigurationWrapper.SemanticsDataCollection}" 
+                    SelectedItem="{Binding Path=CurrentSemanticsDataIndex}" AutoGenerateColumns="False">
             <DataGrid.Columns>
               <DataGridTextColumn Header="SymbolicName"  Binding="{Binding Path=SymbolicName}"/>
               <DataGridTextColumn Header="Index"  Binding="{Binding Path=Index}"/>
@@ -113,11 +114,26 @@
   <Grid Margin="5" Grid.Row="0" ScrollViewer.VerticalScrollBarVisibility="Auto" IsEnabled="{Binding Path=Notification.CurrentIsEnabled}">
     <Grid.RowDefinitions>
       <RowDefinition  Height="*"/>
+      <RowDefinition  Height="*"/>
       <RowDefinition Height="Auto"/>
     </Grid.RowDefinitions>
     <Border ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="0" >
       <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Notification}"  />
     </Border>
-    <windows:ButtonsPanel Grid.Row="1" DataContext="{Binding ButtonsPanelViewModel}" />
+    <controls:ParametersGroup GroupTitle="Fields" Grid.Row="1" controls:ParametersGroup.MaxHeight="600">
+      <DataGrid ItemsSource="{Binding Path=Notification.CurrentDataSet}" AutoGenerateColumns="False" 
+                ToolTip="List of fields defined in the data domain." 
+                VerticalScrollBarVisibility="Auto"
+                MinHeight="100" MaxHeight="400">
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="Symbolic Name" Binding="{Binding Path=SymbolicName}"></DataGridTextColumn>
+          <DataGridTextColumn Header="BuiltIn Type" Binding="{Binding Path=TypeInformation.BuiltInType}"></DataGridTextColumn>
+          <DataGridTextColumn Header="Type Name" Binding="{Binding Path=TypeInformation.TypeName}"></DataGridTextColumn>
+          <DataGridTextColumn Header="Array Dimensions" Binding="{Binding Path=TypeInformation.ArrayDimensions}"></DataGridTextColumn>
+          <DataGridTextColumn Header="Value Rank" Binding="{Binding Path=TypeInformation.ValueRank}"></DataGridTextColumn>
+        </DataGrid.Columns>
+      </DataGrid>
+    </controls:ParametersGroup>
+    <windows:ButtonsPanel Grid.Row="2" DataContext="{Binding ButtonsPanelViewModel}" />
   </Grid>
 </UserControl>

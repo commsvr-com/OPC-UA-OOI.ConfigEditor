@@ -1,8 +1,8 @@
 ﻿
-using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading.Tasks;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Threading.Tasks;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {

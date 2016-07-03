@@ -31,7 +31,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     /// Initializes a new instance of the <see cref="DomainWrapper"/> class.
     /// </summary>
     /// <param name="item">The item.</param>
-    internal DomainWrapper(DomainsModel.DomainModel item) : base(item)
+    internal DomainWrapper(DomainModel item) : base(item)
     {
       this.SemanticsDataCollection = new ObservableCollection<SemanticsDataIndexWrapper>(item.SemanticsDataCollection.Select<SemanticsDataIndex, SemanticsDataIndexWrapper>(x => new SemanticsDataIndexWrapper(x)).ToArray<SemanticsDataIndexWrapper>());
       this.SemanticsDataCollection.CollectionChanged += SemanticsDataCollection_CollectionChanged;

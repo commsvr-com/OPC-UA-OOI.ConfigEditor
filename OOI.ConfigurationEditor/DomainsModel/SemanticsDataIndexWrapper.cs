@@ -14,6 +14,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using System;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
@@ -62,6 +63,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       get { return Item.Index; }
       set { SetProperty(Item.Index, x => Item.Index = x, value); }
     }
+    public FieldMetaDataCollection DataSet { get { return Item.DataSet; }  }
     #endregion
 
   }

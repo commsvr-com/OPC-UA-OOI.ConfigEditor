@@ -1,5 +1,5 @@
 ﻿//_______________________________________________________________
-//  Title   : Name of Application
+//  Title   : DomainsManagementServices
 //  System  : Microsoft VisualStudio 2015 / C#
 //  $LastChangedDate: 2016-06-11 23:18:56 +0200 (So, 11 cze 2016) $
 //  $Rev: 12229 $
@@ -48,12 +48,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
             Description = $"URI recovered from the DataSet AssociationName: {_as.DataSet.AssociationName}, SymbolicName: {_as.DataSet.SymbolicName}",
             UniqueName = _as.AssociationConfigurationWrapper.PublisherId,
             URI = new Uri(_as.DataSet.InformationModelURI),
-            SemanticsDataCollection = new SemanticsDataIndex[] { new SemanticsDataIndex() { Index = _as.AssociationConfigurationWrapper.DataSetWriterId, SymbolicName = _as.DataSet.SymbolicName } }
+            SemanticsDataCollection = new SemanticsDataIndex[] { NewSemanticsDataIndex(_as) }
           };
           m_DomainsObservableCollection.Add(new DomainWrapper(_new));
         }
         else
-          _dw.SemanticsDataCollection.Add(new SemanticsDataIndexWrapper(new SemanticsDataIndex() { Index = _as.AssociationConfigurationWrapper.DataSetWriterId, SymbolicName = _as.DataSet.SymbolicName }));
+          _dw.SemanticsDataCollection.Add(new SemanticsDataIndexWrapper(NewSemanticsDataIndex(_as)));
       };
     }
     #endregion
@@ -128,6 +128,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     #region private
     private DomainsObservableCollection m_DomainsObservableCollection;
     private IAssociationServices m_IAssociationServices;
+    private static SemanticsDataIndex NewSemanticsDataIndex(Association _as)
+    {
+      return new SemanticsDataIndex()
+      {
+        Index = _as.AssociationConfigurationWrapper.DataSetWriterId,
+        SymbolicName = _as.DataSet.SymbolicName,
+        DataSet = _as.DataSet.DataSet
+      };
+    }
     #endregion
 
   }

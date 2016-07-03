@@ -1,5 +1,4 @@
-﻿
-//_______________________________________________________________
+﻿//_______________________________________________________________
 //  Title   : SemanticsDataIndex
 //  System  : Microsoft VisualStudio 2015 / C#
 //  $LastChangedDate$
@@ -15,6 +14,7 @@
 //_______________________________________________________________
 
 using System;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
@@ -47,6 +47,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       get { return b_Index; }
       set { b_Index = value; }
     }
+    public FieldMetaDataCollection DataSet { get; internal set; }
     #endregion
 
     #region private
