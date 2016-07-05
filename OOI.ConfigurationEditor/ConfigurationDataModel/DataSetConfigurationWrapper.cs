@@ -57,14 +57,23 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
           (x => base.Item.ConfigurationVersion = new ConfigurationVersionDataType() { MajorVersion = x.MajorVersion, MinorVersion = x.MinorVersion }, value);
       }
     }
-    public FieldMetaDataCollection DataSet { get; private set; }
+    public FieldMetaDataCollection DataSet
+    {
+      get
+      {
+        return b_DataSet;
+      }
+      set
+      {
+        SetProperty<FieldMetaDataCollection>(ref b_DataSet, value);
+      }
+    }
     public string SymbolicName
     {
       get { return base.Item.DataSymbolicName; }
       set
       {
-        if (base.SetProperty<string>(base.Item.DataSymbolicName, x => base.Item.DataSymbolicName = x, value))
-          DefaultDataSetWriterId = GetDefaultDataSetWriterId();
+        base.SetProperty<string>(base.Item.DataSymbolicName, x => base.Item.DataSymbolicName = x, value);
       }
     }
     public Guid Id
@@ -165,15 +174,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     #endregion
 
     //private
+    private ushort b_DefaultDataSetWriterId;
+    private FieldMetaDataCollection b_DataSet;
     private DataSetConfigurationWrapper() : base(new DataSetConfiguration()) { }
     private static int m_UniqueNameId = Convert.ToInt32(new Random().NextDouble() * int.MaxValue);
-    private ushort b_DefaultDataSetWriterId;
-    private ushort GetDefaultDataSetWriterId()
-    {
-      int _hashLong = Math.Abs(SymbolicName.GetHashCode());
-      DefaultDataSetWriterId = Convert.ToUInt16(_hashLong < ushort.MaxValue ? _hashLong : _hashLong / ushort.MaxValue);
-      return DefaultDataSetWriterId;
-    }
+
   }
 
 }
