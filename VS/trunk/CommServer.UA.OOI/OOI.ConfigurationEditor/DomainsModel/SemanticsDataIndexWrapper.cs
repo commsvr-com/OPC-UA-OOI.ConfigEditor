@@ -63,8 +63,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       get { return Item.Index; }
       set { SetProperty(Item.Index, x => Item.Index = x, value); }
     }
-    public FieldMetaDataCollection DataSet { get { return Item.DataSet; }  }
+    public FieldMetaDataCollection DataSet { get { return Item.DataSet; } }
     #endregion
+    public override string ToString()
+    {
+      return $"{SymbolicName} / Index: {Index}";
+    }
 
   }
 }

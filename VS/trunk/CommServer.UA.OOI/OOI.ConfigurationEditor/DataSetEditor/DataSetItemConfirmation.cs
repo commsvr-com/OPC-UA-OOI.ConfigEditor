@@ -21,6 +21,7 @@ using CAS.Windows.ViewModel;
 using System;
 using System.Collections.Generic;
 using Serialization = global::UAOOI.Configuration.Networking.Serialization;
+using System.Collections.ObjectModel;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
 {
@@ -51,10 +52,34 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
       set
       {
         if (SetProperty<DomainsModel.DomainWrapper>(ref b_CurrentDomain, value))
-        {
-          this.DataSetConfigurationWrapper.InformationModelURI = value.ToString();
-          this.DataSetConfigurationWrapper.Id = value.UniqueName;
-        }
+          SemanticDataCollection = value.SemanticsDataCollection;
+      }
+    }
+    public ObservableCollection<SemanticsDataIndexWrapper> SemanticDataCollection
+    {
+      get
+      {
+        return b_SemanticDataCollection;
+      }
+      set
+      {
+        SetProperty<ObservableCollection<SemanticsDataIndexWrapper>>(ref b_SemanticDataCollection, value);
+      }
+    }
+    public SemanticsDataIndexWrapper CurrentSemanticsDataIndexWrapper
+    {
+      get
+      {
+        return b_CurrentSemanticsDataIndexWrapper;
+      }
+      set
+      {
+        if (!SetProperty<SemanticsDataIndexWrapper>(ref b_CurrentSemanticsDataIndexWrapper, value))
+          return;
+        if (value == null)
+          return;
+        CurrentDomain.UpdateDataSet(DataSetConfigurationWrapper, value, m_NewVersion);
+        m_NewVersion = false;
       }
     }
     public AssociationRoleSelectorControlViewModel AssociationRoleSelectorControlViewModel { get; }
@@ -104,7 +129,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
     private DomainWrapper b_CurrentDomain;
     private IEnumerable<AssociationCouplerViewModel> b_AssociationCouplersEnumerator;
     private DataSetConfigurationWrapper b_DataSetConfigurationWrapper;
+    private ObservableCollection<SemanticsDataIndexWrapper> b_SemanticDataCollection;
+    private SemanticsDataIndexWrapper b_CurrentSemanticsDataIndexWrapper;
     private Func<DataSetConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> m_GetMessageHandlers;
+    private bool m_NewVersion = true;
     #endregion
 
   }

@@ -13,7 +13,6 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.Windows.mvvm;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
@@ -22,27 +21,53 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
   /// Class ConfigurationVersionDataTypeWrapper.
   /// </summary>
   /// <seealso cref="CAS.Windows.mvvm.Bindable" />
-  public class ConfigurationVersionDataTypeWrapper : Bindable
+  public class ConfigurationVersionDataTypeWrapper : Wrapper<ConfigurationVersionDataType>
   {
 
-    internal ConfigurationVersionDataTypeWrapper(ConfigurationVersionDataType versionInformation)
+    internal ConfigurationVersionDataTypeWrapper(ConfigurationVersionDataType versionInformation) :
+      base(versionInformation == null ? new ConfigurationVersionDataType() : versionInformation)
     {
-      m_ConfigurationVersionDataType = versionInformation == null ? new ConfigurationVersionDataType() : versionInformation;
+      b_Version2Display = ToString();
     }
+    /// <summary>
+    /// Gets or sets the major version.
+    /// </summary>
+    /// <value>The major version.</value>
     public byte MajorVersion
     {
-      get { return m_ConfigurationVersionDataType.MajorVersion; }
+      get { return Item.MajorVersion; }
       set
       {
-        SetProperty(m_ConfigurationVersionDataType.MajorVersion, x => m_ConfigurationVersionDataType.MajorVersion = x, value);
+        if ( SetProperty(Item.MajorVersion, x => Item.MajorVersion = x, value))
+          Version2Display = ToString();
       }
     }
+    /// <summary>
+    /// Gets or sets the minor version.
+    /// </summary>
+    /// <value>The minor version.</value>
     public byte MinorVersion
     {
-      get { return m_ConfigurationVersionDataType.MinorVersion; }
+      get { return Item.MinorVersion; }
       set
       {
-        SetProperty(m_ConfigurationVersionDataType.MinorVersion, x => m_ConfigurationVersionDataType.MinorVersion = x, value);
+        if (SetProperty(Item.MinorVersion, x => Item.MinorVersion = x, value))
+          Version2Display = ToString();
+      }
+    }
+    /// <summary>
+    /// Gets the version2 display.
+    /// </summary>
+    /// <value>The version2 display.</value>
+    public string Version2Display
+    {
+      get
+      {
+        return b_Version2Display;
+      }
+      private set
+      {
+        SetProperty<string>(ref b_Version2Display, value);
       }
     }
     /// <summary>
@@ -55,15 +80,16 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     }
     internal static ConfigurationVersionDataTypeWrapper CreateDefault()
     {
-      return new ConfigurationVersionDataTypeWrapper() { MajorVersion = 0, MinorVersion = 0 };
+      return new ConfigurationVersionDataTypeWrapper(new ConfigurationVersionDataType() { MajorVersion = 0, MinorVersion = 0 });
+    }
+    internal void IncrementMajorVersion()
+    {
+      MajorVersion++;
+      MinorVersion = 0;
     }
 
     #region private
-    private ConfigurationVersionDataType m_ConfigurationVersionDataType;
-    private ConfigurationVersionDataTypeWrapper()
-    {
-      m_ConfigurationVersionDataType = new ConfigurationVersionDataType();
-    }
+    private string b_Version2Display;
     #endregion
 
   }
