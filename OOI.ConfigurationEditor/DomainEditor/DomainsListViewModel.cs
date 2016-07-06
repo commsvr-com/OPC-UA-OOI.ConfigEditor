@@ -63,7 +63,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     /// Gets or sets the current domain.
     /// </summary>
     /// <value>The current domain.</value>
-    public DomainWrapper CurrentDomain
+    public DomainModelWrapper CurrentDomain
     {
       get
       {
@@ -71,7 +71,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       }
       set
       {
-        if (!SetProperty<DomainWrapper>(ref b_CurrentDomain, value))
+        if (!SetProperty<DomainModelWrapper>(ref b_CurrentDomain, value))
           return;
         string _symbolicName = value != null ? value.AliasName : String.Empty;
         this.m_EventAggregator.GetEvent<Infrastructure.DomainSetEvent>().Publish(_symbolicName);
@@ -95,7 +95,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
 
     #region private
     private readonly IEventAggregator m_EventAggregator;
-    private DomainWrapper b_CurrentDomain;
+    private DomainModelWrapper b_CurrentDomain;
     private ILoggerFacade m_Logger;
     private InteractionRequest<IConfirmation> b_EditPopupRequest = new InteractionRequest<IConfirmation>();
     private IDomainsManagementServices m_domainsServices;
@@ -119,7 +119,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     }
     private void AddCommandHandler()
     {
-      DomainWrapper _dsc = m_domainsServices.CreateDefault();
+      DomainModelWrapper _dsc = m_domainsServices.CreateDefault();
       DomainConfirmation _confirmation = new DomainConfirmation(_dsc) { Title = "New Domain" };
       bool _confirmed = false;
       do

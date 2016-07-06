@@ -32,7 +32,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     /// Initializes a new instance of the <see cref="DomainConfirmation"/> class.
     /// </summary>
     /// <param name="domain">The domain.</param>
-    internal DomainConfirmation(DomainWrapper domain)
+    internal DomainConfirmation(DomainModelWrapper domain)
     {
       b_DomainConfigurationWrapper = domain;
       LookupDNSCommand = DelegateCommand.FromAsyncHandler(DomainDiscoveryAsync);
@@ -40,13 +40,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
 
     #region DataContext
     /// <summary>
-    /// Gets the domain configuration wrapper <see cref="DomainWrapper"/>.
+    /// Gets the domain configuration wrapper <see cref="DomainModelWrapper"/>.
     /// </summary>
     /// <remarks>
     /// It is to be used by the GUI.
     /// </remarks>
-    /// <value>The domain configuration wrapper <see cref="DomainWrapper"/>.</value>
-    public DomainWrapper DomainConfigurationWrapper
+    /// <value>The domain configuration wrapper <see cref="DomainModelWrapper"/>.</value>
+    public DomainModelWrapper DomainConfigurationWrapper
     {
       get
       {
@@ -54,7 +54,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       }
       set
       {
-        SetProperty<DomainWrapper>(ref b_DomainConfigurationWrapper, value);
+        SetProperty<DomainModelWrapper>(ref b_DomainConfigurationWrapper, value);
       }
     }
 
@@ -119,7 +119,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     private bool? b_CurrentIsEnabled;
     private Cursor b_CurrentCursor;
     private SemanticsDataIndexWrapper b_CurrentSemanticsDataIndex;
-    private DomainWrapper b_DomainConfigurationWrapper;
+    private DomainModelWrapper b_DomainConfigurationWrapper;
     private async Task DomainDiscoveryAsync()
     {
       Cursor _currentCursor = CurrentCursor;
@@ -149,7 +149,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
           SemanticsDataCollection = new SemanticsDataIndex[] { },
           URI = DomainConfigurationWrapper.URI
         };
-        DomainConfigurationWrapper = new DomainWrapper(_newDomainModel);
+        DomainConfigurationWrapper = new DomainModelWrapper(_newDomainModel);
       }
       catch (System.Exception _e)
       {

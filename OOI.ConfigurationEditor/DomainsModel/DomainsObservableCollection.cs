@@ -19,13 +19,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
   /// <summary>
   /// Class DomainsObservableCollection - Represents a dynamic data collection that provides notifications 
-  /// when items get added, removed, or when the whole list of <see cref="DomainWrapper"/> items is refreshed.
+  /// when items get added, removed, or when the whole list of <see cref="DomainModelWrapper"/> items is refreshed.
   /// </summary>
   /// <seealso cref="ObservableCollection{DomainWrapper}" />
-  public class DomainsObservableCollection : ObservableCollection<DomainWrapper>, IDomainsObservableCollection
+  public class DomainsObservableCollection : ObservableCollection<DomainModelWrapper>, IDomainsObservableCollection
   {
 
-    internal DomainsObservableCollection(DomainWrapper[] domains) : base(domains) { }
+    internal DomainsObservableCollection(DomainModelWrapper[] domains) : base(domains) { }
 
   }
 }
