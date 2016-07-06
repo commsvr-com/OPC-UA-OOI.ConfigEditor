@@ -14,9 +14,8 @@
 //_______________________________________________________________
 
 using System.Xml;
-using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
   public class UATypeInfoWrapper : Wrapper<UATypeInfo>
   {

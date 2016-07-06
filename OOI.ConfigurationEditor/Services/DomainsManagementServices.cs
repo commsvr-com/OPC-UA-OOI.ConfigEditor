@@ -13,6 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using System;
 using System.ComponentModel.Composition;
@@ -46,8 +47,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
           {
             AliasName = _as.DataSet.SymbolicName,
             Description = $"URI recovered from the DataSet AssociationName: {_as.DataSet.AssociationName}, SymbolicName: {_as.DataSet.SymbolicName}",
-            UniqueName = _as.AssociationConfigurationWrapper.PublisherId,
-            URI = new Uri(_as.DataSet.InformationModelURI),
+            DomainModelGuid = _as.AssociationConfigurationWrapper.PublisherId,
+            DomainModelUri = new Uri(_as.DataSet.InformationModelURI),
             SemanticsDataCollection = new SemanticsDataIndex[] { NewSemanticsDataIndex(_as) }
           };
           m_DomainsObservableCollection.Add(new DomainModelWrapper(_new));
@@ -97,8 +98,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
       {
         AliasName = "TempuriOrg",
         Description = "meaningless temporal uri to used and a default",
-        UniqueName = new Guid("3653281C-A77F-4A98-ACA4-C87A560EC124"),
-        URI = new Uri(@"http://tempuri.org/DefaultDomainSegment"),
+        DomainModelGuid = new Guid("3653281C-A77F-4A98-ACA4-C87A560EC124"),
+        DomainModelUri = new Uri(@"http://tempuri.org/DefaultDomainSegment"),
         SemanticsDataCollection = new SemanticsDataIndex[] { }
       };
       DomainModelWrapper _ret = new DomainModelWrapper(_model);
@@ -134,7 +135,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
       {
         Index = _as.AssociationConfigurationWrapper.DataSetWriterId,
         SymbolicName = _as.DataSet.SymbolicName,
-        DataSet = _as.DataSet.DataSet
+        DataSet = _as.DataSet.DataSet.Select<FieldMetaDataWrapper, FieldMetaData>(x => x.Item).ToArray<FieldMetaData>()
       };
     }
     #endregion

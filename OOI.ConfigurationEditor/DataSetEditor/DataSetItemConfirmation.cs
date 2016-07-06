@@ -78,7 +78,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
           return;
         if (value == null)
           return;
-        CurrentDomain.UpdateDataSet(DataSetConfigurationWrapper, value, m_NewVersion);
+        DataSetConfigurationWrapper.UpdateDataSet(CurrentDomain, value, m_NewVersion);
         m_NewVersion = false;
       }
     }

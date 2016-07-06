@@ -13,7 +13,6 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -67,29 +66,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     {
       get
       {
-        return Item.URI;
+        return Item.DomainModelUri;
       }
       set
       {
-        SetProperty<Uri>(Item.URI, x => Item.URI = x, value);
+        SetProperty<Uri>(Item.DomainModelUri, x => Item.DomainModelUri = x, value);
       }
-    }
-    internal void UpdateDataSet(DataSetConfigurationWrapper dataSetConfigurationWrapper, SemanticsDataIndexWrapper selectedIndex, bool newVersion)
-    {
-      dataSetConfigurationWrapper.InformationModelURI = URI.ToString();
-      dataSetConfigurationWrapper.Id = UniqueName;
-      dataSetConfigurationWrapper.ConfigurationGuid = Guid.NewGuid();
-      if (newVersion)
-        dataSetConfigurationWrapper.ConfigurationVersion.IncrementMajorVersion();
-      dataSetConfigurationWrapper.DataSet = CreateDataSet(selectedIndex);
-      dataSetConfigurationWrapper.DefaultDataSetWriterId = Convert.ToUInt16(SemanticsDataCollection.IndexOf(selectedIndex));
-      dataSetConfigurationWrapper.MaxBufferTime = -1;
-      dataSetConfigurationWrapper.RepositoryGroup = String.Empty;
-      dataSetConfigurationWrapper.SymbolicName = selectedIndex.SymbolicName;
-    }
-    private FieldMetaDataCollection CreateDataSet(SemanticsDataIndexWrapper semanticsDataIndexWrapper)//TODO CreateDataSet it must browse address space
-    {
-      return new FieldMetaDataCollection(new UAOOI.Configuration.Networking.Serialization.FieldMetaData[] { });
     }
     /// <summary>
     /// Gets or sets the unique name of the domain.
@@ -99,11 +81,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     {
       get
       {
-        return Item.UniqueName;
+        return Item.DomainModelGuid;
       }
       set
       {
-        SetProperty<Guid>(Item.UniqueName, x => Item.UniqueName = x, value);
+        SetProperty<Guid>(Item.DomainModelGuid, x => Item.DomainModelGuid = x, value);
       }
     }
     /// <summary>

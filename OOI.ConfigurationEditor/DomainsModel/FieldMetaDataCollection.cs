@@ -16,9 +16,8 @@
 
 using System.Collections.ObjectModel;
 using System.Linq;
-using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
 
   public class FieldMetaDataCollection : ObservableCollection<FieldMetaDataWrapper>

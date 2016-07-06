@@ -55,7 +55,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       }
     }
     /// <summary>
-    /// Gets or sets the index of the data in context of the domai. Index is used to replace the symbolic name with the purpose of optimization of the data transfer..
+    /// Gets or sets the index of the data in context of the domain. Index is used to replace the symbolic name with the purpose of optimization of the data transfer..
     /// </summary>
     /// <value>The data index.</value>
     public UInt16 Index
@@ -63,7 +63,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       get { return Item.Index; }
       set { SetProperty(Item.Index, x => Item.Index = x, value); }
     }
-    public FieldMetaDataCollection DataSet { get { return Item.DataSet; } }
+    public FieldMetaDataCollection DataSet { get { return new FieldMetaDataCollection(Item.DataSet); } }
     #endregion
     public override string ToString()
     {
