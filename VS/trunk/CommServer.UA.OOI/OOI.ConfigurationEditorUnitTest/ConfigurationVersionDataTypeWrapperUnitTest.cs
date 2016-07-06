@@ -18,7 +18,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.AreEqual<int>(0, count);
       _newWrapper.MajorVersion = byte.MaxValue;
       Assert.AreEqual<int>(byte.MaxValue, _newWrapper.MajorVersion);
-      Assert.AreEqual<int>(1, count);
+      Assert.AreEqual<string>($"{byte.MaxValue}.0", _newWrapper.Version2Display);
+      Assert.AreEqual<int>(2, count);
     }
     [TestMethod]
     public void MinorVersionTest()
@@ -31,7 +32,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.AreEqual<int>(0, count);
       _newWrapper.MinorVersion = byte.MaxValue;
       Assert.AreEqual<int>(byte.MaxValue, _newWrapper.MinorVersion);
-      Assert.AreEqual<int>(1, count);
+      Assert.AreEqual<string>($"0.{byte.MaxValue}", _newWrapper.Version2Display);
+      Assert.AreEqual<int>(2, count);
     }
     [TestMethod]
     public void AssignTest()

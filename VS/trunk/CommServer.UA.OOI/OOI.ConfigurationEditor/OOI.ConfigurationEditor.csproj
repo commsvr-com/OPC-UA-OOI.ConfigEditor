@@ -76,6 +76,7 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xaml" />
@@ -111,12 +112,17 @@
     <Compile Include="ConfigurationDataModel\DataSetConfigurationCollection.cs" />
     <Compile Include="ConfigurationDataModel\DataSetConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IAssociationConfigurationWrapper.cs" />
+    <Compile Include="DomainsModel\DomainModel.cs">
+      <DependentUpon>DomainModel.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DomainsModel\FieldMetaData.cs" />
     <Compile Include="DomainsModel\SemanticsDataIndex.cs" />
     <Compile Include="DomainsModel\SemanticsDataIndexWrapper.cs" />
+    <Compile Include="DomainsModel\UATypeInfo.cs" />
     <Compile Include="Services\Association.cs" />
     <Compile Include="Services\DataDiscoveryServices.cs" />
     <Compile Include="Services\DataSetModelServices.cs" />
-    <Compile Include="ConfigurationDataModel\FieldMetaDataWrapper.cs" />
+    <Compile Include="DomainsModel\FieldMetaDataWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IDataSetConfigurationCollection.cs" />
     <Compile Include="DomainsModel\DomainDescriptor.cs" />
     <Compile Include="DomainsModel\DomainDescriptor.xsd.cs">
@@ -133,7 +139,7 @@
     <Compile Include="ConfigurationDataModel\MessageReaderConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\MessageWriterConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\ProducerAssociationConfigurationWrapper.cs" />
-    <Compile Include="ConfigurationDataModel\UATypeInfoWrapper.cs" />
+    <Compile Include="DomainsModel\UATypeInfoWrapper.cs" />
     <Compile Include="ConfigurationDataModel\Warning.cs" />
     <Compile Include="ConfigurationEditorBase.cs" />
     <Compile Include="Controls\AnimatedTabControl.Desktop.cs" />
@@ -152,7 +158,7 @@
     <Compile Include="DataSetEditor\DataSetItemView.xaml.cs">
       <DependentUpon>DataSetItemView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConfigurationDataModel\FieldMetaDataCollection.cs" />
+    <Compile Include="DomainsModel\FieldMetaDataCollection.cs" />
     <Compile Include="DomainEditor\DomainConfirmation.cs" />
     <Compile Include="DomainEditor\DomainsListView.xaml.cs">
       <DependentUpon>DomainsListView.xaml</DependentUpon>
@@ -163,7 +169,7 @@
       <DependentUpon>DomainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\IDomainsManagementServices.cs" />
-    <Compile Include="DomainsModel\DomainModel.cs" />
+    <Compile Include="DomainsModel\DomainModel.xsd.cs" />
     <Compile Include="Infrastructure\Converters\Uri2StringConverter.cs" />
     <Compile Include="Infrastructure\Converters\UriValidationRule.cs" />
     <Compile Include="Infrastructure\DomainSetEventArg.cs" />
@@ -233,6 +239,11 @@
     <None Include="cas.snk" />
     <None Include="ConfigurationDataModel\ConfigurationDataModel.cd" />
     <None Include="DataSetEditor\DataSetEditor.cd" />
+    <None Include="DomainsModel\DomainModel.GoCS.cmd" />
+    <None Include="DomainsModel\DomainModel.GoXSD.cmd" />
+    <None Include="DomainsModel\DomainModel.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\nuspec.nuspec">
       <AutoGen>True</AutoGen>
@@ -247,8 +258,8 @@
     <None Include="DomainsModel\DomainDescriptor.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="DomainsModel\GoCS.cmd" />
-    <None Include="DomainsModel\GoXSD.cmd" />
+    <None Include="DomainsModel\DomainDescriptor.GoCS.cmd" />
+    <None Include="DomainsModel\DomainDescriptor.GoXSD.cmd" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="ConfigurationDataEditorView.xaml">

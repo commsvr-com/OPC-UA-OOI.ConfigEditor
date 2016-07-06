@@ -142,12 +142,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         {
           AliasName = _aliasName,
           Description = _newDomain.Description,
-          UniqueName = new Guid(_newDomain.UniversalDomainName),
+          DomainModelGuid = new Guid(_newDomain.UniversalDomainName),
           UniversalAddressSpaceLocator = _newDomain.UniversalAddressSpaceLocator,
           UniversalAuthorizationServerLocator = _newDomain.UniversalAuthorizationServerLocator,
           UniversalDiscoveryServiceLocator = _newDomain.UniversalDiscoveryServiceLocator,
           SemanticsDataCollection = new SemanticsDataIndex[] { },
-          URI = DomainConfigurationWrapper.URI
+          DomainModelUri = DomainConfigurationWrapper.URI
         };
         DomainConfigurationWrapper = new DomainModelWrapper(_newDomainModel);
       }

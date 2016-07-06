@@ -13,24 +13,27 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using System;
 using System.Linq;
-using UAOOI.Configuration.Networking.Serialization;
+using Serialization = UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
 {
 
-  public class DataSetConfigurationWrapper : Wrapper<DataSetConfiguration>
+  public class DataSetConfigurationWrapper : Wrapper<Serialization.DataSetConfiguration>
   {
 
+    #region creator
     /// <summary>
     /// Initializes a new instance of the <see cref="DataSetConfigurationWrapper" /> class using empty <see cref="DataSetConfiguration" />.
     /// </summary>
     /// <param name="configurationItem">The original <see cref="DataSetConfiguration"/>configuration item.</param>
-    public DataSetConfigurationWrapper(DataSetConfiguration configurationItem) : base(configurationItem)
+    public DataSetConfigurationWrapper(Serialization.DataSetConfiguration configurationItem) : base(configurationItem)
     {
-      DataSet = new FieldMetaDataCollection(configurationItem.DataSet);
+      DataSet = new FieldMetaDataCollection(configurationItem.DataSet.Select<Serialization.FieldMetaData, FieldMetaData>(x => x).ToArray<FieldMetaData>());
     }
+    #endregion
 
     #region ViewModel
     public string AssociationName
@@ -38,10 +41,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       get { return base.Item.AssociationName; }
       set { base.SetProperty<string>(base.Item.AssociationName, x => base.Item.AssociationName = x, value); }
     }
-    public AssociationRole AssociationRole
+    public Serialization.AssociationRole AssociationRole
     {
       get { return base.Item.AssociationRole; }
-      set { base.SetProperty<AssociationRole>(base.Item.AssociationRole, x => base.Item.AssociationRole = x, value); }
+      set { base.SetProperty<Serialization.AssociationRole>(base.Item.AssociationRole, x => base.Item.AssociationRole = x, value); }
     }
     public Guid ConfigurationGuid
     {
@@ -54,7 +57,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       set
       {
         base.SetProperty<ConfigurationVersionDataTypeWrapper>
-          (x => base.Item.ConfigurationVersion = new ConfigurationVersionDataType() { MajorVersion = x.MajorVersion, MinorVersion = x.MinorVersion }, value);
+          (x => base.Item.ConfigurationVersion = new Serialization.ConfigurationVersionDataType() { MajorVersion = x.MajorVersion, MinorVersion = x.MinorVersion }, value);
       }
     }
     public FieldMetaDataCollection DataSet
@@ -138,7 +141,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       return new DataSetConfigurationWrapper()
       {
         AssociationName = $"AssociationName{m_UniqueNameId++}",
-        AssociationRole = AssociationRole.Consumer,
+        AssociationRole = Serialization.AssociationRole.Consumer,
         ConfigurationGuid = Guid.NewGuid(),
         ConfigurationVersion = ConfigurationVersionDataTypeWrapper.CreateDefault(),
         DataSet = new FieldMetaDataCollection(new FieldMetaData[] { }),
@@ -150,13 +153,30 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
         SymbolicName = $"SymbolicName{m_UniqueNameId++}"
       };
     }
+    internal void UpdateDataSet(DomainModelWrapper domainMode, SemanticsDataIndexWrapper selectedIndex, bool newVersion)
+    {
+      InformationModelURI = domainMode.URI.ToString();
+      Id = domainMode.UniqueName;
+      ConfigurationGuid = Guid.NewGuid();
+      if (newVersion)
+        ConfigurationVersion.IncrementMajorVersion();
+      DataSet = CreateDataSet(selectedIndex);
+      DefaultDataSetWriterId = Convert.ToUInt16(domainMode.SemanticsDataCollection.IndexOf(selectedIndex));
+      MaxBufferTime = -1;
+      RepositoryGroup = String.Empty;
+      SymbolicName = selectedIndex.SymbolicName;
+    }
+    private FieldMetaDataCollection CreateDataSet(SemanticsDataIndexWrapper semanticsDataIndexWrapper)//TODO CreateDataSet it must browse address space
+    {
+      return new FieldMetaDataCollection(new FieldMetaData[] { });
+    }
 
     #region Wrapper<DataSetConfiguration>
-    public override DataSetConfiguration Item
+    public override Serialization.DataSetConfiguration Item
     {
       get
       {
-        base.Item.DataSet = DataSet.Select<FieldMetaDataWrapper, FieldMetaData>(wrapper => wrapper.Item).ToArray<FieldMetaData>();
+        base.Item.DataSet = DataSet.Select<FieldMetaDataWrapper, Serialization.FieldMetaData>(wrapper => wrapper.Item.Clone()).ToArray<Serialization.FieldMetaData>();
         return base.Item;
       }
     }
@@ -176,7 +196,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     //private
     private ushort b_DefaultDataSetWriterId;
     private FieldMetaDataCollection b_DataSet;
-    private DataSetConfigurationWrapper() : base(new DataSetConfiguration()) { }
+    private DataSetConfigurationWrapper() : base(new Serialization.DataSetConfiguration()) { }
     private static int m_UniqueNameId = Convert.ToInt32(new Random().NextDouble() * int.MaxValue);
 
   }

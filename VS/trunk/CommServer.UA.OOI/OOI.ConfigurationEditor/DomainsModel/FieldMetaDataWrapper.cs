@@ -13,9 +13,8 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using UAOOI.Configuration.Networking.Serialization;
 
-namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
+namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
 
   public class FieldMetaDataWrapper : Wrapper<FieldMetaData>
