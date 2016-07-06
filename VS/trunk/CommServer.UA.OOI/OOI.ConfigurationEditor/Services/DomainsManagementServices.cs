@@ -36,10 +36,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     internal DomainsManagementServices(IAssociationServices services)
     {
       m_IAssociationServices = services;
-      m_DomainsObservableCollection = new DomainsObservableCollection(new DomainWrapper[] { CreateDefault() });
+      m_DomainsObservableCollection = new DomainsObservableCollection(new DomainModelWrapper[] { CreateDefault() });
       foreach (Association _as in services.GetAssociations())
       {
-        DomainWrapper _dw = m_DomainsObservableCollection.Where<DomainWrapper>(x => x.UniqueName == _as.AssociationConfigurationWrapper.PublisherId).FirstOrDefault<DomainWrapper>();
+        DomainModelWrapper _dw = m_DomainsObservableCollection.Where<DomainModelWrapper>(x => x.UniqueName == _as.AssociationConfigurationWrapper.PublisherId).FirstOrDefault<DomainModelWrapper>();
         if (_dw == null)
         {
           DomainsModel.DomainModel _new = new DomainsModel.DomainModel()
@@ -50,7 +50,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
             URI = new Uri(_as.DataSet.InformationModelURI),
             SemanticsDataCollection = new SemanticsDataIndex[] { NewSemanticsDataIndex(_as) }
           };
-          m_DomainsObservableCollection.Add(new DomainWrapper(_new));
+          m_DomainsObservableCollection.Add(new DomainModelWrapper(_new));
         }
         else
           _dw.SemanticsDataCollection.Add(new SemanticsDataIndexWrapper(NewSemanticsDataIndex(_as)));
@@ -71,7 +71,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// Removes the specified domain from the well known domains.
     /// </summary>
     /// <param name="domain">The domain to be removed from the list of available domains.</param>
-    public void Remove(DomainWrapper domain)
+    public void Remove(DomainModelWrapper domain)
     {
       m_DomainsObservableCollection.Remove(domain);
     }
@@ -80,7 +80,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// </summary>
     /// <param name="domain">The domain to be added to the list of available domains.</param>
     /// <exception cref="NotImplementedException"></exception>
-    public bool AddDomain(DomainWrapper domain)
+    public bool AddDomain(DomainModelWrapper domain)
     {
       if (Contains(domain))
         return false;
@@ -90,8 +90,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// <summary>
     /// Creates a default domain descriptor.
     /// </summary>
-    /// <returns>New <see cref="DomainWrapper" />.</returns>
-    public DomainWrapper CreateDefault()
+    /// <returns>New <see cref="DomainModelWrapper" />.</returns>
+    public DomainModelWrapper CreateDefault()
     {
       DomainModel _model = new DomainModel()
       {
@@ -101,7 +101,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
         URI = new Uri(@"http://tempuri.org/DefaultDomainSegment"),
         SemanticsDataCollection = new SemanticsDataIndex[] { }
       };
-      DomainWrapper _ret = new DomainWrapper(_model);
+      DomainModelWrapper _ret = new DomainModelWrapper(_model);
       int _i = 0;
       while (Contains(_ret))
       {
@@ -117,11 +117,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// </summary>
     /// <param name="domain">The domain to check.</param>
     /// <returns><c>true</c> if the local dictionary contains the specified domain; otherwise, <c>false</c>.</returns>
-    public bool Contains(DomainWrapper domain)
+    public bool Contains(DomainModelWrapper domain)
     {
       if (m_DomainsObservableCollection == null)
         return false;
-      return m_DomainsObservableCollection.Where<DomainWrapper>(x => x.AliasName == domain.AliasName).Any<DomainWrapper>();
+      return m_DomainsObservableCollection.Where<DomainModelWrapper>(x => x.AliasName == domain.AliasName).Any<DomainModelWrapper>();
     }
     #endregion
 

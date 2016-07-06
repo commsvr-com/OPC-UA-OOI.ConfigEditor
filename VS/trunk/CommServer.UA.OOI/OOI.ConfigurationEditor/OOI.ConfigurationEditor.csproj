@@ -178,7 +178,7 @@
     </Compile>
     <Compile Include="Services\AssociationCoupler.cs" />
     <Compile Include="DomainsModel\DomainsObservableCollection.cs" />
-    <Compile Include="DomainsModel\DomainWrapper.cs" />
+    <Compile Include="DomainsModel\DomainModelWrapper.cs" />
     <Compile Include="Services\AssociationCouplerViewModel.cs" />
     <Compile Include="EnterpriseLibraryLoggerAdapter.cs" />
     <Compile Include="HostingApplication.xaml.cs">

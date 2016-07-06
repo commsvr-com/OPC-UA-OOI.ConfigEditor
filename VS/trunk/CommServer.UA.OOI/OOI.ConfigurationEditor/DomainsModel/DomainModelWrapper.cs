@@ -24,22 +24,22 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
   /// Class DomainWrapper - provides ViewModel to edit <see cref="DomainModel"/> instances
   /// </summary>
   /// <seealso cref="Wrapper{DomainModel}"/>
-  public class DomainWrapper : Wrapper<DomainModel>
+  public class DomainModelWrapper : Wrapper<DomainModel>
   {
 
     #region creator
     /// <summary>
-    /// Initializes a new instance of the <see cref="DomainWrapper"/> class.
+    /// Initializes a new instance of the <see cref="DomainModelWrapper"/> class.
     /// </summary>
     /// <param name="item">The item.</param>
-    internal DomainWrapper(DomainModel item) : base(item)
+    internal DomainModelWrapper(DomainModel item) : base(item)
     {
       this.SemanticsDataCollection = new ObservableCollection<SemanticsDataIndexWrapper>(item.SemanticsDataCollection.Select<SemanticsDataIndex, SemanticsDataIndexWrapper>(x => new SemanticsDataIndexWrapper(x)).ToArray<SemanticsDataIndexWrapper>());
       this.SemanticsDataCollection.CollectionChanged += SemanticsDataCollection_CollectionChanged;
     }
     internal void ApplyChanges()
     {
-      //TODO must be implemented
+      //TODO ApplyChanges must be implemented
     }
     #endregion
 
@@ -87,7 +87,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       dataSetConfigurationWrapper.RepositoryGroup = String.Empty;
       dataSetConfigurationWrapper.SymbolicName = selectedIndex.SymbolicName;
     }
-    private FieldMetaDataCollection CreateDataSet(SemanticsDataIndexWrapper semanticsDataIndexWrapper)//TODO it must browse address space
+    private FieldMetaDataCollection CreateDataSet(SemanticsDataIndexWrapper semanticsDataIndexWrapper)//TODO CreateDataSet it must browse address space
     {
       return new FieldMetaDataCollection(new UAOOI.Configuration.Networking.Serialization.FieldMetaData[] { });
     }

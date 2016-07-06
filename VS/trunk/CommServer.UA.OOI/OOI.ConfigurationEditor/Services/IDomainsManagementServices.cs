@@ -32,24 +32,24 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// Removes the specified domain from the well known domains.
     /// </summary>
     /// <param name="domain">The domain to be removed from the list of available domains.</param>
-    void Remove(DomainWrapper domain);
+    void Remove(DomainModelWrapper domain);
     /// <summary>
     /// Adds the domain to the collection of well known domains.
     /// </summary>
     /// <param name="domain">The domain to be added to the list of available domains.</param>
     /// <returns><c>true</c> if domain has been added successfully, <c>false</c> otherwise.</returns>
-    bool AddDomain(DomainWrapper domain);
+    bool AddDomain(DomainModelWrapper domain);
     /// <summary>
     /// Creates a default domain descriptor.
     /// </summary>
-    /// <returns>New <see cref="DomainWrapper"/>.</returns>
-    DomainWrapper CreateDefault();
+    /// <returns>New <see cref="DomainModelWrapper"/>.</returns>
+    DomainModelWrapper CreateDefault();
     /// <summary>
     /// Determines whether the specified domain has bee registered already.
     /// </summary>
     /// <param name="domain">The domain to check.</param>
     /// <returns><c>true</c> if the local dictionary contains the specified domain; otherwise, <c>false</c>.</returns>
-    bool Contains(DomainWrapper domain);
+    bool Contains(DomainModelWrapper domain);
 
   }
 }

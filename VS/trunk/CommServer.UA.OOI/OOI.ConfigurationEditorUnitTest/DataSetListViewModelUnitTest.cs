@@ -216,23 +216,23 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     }
     private class TestDomainsManagementServices : IDomainsManagementServices
     {
-      public bool AddDomain(DomainWrapper domain)
+      public bool AddDomain(DomainModelWrapper domain)
       {
         throw new NotImplementedException();
       }
-      public bool Contains(DomainWrapper domain)
+      public bool Contains(DomainModelWrapper domain)
       {
         throw new NotImplementedException();
       }
-      public DomainWrapper CreateDefault()
+      public DomainModelWrapper CreateDefault()
       {
         throw new NotImplementedException();
       }
       public IDomainsObservableCollection GetAvailableDomains()
       {
-        return new DomainsObservableCollection(new DomainWrapper[] { });
+        return new DomainsObservableCollection(new DomainModelWrapper[] { });
       }
-      public void Remove(DomainWrapper domain)
+      public void Remove(DomainModelWrapper domain)
       {
         throw new NotImplementedException();
       }

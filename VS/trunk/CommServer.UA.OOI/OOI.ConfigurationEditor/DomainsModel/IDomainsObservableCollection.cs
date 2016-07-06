@@ -21,11 +21,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
   
   /// <summary>
-  /// Interface IDomainsObservableCollection - Represents a collection of <see cref="DomainWrapper"/> instances that can be individually accessed by index. Implements <see cref="INotifyCollectionChanged"/> and <see cref="INotifyPropertyChanged"/>
+  /// Interface IDomainsObservableCollection - Represents a collection of <see cref="DomainModelWrapper"/> instances that can be individually accessed by index. Implements <see cref="INotifyCollectionChanged"/> and <see cref="INotifyPropertyChanged"/>
   /// </summary>
   /// <seealso cref="IList{DomainWrapper}" />
   /// <seealso cref="INotifyCollectionChanged" />
   /// <seealso cref="INotifyPropertyChanged" />
-  public interface IDomainsObservableCollection: IList<DomainWrapper>, INotifyCollectionChanged, INotifyPropertyChanged { }
+  public interface IDomainsObservableCollection: IList<DomainModelWrapper>, INotifyCollectionChanged, INotifyPropertyChanged { }
 
 }

@@ -30,7 +30,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
   {
 
     internal DataSetItemConfirmation
-      (DataSetConfigurationWrapper wrapper, Func<DataSetConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable, IEnumerable<DomainWrapper> domainsEnumerable)
+      (DataSetConfigurationWrapper wrapper, Func<DataSetConfigurationWrapper, IEnumerable<AssociationCouplerViewModel>> enumerator, bool associationRoleEditable, IEnumerable<DomainModelWrapper> domainsEnumerable)
     {
       DataSetConfigurationWrapper = wrapper;
       m_GetMessageHandlers = enumerator;
@@ -41,9 +41,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
     }
 
     #region ViewModel API
-    public IEnumerable<DomainWrapper> Domains { get; }
+    public IEnumerable<DomainModelWrapper> Domains { get; }
     public int DomainsSelectedIndex { get; set; }
-    public DomainWrapper CurrentDomain
+    public DomainModelWrapper CurrentDomain
     {
       get
       {
@@ -51,7 +51,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
       }
       set
       {
-        if (SetProperty<DomainsModel.DomainWrapper>(ref b_CurrentDomain, value))
+        if (SetProperty<DomainsModel.DomainModelWrapper>(ref b_CurrentDomain, value))
           SemanticDataCollection = value.SemanticsDataCollection;
       }
     }
@@ -126,7 +126,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
     }
 
     #region private
-    private DomainWrapper b_CurrentDomain;
+    private DomainModelWrapper b_CurrentDomain;
     private IEnumerable<AssociationCouplerViewModel> b_AssociationCouplersEnumerator;
     private DataSetConfigurationWrapper b_DataSetConfigurationWrapper;
     private ObservableCollection<SemanticsDataIndexWrapper> b_SemanticDataCollection;
