@@ -67,6 +67,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
     <Reference Include="UAOOI.Common.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
       <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Common.Infrastructure.dll</HintPath>
       <Private>True</Private>
@@ -120,6 +121,8 @@
     <Compile Include="AssociationServicesUnitTest.cs" />
     <Compile Include="MessageHandlerConfigurationCollectionUnitTest.cs" />
     <Compile Include="DataDiscoveryServicesUnitTest.cs" />
+    <Compile Include="DomainModelUnitTest.cs" />
+    <Compile Include="TestData\ReferenceDomainModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -141,7 +144,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestData\DomainDescriptor.xml" />
+    <Content Include="TestData\DomainDescriptor.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestData\DomainModel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
