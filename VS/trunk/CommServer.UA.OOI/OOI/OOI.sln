@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOI.ConfigurationEditor", "..\OOI.ConfigurationEditor\OOI.ConfigurationEditor.csproj", "{B8286065-773A-42BC-958B-0DC6366229BE}"
 EndProject
@@ -24,6 +24,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows.UnitTests", "..\..\CAS.Windows\Windows.UnitTests\Windows.UnitTests.csproj", "{40E4C1E8-C134-454B-A1BD-6542539C1BE1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CAS", "CAS", "{4F0B3C06-D214-4EF3-8C3B-40F385F9CA53}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70D6F827-D75D-4AB5-9FE7-FD2BEB9CC440}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\CommServer.UA.ConfigurationEditor\CommServer.UA.ConfigurationEditor\ConfigurationEditor.ModelsContainer\EmbeddedExample\DemoConfiguration\BoilersSet.csv = ..\..\..\CommServer.UA.ConfigurationEditor\CommServer.UA.ConfigurationEditor\ConfigurationEditor.ModelsContainer\EmbeddedExample\DemoConfiguration\BoilersSet.csv
+		..\..\..\CommServer.UA.ConfigurationEditor\CommServer.UA.ConfigurationEditor\ConfigurationEditor.ModelsContainer\EmbeddedExample\DemoConfiguration\BoilersSet\Commsvr.UA.Examples.BoilersSet.NodeSet2.xml = ..\..\..\CommServer.UA.ConfigurationEditor\CommServer.UA.ConfigurationEditor\ConfigurationEditor.ModelsContainer\EmbeddedExample\DemoConfiguration\BoilersSet\Commsvr.UA.Examples.BoilersSet.NodeSet2.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

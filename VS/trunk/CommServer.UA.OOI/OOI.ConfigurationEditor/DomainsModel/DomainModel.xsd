@@ -16,29 +16,27 @@
   </xs:complexType>
   <xs:complexType name="ArrayOfSemanticsDataIndex">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="SemanticsDataIndex" nillable="true">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="1" name="SymbolicName" type="xs:string" />
-            <xs:element minOccurs="1" maxOccurs="1" name="Index" type="xs:unsignedShort" />
-            <xs:element minOccurs="0" maxOccurs="1" name="DataSet" type="tns:ArrayOfFieldMetaData" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SemanticsDataIndex" type="tns:SemanticsDataIndex" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SemanticsDataIndex">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="SymbolicName" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Index" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DataSet" type="tns:ArrayOfFieldMetaData" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ArrayOfFieldMetaData">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="FieldMetaData" nillable="true">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="1" name="ExtensionData" type="tns:ExtensionDataObject" />
-            <xs:element minOccurs="0" maxOccurs="1" name="SymbolicName" type="xs:string" />
-            <xs:element minOccurs="0" maxOccurs="1" name="ProcessValueName" type="xs:string" />
-            <xs:element minOccurs="0" maxOccurs="1" name="TypeInformation" type="tns:UATypeInfo" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FieldMetaData" type="tns:FieldMetaData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FieldMetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ExtensionData" type="tns:ExtensionDataObject" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SymbolicName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ProcessValueName" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TypeInformation" type="tns:UATypeInfo" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="ExtensionDataObject" />
@@ -88,29 +86,20 @@
   </xs:complexType>
   <xs:complexType name="ArrayOfTypeDictionary">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="TypeDictionary" nillable="true">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" maxOccurs="unbounded" name="StructuredType" type="tns:StructuredType" />
-          </xs:sequence>
-          <xs:attribute name="TargetNamespace" type="xs:string" />
-        </xs:complexType>
-      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TypeDictionary" type="tns:TypeDictionary" />
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TypeDictionary">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StructuredType" type="tns:StructuredType" />
+    </xs:sequence>
+    <xs:attribute name="TargetNamespace" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="StructuredType">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:TypeDescription">
         <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="Field">
-            <xs:complexType>
-              <xs:attribute name="Name" type="xs:string" />
-              <xs:attribute name="TypeName" type="xs:QName" />
-              <xs:attribute name="SwitchField" type="xs:string" />
-              <xs:attribute name="SwitchValue" type="xs:unsignedInt" />
-              <xs:attribute name="SwitchOperand" type="tns:SwitchOperand" />
-            </xs:complexType>
-          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Field" type="tns:StructuredTypeField" />
           <xs:element minOccurs="1" maxOccurs="1" name="StructureKind" type="tns:StructureKindEnum" />
         </xs:sequence>
       </xs:extension>
@@ -137,16 +126,22 @@
   </xs:complexType>
   <xs:complexType name="ArrayOfLocalizedText">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalizedText" nillable="true">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:string">
-              <xs:attribute default="" name="Locale" type="xs:string" />
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LocalizedText" nillable="true" type="tns:LocalizedText" />
     </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LocalizedText">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute default="" name="Locale" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="StructuredTypeField">
+    <xs:attribute name="Name" type="xs:string" />
+    <xs:attribute name="TypeName" type="xs:QName" />
+    <xs:attribute name="SwitchField" type="xs:string" />
+    <xs:attribute name="SwitchValue" type="xs:unsignedInt" />
+    <xs:attribute name="SwitchOperand" type="tns:SwitchOperand" />
   </xs:complexType>
   <xs:simpleType name="SwitchOperand">
     <xs:restriction base="xs:string">
