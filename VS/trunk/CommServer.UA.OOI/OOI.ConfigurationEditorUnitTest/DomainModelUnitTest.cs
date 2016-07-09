@@ -1,10 +1,10 @@
 ﻿
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
-using System.Xml.Serialization;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
 {
@@ -26,14 +26,34 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       Assert.IsNotNull(_newDescription);
     }
     [TestMethod]
-    public void MyTestMethod()
+    public void TypeDictionariesTestMethod()
     {
-      DomainModel _dm = new TestData.ReferenceDomainModel();
+      DomainModel _dm = TestData.ReferenceDomainModel.GerReferenceDomainModel();
       Assert.IsNotNull(_dm.TypeDictionaries);
       Dictionary<string, TypeDictionaryWitKey> _dictionary = (from x in _dm.TypeDictionaries
                                                               from y in x.StructuredType
                                                               select new TypeDictionaryWitKey { Key = $"{x.TargetNamespace}:{y.Name}", Dictionary = y }).ToDictionary<TypeDictionaryWitKey, string>(z => z.Key);
       Assert.AreEqual<int>(2, _dictionary.Count);
+    }
+    [TestMethod]
+    public void SerializeTestMethod()
+    {
+      string _fn = "ReferenceDomainModel.xml";
+      DomainModel _dm = TestData.ReferenceDomainModel.GerReferenceDomainModel();
+      FileInfo _fi = new FileInfo($@"TestData\{_fn}");
+      using (Stream _outputStream = _fi.Create())
+      {
+        XmlSerializer _serializer = new XmlSerializer(typeof(DomainModel));
+        _serializer.Serialize(_outputStream, _dm);
+      }
+      Assert.IsTrue(_fi.Exists);
+      Assert.IsTrue(_fi.Length > 0);
+      using (Stream _descriptionStream = _fi.OpenRead())
+      {
+        XmlSerializer _serializer = new XmlSerializer(typeof(DomainModel));
+        DomainModel _newDescription = (DomainModel)_serializer.Deserialize(_descriptionStream);
+        Assert.IsNotNull(_newDescription);
+      }
     }
     private class TypeDictionaryWitKey
     {
