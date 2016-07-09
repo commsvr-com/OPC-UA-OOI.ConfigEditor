@@ -149,6 +149,7 @@
     </Content>
     <Content Include="TestData\DomainModel.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <Choose>

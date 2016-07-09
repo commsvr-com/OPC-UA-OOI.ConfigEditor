@@ -5,21 +5,24 @@ using System.Xml;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest.TestData
 {
-  internal class ReferenceDomainModel : DomainsModel.DomainModel
+  public static class ReferenceDomainModel
   {
-    public ReferenceDomainModel()
+    internal static DomainModel GerReferenceDomainModel()
     {
-      this.AliasName = "BoilersArea";
-      this.Description = "Domain model for the BoilersArea";
-      this.DomainModelGuid = new Guid("81976533-C604-4AEA-A2F9-F27687FF1A17");
-      this.DomainModelUri = new Uri(@"http://commsvr.com/UA/Examples/BoilersSet");
-      this.SemanticsDataCollection = NewSemanticsDataCollection();
-      this.TypeDictionaries = NewTypeDictionaries();
-      this.UniversalAddressSpaceLocator = @"http://localhost/opc/Commsvr.UA.Examples.BoilersSet.NodeSet2.xml";
-      this.UniversalAuthorizationServerLocator = @"http://localhost/opc/Commsvr.UA.Examples.BoilersSet.OTPTable.xml";
-      this.UniversalDiscoveryServiceLocator = @"http://localhost/opc/Commsvr.UA.Examples.BoilersSet.DiscoveryServiceLocator.xml";
+      return new DomainModel()
+      {
+        AliasName = "BoilersArea",
+        Description = "Domain model for the BoilersArea",
+        DomainModelGuid = new Guid("81976533-C604-4AEA-A2F9-F27687FF1A17"),
+        DomainModelUri = new Uri(@"http://commsvr.com/UA/Examples/BoilersSet"),
+        SemanticsDataCollection = NewSemanticsDataCollection(),
+        TypeDictionaries = NewTypeDictionaries(),
+        UniversalAddressSpaceLocator = @"http://localhost/opc/Commsvr.UA.Examples.BoilersSet.NodeSet2.xml",
+        UniversalAuthorizationServerLocator = @"http://localhost/opc/Commsvr.UA.Examples.BoilersSet.OTPTable.xml",
+        UniversalDiscoveryServiceLocator = @"http://localhost/opc/Commsvr.UA.Examples.BoilersSet.DiscoveryServiceLocator.xml",
+      };
     }
-    private TypeDictionary[] NewTypeDictionaries()
+    private static TypeDictionary[] NewTypeDictionaries()
     {
       return new TypeDictionary[]
       {
@@ -32,7 +35,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest.TestData
                               }
       };
     }
-    private StructuredTypeField[] EUInformationFields()
+    private static StructuredTypeField[] EUInformationFields()
     {
       return new StructuredTypeField[]
       {
@@ -46,7 +49,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest.TestData
     {
       return new StructuredType() { StructureKind = StructureKindEnum.Structure, Name = name, Field = createFields() };
     }
-    private StructuredTypeField[] RangeFields()
+    private static StructuredTypeField[] RangeFields()
     {
       return new StructuredTypeField[]
       {
@@ -54,11 +57,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest.TestData
         new StructuredTypeField() { Name = "High", TypeName = new XmlQualifiedName("Double", "http://opcfoundation.org/UA/"),  SwitchOperandSpecified = false, SwitchValueSpecified = false  }
       };
     }
-    private SemanticsDataIndex[] NewSemanticsDataCollection()
+    private static SemanticsDataIndex[] NewSemanticsDataCollection()
     {
       return new SemanticsDataIndex[] { NewBoilerAlpha() };
     }
-    private SemanticsDataIndex NewBoilerAlpha()
+    private static SemanticsDataIndex NewBoilerAlpha()
     {
       return new SemanticsDataIndex()
       {
@@ -67,7 +70,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest.TestData
         SymbolicName = "BoilersArea_BoilerAlpha",
       };
     }
-    private FieldMetaData[] NewBoilerAlphaDataSet()
+    private static FieldMetaData[] NewBoilerAlphaDataSet()
     {
       return new FieldMetaData[]
         {
