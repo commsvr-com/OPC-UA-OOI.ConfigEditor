@@ -107,6 +107,14 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       DomainModel _tm = _DomainModelTask.Result;
       Assert.IsNotNull(_tm);
     }
+    [TestMethod]
+    public void ResolveDomainModelAsyncTestMethod()
+    {
+      Task<DomainModel> _DomainModelTask = Services.DataDiscoveryServices.ResolveDomainModelAsync(m_ModelUri);
+      _DomainModelTask.Wait(TimeSpan.FromSeconds(10));
+      DomainModel _model = _DomainModelTask.Result;
+      Assert.IsNotNull(_model);
+    }
 
     Uri m_RootUrl = new Uri(@"http://localhost/opc/DomainDescriptor.xml");
     Uri m_ModelUri = new Uri(@"http://commsvr.com/UA/Examples/BoilersSet");

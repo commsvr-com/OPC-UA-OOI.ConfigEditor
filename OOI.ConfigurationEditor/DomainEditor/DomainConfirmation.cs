@@ -127,7 +127,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       {
         CurrentCursor = Cursors.Wait;
         CurrentIsEnabled = false;
-        DomainDescriptor _newDomain = await DataDiscoveryServices.ResolveDomainDescriptionAsync<DomainDescriptor>(DomainConfigurationWrapper.URI);
+        DomainModel _newDomainModel = await DataDiscoveryServices.ResolveDomainModelAsync(DomainConfigurationWrapper.URI);
         string[] _segments = DomainConfigurationWrapper.URI.Segments;
         string _aliasName = String.Empty;
         if (_segments.Length >= 1)
@@ -137,18 +137,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         }
         else
           _aliasName = "Enter alias for this domain";
-        DomainModel _newDomainModel = new DomainModel()
-        {
-          AliasName = _aliasName,
-          Description = _newDomain.Description,
-          //TODO 
-          //DomainModelGuid = new Guid(_newDomain.UniversalDomainName),
-          //UniversalAddressSpaceLocator = _newDomain.UniversalAddressSpaceLocator,
-          //UniversalAuthorizationServerLocator = _newDomain.UniversalAuthorizationServerLocator,
-          //UniversalDiscoveryServiceLocator = _newDomain.UniversalDiscoveryServiceLocator,
-          SemanticsDataCollection = new SemanticsDataIndex[] { },
-          DomainModelUri = DomainConfigurationWrapper.URI
-        };
         DomainConfigurationWrapper = new DomainModelWrapper(_newDomainModel);
       }
       catch (System.Exception _e)
@@ -162,7 +150,5 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       }
     }
 
-
   }
-
 }
