@@ -141,10 +141,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         {
           AliasName = _aliasName,
           Description = _newDomain.Description,
-          DomainModelGuid = new Guid(_newDomain.UniversalDomainName),
-          UniversalAddressSpaceLocator = _newDomain.UniversalAddressSpaceLocator,
-          UniversalAuthorizationServerLocator = _newDomain.UniversalAuthorizationServerLocator,
-          UniversalDiscoveryServiceLocator = _newDomain.UniversalDiscoveryServiceLocator,
+          //TODO 
+          //DomainModelGuid = new Guid(_newDomain.UniversalDomainName),
+          //UniversalAddressSpaceLocator = _newDomain.UniversalAddressSpaceLocator,
+          //UniversalAuthorizationServerLocator = _newDomain.UniversalAuthorizationServerLocator,
+          //UniversalDiscoveryServiceLocator = _newDomain.UniversalDiscoveryServiceLocator,
           SemanticsDataCollection = new SemanticsDataIndex[] { },
           DomainModelUri = DomainConfigurationWrapper.URI
         };

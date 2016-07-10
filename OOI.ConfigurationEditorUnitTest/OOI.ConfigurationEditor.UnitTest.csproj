@@ -122,7 +122,8 @@
     <Compile Include="MessageHandlerConfigurationCollectionUnitTest.cs" />
     <Compile Include="DataDiscoveryServicesUnitTest.cs" />
     <Compile Include="DomainModelUnitTest.cs" />
-    <Compile Include="TestData\ReferenceDomainModel.cs" />
+    <Compile Include="TestData\commsvr.com.UA.Examples.BoilersSet.DomainModel.cs" />
+    <Compile Include="TestData\RootDomainDescriptorFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -144,6 +145,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestData\commsvr.com.UA.Examples.BoilersSet.DomainDescriptor.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="TestData\DomainDescriptor.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -151,6 +155,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="TestData\commsvr.com.UA.Examples.BoilersSet.DomainModel.xml" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
