@@ -26,55 +26,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel {
         "escriptor.xsd", IsNullable=true)]
     public partial class DomainDescriptor {
         
-        private string universalDomainNameField;
-        
-        private string universalAddressSpaceLocatorField;
-        
-        private string universalDiscoveryServiceLocatorField;
-        
-        private string universalAuthorizationServerLocatorField;
-        
         private string descriptionField;
         
-        /// <remarks/>
-        public string UniversalDomainName {
-            get {
-                return this.universalDomainNameField;
-            }
-            set {
-                this.universalDomainNameField = value;
-            }
-        }
+        private string urlPatternField;
         
-        /// <remarks/>
-        public string UniversalAddressSpaceLocator {
-            get {
-                return this.universalAddressSpaceLocatorField;
-            }
-            set {
-                this.universalAddressSpaceLocatorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string UniversalDiscoveryServiceLocator {
-            get {
-                return this.universalDiscoveryServiceLocatorField;
-            }
-            set {
-                this.universalDiscoveryServiceLocatorField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string UniversalAuthorizationServerLocator {
-            get {
-                return this.universalAuthorizationServerLocatorField;
-            }
-            set {
-                this.universalAuthorizationServerLocatorField = value;
-            }
-        }
+        private RecordType nextStepRecordTypeField;
         
         /// <remarks/>
         public string Description {
@@ -85,5 +41,39 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel {
                 this.descriptionField = value;
             }
         }
+        
+        /// <remarks/>
+        public string UrlPattern {
+            get {
+                return this.urlPatternField;
+            }
+            set {
+                this.urlPatternField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public RecordType NextStepRecordType {
+            get {
+                return this.nextStepRecordTypeField;
+            }
+            set {
+                this.nextStepRecordTypeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.6.1055.0")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://commsvr.com/CAS/CommServer/UA/OOI/ConfigurationEditor/DomainsModel/DomainD" +
+        "escriptor.xsd")]
+    public enum RecordType {
+        
+        /// <remarks/>
+        DomainModel,
+        
+        /// <remarks/>
+        DomainDescriptor,
     }
 }
