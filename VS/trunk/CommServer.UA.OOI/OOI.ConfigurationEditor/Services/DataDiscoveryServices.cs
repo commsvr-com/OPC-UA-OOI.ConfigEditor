@@ -13,6 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using System;
 using System.IO;
 using System.Net;
@@ -51,5 +52,23 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
         }
       }
     }
+    public static async Task<DomainModel> ResolveDomainModelAsync(Uri modelUri)
+    {
+      DomainDescriptor _lastDomainDescriptor = new DomainDescriptor() { NextStepRecordType = RecordType.DomainDescriptor };
+      Uri _nextUri = new Uri(Properties.Settings.Default.DataDiscoveryRootServiceUrl);
+      int _iteration = 0;
+      do
+      {
+        _iteration++;
+        if (_iteration > 16)
+          throw new InvalidOperationException("Too many iteration in the resolve process.");
+        Task<DomainDescriptor> _DomainDescriptorTask = Services.DataDiscoveryServices.ResolveDomainDescriptionAsync<DomainDescriptor>(_nextUri);
+        _lastDomainDescriptor = await _DomainDescriptorTask;
+        _nextUri = _lastDomainDescriptor.ResolveUri(modelUri);
+      } while (_lastDomainDescriptor.NextStepRecordType == RecordType.DomainDescriptor);
+      Task<DomainModel> _DomainModelTask = Services.DataDiscoveryServices.ResolveDomainDescriptionAsync<DomainModel>(_nextUri);
+      return await _DomainModelTask;
+    }
+
   }
 }
