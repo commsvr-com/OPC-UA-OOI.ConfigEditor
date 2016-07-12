@@ -118,6 +118,9 @@
     <Compile Include="DomainsModel\FieldMetaData.cs" />
     <Compile Include="DomainsModel\SemanticsDataIndex.cs" />
     <Compile Include="DomainsModel\SemanticsDataIndexWrapper.cs" />
+    <Compile Include="DomainsModel\StructuredTypeFieldWrapper.cs" />
+    <Compile Include="DomainsModel\StructuredTypeWrapper.cs" />
+    <Compile Include="DomainsModel\TypeDictionaryWrapper.cs" />
     <Compile Include="DomainsModel\UATypeInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

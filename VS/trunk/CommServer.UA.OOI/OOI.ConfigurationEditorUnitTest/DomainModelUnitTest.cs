@@ -24,6 +24,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         _newDescription = (DomainModel)_serializer.Deserialize(_descriptionStream);
       }
       Assert.IsNotNull(_newDescription);
+      Assert.IsFalse(string.IsNullOrEmpty(_newDescription.AliasName));
+      Assert.IsFalse(string.IsNullOrEmpty(_newDescription.Description));
+      Assert.IsFalse(string.IsNullOrEmpty(_newDescription.DomainModelGuidString));
+      Assert.IsFalse(string.IsNullOrEmpty(_newDescription.DomainModelUriString));
+      Assert.IsFalse(string.IsNullOrEmpty(_newDescription.UniversalAddressSpaceLocator));
+      Assert.IsFalse(string.IsNullOrEmpty(_newDescription.UniversalAuthorizationServerLocator));
+      Assert.IsTrue(string.IsNullOrEmpty(_newDescription.UniversalDiscoveryServiceLocator));
     }
     [TestMethod]
     public void TypeDictionariesTestMethod()
