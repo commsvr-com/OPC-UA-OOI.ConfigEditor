@@ -63,7 +63,26 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
         DomainModelGuidString = XmlConvert.ToString(value);
       }
     }
+    /// <summary>
+    /// Gets or sets the universal discovery service locator - this URL (REST call is assigned by the resolver).
+    /// </summary>
+    /// <value>The universal discovery service locator.</value>
+    [XmlIgnore]
+    public string UniversalDiscoveryServiceLocator
+    {
+      get
+      {
+        return this.universalDiscoveryServiceLocatorField;
+      }
+      set
+      {
+        this.universalDiscoveryServiceLocatorField = value;
+      }
+    }
+    #endregion
 
+    #region private
+    private string universalDiscoveryServiceLocatorField;
     #endregion
 
   }

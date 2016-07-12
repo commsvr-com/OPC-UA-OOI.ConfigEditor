@@ -160,7 +160,6 @@
     </SemanticsDataIndex>
   </SemanticsDataCollection>
   <UniversalAddressSpaceLocator>UniversalAddressSpaceLocator1</UniversalAddressSpaceLocator>
-  <UniversalDiscoveryServiceLocator>UniversalDiscoveryServiceLocator1</UniversalDiscoveryServiceLocator>
   <UniversalAuthorizationServerLocator>UniversalAuthorizationServerLocator1</UniversalAuthorizationServerLocator>
   <TypeDictionaries>
     <TypeDictionary TargetNamespace="TargetNamespace1">

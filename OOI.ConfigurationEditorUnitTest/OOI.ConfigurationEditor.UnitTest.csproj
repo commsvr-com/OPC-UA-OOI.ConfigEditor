@@ -124,6 +124,7 @@
     <Compile Include="DomainModelUnitTest.cs" />
     <Compile Include="TestData\commsvr.com.UA.Examples.BoilersSet.DomainModel.cs" />
     <Compile Include="TestData\RootDomainDescriptorFactory.cs" />
+    <Compile Include="DomainModelWrapperUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

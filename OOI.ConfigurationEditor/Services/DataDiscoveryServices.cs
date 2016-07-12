@@ -67,7 +67,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
         _nextUri = _lastDomainDescriptor.ResolveUri(modelUri);
       } while (_lastDomainDescriptor.NextStepRecordType == RecordType.DomainDescriptor);
       Task<DomainModel> _DomainModelTask = Services.DataDiscoveryServices.ResolveDomainDescriptionAsync<DomainModel>(_nextUri);
-      return await _DomainModelTask;
+      DomainModel _model = await _DomainModelTask;
+      _model.UniversalDiscoveryServiceLocator = _nextUri.ToString();
+      return _model; 
     }
 
   }

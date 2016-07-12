@@ -153,6 +153,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
         SetProperty<string>(Item.UniversalAuthorizationServerLocator, x => Item.UniversalAuthorizationServerLocator = x, value);
       }
     }
+    public ObservableCollection<TypeDictionaryWrapper> TypeDictionaries { get; }
     #endregion
 
     #region override
