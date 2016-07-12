@@ -150,7 +150,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
         MaxBufferTime = -1,
         PublishingInterval = -1,
         RepositoryGroup = $"RepositoryGroup{m_UniqueNameId++}",
-        SymbolicName = $"SymbolicName{m_UniqueNameId++}"
+        SymbolicName = $"SymbolicName{m_UniqueNameId++}",
       };
     }
     internal void UpdateDataSet(DomainModelWrapper domainMode, SemanticsDataIndexWrapper selectedIndex, bool newVersion)
@@ -165,10 +165,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       MaxBufferTime = -1;
       RepositoryGroup = String.Empty;
       SymbolicName = selectedIndex.SymbolicName;
-    }
-    private FieldMetaDataCollection CreateDataSet(SemanticsDataIndexWrapper semanticsDataIndexWrapper)//TODO CreateDataSet it must browse address space
-    {
-      return new FieldMetaDataCollection(new FieldMetaData[] { });
     }
 
     #region Wrapper<DataSetConfiguration>
@@ -193,11 +189,17 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     }
     #endregion
 
-    //private
+    #region private
     private ushort b_DefaultDataSetWriterId;
     private FieldMetaDataCollection b_DataSet;
     private DataSetConfigurationWrapper() : base(new Serialization.DataSetConfiguration()) { }
     private static int m_UniqueNameId = Convert.ToInt32(new Random().NextDouble() * int.MaxValue);
+    private FieldMetaDataCollection CreateDataSet(SemanticsDataIndexWrapper semanticsDataIndexWrapper)
+    {
+      FieldMetaData[] _fields = semanticsDataIndexWrapper.DataSet.Select<FieldMetaDataWrapper, FieldMetaData>(x => x.Item.Clone()).ToArray<FieldMetaData>();
+      return new FieldMetaDataCollection(_fields);
+    }
+    #endregion
 
   }
 

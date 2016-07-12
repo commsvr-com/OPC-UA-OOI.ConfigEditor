@@ -11,7 +11,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
   <i:Interaction.Triggers>
     <prism:InteractionRequestTrigger SourceObject="{Binding EditPopupRequest, Mode=OneWay}">
-      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
+      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="False">
         <prism:PopupWindowAction.WindowContent >
           <local:DomainView  />
         </prism:PopupWindowAction.WindowContent>

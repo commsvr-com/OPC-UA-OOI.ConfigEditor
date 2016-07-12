@@ -18,7 +18,7 @@
   </UserControl.Resources>
   <i:Interaction.Triggers>
     <prism:InteractionRequestTrigger SourceObject="{Binding DataSetEditPopupRequest, Mode=OneWay}">
-      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True">
+      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="False">
         <prism:PopupWindowAction.WindowContent >
           <dse:DataSetItemView  />
         </prism:PopupWindowAction.WindowContent>
