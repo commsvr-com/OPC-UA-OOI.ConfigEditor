@@ -1,8 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//_______________________________________________________________
+//  Title   : FieldMetaData
+//  System  : Microsoft VisualStudio 2015 / C#
+//  $LastChangedDate:  $
+//  $Rev: $
+//  $LastChangedBy: $
+//  $URL: $
+//  $Id:  $
+//
+//  Copyright (C) 2016, CAS LODZ POLAND.
+//  TEL: +48 (42) 686 25 47
+//  mailto://techsupp@cas.eu
+//  http://www.cas.eu
+//_______________________________________________________________
+
 using Serialization = UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
@@ -25,16 +35,16 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       };
       return _ret;
     }
-    public Serialization.FieldMetaData Clone()
-    { 
+    internal Serialization.FieldMetaData Clone()
+    {
       Serialization.FieldMetaData _ret = new Serialization.FieldMetaData()
       {
-        ExtensionData = null, 
+        ExtensionData = null,
         ProcessValueName = ProcessValueName,
         SymbolicName = SymbolicName,
-        TypeInformation = TypeInformation.Clone()
+        TypeInformation = TypeInformation == null ? null : TypeInformation.Clone()
       };
       return _ret;
     }
-}
+  }
 }

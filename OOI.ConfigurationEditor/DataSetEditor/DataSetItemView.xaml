@@ -34,7 +34,7 @@
         </Style>
       </DataTemplate.Resources>
       <StackPanel >
-        <controls:ParametersGroup GroupTitle="Data Identity" >
+        <controls:ParametersGroup GroupTitle="Data Domain" >
           <controls:ParametersGroup.Content>
             <Grid>
               <Grid.ColumnDefinitions>
@@ -70,8 +70,8 @@
                 <GridView>
                   <GridViewColumn Header="Symbolic Name" DisplayMemberBinding="{Binding SymbolicName}"/>
                   <GridViewColumn Header="Process Value Name" DisplayMemberBinding="{Binding ProcessValueName}"/>
-                  <GridViewColumn Header="Type Name" DisplayMemberBinding="{Binding TypeInformation.TypeName}"/>
                   <GridViewColumn Header="Built-In Type" DisplayMemberBinding="{Binding TypeInformation.BuiltInType}"/>
+                  <GridViewColumn Header="Type Name" DisplayMemberBinding="{Binding TypeInformation.TypeName}"/>
                   <GridViewColumn Header="Array Dimensions" DisplayMemberBinding="{Binding TypeInformation.ArrayDimensions}"/>
                   <GridViewColumn Header="Value Rank" DisplayMemberBinding="{Binding TypeInformation.ValueRank}"/>
                 </GridView>
@@ -115,7 +115,7 @@
             </ListView>
           </StackPanel>
         </controls:ParametersGroup>
-        <controls:ParametersGroup  GroupTitle="Application settings">
+        <controls:ParametersGroup GroupTitle="Application settings">
           <StackPanel>
             <Grid>
               <Grid.ColumnDefinitions>

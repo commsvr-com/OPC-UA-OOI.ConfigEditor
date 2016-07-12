@@ -86,7 +86,7 @@
               </DockPanel>
               <Label Grid.Row="1" Grid.Column="0" >Domain URN</Label>
               <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=DomainConfigurationWrapper.UniqueName}"/>
-              <Label Grid.Row="2" Grid.Column="0" >Alias Name</Label>
+              <Label Grid.Row="2" Grid.Column="0" >Name</Label>
               <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.AliasName}"/>
               <Label Grid.Row="3" Grid.Column="0" >Description</Label>
               <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.Description}"/>

@@ -111,7 +111,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     {
       if (CurrentDomain == null) //double check
         return;
-      DomainConfirmation _confirmation = new DomainConfirmation(CurrentDomain) { Title = "Edit Domain" };
+      DomainConfirmation _confirmation = new DomainConfirmation(CurrentDomain, m_Logger.Log) { Title = "Edit Domain" };
       bool _confirmed = false;
       b_EditPopupRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
       if (_confirmed)
@@ -120,7 +120,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     private void AddCommandHandler()
     {
       DomainModelWrapper _dsc = m_domainsServices.CreateDefault();
-      DomainConfirmation _confirmation = new DomainConfirmation(_dsc) { Title = "New Domain" };
+      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, m_Logger.Log) { Title = "New Domain" };
       bool _confirmed = false;
       do
       {

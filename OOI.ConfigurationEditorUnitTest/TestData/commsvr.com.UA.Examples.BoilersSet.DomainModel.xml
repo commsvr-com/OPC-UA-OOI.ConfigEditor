@@ -13,28 +13,28 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q1="http://opcfoundation.org/UA/">q1:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -42,7 +42,7 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q2="http://opcfoundation.org/UA/">q2:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -50,7 +50,7 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q3="http://opcfoundation.org/UA/">q3:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -58,28 +58,28 @@
           <SymbolicName>InputPipe_Valve_Input</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q4="http://opcfoundation.org/UA/">q4:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -87,7 +87,7 @@
           <SymbolicName>InputPipe_Valve_Input_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q5="http://opcfoundation.org/UA/">q5:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -95,7 +95,7 @@
           <SymbolicName>InputPipe_Valve_Input_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q6="http://opcfoundation.org/UA/">q6:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -103,28 +103,28 @@
           <SymbolicName>Drum_LevelIndicator_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q7="http://opcfoundation.org/UA/">q7:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -132,7 +132,7 @@
           <SymbolicName>Drum_LevelIndicator_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q8="http://opcfoundation.org/UA/">q8:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -140,7 +140,7 @@
           <SymbolicName>Drum_LevelIndicator_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q9="http://opcfoundation.org/UA/">q9:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -148,28 +148,28 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q10="http://opcfoundation.org/UA/">q10:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -177,7 +177,7 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q11="http://opcfoundation.org/UA/">q11:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -185,7 +185,7 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q12="http://opcfoundation.org/UA/">q12:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -193,287 +193,287 @@
           <SymbolicName>FlowController_Measurement</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>FlowController_SetPoint</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>FlowController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_Measurement</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_SetPoint</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input1</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input2</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input3</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_DescriptionX</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input1</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Id</SymbolicName>
           <TypeInformation>
             <BuiltInType>NodeId</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Name</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Number</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_EffectiveDisplayName</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Id</SymbolicName>
           <TypeInformation>
             <BuiltInType>NodeId</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Name</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Number</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_TransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>DateTime</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_EffectiveTransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>DateTime</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_Deletable</SymbolicName>
           <TypeInformation>
             <BuiltInType>Boolean</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_AutoDelete</SymbolicName>
           <TypeInformation>
             <BuiltInType>Boolean</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_RecycleCount</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_CreateSessionId</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_CreateClientName</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastTransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodCall</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodSessionId</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodInputArguments</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodOutputArguments</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodCallTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodReturnStatus</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_FinalResultData</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_UpdateRate</SymbolicName>
           <TypeInformation>
             <BuiltInType>Int32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
       </DataSet>
@@ -486,28 +486,28 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q1="http://opcfoundation.org/UA/">q1:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -515,7 +515,7 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q2="http://opcfoundation.org/UA/">q2:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -523,7 +523,7 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q3="http://opcfoundation.org/UA/">q3:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -531,28 +531,28 @@
           <SymbolicName>InputPipe_Valve_Input</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q4="http://opcfoundation.org/UA/">q4:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -560,7 +560,7 @@
           <SymbolicName>InputPipe_Valve_Input_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q5="http://opcfoundation.org/UA/">q5:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -568,7 +568,7 @@
           <SymbolicName>InputPipe_Valve_Input_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q6="http://opcfoundation.org/UA/">q6:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -576,28 +576,28 @@
           <SymbolicName>Drum_LevelIndicator_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q7="http://opcfoundation.org/UA/">q7:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -605,7 +605,7 @@
           <SymbolicName>Drum_LevelIndicator_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q8="http://opcfoundation.org/UA/">q8:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -613,7 +613,7 @@
           <SymbolicName>Drum_LevelIndicator_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q9="http://opcfoundation.org/UA/">q9:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -621,28 +621,28 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q10="http://opcfoundation.org/UA/">q10:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -650,7 +650,7 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q11="http://opcfoundation.org/UA/">q11:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -658,7 +658,7 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q12="http://opcfoundation.org/UA/">q12:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -666,287 +666,287 @@
           <SymbolicName>FlowController_Measurement</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>FlowController_SetPoint</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>FlowController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_Measurement</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_SetPoint</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input1</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input2</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input3</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_DescriptionX</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input1</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Id</SymbolicName>
           <TypeInformation>
             <BuiltInType>NodeId</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Name</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Number</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_EffectiveDisplayName</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Id</SymbolicName>
           <TypeInformation>
             <BuiltInType>NodeId</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Name</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Number</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_TransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>DateTime</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_EffectiveTransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>DateTime</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_Deletable</SymbolicName>
           <TypeInformation>
             <BuiltInType>Boolean</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_AutoDelete</SymbolicName>
           <TypeInformation>
             <BuiltInType>Boolean</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_RecycleCount</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_CreateSessionId</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_CreateClientName</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastTransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodCall</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodSessionId</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodInputArguments</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodOutputArguments</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodCallTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodReturnStatus</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_FinalResultData</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_UpdateRate</SymbolicName>
           <TypeInformation>
             <BuiltInType>Int32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
       </DataSet>
@@ -959,28 +959,28 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q1="http://opcfoundation.org/UA/">q1:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -988,7 +988,7 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q2="http://opcfoundation.org/UA/">q2:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -996,7 +996,7 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q3="http://opcfoundation.org/UA/">q3:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1004,28 +1004,28 @@
           <SymbolicName>InputPipe_Valve_Input</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q4="http://opcfoundation.org/UA/">q4:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1033,7 +1033,7 @@
           <SymbolicName>InputPipe_Valve_Input_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q5="http://opcfoundation.org/UA/">q5:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1041,7 +1041,7 @@
           <SymbolicName>InputPipe_Valve_Input_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q6="http://opcfoundation.org/UA/">q6:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1049,28 +1049,28 @@
           <SymbolicName>Drum_LevelIndicator_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q7="http://opcfoundation.org/UA/">q7:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1078,7 +1078,7 @@
           <SymbolicName>Drum_LevelIndicator_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q8="http://opcfoundation.org/UA/">q8:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1086,7 +1086,7 @@
           <SymbolicName>Drum_LevelIndicator_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q9="http://opcfoundation.org/UA/">q9:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1094,28 +1094,28 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q10="http://opcfoundation.org/UA/">q10:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1123,7 +1123,7 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q11="http://opcfoundation.org/UA/">q11:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1131,7 +1131,7 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q12="http://opcfoundation.org/UA/">q12:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1139,287 +1139,287 @@
           <SymbolicName>FlowController_Measurement</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>FlowController_SetPoint</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>FlowController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_Measurement</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_SetPoint</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input1</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input2</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input3</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_DescriptionX</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input1</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Id</SymbolicName>
           <TypeInformation>
             <BuiltInType>NodeId</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Name</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Number</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_EffectiveDisplayName</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Id</SymbolicName>
           <TypeInformation>
             <BuiltInType>NodeId</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Name</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Number</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_TransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>DateTime</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_EffectiveTransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>DateTime</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_Deletable</SymbolicName>
           <TypeInformation>
             <BuiltInType>Boolean</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_AutoDelete</SymbolicName>
           <TypeInformation>
             <BuiltInType>Boolean</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_RecycleCount</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_CreateSessionId</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_CreateClientName</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastTransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodCall</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodSessionId</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodInputArguments</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodOutputArguments</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodCallTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodReturnStatus</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_FinalResultData</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_UpdateRate</SymbolicName>
           <TypeInformation>
             <BuiltInType>Int32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
       </DataSet>
@@ -1432,28 +1432,28 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_FlowTransmitter1_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q1="http://opcfoundation.org/UA/">q1:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1461,7 +1461,7 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q2="http://opcfoundation.org/UA/">q2:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1469,7 +1469,7 @@
           <SymbolicName>InputPipe_FlowTransmitter1_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q3="http://opcfoundation.org/UA/">q3:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1477,28 +1477,28 @@
           <SymbolicName>InputPipe_Valve_Input</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>InputPipe_Valve_Input_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q4="http://opcfoundation.org/UA/">q4:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1506,7 +1506,7 @@
           <SymbolicName>InputPipe_Valve_Input_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q5="http://opcfoundation.org/UA/">q5:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1514,7 +1514,7 @@
           <SymbolicName>InputPipe_Valve_Input_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q6="http://opcfoundation.org/UA/">q6:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1522,28 +1522,28 @@
           <SymbolicName>Drum_LevelIndicator_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Drum_LevelIndicator_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q7="http://opcfoundation.org/UA/">q7:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1551,7 +1551,7 @@
           <SymbolicName>Drum_LevelIndicator_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q8="http://opcfoundation.org/UA/">q8:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1559,7 +1559,7 @@
           <SymbolicName>Drum_LevelIndicator_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q9="http://opcfoundation.org/UA/">q9:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1567,28 +1567,28 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_Definition</SymbolicName>
           <TypeInformation>
             <BuiltInType>String</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_ValuePrecision</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_InstrumentRange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q10="http://opcfoundation.org/UA/">q10:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1596,7 +1596,7 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_EURange</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q11="http://opcfoundation.org/UA/">q11:Range</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1604,7 +1604,7 @@
           <SymbolicName>OutputPipe_FlowTransmitter2_Output_EngineeringUnits</SymbolicName>
           <TypeInformation>
             <BuiltInType>ExtensionObject</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
             <TypeName xmlns:q12="http://opcfoundation.org/UA/">q12:EUInformation</TypeName>
           </TypeInformation>
         </FieldMetaData>
@@ -1612,287 +1612,287 @@
           <SymbolicName>FlowController_Measurement</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>FlowController_SetPoint</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>FlowController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_Measurement</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_SetPoint</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>LevelController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input1</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input2</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input3</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_ControlOut</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_DescriptionX</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>CustomController_Input1</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Id</SymbolicName>
           <TypeInformation>
             <BuiltInType>NodeId</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Name</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_Number</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_CurrentState_EffectiveDisplayName</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Id</SymbolicName>
           <TypeInformation>
             <BuiltInType>NodeId</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Name</SymbolicName>
           <TypeInformation>
             <BuiltInType>LocalizedText</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_Number</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_TransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>DateTime</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_LastTransition_EffectiveTransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>DateTime</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_Deletable</SymbolicName>
           <TypeInformation>
             <BuiltInType>Boolean</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_AutoDelete</SymbolicName>
           <TypeInformation>
             <BuiltInType>Boolean</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_RecycleCount</SymbolicName>
           <TypeInformation>
             <BuiltInType>UInt32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_CreateSessionId</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_CreateClientName</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastTransitionTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_InvocationCreationTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodCall</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodSessionId</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodInputArguments</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodOutputArguments</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodCallTime</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_ProgramDiagnostics_LastMethodReturnStatus</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_FinalResultData</SymbolicName>
           <TypeInformation>
             <BuiltInType>Double</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
         <FieldMetaData>
           <SymbolicName>Simulation_UpdateRate</SymbolicName>
           <TypeInformation>
             <BuiltInType>Int32</BuiltInType>
-            <ValueRank>0</ValueRank>
+            <ValueRank>-1</ValueRank>
           </TypeInformation>
         </FieldMetaData>
       </DataSet>

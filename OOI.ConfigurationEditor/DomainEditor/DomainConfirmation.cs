@@ -17,6 +17,7 @@ using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.Windows.ViewModel;
 using Prism.Commands;
+using Prism.Logging;
 using System;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,10 +32,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     /// Initializes a new instance of the <see cref="DomainConfirmation"/> class.
     /// </summary>
     /// <param name="domain">The domain.</param>
-    internal DomainConfirmation(DomainModelWrapper domain)
+    internal DomainConfirmation(DomainModelWrapper domain, Action<string, Category, Priority> log)
     {
       b_DomainConfigurationWrapper = domain;
       LookupDNSCommand = DelegateCommand.FromAsyncHandler(DomainDiscoveryAsync);
+      m_LoggerAction = log;
     }
 
     #region DataContext
@@ -56,7 +58,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         SetProperty<DomainModelWrapper>(ref b_DomainConfigurationWrapper, value);
       }
     }
-
     public SemanticsDataIndexWrapper CurrentSemanticsDataIndex
     {
       get
@@ -65,25 +66,9 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       }
       set
       {
-        if (SetProperty<SemanticsDataIndexWrapper>(ref b_CurrentSemanticsDataIndex, value))
-          CurrentDataSet = value?.DataSet;
+        SetProperty<SemanticsDataIndexWrapper>(ref b_CurrentSemanticsDataIndex, value);
       }
     }
-
-    private FieldMetaDataCollection b_CurrentDataSet;
-
-    public FieldMetaDataCollection CurrentDataSet
-    {
-      get
-      {
-        return b_CurrentDataSet;
-      }
-      set
-      {
-        SetProperty<FieldMetaDataCollection>(ref b_CurrentDataSet, value);
-      }
-    }
-
     public ICommand LookupDNSCommand { get; }
     public bool? CurrentIsEnabled
     {
@@ -119,6 +104,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     private Cursor b_CurrentCursor;
     private SemanticsDataIndexWrapper b_CurrentSemanticsDataIndex;
     private DomainModelWrapper b_DomainConfigurationWrapper;
+    private Action<string, Category, Priority> m_LoggerAction;
     private async Task DomainDiscoveryAsync()
     {
       Cursor _currentCursor = CurrentCursor;
@@ -127,7 +113,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       {
         CurrentCursor = Cursors.Wait;
         CurrentIsEnabled = false;
-        DomainModel _newDomainModel = await DataDiscoveryServices.ResolveDomainModelAsync(DomainConfigurationWrapper.URI);
+        DomainModel _newDomainModel = await DataDiscoveryServices.ResolveDomainModelAsync(DomainConfigurationWrapper.URI, m_LoggerAction);
         string[] _segments = DomainConfigurationWrapper.URI.Segments;
         string _aliasName = String.Empty;
         if (_segments.Length >= 1)
