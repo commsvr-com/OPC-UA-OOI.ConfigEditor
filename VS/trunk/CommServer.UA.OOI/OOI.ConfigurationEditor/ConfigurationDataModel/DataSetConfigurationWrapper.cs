@@ -16,6 +16,7 @@
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using System;
 using System.Linq;
+using UAOOI.DataDiscovery.DiscoveryServices.Models;
 using Serialization = UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel

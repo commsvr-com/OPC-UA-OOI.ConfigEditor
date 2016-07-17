@@ -13,11 +13,11 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using System;
 using System.ComponentModel.Composition;
 using System.Linq;
+using UAOOI.DataDiscovery.DiscoveryServices.Models;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 {
@@ -43,7 +43,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
         DomainModelWrapper _dw = m_DomainsObservableCollection.Where<DomainModelWrapper>(x => x.UniqueName == _as.AssociationConfigurationWrapper.PublisherId).FirstOrDefault<DomainModelWrapper>();
         if (_dw == null)
         {
-          DomainsModel.DomainModel _new = new DomainsModel.DomainModel()
+          DomainModel _new = new DomainModel()
           {
             AliasName = _as.DataSet.SymbolicName,
             Description = $"URI recovered from the DataSet AssociationName: {_as.DataSet.AssociationName}, SymbolicName: {_as.DataSet.SymbolicName}",

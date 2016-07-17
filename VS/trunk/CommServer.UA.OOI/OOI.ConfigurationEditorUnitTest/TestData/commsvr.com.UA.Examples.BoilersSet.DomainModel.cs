@@ -1,7 +1,6 @@
-﻿
-using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
-using System;
+﻿using System;
 using System.Xml;
+using UAOOI.DataDiscovery.DiscoveryServices.Models;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest.TestData
 {

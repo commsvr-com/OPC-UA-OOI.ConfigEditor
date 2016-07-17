@@ -14,6 +14,7 @@
 //_______________________________________________________________
 
 using System.Xml;
+using UAOOI.DataDiscovery.DiscoveryServices.Models;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {

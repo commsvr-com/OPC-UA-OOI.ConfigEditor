@@ -69,16 +69,19 @@
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="UAOOI.Common.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Common.Infrastructure.dll</HintPath>
+      <HintPath>..\OOI\packages\UAOOI.Configuration.Networking.2.0.3-Delta\lib\net461\UAOOI.Common.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UAOOI.Configuration.DataBindings, Version=2.0.1.27981, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Configuration.DataBindings.dll</HintPath>
+    <Reference Include="UAOOI.Configuration.DataBindings, Version=2.0.3.26091, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
+      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.3-Delta\lib\net461\UAOOI.Configuration.DataBindings.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UAOOI.Configuration.Networking, Version=2.0.0.20873, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Configuration.Networking.dll</HintPath>
+    <Reference Include="UAOOI.Configuration.Networking, Version=2.0.3.25935, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
+      <HintPath>..\OOI\packages\UAOOI.Configuration.Networking.2.0.3-Delta\lib\net461\UAOOI.Configuration.Networking.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="UAOOI.DataDiscovery.DiscoveryServices">
+      <HintPath>..\..\..\OPC-UA-OOI\DataDiscovery\DiscoveryServices\bin\Debug\UAOOI.DataDiscovery.DiscoveryServices.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -120,11 +123,8 @@
     <Compile Include="MessageHandlerConfirmationUnitTest.cs" />
     <Compile Include="AssociationServicesUnitTest.cs" />
     <Compile Include="MessageHandlerConfigurationCollectionUnitTest.cs" />
-    <Compile Include="DataDiscoveryServicesUnitTest.cs" />
-    <Compile Include="DomainModelUnitTest.cs" />
-    <Compile Include="TestData\commsvr.com.UA.Examples.BoilersSet.DomainModel.cs" />
-    <Compile Include="TestData\RootDomainDescriptorFactory.cs" />
     <Compile Include="DomainModelWrapperUnitTest.cs" />
+    <Compile Include="TestData\commsvr.com.UA.Examples.BoilersSet.DomainModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -144,19 +144,6 @@
       <Project>{b8286065-773a-42bc-958b-0dc6366229be}</Project>
       <Name>OOI.ConfigurationEditor</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="TestData\commsvr.com.UA.Examples.BoilersSet.DomainDescriptor.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="TestData\DomainDescriptor.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="TestData\DomainModel.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="TestData\commsvr.com.UA.Examples.BoilersSet.DomainModel.xml" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

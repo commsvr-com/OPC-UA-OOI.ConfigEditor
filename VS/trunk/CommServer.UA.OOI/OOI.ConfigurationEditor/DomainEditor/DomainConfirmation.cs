@@ -14,7 +14,7 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Converters;
 using CAS.Windows.ViewModel;
 using Prism.Commands;
 using Prism.Logging;
@@ -22,6 +22,8 @@ using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using UAOOI.DataDiscovery.DiscoveryServices;
+using UAOOI.DataDiscovery.DiscoveryServices.Models;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
 {
@@ -32,7 +34,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     /// Initializes a new instance of the <see cref="DomainConfirmation"/> class.
     /// </summary>
     /// <param name="domain">The domain.</param>
-    internal DomainConfirmation(DomainModelWrapper domain, Action<string, Category, Priority> log)
+    internal DomainConfirmation(DomainModelWrapper domain, Action<string, Category, Prism.Logging.Priority> log)
     {
       b_DomainConfigurationWrapper = domain;
       LookupDNSCommand = DelegateCommand.FromAsyncHandler(DomainDiscoveryAsync);
@@ -104,7 +106,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     private Cursor b_CurrentCursor;
     private SemanticsDataIndexWrapper b_CurrentSemanticsDataIndex;
     private DomainModelWrapper b_DomainConfigurationWrapper;
-    private Action<string, Category, Priority> m_LoggerAction;
+    private Action<string, Category, Prism.Logging.Priority> m_LoggerAction;
     private async Task DomainDiscoveryAsync()
     {
       Cursor _currentCursor = CurrentCursor;
@@ -113,7 +115,12 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       {
         CurrentCursor = Cursors.Wait;
         CurrentIsEnabled = false;
-        DomainModel _newDomainModel = await DataDiscoveryServices.ResolveDomainModelAsync(DomainConfigurationWrapper.URI, m_LoggerAction);
+        DomainModel _newDomainModel = null;
+        using (UAOOI.DataDiscovery.DiscoveryServices.DataDiscoveryServices _service = new DataDiscoveryServices())
+        {
+          _newDomainModel = await _service.ResolveDomainModelAsync
+            (DomainConfigurationWrapper.URI, new Uri(Properties.Settings.Default.DataDiscoveryRootServiceUrl), (x, y, z) => m_LoggerAction(x, y.TraceEventType2Category(), z.Priority2Priority()));
+        }
         string[] _segments = DomainConfigurationWrapper.URI.Segments;
         string _aliasName = String.Empty;
         if (_segments.Length >= 1)
