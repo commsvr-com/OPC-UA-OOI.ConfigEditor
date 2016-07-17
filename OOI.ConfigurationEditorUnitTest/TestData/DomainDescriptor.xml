@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<DomainDescriptor xmlns="http://commsvr.com/CAS/CommServer/UA/OOI/ConfigurationEditor/DomainsModel/DomainDescriptor.xsd">
-  <Description>Description1</Description>
-  <UrlPattern>UrlPattern1</UrlPattern>
-  <NextStepRecordType>DomainModel</NextStepRecordType>
-</DomainDescriptor>

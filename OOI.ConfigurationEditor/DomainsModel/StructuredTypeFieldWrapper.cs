@@ -15,6 +15,7 @@
 
 using System;
 using System.Xml;
+using UAOOI.DataDiscovery.DiscoveryServices.Models;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {
@@ -74,7 +75,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
       }
       set
       {
-        SetProperty<SwitchOperand?>(Item.SwitchOperand, x => { Item.SwitchOperand = x.GetValueOrDefault(DomainsModel.SwitchOperand.Equals); Item.SwitchOperandSpecified = x.HasValue; }, value);
+        SetProperty<SwitchOperand?>(Item.SwitchOperand, x => { Item.SwitchOperand = x.GetValueOrDefault(UAOOI.DataDiscovery.DiscoveryServices.Models.SwitchOperand.Equals); Item.SwitchOperandSpecified = x.HasValue; }, value);
       }
     }
 

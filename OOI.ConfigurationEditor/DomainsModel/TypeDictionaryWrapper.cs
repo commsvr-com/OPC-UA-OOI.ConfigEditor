@@ -15,6 +15,7 @@
 
 using System.Collections.ObjectModel;
 using System.Linq;
+using UAOOI.DataDiscovery.DiscoveryServices.Models;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
 {

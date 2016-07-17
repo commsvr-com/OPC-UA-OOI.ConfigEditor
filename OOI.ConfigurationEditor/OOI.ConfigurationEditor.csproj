@@ -87,16 +87,19 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UAOOI.Common.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Common.Infrastructure.dll</HintPath>
+      <HintPath>..\OOI\packages\UAOOI.Configuration.Networking.2.0.3-Delta\lib\net461\UAOOI.Common.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UAOOI.Configuration.DataBindings, Version=2.0.1.27981, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Configuration.DataBindings.dll</HintPath>
+    <Reference Include="UAOOI.Configuration.DataBindings, Version=2.0.3.26091, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
+      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.3-Delta\lib\net461\UAOOI.Configuration.DataBindings.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UAOOI.Configuration.Networking, Version=2.0.0.20873, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\UAOOI.Configuration.DataBindings.2.0.1-Charlie\lib\net461\UAOOI.Configuration.Networking.dll</HintPath>
+    <Reference Include="UAOOI.Configuration.Networking, Version=2.0.3.25935, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
+      <HintPath>..\OOI\packages\UAOOI.Configuration.Networking.2.0.3-Delta\lib\net461\UAOOI.Configuration.Networking.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="UAOOI.DataDiscovery.DiscoveryServices">
+      <HintPath>..\..\..\OPC-UA-OOI\DataDiscovery\DiscoveryServices\bin\Debug\UAOOI.DataDiscovery.DiscoveryServices.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -112,30 +115,20 @@
     <Compile Include="ConfigurationDataModel\DataSetConfigurationCollection.cs" />
     <Compile Include="ConfigurationDataModel\DataSetConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IAssociationConfigurationWrapper.cs" />
-    <Compile Include="DomainsModel\DomainModel.cs">
-      <DependentUpon>DomainModel.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DomainsModel\FieldMetaData.cs" />
-    <Compile Include="DomainsModel\SemanticsDataIndex.cs" />
     <Compile Include="DomainsModel\SemanticsDataIndexWrapper.cs" />
     <Compile Include="DomainsModel\StructuredTypeFieldWrapper.cs" />
     <Compile Include="DomainsModel\StructuredTypeWrapper.cs" />
     <Compile Include="DomainsModel\TypeDictionaryWrapper.cs" />
-    <Compile Include="DomainsModel\UATypeInfo.cs" />
+    <Compile Include="Infrastructure\Converters\PrismLoggerConverters.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\Association.cs" />
-    <Compile Include="Services\DataDiscoveryServices.cs" />
     <Compile Include="Services\DataSetModelServices.cs" />
     <Compile Include="DomainsModel\FieldMetaDataWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IDataSetConfigurationCollection.cs" />
-    <Compile Include="DomainsModel\DomainDescriptor.cs" />
-    <Compile Include="DomainsModel\DomainDescriptor.xsd.cs">
-      <DependentUpon>DomainDescriptor.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Services\IDataSetModelServices.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerConfigurationIdentity.cs" />
     <Compile Include="ConfigurationDataModel\IMessageHandlerConfigurationWrapper.cs" />
@@ -177,7 +170,6 @@
       <DependentUpon>DomainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\IDomainsManagementServices.cs" />
-    <Compile Include="DomainsModel\DomainModel.xsd.cs" />
     <Compile Include="Infrastructure\Converters\Uri2StringConverter.cs" />
     <Compile Include="Infrastructure\Converters\UriValidationRule.cs" />
     <Compile Include="Infrastructure\DomainSetEventArg.cs" />
@@ -247,11 +239,6 @@
     <None Include="cas.snk" />
     <None Include="ConfigurationDataModel\ConfigurationDataModel.cd" />
     <None Include="DataSetEditor\DataSetEditor.cd" />
-    <None Include="DomainsModel\DomainModel.GoCS.cmd" />
-    <None Include="DomainsModel\DomainModel.GoXSD.cmd" />
-    <None Include="DomainsModel\DomainModel.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\nuspec.nuspec">
       <AutoGen>True</AutoGen>
@@ -267,11 +254,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReadMe.tt</DependentUpon>
     </None>
-    <None Include="DomainsModel\DomainDescriptor.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DomainsModel\DomainDescriptor.GoCS.cmd" />
-    <None Include="DomainsModel\DomainDescriptor.GoXSD.cmd" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="ConfigurationDataEditorView.xaml">
