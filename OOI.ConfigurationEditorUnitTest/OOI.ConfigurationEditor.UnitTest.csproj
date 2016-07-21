@@ -101,6 +101,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AutoPopulateExportedViewsBehaviorFixture.cs" />
+    <Compile Include="ConfigurationConvertersUnitTest.cs" />
     <Compile Include="Instrumentation\AssemblyHelpers.cs" />
     <Compile Include="ServerWrapperUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

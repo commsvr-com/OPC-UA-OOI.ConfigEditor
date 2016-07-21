@@ -32,7 +32,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     /// <param name="configurationItem">The original <see cref="DataSetConfiguration"/>configuration item.</param>
     public DataSetConfigurationWrapper(Serialization.DataSetConfiguration configurationItem) : base(configurationItem)
     {
-      DataSet = new FieldMetaDataCollection(configurationItem.DataSet.Select<Serialization.FieldMetaData, FieldMetaData>(x => x).ToArray<FieldMetaData>());
+      DataSet = new FieldMetaDataCollection(configurationItem.DataSet.Select<Serialization.FieldMetaData, FieldMetaData>(x => x.FieldMetaDataConvert()).ToArray<FieldMetaData>());
     }
     #endregion
 
@@ -169,11 +169,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     }
 
     #region Wrapper<DataSetConfiguration>
+    /// <summary>
+    /// Gets the wrapped item.
+    /// </summary>
+    /// <value>The wrapped item.</value>
     public override Serialization.DataSetConfiguration Item
     {
       get
       {
-        base.Item.DataSet = DataSet.Select<FieldMetaDataWrapper, Serialization.FieldMetaData>(wrapper => wrapper.Item.Clone()).ToArray<Serialization.FieldMetaData>();
+        base.Item.DataSet = DataSet.Select<FieldMetaDataWrapper, Serialization.FieldMetaData>(wrapper => wrapper.Item.FieldMetaDataConvert()).ToArray<Serialization.FieldMetaData>();
         return base.Item;
       }
     }
@@ -197,7 +201,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
     private static int m_UniqueNameId = Convert.ToInt32(new Random().NextDouble() * int.MaxValue);
     private FieldMetaDataCollection CreateDataSet(SemanticsDataIndexWrapper semanticsDataIndexWrapper)
     {
-      FieldMetaData[] _fields = semanticsDataIndexWrapper.DataSet.Select<FieldMetaDataWrapper, FieldMetaData>(x => x.Item.Clone()).ToArray<FieldMetaData>();
+      FieldMetaData[] _fields = semanticsDataIndexWrapper.DataSet.Select<FieldMetaDataWrapper, FieldMetaData>(x => x.Item).ToArray<FieldMetaData>();
       return new FieldMetaDataCollection(_fields);
     }
     #endregion

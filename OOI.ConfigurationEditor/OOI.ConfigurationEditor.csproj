@@ -115,6 +115,7 @@
     <Compile Include="ConfigurationDataModel\DataSetConfigurationCollection.cs" />
     <Compile Include="ConfigurationDataModel\DataSetConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IAssociationConfigurationWrapper.cs" />
+    <Compile Include="DomainsModel\ConfigurationConverters.cs" />
     <Compile Include="DomainsModel\SemanticsDataIndexWrapper.cs" />
     <Compile Include="DomainsModel\StructuredTypeFieldWrapper.cs" />
     <Compile Include="DomainsModel\StructuredTypeWrapper.cs" />
