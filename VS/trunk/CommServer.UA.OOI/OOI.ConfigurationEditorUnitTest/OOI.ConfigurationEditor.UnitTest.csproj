@@ -51,7 +51,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Prism, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\Prism.Core.6.1.0\lib\net45\Prism.dll</HintPath>
+      <HintPath>..\OOI\packages\Prism.Core.6.2.0-pre1\lib\net45\Prism.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Prism.Mef.Wpf, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
@@ -59,7 +59,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Prism.Wpf, Version=6.1.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
-      <HintPath>..\OOI\packages\Prism.Wpf.6.1.0\lib\net45\Prism.Wpf.dll</HintPath>
+      <HintPath>..\OOI\packages\Prism.Wpf.6.1.1-pre2\lib\net45\Prism.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -80,8 +80,9 @@
       <HintPath>..\OOI\packages\UAOOI.Configuration.Networking.2.0.3-Delta\lib\net461\UAOOI.Configuration.Networking.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UAOOI.DataDiscovery.DiscoveryServices">
-      <HintPath>..\..\..\OPC-UA-OOI\DataDiscovery\DiscoveryServices\bin\Debug\UAOOI.DataDiscovery.DiscoveryServices.dll</HintPath>
+    <Reference Include="UAOOI.DataDiscovery.DiscoveryServices, Version=1.0.0.39887, Culture=neutral, PublicKeyToken=deede3c2df331bb0, processorArchitecture=MSIL">
+      <HintPath>..\OOI\packages\UAOOI.DataDiscovery.DiscoveryServices.1.0.0-Alpha\lib\net461\UAOOI.DataDiscovery.DiscoveryServices.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>

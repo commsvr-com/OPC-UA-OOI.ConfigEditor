@@ -25,7 +25,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/opc/DomainDescriptor.xml")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://raw.githubusercontent.com/mpostol/OPC-UA-OOI/master/DataDiscovery/Tests/D" +
+            "iscoveryServices.UnitTest/TestData/root.zone/DomainDescriptor.xml")]
         public string DataDiscoveryRootServiceUrl {
             get {
                 return ((string)(this["DataDiscoveryRootServiceUrl"]));

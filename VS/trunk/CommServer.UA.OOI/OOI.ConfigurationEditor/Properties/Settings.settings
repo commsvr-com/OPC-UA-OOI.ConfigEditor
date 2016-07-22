@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="DataDiscoveryRootServiceUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://localhost/opc/DomainDescriptor.xml</Value>
+      <Value Profile="(Default)">https://raw.githubusercontent.com/mpostol/OPC-UA-OOI/master/DataDiscovery/Tests/DiscoveryServices.UnitTest/TestData/root.zone/DomainDescriptor.xml</Value>
     </Setting>
   </Settings>
 </SettingsFile>
