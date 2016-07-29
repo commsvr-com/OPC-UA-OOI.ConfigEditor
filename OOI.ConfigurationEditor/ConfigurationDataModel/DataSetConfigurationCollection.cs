@@ -45,23 +45,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       this.CollectionChanged += DataSetConfigurationCollection_CollectionChanged;
       foreach (DataSetConfiguration _configurationItem in m_Repository.ConfigurationData.DataSets)
       {
-        Warning _warning = null;
-        if (string.IsNullOrEmpty(_configurationItem.DataSymbolicName))
-        {
-          _configurationItem.DataSymbolicName = GetUniqueName("DataSymbolicName");
-          _warning = new Warning($"{nameof(_configurationItem.DataSymbolicName)} cannot be null or empty; replaced by {_configurationItem.DataSymbolicName}", Category.Warn, Priority.High);
-        }
-        else if (m_StringDictionary.ContainsKey(_configurationItem.DataSymbolicName))
-        {
-          string _oldDataSymbolicName = _configurationItem.DataSymbolicName;
-          _configurationItem.DataSymbolicName = GetUniqueName(_oldDataSymbolicName);
-          _warning = new Warning($"The {nameof(_configurationItem.DataSymbolicName)} = {_oldDataSymbolicName} must be unique; replaced by {_configurationItem.DataSymbolicName}", Category.Warn, Priority.High);
-        }
-        if (_warning != null)
-        {
-          m_WarningsList.Add(_warning);
-          logger.Log($"Configuration error: {_warning}", Category.Warn, Priority.Medium);
-        }
+        NormalizSymbolicName(_configurationItem, logger);
         DataSetConfigurationWrapper _newDataSetConfigurationWrapper = new DataSetConfigurationWrapper(_configurationItem);
         this.Add(_newDataSetConfigurationWrapper);
       }
@@ -122,11 +106,35 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
       m_CollectionChanged = true;
       if (e.NewItems != null)
         foreach (DataSetConfigurationWrapper _item in e.NewItems)
+        {
+          NormalizSymbolicName(_item.Item, m_Logger);
           m_StringDictionary.Add(_item.SymbolicName, _item);
+        }
       if (e.OldItems != null)
         foreach (DataSetConfigurationWrapper _item in e.OldItems)
           m_StringDictionary.Remove(_item.SymbolicName);
     }
+    private void NormalizSymbolicName(DataSetConfiguration dataSet, ILoggerFacade logger)
+    {
+      Warning _warning = null;
+      if (string.IsNullOrEmpty(dataSet.DataSymbolicName))
+      {
+        dataSet.DataSymbolicName = GetUniqueName("DataSymbolicName");
+        _warning = new Warning($"{nameof(dataSet.DataSymbolicName)} cannot be null or empty; replaced by {dataSet.DataSymbolicName}", Category.Warn, Priority.High);
+      }
+      else if (m_StringDictionary.ContainsKey(dataSet.DataSymbolicName))
+      {
+        string _oldDataSymbolicName = dataSet.DataSymbolicName;
+        dataSet.DataSymbolicName = GetUniqueName(_oldDataSymbolicName);
+        _warning = new Warning($"The {nameof(dataSet.DataSymbolicName)} = {_oldDataSymbolicName} must be unique; replaced by {dataSet.DataSymbolicName}", Category.Warn, Priority.High);
+      }
+      if (_warning != null)
+      {
+        m_WarningsList.Add(_warning);
+        logger.Log($"Configuration error: {_warning}", Category.Warn, Priority.Medium);
+      }
+    }
+
     #endregion
 
   }

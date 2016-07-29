@@ -52,7 +52,7 @@
               <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Path=SemanticDataCollection}" SelectedItem="{Binding Mode=TwoWay, Path=CurrentSemanticsDataIndexWrapper}" />
               <Label Grid.Row="2" Grid.Column="0" >Information Model URI</Label>
               <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=DataSetConfigurationWrapper.InformationModelURI}"/>
-              <Label Grid.Row="2" Grid.Column="2" Content="{Binding Path=DataSetConfigurationWrapper.Id}" ToolTip="Unique Identifier PublisherID" Background="Pink"/>
+              <Label Grid.Row="2" Grid.Column="2" Content="{Binding Path=DataSetConfigurationWrapper.Id}" ToolTip="{Binding Path=DataSetConfigurationWrapper.IdToolTip}" Background="Pink"/>
               <Label Grid.Row="3" Grid.Column="0" >Symbolic Name</Label>
               <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=DataSetConfigurationWrapper.SymbolicName, Mode=TwoWay}" VerticalAlignment="Center"/>
               <Label Grid.Row="3" Grid.Column="2" Content="{Binding Path=DataSetConfigurationWrapper.DefaultDataSetWriterId}" ToolTip="DataSetWriterId unique for PublisherID" Background="Pink"/>

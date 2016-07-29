@@ -98,6 +98,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         SetProperty<Cursor>(ref b_CurrentCursor, value);
       }
     }
+    public string IdToolTip { get { return Properties.Resources.IdToolTip; } }
+
     #endregion
 
     internal void ApplyChanges()
