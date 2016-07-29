@@ -54,7 +54,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     [TestMethod]
     public void IndexerTestMethod()
     {
-      DataSetConfigurationCollection _newInstance = CreateTestCollection();
+      DataSetConfigurationCollection _newInstance = CreateTestCollection(new LoggerFacade());
       DataSetConfigurationWrapper _originalItem = _newInstance[_DataSymbolicName];
       Assert.IsNotNull(_originalItem);
       Assert.AreSame(_originalItem.Item, _TestDataSet);
@@ -62,7 +62,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     [TestMethod]
     public void DataSetExistsTest()
     {
-      DataSetConfigurationCollection _newInstance = CreateTestCollection();
+      DataSetConfigurationCollection _newInstance = CreateTestCollection(new LoggerFacade());
       Assert.IsTrue(_newInstance.DataSetExists(_DataSymbolicName));
       Assert.IsFalse(_newInstance.DataSetExists("Not existing symbolic name"));
     }
@@ -70,7 +70,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     [ExpectedException(typeof(System.Collections.Generic.KeyNotFoundException))]
     public void RemoveTestMethod()
     {
-      DataSetConfigurationCollection _newInstance = CreateTestCollection();
+      DataSetConfigurationCollection _newInstance = CreateTestCollection(new LoggerFacade());
       DataSetConfigurationWrapper _originalItem = _newInstance[_DataSymbolicName];
       Assert.IsNotNull(_originalItem);
       _newInstance.Remove(_originalItem);
@@ -80,7 +80,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     [ExpectedException(typeof(System.Collections.Generic.KeyNotFoundException))]
     public void RemoveUsingStringKeyTestMethod()
     {
-      DataSetConfigurationCollection _newInstance = CreateTestCollection();
+      DataSetConfigurationCollection _newInstance = CreateTestCollection(new LoggerFacade());
       DataSetConfigurationWrapper _originalItem = _newInstance[_DataSymbolicName];
       Assert.IsNotNull(_originalItem);
       _newInstance.Remove(_DataSymbolicName);
@@ -89,7 +89,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     [TestMethod]
     public void RemoveIsNotPropagatingTestMethod()
     {
-      DataSetConfigurationCollection _newInstance = CreateTestCollection();
+      DataSetConfigurationCollection _newInstance = CreateTestCollection(new LoggerFacade());
       DataSetConfigurationWrapper _originalItem = _newInstance[_DataSymbolicName];
       Assert.IsNotNull(_originalItem);
       _newInstance.Remove(_originalItem);
@@ -101,7 +101,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     [ExpectedException(typeof(System.Collections.Generic.KeyNotFoundException))]
     public void RemoveIsPropagatingTestMethod()
     {
-      DataSetConfigurationCollection _newInstance = CreateTestCollection();
+      DataSetConfigurationCollection _newInstance = CreateTestCollection(new LoggerFacade());
       DataSetConfigurationWrapper _originalItem = _newInstance[_DataSymbolicName];
       Assert.IsNotNull(_originalItem);
       _newInstance.Remove(_originalItem);
@@ -109,7 +109,17 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
       _newInstance = new DataSetConfigurationCollection(new ConfigurationDataRepository(), new LoggerFacade());
       _originalItem = _newInstance[_DataSymbolicName];
     }
-
+    [TestMethod]
+    public void AddDuplicatedKeyTest()
+    {
+      LoggerFacade _logger = new LoggerFacade();
+      DataSetConfigurationCollection _newInstance = CreateTestCollection(_logger);
+      DataSetConfigurationWrapper _originalItem = _newInstance[_DataSymbolicName];
+      int _currentLength = _newInstance.Count +1;
+      _newInstance.Add(_originalItem);
+      Assert.AreEqual<int>(_currentLength, _newInstance.Count);
+      Assert.AreEqual<int>(3, _logger.LogCount);
+    }
     #region private test instrumentation
     private class LoggerFacade : ILoggerFacade
     {
@@ -119,7 +129,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         LogCount++;
       }
     }
-    private DataSetConfigurationCollection CreateTestCollection()
+    private DataSetConfigurationCollection CreateTestCollection(LoggerFacade logger)
     {
       ConfigurationDataRepository.SetConfigurationData = new Serialization.ConfigurationData()
       {
@@ -127,7 +137,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         MessageHandlers = new Serialization.MessageHandlerConfiguration[] { }
       };
       ConfigurationDataRepository _newConfigurationDataRepository = new ConfigurationDataRepository();
-      DataSetConfigurationCollection _newInstance = new DataSetConfigurationCollection(_newConfigurationDataRepository, new LoggerFacade());
+      DataSetConfigurationCollection _newInstance = new DataSetConfigurationCollection(_newConfigurationDataRepository, logger);
       return _newInstance;
     }
     private readonly static string _AssociationName = "AssociationName";

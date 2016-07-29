@@ -91,6 +91,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
         SetProperty<Guid>(String.IsNullOrEmpty(base.Item.Guid) ? Guid.Empty : base.Item.Id, x => base.Item.Id = x, value);
       }
     }
+    public string IdToolTip { get { return Properties.Resources.IdToolTip; } }
     public string InformationModelURI
     {
       get

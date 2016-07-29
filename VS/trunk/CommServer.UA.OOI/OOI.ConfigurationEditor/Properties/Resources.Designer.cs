@@ -79,6 +79,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unique Identifier PublisherID.
+        /// </summary>
+        internal static string IdToolTip {
+            get {
+                return ResourceManager.GetString("IdToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Message Handlers.
         /// </summary>
         internal static string MessageHandlersListPanelHeader {

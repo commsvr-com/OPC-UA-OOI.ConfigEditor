@@ -123,6 +123,9 @@
   <data name="HelpDocumentationUrl" xml:space="preserve">
     <value>http://www.commsvr.com/OPC-Help/Index.aspx?topic=html/a2d55988-b59a-4a87-95b9-933f6bbdf5bd.htm</value>
   </data>
+  <data name="IdToolTip" xml:space="preserve">
+    <value>Unique Identifier PublisherID</value>
+  </data>
   <data name="MessageHandlersListPanelHeader" xml:space="preserve">
     <value>Message Handlers</value>
   </data>
