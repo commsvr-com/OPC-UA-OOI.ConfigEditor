@@ -38,6 +38,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     {
       b_DomainConfigurationWrapper = domain;
       LookupDNSCommand = DelegateCommand.FromAsyncHandler(DomainDiscoveryAsync);
+      Go2DiscoveryServiceURL = new CAS.Windows.Commands.WebDocumentationCommand(() => DomainConfigurationWrapper.UniversalDiscoveryServiceLocator);
+      Go2AddressSpaceURL = new CAS.Windows.Commands.WebDocumentationCommand(() => DomainConfigurationWrapper.UniversalAddressSpaceLocator);
       m_LoggerAction = log;
     }
 
@@ -72,6 +74,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       }
     }
     public ICommand LookupDNSCommand { get; }
+    public ICommand Go2DiscoveryServiceURL { get; }
+    public ICommand Go2AddressSpaceURL { get; }
     public bool? CurrentIsEnabled
     {
       get

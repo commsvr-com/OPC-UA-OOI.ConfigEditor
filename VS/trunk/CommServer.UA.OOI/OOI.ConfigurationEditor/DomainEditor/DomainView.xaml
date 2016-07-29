@@ -91,9 +91,19 @@
               <Label Grid.Row="3" Grid.Column="0" >Description</Label>
               <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.Description}"/>
               <Label Grid.Row="4" Grid.Column="0" >Address Space Description URL</Label>
-              <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.UniversalAddressSpaceLocator}" ToolTip="URL of the UANodeSet representation of the OPC UA Address SPace."/>
+              <DockPanel Grid.Row="4" Grid.Column="1" LastChildFill="True" >
+                <Button DockPanel.Dock="Right" Command="{Binding Path=Go2AddressSpaceURL}">
+                  <Image Source="../Resources/NavigateForward_6271.png" Stretch="None" />
+                </Button>
+                <TextBox  Text="{Binding Path=DomainConfigurationWrapper.UniversalAddressSpaceLocator}" ToolTip="URL of the UANodeSet representation of the OPC UA Address SPace." DockPanel.Dock="Left" />
+              </DockPanel>
               <Label Grid.Row="5" Grid.Column="0" >Discovery Service URL</Label>
-              <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.UniversalDiscoveryServiceLocator}" ToolTip="URL of the discovery service for this data domain." />
+              <DockPanel Grid.Row="5" Grid.Column="1" LastChildFill="True" >
+                <Button DockPanel.Dock="Right" Command="{Binding Path=Go2DiscoveryServiceURL }">
+                  <Image Source="../Resources/NavigateForward_6271.png" Stretch="None" />
+                </Button>
+                <TextBox DockPanel.Dock="Left" Text="{Binding Path=DomainConfigurationWrapper.UniversalDiscoveryServiceLocator}" ToolTip="URL of the discovery service for this data domain." />
+              </DockPanel>
               <Label Grid.Row="6" Grid.Column="0" >Authorization Server URL</Label>
               <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.UniversalAuthorizationServerLocator}" ToolTip="URL of the authorization service for this data domain."/>
             </Grid>
