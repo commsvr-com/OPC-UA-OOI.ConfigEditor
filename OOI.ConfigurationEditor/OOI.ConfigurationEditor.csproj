@@ -237,6 +237,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ReadMe.md</LastGenOutput>
     </Content>
+    <Resource Include="Resources\NavigateForward_6271.png" />
     <None Include="app.config" />
     <None Include="cas.snk" />
     <None Include="ConfigurationDataModel\ConfigurationDataModel.cd" />
