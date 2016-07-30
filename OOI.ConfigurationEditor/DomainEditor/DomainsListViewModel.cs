@@ -91,6 +91,11 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     /// </summary>
     /// <value>The edit popup request.</value>
     public IInteractionRequest EditPopupRequest { get { return b_EditPopupRequest; } }
+    /// <summary>
+    /// Used to popup user interface <see cref="DomainModelResolveView"/>.
+    /// </summary>
+    /// <value>The <see cref="IInteractionRequest"/> instance capturing interaction request to resole URI to domain model.</value>
+    public IInteractionRequest ResoleUriToDomainModelPopupRequest { get { return b_ResoleUriToDomainModelPopupRequest; } }
     #endregion
 
     #region private
@@ -98,6 +103,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     private DomainModelWrapper b_CurrentDomain;
     private ILoggerFacade m_Logger;
     private InteractionRequest<IConfirmation> b_EditPopupRequest = new InteractionRequest<IConfirmation>();
+    private InteractionRequest<DomainModelResolveViewModel> b_ResoleUriToDomainModelPopupRequest = new InteractionRequest<DomainModelResolveViewModel>();
     private IDomainsManagementServices m_domainsServices;
 
     //methods
@@ -119,9 +125,20 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     }
     private void AddCommandHandler()
     {
-      DomainModelWrapper _dsc = m_domainsServices.CreateDefault();
-      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, m_Logger.Log) { Title = "New Domain" };
+      DomainModelWrapper _dsc = null;
+      DomainModelResolveViewModel _modeResolveConfirmation = new DomainModelResolveViewModel(m_Logger.Log) { Title = "Resolve Uri of Information Model to Domain Model Description" };
       bool _confirmed = false;
+      do
+      {
+        b_ResoleUriToDomainModelPopupRequest.Raise(_modeResolveConfirmation, x => { _confirmed = x.Confirmed; });
+        if (_confirmed & _modeResolveConfirmation.ResolvedDomainModel != null)
+          _dsc = _modeResolveConfirmation.ResolvedDomainModel;
+        else
+          _confirmed = true;
+      } while (!_confirmed);
+      if (_dsc == null)
+        return;
+      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, m_Logger.Log) { Title = "New Domain" };
       do
       {
         b_EditPopupRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
@@ -130,6 +147,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         else
           _confirmed = true;
       } while (!_confirmed);
+    }
+    private void NewCommandHandler()
+    {
+
     }
     private void SetCanExecuteButtonState()
     {

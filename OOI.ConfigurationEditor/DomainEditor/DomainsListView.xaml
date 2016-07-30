@@ -17,6 +17,13 @@
         </prism:PopupWindowAction.WindowContent>
       </prism:PopupWindowAction>
     </prism:InteractionRequestTrigger>
+    <prism:InteractionRequestTrigger SourceObject="{Binding ResoleUriToDomainModelPopupRequest, Mode=OneWay}">
+      <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="False">
+        <prism:PopupWindowAction.WindowContent >
+          <local:DomainModelResolveView  />
+        </prism:PopupWindowAction.WindowContent>
+      </prism:PopupWindowAction>
+    </prism:InteractionRequestTrigger>
   </i:Interaction.Triggers>
   <Grid>
     <Grid.RowDefinitions>

@@ -116,6 +116,10 @@
     <Compile Include="ConfigurationDataModel\DataSetConfigurationCollection.cs" />
     <Compile Include="ConfigurationDataModel\DataSetConfigurationWrapper.cs" />
     <Compile Include="ConfigurationDataModel\IAssociationConfigurationWrapper.cs" />
+    <Compile Include="DomainEditor\DomainModelResolveView.xaml.cs">
+      <DependentUpon>DomainModelResolveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DomainEditor\DomainModelResolveViewModel.cs" />
     <Compile Include="DomainsModel\ConfigurationConverters.cs" />
     <Compile Include="DomainsModel\SemanticsDataIndexWrapper.cs" />
     <Compile Include="DomainsModel\StructuredTypeFieldWrapper.cs" />
@@ -237,6 +241,8 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ReadMe.md</LastGenOutput>
     </Content>
+    <Resource Include="Resources\SearchContract_24x.png" />
+    <Resource Include="Resources\search.png" />
     <Resource Include="Resources\NavigateForward_6271.png" />
     <None Include="app.config" />
     <None Include="cas.snk" />
@@ -276,6 +282,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="DataSetEditor\DataSetItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DomainEditor\DomainModelResolveView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

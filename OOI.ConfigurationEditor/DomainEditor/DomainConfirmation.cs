@@ -31,9 +31,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
   {
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="DomainConfirmation"/> class.
+    /// Initializes a new instance of the <see cref="DomainConfirmation" /> class.
     /// </summary>
     /// <param name="domain">The domain.</param>
+    /// <param name="log">A delegate capturing logging functionality.</param>
     internal DomainConfirmation(DomainModelWrapper domain, Action<string, Category, Prism.Logging.Priority> log)
     {
       b_DomainConfigurationWrapper = domain;
