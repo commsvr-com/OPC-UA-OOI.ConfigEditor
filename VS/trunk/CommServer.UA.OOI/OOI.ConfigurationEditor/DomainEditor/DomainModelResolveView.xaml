@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor.DomainModelResolveView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor"
+             xmlns:windows="clr-namespace:CAS.Windows.Controls;assembly=CAS.Windows"
+             xmlns:converters="clr-namespace:CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Converters"
+             mc:Ignorable="d" 
+             Cursor="{Binding Path=Notification.CurrentCursor}"
+             d:DesignHeight="300" d:DesignWidth="300">
+  <UserControl.Resources>
+    <DataTemplate DataType="{x:Type local:DomainModelResolveViewModel}">
+      <StackPanel Orientation="Vertical">
+        <DockPanel LastChildFill="True">
+          <Button DockPanel.Dock="Right" Command="{Binding Path=LookupDNSCommand}" ToolTip="Resolve URI to Domain Model">
+            <Image Source="../Resources/SearchContract_24x.png" Stretch="None" />
+          </Button>
+          <TextBox VerticalAlignment="Center" ToolTip="Enter Information Model URI to resolve to Domain Model">
+            <TextBox.Text>
+              <Binding Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" ValidatesOnDataErrors="True">
+                <Binding.Path>
+                  InformationModelURI
+                </Binding.Path>
+                <Binding.ValidationRules>
+                  <converters:UriValidationRule/>
+                </Binding.ValidationRules>
+                <Binding.Converter>
+                  <converters:Uri2StringConverter/>
+                </Binding.Converter>
+                <Binding.FallbackValue>http://tempuri.org/DefaultDomainSegment</Binding.FallbackValue>
+              </Binding>
+            </TextBox.Text>
+          </TextBox>
+        </DockPanel>
+        <Label Content="{Binding Path=ResolvedDomainModel, FallbackValue='Not yet resolved' }"/>
+        <ListView ItemsSource="{Binding Path=LogList}"/>
+      </StackPanel>
+    </DataTemplate>
+  </UserControl.Resources>
+  <Grid IsEnabled="{Binding Path=Notification.CurrentIsEnabled}">
+    <Grid.RowDefinitions>
+      <RowDefinition  Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Notification}"  />
+    <windows:ButtonsPanel Grid.Row="2" DataContext="{Binding ButtonsPanelViewModel}" />
+  </Grid>
+</UserControl>
