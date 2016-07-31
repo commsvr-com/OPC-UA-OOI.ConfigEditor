@@ -22,6 +22,7 @@ using Prism.Interactivity.InteractionRequest;
 using Prism.Logging;
 using System;
 using System.ComponentModel.Composition;
+using System.Windows;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
 {
@@ -117,7 +118,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     {
       if (CurrentDomain == null) //double check
         return;
-      DomainConfirmation _confirmation = new DomainConfirmation(CurrentDomain, m_Logger.Log) { Title = "Edit Domain" };
+      DomainConfirmation _confirmation = new DomainConfirmation(CurrentDomain, true, m_Logger.Log) { Title = "Edit Domain" };
       bool _confirmed = false;
       b_EditPopupRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
       if (_confirmed)
@@ -127,30 +128,44 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     {
       DomainModelWrapper _dsc = null;
       DomainModelResolveViewModel _modeResolveConfirmation = new DomainModelResolveViewModel(m_Logger.Log) { Title = "Resolve Uri of Information Model to Domain Model Description" };
-      bool _confirmed = false;
+      bool _exitLoop = false;
       do
       {
-        b_ResoleUriToDomainModelPopupRequest.Raise(_modeResolveConfirmation, x => { _confirmed = x.Confirmed; });
-        if (_confirmed & _modeResolveConfirmation.ResolvedDomainModel != null)
+        b_ResoleUriToDomainModelPopupRequest.Raise(_modeResolveConfirmation, x => { _exitLoop = x.Confirmed; });
+        if (_exitLoop & _modeResolveConfirmation.ResolvedDomainModel != null)
           _dsc = _modeResolveConfirmation.ResolvedDomainModel;
         else
-          _confirmed = true;
-      } while (!_confirmed);
+          _exitLoop = true;
+      } while (!_exitLoop);
       if (_dsc == null)
         return;
-      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, m_Logger.Log) { Title = "New Domain" };
+      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, false, m_Logger.Log) { Title = "Import New Domain Model" };
       do
       {
-        b_EditPopupRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
-        if (_confirmed)
-          _confirmed = m_domainsServices.AddDomain(_confirmation.DomainConfigurationWrapper);
+        b_EditPopupRequest.Raise(_confirmation, x => { _exitLoop = x.Confirmed; });
+        if (_exitLoop)
+        {
+          _exitLoop = m_domainsServices.AddDomain(_confirmation.DomainConfigurationWrapper);
+          if (!_exitLoop)
+            MessageBox.Show("The domain exist", "Add domain failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
         else
-          _confirmed = true;
-      } while (!_confirmed);
+          _exitLoop = true;
+      } while (!_exitLoop);
     }
     private void NewCommandHandler()
     {
-
+      DomainModelWrapper _dsc = m_domainsServices.CreateDefault();
+      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, true, m_Logger.Log) { Title = "Create New Domain Model" };
+      bool _exitLoop = false;
+      do
+      {
+        b_EditPopupRequest.Raise(_confirmation, x => { _exitLoop = x.Confirmed; });
+        if (_exitLoop)
+          _exitLoop = m_domainsServices.AddDomain(_confirmation.DomainConfigurationWrapper);
+        else
+          _exitLoop = true;
+      } while (!_exitLoop);
     }
     private void SetCanExecuteButtonState()
     {
