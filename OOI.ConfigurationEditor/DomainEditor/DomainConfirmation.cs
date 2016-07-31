@@ -14,16 +14,10 @@
 //_______________________________________________________________
 
 using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
-using CAS.CommServer.UA.OOI.ConfigurationEditor.Infrastructure.Converters;
 using CAS.Windows.ViewModel;
-using Prism.Commands;
 using Prism.Logging;
 using System;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
-using UAOOI.DataDiscovery.DiscoveryServices;
-using UAOOI.DataDiscovery.DiscoveryServices.Models;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
 {
@@ -38,7 +32,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     internal DomainConfirmation(DomainModelWrapper domain, Action<string, Category, Prism.Logging.Priority> log)
     {
       b_DomainConfigurationWrapper = domain;
-      LookupDNSCommand = DelegateCommand.FromAsyncHandler(DomainDiscoveryAsync);
       Go2DiscoveryServiceURL = new CAS.Windows.Commands.WebDocumentationCommand(() => DomainConfigurationWrapper.UniversalDiscoveryServiceLocator);
       Go2AddressSpaceURL = new CAS.Windows.Commands.WebDocumentationCommand(() => DomainConfigurationWrapper.UniversalAddressSpaceLocator);
       m_LoggerAction = log;
@@ -100,7 +93,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       }
     }
     public string IdToolTip { get { return Properties.Resources.IdToolTip; } }
-
     #endregion
 
     internal void ApplyChanges()
@@ -114,41 +106,6 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     private SemanticsDataIndexWrapper b_CurrentSemanticsDataIndex;
     private DomainModelWrapper b_DomainConfigurationWrapper;
     private Action<string, Category, Prism.Logging.Priority> m_LoggerAction;
-    private async Task DomainDiscoveryAsync()
-    {
-      Cursor _currentCursor = CurrentCursor;
-      bool? _currentIsEnabled = CurrentIsEnabled;
-      try
-      {
-        CurrentCursor = Cursors.Wait;
-        CurrentIsEnabled = false;
-        DomainModel _newDomainModel = null;
-        using (UAOOI.DataDiscovery.DiscoveryServices.DataDiscoveryServices _service = new DataDiscoveryServices())
-        {
-          _newDomainModel = await _service.ResolveDomainModelAsync
-            (DomainConfigurationWrapper.URI, new Uri(Properties.Settings.Default.DataDiscoveryRootServiceUrl), (x, y, z) => m_LoggerAction(x, y.TraceEventType2Category(), z.Priority2Priority()));
-        }
-        string[] _segments = DomainConfigurationWrapper.URI.Segments;
-        string _aliasName = String.Empty;
-        if (_segments.Length >= 1)
-        {
-          _segments[0] = DomainConfigurationWrapper.URI.Host;
-          _aliasName = String.Join(".", _segments).Replace("/", "");
-        }
-        else
-          _aliasName = "Enter alias for this domain";
-        DomainConfigurationWrapper = new DomainModelWrapper(_newDomainModel);
-      }
-      catch (System.Exception _e)
-      {
-        MessageBox.Show($"Error while resolving the domain description {_e}", "Resolving of Semantics Data", MessageBoxButton.OK, MessageBoxImage.Warning);
-      }
-      finally
-      {
-        CurrentCursor = _currentCursor;
-        CurrentIsEnabled = _currentIsEnabled;
-      }
-    }
 
   }
 }
