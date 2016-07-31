@@ -65,7 +65,22 @@
                 <RowDefinition Height="Auto"/>
               </Grid.RowDefinitions>
               <Label Grid.Row="0" Grid.Column="0" >Information Model URI</Label>
-              <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=DomainConfigurationWrapper.URI}" ToolTip="{Binding Path=InformationModelURIToolTip}"/>
+              <TextBox Grid.Row="0" Grid.Column="1" IsEnabled="{Binding Path=InformationModelURIIsEnabled}" >
+                <TextBox.Text>
+                  <Binding Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" ValidatesOnDataErrors="True">
+                    <Binding.Path>
+                      DomainConfigurationWrapper.URI
+                    </Binding.Path>
+                    <Binding.ValidationRules>
+                      <converters:UriValidationRule/>
+                    </Binding.ValidationRules>
+                    <Binding.Converter>
+                      <converters:Uri2StringConverter/>
+                    </Binding.Converter>
+                    <Binding.FallbackValue>http://tempuri.org/DefaultDomainSegment</Binding.FallbackValue>
+                  </Binding>
+                </TextBox.Text>
+              </TextBox>
               <Label Grid.Row="1" Grid.Column="0" >Domain URN</Label>
               <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=DomainConfigurationWrapper.UniqueName}" ToolTip="{Binding Path=IdToolTip}" />
               <Label Grid.Row="2" Grid.Column="0" >Name</Label>

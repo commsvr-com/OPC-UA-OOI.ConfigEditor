@@ -24,18 +24,22 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
   internal class DomainConfirmation : ConfirmationBindable
   {
 
+    #region creator
     /// <summary>
     /// Initializes a new instance of the <see cref="DomainConfirmation" /> class.
     /// </summary>
     /// <param name="domain">The domain.</param>
+    /// <param name="informationModelURIIsEnabled">if set to <c>true</c> information model URI text box is enabled.</param>
     /// <param name="log">A delegate capturing logging functionality.</param>
-    internal DomainConfirmation(DomainModelWrapper domain, Action<string, Category, Prism.Logging.Priority> log)
+    internal DomainConfirmation(DomainModelWrapper domain, bool informationModelURIIsEnabled, Action<string, Category, Prism.Logging.Priority> log)
     {
       b_DomainConfigurationWrapper = domain;
+      InformationModelURIIsEnabled = informationModelURIIsEnabled;
       Go2DiscoveryServiceURL = new CAS.Windows.Commands.WebDocumentationCommand(() => DomainConfigurationWrapper.UniversalDiscoveryServiceLocator);
       Go2AddressSpaceURL = new CAS.Windows.Commands.WebDocumentationCommand(() => DomainConfigurationWrapper.UniversalAddressSpaceLocator);
       m_LoggerAction = log;
     }
+    #endregion
 
     #region DataContext
     /// <summary>
@@ -94,6 +98,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     }
     public string IdToolTip { get { return Properties.Resources.IdToolTip; } }
     public string InformationModelURIToolTip { get { return Properties.Resources.InformationModelURIToolTip; } }
+    public bool InformationModelURIIsEnabled { get; private set; }
     #endregion
 
     internal void ApplyChanges()
