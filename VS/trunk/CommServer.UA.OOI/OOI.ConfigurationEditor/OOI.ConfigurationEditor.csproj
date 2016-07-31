@@ -242,7 +242,6 @@
       <LastGenOutput>ReadMe.md</LastGenOutput>
     </Content>
     <Resource Include="Resources\SearchContract_24x.png" />
-    <Resource Include="Resources\search.png" />
     <Resource Include="Resources\NavigateForward_6271.png" />
     <None Include="app.config" />
     <None Include="cas.snk" />
