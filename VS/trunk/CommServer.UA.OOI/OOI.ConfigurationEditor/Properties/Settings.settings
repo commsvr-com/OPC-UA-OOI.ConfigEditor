@@ -5,5 +5,8 @@
     <Setting Name="DataDiscoveryRootServiceUrl" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://raw.githubusercontent.com/mpostol/OPC-UA-OOI/master/DataDiscovery/Tests/DiscoveryServices.UnitTest/TestData/root.zone/DomainDescriptor.xml</Value>
     </Setting>
+    <Setting Name="DefaultInformationModelUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://commsvr.com/UA/Examples/BoilersSet</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

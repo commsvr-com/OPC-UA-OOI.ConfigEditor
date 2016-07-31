@@ -20,18 +20,26 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
   public class DomainModelResolveViewModel : ConfirmationBindable
   {
 
+    #region constructor
     /// <summary>
     /// Initializes a new instance of the <see cref="DomainModelResolveViewModel"/> class.
     /// </summary>
     /// <param name="log">The log.</param>
     public DomainModelResolveViewModel(Action<string, Category, Prism.Logging.Priority> log)
     {
+      ClearUserInterface();
       LookupDNSCommand = DelegateCommand.FromAsyncHandler(DomainDiscoveryAsync);
-      ResolvedDomainModel = null;
-      InformationModelURI = new Uri("http://commsvr.com/UA/Examples/BoilersSet");
+      InformationModelURI = new Uri(Properties.Settings.Default.DefaultInformationModelUri);
       m_Logger = log;
       m_LoggerAction = (x, y, z) => { LogList.Add(x); m_Logger(x, y, z); };
     }
+    #endregion    
+
+    #region context
+    /// <summary>
+    /// Gets or sets the information model URI to be resolved.
+    /// </summary>
+    /// <value>The information model URI.</value>
     public Uri InformationModelURI
     {
       get
@@ -43,6 +51,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         SetProperty<Uri>(ref b_InformationModelURI, value);
       }
     }
+    /// <summary>
+    /// Gets or sets the resolved domain model.
+    /// </summary>
+    /// <value>The resolved domain model.</value>
     public DomainModelWrapper ResolvedDomainModel
     {
       get
@@ -52,9 +64,27 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       set
       {
         SetProperty<DomainModelWrapper>(ref b_ResolvedDomainModel, value);
+        if (value != null)
+        {
+          ResolvedResultDescriptor = $"{value.ToString()} has been resolved";
+          ResolvedResultIconSourcePath = @"../Resources/StatusOK_32x.png";
+        }
+        else
+        {
+          ResolvedResultDescriptor = "Not yet resolved";
+          ResolvedResultIconSourcePath = @"../Resources/StatusWarning_cyan_31x32.png";
+        }
       }
     }
+    /// <summary>
+    /// Gets the lookup DNS command.
+    /// </summary>
+    /// <value>The lookup DNS command.</value>
     public ICommand LookupDNSCommand { get; }
+    /// <summary>
+    /// Gets or sets a value indicating whether the current control is enabled.
+    /// </summary>
+    /// <value><c>null</c> or <c>true</c> if current control is enabled; otherwise, <c>false</c>.</value>
     public bool? CurrentIsEnabled
     {
       get
@@ -66,6 +96,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         SetProperty<bool?>(ref b_CurrentIsEnabled, value);
       }
     }
+    /// <summary>
+    /// Gets or sets the current cursor.
+    /// </summary>
+    /// <value>The current cursor.</value>
     public Cursor CurrentCursor
     {
       get
@@ -77,19 +111,54 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         SetProperty<Cursor>(ref b_CurrentCursor, value);
       }
     }
+    /// <summary>
+    /// Gets the log list.
+    /// </summary>
+    /// <value>The log list.</value>
     public ObservableCollection<string> LogList { get; } = new ObservableCollection<string>();
+    /// <summary>
+    /// Gets or sets the resolved result descriptor to be displayed on the user interface.
+    /// </summary>
+    /// <value>The resolved result descriptor.</value>
+    public string ResolvedResultDescriptor
+    {
+      get
+      {
+        return b_ResolvedResultDescriptor;
+      }
+      set
+      {
+        SetProperty<string>(ref b_ResolvedResultDescriptor, value);
+      }
+    }
+
+    private string b_ResolvedResultIconSourcePath;
+    public string ResolvedResultIconSourcePath
+    {
+      get
+      {
+        return b_ResolvedResultIconSourcePath;
+      }
+      set
+      {
+        SetProperty<string>(ref b_ResolvedResultIconSourcePath, value);
+      }
+    }
+    #endregion
+
     #region private
     //vars
     private DomainModelWrapper b_ResolvedDomainModel;
     private Uri b_InformationModelURI;
     private Cursor b_CurrentCursor;
     private bool? b_CurrentIsEnabled;
+    private string b_ResolvedResultDescriptor;
     private readonly Action<string, Category, Prism.Logging.Priority> m_Logger;
     private Action<string, Category, Prism.Logging.Priority> m_LoggerAction;
     //methods
     private async Task DomainDiscoveryAsync()
     {
-      ResolvedDomainModel = null;
+      ClearUserInterface();
       LogList.Clear();
       Cursor _currentCursor = CurrentCursor;
       bool? _currentIsEnabled = CurrentIsEnabled;
@@ -123,6 +192,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         CurrentCursor = _currentCursor;
         CurrentIsEnabled = _currentIsEnabled;
       }
+    }
+    private void ClearUserInterface()
+    {
+      ResolvedDomainModel = null;
     }
     #endregion
 

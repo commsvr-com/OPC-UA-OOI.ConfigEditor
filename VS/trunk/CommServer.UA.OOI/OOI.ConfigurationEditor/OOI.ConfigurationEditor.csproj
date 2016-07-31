@@ -241,6 +241,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ReadMe.md</LastGenOutput>
     </Content>
+    <Resource Include="Resources\DataMining_32xMD.png" />
+    <Resource Include="Resources\StatusOK_32x.png" />
+    <Resource Include="Resources\StatusWarning_cyan_31x32.png" />
     <Resource Include="Resources\SearchContract_24x.png" />
     <Resource Include="Resources\NavigateForward_6271.png" />
     <None Include="app.config" />
