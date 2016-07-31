@@ -164,7 +164,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel
     /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
     public override string ToString()
     {
-      return this.URI.ToString();
+      return $"The domain {this.URI.ToString()} descriptor";
     }
     #endregion
 

@@ -35,5 +35,17 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Properties {
                 this["DataDiscoveryRootServiceUrl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://commsvr.com/UA/Examples/BoilersSet")]
+        public string DefaultInformationModelUri {
+            get {
+                return ((string)(this["DefaultInformationModelUri"]));
+            }
+            set {
+                this["DefaultInformationModelUri"] = value;
+            }
+        }
     }
 }

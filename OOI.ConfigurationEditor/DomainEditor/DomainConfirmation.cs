@@ -93,6 +93,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       }
     }
     public string IdToolTip { get { return Properties.Resources.IdToolTip; } }
+    public string InformationModelURIToolTip { get { return Properties.Resources.InformationModelURIToolTip; } }
     #endregion
 
     internal void ApplyChanges()

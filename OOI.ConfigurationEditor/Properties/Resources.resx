@@ -126,6 +126,9 @@
   <data name="IdToolTip" xml:space="preserve">
     <value>Unique Identifier PublisherID</value>
   </data>
+  <data name="InformationModelURIToolTip" xml:space="preserve">
+    <value>Information Model URI</value>
+  </data>
   <data name="MessageHandlersListPanelHeader" xml:space="preserve">
     <value>Message Handlers</value>
   </data>

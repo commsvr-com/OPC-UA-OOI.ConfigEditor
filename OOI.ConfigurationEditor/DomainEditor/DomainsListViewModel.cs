@@ -45,8 +45,8 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       m_EventAggregator = eventAggregator;
       m_Logger = logger;
       m_domainsServices = domainsServices;
-      Action[] m_ButtonsActions = new Action[] { AddCommandHandler, EditCommandHandler, RemoveSelectedCommandHandler, () => { } };
-      ButtonsPanelViewModel = new ButtonsViewModel("Add", "Edit", "Delete", "", m_ButtonsActions);
+      Action[] m_ButtonsActions = new Action[] {NewCommandHandler, AddCommandHandler, EditCommandHandler, RemoveSelectedCommandHandler};
+      ButtonsPanelViewModel = new ButtonsViewModel("Create", "Add", "Edit", "Delete", m_ButtonsActions);
       SetCanExecuteButtonState();
       this.DomainsObservableCollection = m_domainsServices.GetAvailableDomains();
       logger.Log($"Created {nameof(DomainsListViewModel)}", Category.Debug, Priority.None);
@@ -155,7 +155,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     private void SetCanExecuteButtonState()
     {
       bool _selectedOne = CurrentDomain != null;
-      this.ButtonsPanelViewModel.SetCanExecuteState(true, _selectedOne, _selectedOne, false);
+      this.ButtonsPanelViewModel.SetCanExecuteState(true, true, _selectedOne, _selectedOne);
     }
     #endregion
 

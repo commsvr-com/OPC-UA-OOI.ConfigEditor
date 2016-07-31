@@ -88,6 +88,15 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information Model URI.
+        /// </summary>
+        internal static string InformationModelURIToolTip {
+            get {
+                return ResourceManager.GetString("InformationModelURIToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Message Handlers.
         /// </summary>
         internal static string MessageHandlersListPanelHeader {

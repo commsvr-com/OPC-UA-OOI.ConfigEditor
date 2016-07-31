@@ -64,40 +64,22 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
               </Grid.RowDefinitions>
-              <Label Grid.Row="0" Grid.Column="0" >Model URI</Label>
-              <DockPanel Grid.Row="0" Grid.Column="1">
-                <Button DockPanel.Dock="Right" Command="{Binding Path=LookupDNSCommand}">Resolve</Button>
-                <TextBox  >
-                  <TextBox.Text>
-                    <Binding Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True" ValidatesOnDataErrors="True">
-                      <Binding.Path>
-                        DomainConfigurationWrapper.URI
-                      </Binding.Path>
-                      <Binding.ValidationRules>
-                        <converters:UriValidationRule/>
-                      </Binding.ValidationRules>
-                      <Binding.Converter>
-                        <converters:Uri2StringConverter/>
-                      </Binding.Converter>
-                      <Binding.FallbackValue>http://tempuri.org/DefaultDomainSegment</Binding.FallbackValue>
-                    </Binding>
-                  </TextBox.Text>
-                </TextBox>
-              </DockPanel>
+              <Label Grid.Row="0" Grid.Column="0" >Information Model URI</Label>
+              <Label Grid.Row="0" Grid.Column="1" Content="{Binding Path=DomainConfigurationWrapper.URI}" ToolTip="{Binding Path=InformationModelURIToolTip}"/>
               <Label Grid.Row="1" Grid.Column="0" >Domain URN</Label>
               <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=DomainConfigurationWrapper.UniqueName}" ToolTip="{Binding Path=IdToolTip}" />
               <Label Grid.Row="2" Grid.Column="0" >Name</Label>
               <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.AliasName}"/>
               <Label Grid.Row="3" Grid.Column="0" >Description</Label>
               <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=DomainConfigurationWrapper.Description}"/>
-              <Label Grid.Row="4" Grid.Column="0" >Address Space Description URL</Label>
+              <Label Grid.Row="4" Grid.Column="0" >Address Space Descriptor URL</Label>
               <DockPanel Grid.Row="4" Grid.Column="1" LastChildFill="True" >
                 <Button DockPanel.Dock="Right" Command="{Binding Path=Go2AddressSpaceURL}">
                   <Image Source="../Resources/NavigateForward_6271.png" Stretch="None" />
                 </Button>
                 <TextBox  Text="{Binding Path=DomainConfigurationWrapper.UniversalAddressSpaceLocator}" ToolTip="URL of the UANodeSet representation of the OPC UA Address SPace." DockPanel.Dock="Left" />
               </DockPanel>
-              <Label Grid.Row="5" Grid.Column="0" >Discovery Service URL</Label>
+              <Label Grid.Row="5" Grid.Column="0" >Domain Model Descriptor URL</Label>
               <DockPanel Grid.Row="5" Grid.Column="1" LastChildFill="True" >
                 <Button DockPanel.Dock="Right" Command="{Binding Path=Go2DiscoveryServiceURL }">
                   <Image Source="../Resources/NavigateForward_6271.png" Stretch="None" />
@@ -122,13 +104,13 @@
           <DataGrid ItemsSource="{Binding Path=CurrentSemanticsDataIndex.DataSet}" AutoGenerateColumns="False" 
                 ToolTip="List of fields defined in the data domain."
                 VerticalScrollBarVisibility="Auto"
-                MinHeight="100" MaxHeight="400">
+                MinHeight="100" MaxHeight="300">
             <DataGrid.Columns>
-              <DataGridTextColumn Header="Symbolic Name" Binding="{Binding Path=SymbolicName}"></DataGridTextColumn>
-              <DataGridTextColumn Header="BuiltIn Type" Binding="{Binding Path=TypeInformation.BuiltInType}"></DataGridTextColumn>
-              <DataGridTextColumn Header="Type Name" Binding="{Binding Path=TypeInformation.TypeName}"></DataGridTextColumn>
-              <DataGridTextColumn Header="Array Dimensions" Binding="{Binding Path=TypeInformation.ArrayDimensions}"></DataGridTextColumn>
-              <DataGridTextColumn Header="Value Rank" Binding="{Binding Path=TypeInformation.ValueRank}"></DataGridTextColumn>
+              <DataGridTextColumn Header="Symbolic Name" Binding="{Binding Path=SymbolicName, Mode=OneWay}"></DataGridTextColumn>
+              <DataGridTextColumn Header="BuiltIn Type" Binding="{Binding Path=TypeInformation.BuiltInType, Mode=OneWay}"></DataGridTextColumn>
+              <DataGridTextColumn Header="Type Name" Binding="{Binding Path=TypeInformation.TypeName, Mode=OneWay}"></DataGridTextColumn>
+              <DataGridTextColumn Header="Array Dimensions" Binding="{Binding Path=TypeInformation.ArrayDimensions, Mode=OneWay}"></DataGridTextColumn>
+              <DataGridTextColumn Header="Value Rank" Binding="{Binding Path=TypeInformation.ValueRank, Mode=OneWay}"></DataGridTextColumn>
             </DataGrid.Columns>
           </DataGrid>
         </controls:ParametersGroup>

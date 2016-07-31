@@ -14,7 +14,7 @@
       <StackPanel Orientation="Vertical">
         <DockPanel LastChildFill="True">
           <Button DockPanel.Dock="Right" Command="{Binding Path=LookupDNSCommand}" ToolTip="Resolve URI to Domain Model">
-            <Image Source="../Resources/SearchContract_24x.png" Stretch="None" />
+            <Image Source="../Resources/DataMining_32xMD.png" Stretch="None" />
           </Button>
           <TextBox VerticalAlignment="Center" ToolTip="Enter Information Model URI to resolve to Domain Model">
             <TextBox.Text>
@@ -33,7 +33,10 @@
             </TextBox.Text>
           </TextBox>
         </DockPanel>
-        <Label Content="{Binding Path=ResolvedDomainModel, FallbackValue='Not yet resolved' }"/>
+        <DockPanel LastChildFill="True">
+          <Image Source="{Binding Path=ResolvedResultIconSourcePath }" DockPanel.Dock="Left" Stretch="None" />
+          <Label Content="{Binding Path=ResolvedResultDescriptor }" DockPanel.Dock="Right"/>
+        </DockPanel>
         <ListView ItemsSource="{Binding Path=LogList}"/>
       </StackPanel>
     </DataTemplate>
