@@ -17,6 +17,7 @@ using CAS.CommServer.UA.OOI.ConfigurationEditor.DomainsModel;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.Services;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ViewModel;
 using CAS.Windows.Controls;
+using Microsoft.Win32;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Logging;
@@ -118,7 +119,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     {
       if (CurrentDomain == null) //double check
         return;
-      DomainConfirmation _confirmation = new DomainConfirmation(CurrentDomain, true, m_Logger.Log) { Title = "Edit Domain" };
+      DomainConfirmation _confirmation = new DomainConfirmation(CurrentDomain, true, m_Logger.Log) { Title = "Edit Data Domain Model" };
       bool _confirmed = false;
       b_EditPopupRequest.Raise(_confirmation, x => { _confirmed = x.Confirmed; });
       if (_confirmed)
@@ -127,7 +128,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     private void AddCommandHandler()
     {
       DomainModelWrapper _dsc = null;
-      DomainModelResolveViewModel _modeResolveConfirmation = new DomainModelResolveViewModel(m_Logger.Log) { Title = "Resolve Uri of Information Model to Domain Model Description" };
+      DomainModelResolveViewModel _modeResolveConfirmation = new DomainModelResolveViewModel(m_Logger.Log) { Title = "Resolve Uri of Information Model to Data Domain Model Description" };
       bool _exitLoop = false;
       do
       {
@@ -139,7 +140,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
       } while (!_exitLoop);
       if (_dsc == null)
         return;
-      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, false, m_Logger.Log) { Title = "Import New Domain Model" };
+      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, false, m_Logger.Log) { Title = "Import Data Domain Model" };
       do
       {
         b_EditPopupRequest.Raise(_confirmation, x => { _exitLoop = x.Confirmed; });
@@ -147,7 +148,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
         {
           _exitLoop = m_domainsServices.AddDomain(_confirmation.DomainConfigurationWrapper);
           if (!_exitLoop)
-            MessageBox.Show("The domain exist", "Add domain failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show("The data domain exist", "Add data domain failed", MessageBoxButton.OK, MessageBoxImage.Error);
         }
         else
           _exitLoop = true;
@@ -155,8 +156,17 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DomainEditor
     }
     private void NewCommandHandler()
     {
+      OpenFileDialog _of = new OpenFileDialog()
+      {
+        CheckFileExists = true,
+         DefaultExt = "UANodeSet (.xml)|*.xml",
+         Title = "Open OPC UA Address Space Model"
+      };
+      if (!_of.ShowDialog().GetValueOrDefault(false))
+        return;
       DomainModelWrapper _dsc = m_domainsServices.CreateDefault();
-      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, true, m_Logger.Log) { Title = "Create New Domain Model" };
+      _dsc.UniversalAddressSpaceLocator = _of.FileName;
+      DomainConfirmation _confirmation = new DomainConfirmation(_dsc, true, m_Logger.Log) { Title = "Create Data Domain Model" };
       bool _exitLoop = false;
       do
       {
