@@ -38,13 +38,13 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
     }
 
     [TestMethod]
-    public void ApplayChanges()
+    public void ApplyChanges()
     {
       bool _associated = false;
       AssociationConfigurationWrapper _wrapper = new AssociationConfigurationWrapper();
       AssociationCoupler _couple = new AssociationCoupler(_wrapper, (x, y) => _associated = x, "Title", new AssociationConfigurationWrapper());
       Assert.IsTrue(_couple.Associated);
-      _couple.ApplayChanges(true);
+      _couple.ApplyChanges(true);
       Assert.IsTrue(_couple.Associated);
       Assert.IsTrue(_associated);
     }

@@ -122,7 +122,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor
     internal void ApplyChanges()
     {
       foreach (AssociationCouplerViewModel _mh in AssociationCouplersEnumerator)
-        _mh.ApplyChanges();
+        _mh.ApplyChanges(this.DataSetConfigurationWrapper);
     }
 
     #region private

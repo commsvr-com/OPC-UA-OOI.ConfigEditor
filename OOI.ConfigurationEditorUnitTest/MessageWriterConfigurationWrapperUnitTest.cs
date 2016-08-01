@@ -1,6 +1,7 @@
 ﻿using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
@@ -43,15 +44,23 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.UnitTest
         TransportRole = AssociationRole.Producer
       };
       MessageWriterConfigurationWrapper _mw = new MessageWriterConfigurationWrapper(_configuration);
-      _mw.Associate(true, new ProducerAssociationConfigurationWrapper(new ProducerAssociationConfiguration()
+      ProducerAssociationConfiguration _newAssociation = new ProducerAssociationConfiguration()
       {
         AssociationName = "AssociationName",
         PublisherId = Guid.NewGuid(),
         DataSetWriterId = 0,
         FieldEncoding = FieldEncodingEnum.CompressedFieldEncoding
-      }
-      ));
+      };
+      ProducerAssociationConfigurationWrapper _newWrapper = new ProducerAssociationConfigurationWrapper(_newAssociation);
+      _mw.Associate(true, _newWrapper);
       Assert.AreEqual<int>(2, _mw.AssociationConfiguration.Length);
+      ProducerAssociationConfigurationWrapper _addedAssociation = _mw.AssociationConfiguration.Where(x => x.AssociationName == _newAssociation.AssociationName).FirstOrDefault();
+      Assert.IsNotNull(_addedAssociation);
+      Assert.AreEqual<string>(_newWrapper.AssociationName, _addedAssociation.AssociationName);
+      Assert.AreEqual<int>(_newWrapper.DataSetWriterId, _addedAssociation.DataSetWriterId);
+      Assert.AreEqual<Guid>(_newWrapper.PublisherId, _addedAssociation.PublisherId);
+      Assert.AreSame(_newAssociation, _addedAssociation.Item);
+      //Assert.AreSame(_newWrapper, _addedAssociation); TODO check why the returned wrapper is not the same.
     }
     [TestMethod]
     public void CreateDefaultTest()
