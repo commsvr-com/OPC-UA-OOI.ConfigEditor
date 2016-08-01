@@ -97,7 +97,7 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
       DomainModel _model = new DomainModel()
       {
         AliasName = "TempuriOrg",
-        Description = "meaningless temporal uri to used and a default",
+        Description = "Starting point to created new Data Domain Model",
         DomainModelGuid = new Guid("3653281C-A77F-4A98-ACA4-C87A560EC124"),
         DomainModelUri = new Uri(@"http://tempuri.org/DefaultDomainSegment"),
         SemanticsDataCollection = new SemanticsDataIndex[] { }
