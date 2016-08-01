@@ -13,7 +13,9 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using System;
 using CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel;
+using CAS.CommServer.UA.OOI.ConfigurationEditor.DataSetEditor;
 using CAS.Windows.mvvm;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
@@ -84,9 +86,14 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
 
     internal void ApplyChanges()
     {
-      m_Coupler.ApplayChanges(b_Associated);
+      m_Coupler.ApplyChanges(b_Associated);
     }
-
+    internal void ApplyChanges(DataSetConfigurationWrapper dataSetConfigurationWrapper)
+    {
+      m_Coupler.AssociationWrapper.DataSetWriterId = dataSetConfigurationWrapper.DefaultDataSetWriterId;
+      m_Coupler.AssociationWrapper.PublisherId = dataSetConfigurationWrapper.Id;
+      ApplyChanges();
+    }
     #region private
     private bool b_Associated;
     private IAssociationConfigurationWrapper b_Association;

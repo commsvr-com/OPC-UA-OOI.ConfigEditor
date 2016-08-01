@@ -53,9 +53,10 @@ namespace CAS.CommServer.UA.OOI.ConfigurationEditor.Services
     /// <value>The title.</value>
     public string Title { get; }
     /// <summary>
-    /// Reverts the association to the initial state.
+    /// Applies the changes.
     /// </summary>
-    public void ApplayChanges(bool associated)
+    /// <param name="associated">if set to <c>true</c> [associated].</param>
+    public void ApplyChanges(bool associated)
     {
       m_Associate(associated, AssociationWrapper);
     }

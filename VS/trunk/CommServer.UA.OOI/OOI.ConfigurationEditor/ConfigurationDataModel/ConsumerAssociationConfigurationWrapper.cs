@@ -13,7 +13,6 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using System;
 using UAOOI.Configuration.Networking.Serialization;
 
 namespace CAS.CommServer.UA.OOI.ConfigurationEditor.ConfigurationDataModel
