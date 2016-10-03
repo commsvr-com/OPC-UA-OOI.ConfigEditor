@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CAS.CommServer.UA.OOI.ConfigurationEditor</RootNamespace>
-    <AssemblyName>CAS.CommServerUAOOI.ConfigurationEditor</AssemblyName>
+    <AssemblyName>CAS.CommServer.UA.OOI.ConfigurationEditor</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>IDE0001,IDE0002,IDE0003</NoWarn>
-    <DocumentationFile>bin\Debug\CAS.CommServerUAOOI.ConfigurationEditor.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\CAS.CommServer.UA.OOI.ConfigurationEditor.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -255,6 +255,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>nuspec.tt</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
